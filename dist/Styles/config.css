@@ -2,8 +2,18 @@ a[role=not-link] {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 @media (min-width: 600px) {
   .hidden-on-L_screen {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .hidden-on-S_screen {
     display: none;
   }
 }

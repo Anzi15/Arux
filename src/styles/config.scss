@@ -10,9 +10,17 @@ $breakpoint-s-tab: 600px;
 a[role="not-link"]{
     text-decoration: none;
 }
-
+button{
+    background: none;
+    border: none;
+}
 @media (min-width: $breakpoint-s-tab) {
     .hidden-on-L_screen{
+        display: none;
+    }
+}
+@media (max-width: $breakpoint-s-tab) {
+    .hidden-on-S_screen{
         display: none;
     }
 }
