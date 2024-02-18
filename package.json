@@ -1,0 +1,11 @@
+{
+  "name": "arux",
+  "version": "1.0.0",
+  "description": "Arux is an e-commerce website built for one of my client, to sell tech products and gadgets",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anzi | Lemme.code",
+  "license": "ISC"
+}
