@@ -12,7 +12,7 @@
 nav{
     width: 100vw;
     .notification{
-        min-height: 3rem;
+        min-height: 2.5rem;
         width: 100%;
         background: $color-widgets;
         color: $color-primary;
@@ -21,25 +21,13 @@ nav{
         justify-content: center;
         position: relative;
         white-space: nowrap;
-
-        .close-btn{
-            position: absolute;
-            right: 0;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            background: $color-widgets;
-            font-size: 1.5rem; 
-            border: none;
-            color: $color-primary;
-            padding: .5rem;
-            z-index: 4;
-        }
     }
 }
 
 @media (max-width: $breakpoint-s-tab) {
     .notification{
-        display: none !important;
+        p{
+            font-size: .75rem;
+        }
     }
 }
