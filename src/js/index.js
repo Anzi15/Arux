@@ -1,1 +1,1 @@
-console.log(`hello mewo`)
+console.log(`hello meow`)
