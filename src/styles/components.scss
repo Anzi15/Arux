@@ -1,0 +1,45 @@
+@import 'config';
+
+*{
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    width: 100vw;
+    .notification{
+        min-height: 3rem;
+        width: 100%;
+        background: $color-widgets;
+        color: $color-primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        white-space: nowrap;
+
+        .close-btn{
+            position: absolute;
+            right: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background: $color-widgets;
+            font-size: 1.5rem; 
+            border: none;
+            color: $color-primary;
+            padding: .5rem;
+            z-index: 4;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-s-tab) {
+    .notification{
+        display: none !important;
+    }
+}
