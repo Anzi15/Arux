@@ -5,3 +5,14 @@ $color-primary: #FFFFFF;
 // screen breakpoints
 $breakpoint-mob: 375px;
 $breakpoint-s-tab: 600px;
+
+// utilities classes 
+a[role="not-link"]{
+    text-decoration: none;
+}
+
+@media (min-width: $breakpoint-s-tab) {
+    .hidden-on-L_screen{
+        display: none;
+    }
+}

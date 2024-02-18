@@ -9,21 +9,55 @@
     padding: 0;
 }
 
+.notification{
+    min-height: 2.5rem;
+    width: 100%;
+    background: $color-widgets;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    white-space: nowrap;
+}
 nav{
+    padding: 1rem;
     width: 100vw;
-    .notification{
-        min-height: 2.5rem;
-        width: 100%;
-        background: $color-widgets;
-        color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .brand-title{
+        font-size: 2.1rem;
+        letter-spacing: .2rem;
+        user-select: none;
+        color: black;
+        font-weight: 550;
+    }
+    ul{
+        display: flex;
+        gap: 1.5rem;
+
+        li{
+            a{
+                color: $color-widgets;
+
+                &:hover{
+                    text-underline-offset: 3px;
+                    text-decoration: underline 1px $color-widgets;
+                }
+            }
+        }
+    }
+    .icon-links{
         display: flex;
         align-items: center;
-        justify-content: center;
-        position: relative;
-        white-space: nowrap;
+        gap: 1.3rem;
     }
 }
-
+button{
+    background: none;
+    border: none;
+}
 @media (max-width: $breakpoint-s-tab) {
     .notification{
         p{
