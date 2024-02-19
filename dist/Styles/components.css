@@ -63,10 +63,44 @@ nav ul li a:hover {
   text-underline-offset: 3px;
   text-decoration: underline 1px #000000;
 }
+nav ul.mob-nav-links {
+  position: absolute;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  width: 70vw;
+  border-right: solid 1px #000000;
+  z-index: 7;
+  background: #FFFFFF;
+}
+nav ul.mob-nav-links a {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+  color: #000000;
+}
+nav ul.mob-nav-links a:hover {
+  background: #e1e0e0;
+}
+nav ul.mob-nav-links .nav-close-btn {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  font-size: 1.7rem;
+}
+nav ul.mob-nav-links .nav-close-btn svg {
+  height: 1.7rem;
+}
 nav .icon-links {
   display: flex;
   align-items: center;
-  gap: 1.3rem;
+  gap: 0.5rem;
+}
+nav .icon-links svg {
+  height: 1.7rem;
 }
 
 @media (max-width: 600px) {

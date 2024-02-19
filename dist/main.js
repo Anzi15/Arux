@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelectorAll("[data-nav-toggler]");document.getElementById("nav"),console.log("",e),((e,...o)=>{e.forEach((e=>{o.forEach((o=>{e.classList.toggle(o)}))}))})([...e],"meow")})();
