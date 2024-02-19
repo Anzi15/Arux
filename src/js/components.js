@@ -1,17 +1,17 @@
 // getting elements form dom 
 const navToggleBtn = document.querySelectorAll('[data-nav-toggler]');
-
-const meow= document.getElementById('nav');
-
-console.log(``,navToggleBtn)
+const mobNav = document.getElementById('mob-nav-links');
 
 // functions 
-const classToggler = (elemArr, ...classlist)=>{
-    elemArr.forEach(element => {
-        classlist.forEach(Class =>{
-            element.classList.toggle(Class)
-        })
-    });
+const classToggler = (elem, ...classlist)=>{
+    classlist.forEach(Class =>{
+        elem.classList.toggle(Class)
+    })
 }
 
-classToggler([...navToggleBtn],"meow")
+// adding event listners 
+navToggleBtn.forEach((btn)=>{
+    btn.addEventListener("click",()=>{
+        classToggler(mobNav,"none")
+    })
+})

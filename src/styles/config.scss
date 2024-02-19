@@ -14,6 +14,9 @@ button{
     background: none;
     border: none;
 }
+.none{
+    display: none;
+}
 @media (min-width: $breakpoint-s-tab) {
     .hidden-on-L_screen{
         display: none;
