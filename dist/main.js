@@ -1,1 +1,1 @@
-(()=>{const e=document.querySelectorAll("[data-nav-toggler]"),t=document.getElementById("mob-nav-links");e.forEach((e=>{e.addEventListener("click",(()=>{var e;e=t,["none"].forEach((t=>{e.classList.toggle(t)}))}))}))})();
+(()=>{const e=document.querySelectorAll("[data-nav-toggler]"),t=document.getElementById("mob-nav-links");document.getElementById("dark-overlay"),e.forEach((e=>{e.addEventListener("click",(()=>{((e,...t)=>{[e].forEach((e=>{t.forEach((t=>{e.classList.toggle(t)}))}))})(t,"none")}))}))})();

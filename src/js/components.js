@@ -1,11 +1,15 @@
 // getting elements form dom 
 const navToggleBtn = document.querySelectorAll('[data-nav-toggler]');
 const mobNav = document.getElementById('mob-nav-links');
+const dark_overlay = document.getElementById('dark-overlay');
 
 // functions 
 const classToggler = (elem, ...classlist)=>{
-    classlist.forEach(Class =>{
-        elem.classList.toggle(Class)
+    const elemArr = [elem]
+    elemArr.forEach((element) =>{
+        classlist.forEach(Class =>{
+            element.classList.toggle(Class)
+        })
     })
 }
 
@@ -15,3 +19,4 @@ navToggleBtn.forEach((btn)=>{
         classToggler(mobNav,"none")
     })
 })
+
