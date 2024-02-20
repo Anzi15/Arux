@@ -14,8 +14,8 @@
 .notification{
     min-height: 2.5rem;
     width: 100%;
-    background: $color-widgets;
-    color: $color-primary;
+    background: $color-black;
+    color: $color-white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +36,7 @@ nav{
         font-size: 2.1rem;
         letter-spacing: .2rem;
         user-select: none;
-        color: black;
+        color: $color-black;
         font-weight: 550;
     }
 
@@ -47,11 +47,11 @@ nav{
 
         li{
             a{
-                color: $color-widgets;
+                color: $color-black;
 
                 &:hover{
                     text-underline-offset: 3px;
-                    text-decoration: underline 1px $color-widgets;
+                    text-decoration: underline 1px $color-black;
                 }
             }
         }
@@ -66,15 +66,15 @@ nav{
         top: 0;
         justify-content: center;
         width: 70vw;
-        border-right: solid 1px $color-widgets;
+        border-right: solid 1px $color-black;
         z-index: 7;
-        background: $color-primary;
+        background: $color-white;
         a{
             display: flex;
             justify-content: center;
             padding: 1rem 0;
             font-size: 1.3rem;
-            color: $color-widgets;
+            color: $color-black;
             &:hover{
                 background: #e1e0e0;
             }
@@ -99,6 +99,7 @@ nav{
         gap: .5rem;
 
         svg{
+            cursor: pointer;
             height: 1.7rem;
         }
     }
