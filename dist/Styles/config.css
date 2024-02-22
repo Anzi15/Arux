@@ -2,11 +2,6 @@ a[role=not-link] {
   text-decoration: none;
 }
 
-button {
-  background: none;
-  border: none;
-}
-
 .none {
   display: none;
 }

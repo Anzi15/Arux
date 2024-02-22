@@ -2,54 +2,34 @@
 
 main{
     .carousel__con{
-        position: relative;
-        .carousel{
-            position: relative;
-            min-height: 52.25vw; 
-            width: 80%;
-            margin: 0 auto;
-            overflow: auto;   
-            .carousel__track-con{
-                padding: 1rem;
-                height: 100%;
-                .carousel__slide{
-                    overflow-y: hidden;
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    width: 100%;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        .carousel__slider-con{
+
+            ul.carousel__slider{
+                position: relative;
+                min-width: 80vw;
+                aspect-ratio: 16/9;
+                overflow: visible;
+                transition: transform .5s ease;
+                transform: translateX(0);
+                margin: 1rem 0;
+                li.carousel__slide{
+                    overflow: hidden;
+                   position: absolute;
+                    inset: 0;
                     aspect-ratio: 16/9;
-                    .carousel__image{
+                    width: 80vw;
+                    img{
                         width: 100%;
-                        min-height: 100%;
+                        aspect-ratio: 16/9;
                         object-fit: cover;
                     }
                 }
             }
         }
-        .carousel__indicators-con{
-            width: 100%;
-            left: 50%;
-            transform: translateX(50%);
-            position: absolute;
-            bottom: -10px; 
-            right: 50%;
-            transform: translateY(-100%);
-            .carousel__indicator{
-                width: .6rem;
-                height: .6rem;
-                border-radius: 50%;
-                font-size: 1rem;
-                background: $color-grey;
-                cursor: pointer;
-            }
-            .carousel__indicator.active{
-                border: 1.3px solid $color-black;
-                background: $color-white;
-            }
-        }
     }
-
 }
 
 @media (max-width: $breakpoint-s-tab) {
