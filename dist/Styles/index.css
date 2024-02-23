@@ -2,6 +2,11 @@ a[role=not-link] {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 .none {
   display: none;
 }
@@ -21,14 +26,17 @@ main .carousel__con {
   display: flex;
   justify-content: center;
 }
+main .carousel__con .carousel__slider-con {
+  display: flex;
+  flex-direction: column;
+}
 main .carousel__con .carousel__slider-con ul.carousel__slider {
-  position: relative;
   min-width: 80vw;
   aspect-ratio: 16/9;
   overflow: visible;
   transition: transform 0.5s ease;
   transform: translateX(0);
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 main .carousel__con .carousel__slider-con ul.carousel__slider li.carousel__slide {
   overflow: hidden;
@@ -41,6 +49,25 @@ main .carousel__con .carousel__slider-con ul.carousel__slider li.carousel__slide
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+}
+main .carousel__con .carousel__slider-con .carousel__nav {
+  top: 90%;
+  z-index: 9;
+  width: 100%;
+  right: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+main .carousel__con .carousel__slider-con .carousel__nav .carousel__nav-dot {
+  height: 0.7rem;
+  aspect-ratio: 1/1;
+  background: #363738;
+  border-radius: 100%;
+  cursor: pointer;
+}
+main .carousel__con .carousel__slider-con .carousel__nav .carousel__nav-dot.active {
+  background-color: #5C788F;
 }
 
 @media (max-width: 600px) {

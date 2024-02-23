@@ -1,7 +1,8 @@
 // colors 
 $color-black: #000000;
 $color-white: #FFFFFF;
-$color-grey: grey;
+$color-grey: #363738;
+$color-brand-blue: #5C788F;
 
 // screen breakpoints
 $breakpoint-mob: 375px;
@@ -11,10 +12,10 @@ $breakpoint-s-tab: 600px;
 a[role="not-link"]{
     text-decoration: none;
 }
-// button{
-//     background: none;
-//     border: none;
-// }
+button{
+    background: none;
+    border: none;
+}
 .none{
     display: none;
 }

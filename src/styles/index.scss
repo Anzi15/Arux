@@ -6,15 +6,16 @@ main{
         display: flex;
         justify-content: center;
         .carousel__slider-con{
-
+            display: flex;
+            flex-direction: column;
             ul.carousel__slider{
-                position: relative;
+                
                 min-width: 80vw;
                 aspect-ratio: 16/9;
                 overflow: visible;
                 transition: transform .5s ease;
                 transform: translateX(0);
-                margin: 1rem 0;
+                margin: .5rem 0;
                 li.carousel__slide{
                     overflow: hidden;
                    position: absolute;
@@ -26,6 +27,27 @@ main{
                         aspect-ratio: 16/9;
                         object-fit: cover;
                     }
+                }
+
+            }
+            .carousel__nav{
+                top: 90%;
+                z-index: 9;
+                width: 100%;
+                right: 50%;
+                display: flex;
+                justify-content: center;
+                gap: .5rem;
+                
+                .carousel__nav-dot{
+                    height: .7rem;
+                    aspect-ratio: 1/1;
+                    background: $color-grey;
+                    border-radius: 100%;
+                    cursor: pointer;
+                }
+                .carousel__nav-dot.active{
+                    background-color: $color-brand-blue;
                 }
             }
         }
