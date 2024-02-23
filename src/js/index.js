@@ -1,19 +1,23 @@
 // getting elements from dom
 const slider = document.querySelector(".carousel__slider");
 const slides = [...slider.children];
-const prev_btn = document.getElementById("prev_btn");
-const next_btn = document.getElementById("next_btn");
+const nav_dot_con = document.getElementById('carousel__nav');
 
+const nav_dots = [...nav_dot_con.children]
+console.log(``,nav_dots[0].getBoundingClientRect())
 //functions
 function moveLeft() {
   const current_slide = slider.querySelector(".ative_slide"); //getting the current active slide from all the slides
   const next_slide =
-    current_slide.nextSibling == null ? slides[0] : current_slide.nextSibling; //checking if we have reached to the end of slides to handle it accordingly
+    current_slide == null ? slides[0] : current_slide.nextSibling; //checking if we have reached to the end of slides to handle it accordingly
   if (!next_slide) {
     //if we have reached the end
     slider.style.transform = `translateX(${0})`;
     current_slide.classList.remove("ative_slide");
     slides[0].classList.add("ative_slide");
+
+    nav_dot_con.querySelector(".active").classList.remove("active");
+    nav_dot_con.children[0].classList.add("active")
   } else {
     //if we haven't slide as much as the width of a slide
     const amountToSlide = next_slide.getBoundingClientRect().width; //getting the width of a slide
@@ -25,6 +29,10 @@ function moveLeft() {
     current_slide.classList.remove("ative_slide");
     next_slide.classList.add("ative_slide");
     //removing the active slide class to resolve future conflicts
+
+
+    nav_dot_con.querySelector(".active").nextSibling.classList.add("active")
+    nav_dot_con.querySelector(".active").classList.remove("active")
   }
 }
 
@@ -48,11 +56,13 @@ function moveRight() {
   }
 }
 
-//getting slides to there position
+//getting slides to there position and adding that many dots to the dot con
 for (let i = 0; i < slides.length; i++) {
   const slideWidth = slides[i].getBoundingClientRect().width;
   slides[i].style.left = `${i * slideWidth}px`;
 }
 
-prev_btn.addEventListener("click", moveRight);
-next_btn.addEventListener("click", moveLeft);
+setInterval(() => {
+    moveLeft()
+}, 1000);
+
