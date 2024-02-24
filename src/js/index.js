@@ -69,12 +69,34 @@ function moveRight() {
   }
 }
 
+//syncing the slides according to the dots clicked
+function syncSlide(e){
+  const current_slide = slider.querySelector(".ative_slide"); //getting the current active slide
+  const index = nav_dots.indexOf(e.target); //getting the index of the dot clicked
+  const amountToSlide = slides[index].getBoundingClientRect().width; //getting the width of a single slide
+  slider.style.transform = `translateX(-${amountToSlide * index}px)`; //slide Slide's withs multiplied by the index
+  
+  //changing the classes of slides to avoid future conflicts
+  current_slide.classList.remove("ative_slide");
+  slides[index].classList.add("ative_slide");
+
+  //changing the classes of dots for indication
+  e.target.parentElement.querySelector(".active").classList.remove("active")
+  nav_dots[index].classList.add("active")
+}
+
 //getting slides to there position and adding that many dots to the dot con
 for (let i = 0; i < slides.length; i++) {
   const slideWidth = slides[i].getBoundingClientRect().width;
   slides[i].style.left = `${i * slideWidth}px`;
 }
 
+
 const autoCarousal = setInterval(() => {
-    moveRight()
-}, 1000);
+    moveLeft()
+}, 5000);
+
+// event listner 
+nav_dots.forEach((dot)=>{
+  dot.addEventListener("click",syncSlide)
+})
