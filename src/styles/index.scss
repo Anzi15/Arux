@@ -42,9 +42,10 @@ main{
                 .carousel__nav-dot{
                     height: .7rem;
                     aspect-ratio: 1/1;
-                    background: $color-grey;
+                    background-color: $color-grey;
                     border-radius: 100%;
                     cursor: pointer;
+                    transition: background-color  .7s ease;
                 }
                 .carousel__nav-dot.active{
                     background-color: $color-brand-blue;
@@ -57,5 +58,12 @@ main{
 @media (max-width: $breakpoint-s-tab) {
     .carousel{
         width: 95% !important;
+
+    }
+    ul.carousel__slider{
+        min-width: 95vw !important;
+        li.carousel__slide{
+            width: 95vw !important;
+        }
     }
 }

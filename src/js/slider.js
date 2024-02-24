@@ -100,3 +100,21 @@ const autoCarousal = setInterval(() => {
 nav_dots.forEach((dot)=>{
   dot.addEventListener("click",syncSlide)
 })
+
+//event listner for slide (on touch screens)
+let touchstartX = 0;
+let touchendX = 0;
+    
+function checkDirection() {
+  if (touchendX < touchstartX) moveLeft()
+  if (touchendX > touchstartX) moveRight()
+}
+
+slider.addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX
+})
+
+slider.addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX
+  checkDirection()
+})

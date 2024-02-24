@@ -62,9 +62,10 @@ main .carousel__con .carousel__slider-con .carousel__nav {
 main .carousel__con .carousel__slider-con .carousel__nav .carousel__nav-dot {
   height: 0.7rem;
   aspect-ratio: 1/1;
-  background: #363738;
+  background-color: #363738;
   border-radius: 100%;
   cursor: pointer;
+  transition: background-color 0.7s ease;
 }
 main .carousel__con .carousel__slider-con .carousel__nav .carousel__nav-dot.active {
   background-color: #5C788F;
@@ -73,6 +74,12 @@ main .carousel__con .carousel__slider-con .carousel__nav .carousel__nav-dot.acti
 @media (max-width: 600px) {
   .carousel {
     width: 95% !important;
+  }
+  ul.carousel__slider {
+    min-width: 95vw !important;
+  }
+  ul.carousel__slider li.carousel__slide {
+    width: 95vw !important;
   }
 }
 
