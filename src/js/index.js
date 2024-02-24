@@ -16,6 +16,8 @@ function moveLeft() {
     current_slide.classList.remove("ative_slide");
     slides[0].classList.add("ative_slide");
 
+
+    // moving the indication dot to the first dot after there's dot ahead
     nav_dot_con.querySelector(".active").classList.remove("active");
     nav_dot_con.children[0].classList.add("active")
   } else {
@@ -30,12 +32,13 @@ function moveLeft() {
     next_slide.classList.add("ative_slide");
     //removing the active slide class to resolve future conflicts
 
-
-    nav_dot_con.querySelector(".active").nextSibling.classList.add("active")
+    // moving the indication dots according to the slide 
+    nav_dot_con.querySelector(".active").nextSibling.classList.add("active");
     nav_dot_con.querySelector(".active").classList.remove("active")
   }
 }
 
+//basically does the same thing as moveLeft() function but in opposite direction
 function moveRight() {
   const current_slide = slider.querySelector(".ative_slide");
   const prev_slide = current_slide.previousSibling;
@@ -45,14 +48,24 @@ function moveRight() {
     slider.style.transform = `translateX(-${
       amountToSlide * slides.indexOf(prev_slide)
     }px)`;
+
     current_slide.classList.remove("ative_slide");
     prev_slide.classList.add("ative_slide");
+    
+    const dot =   nav_dot_con.querySelector(".active")
+    const prev_dot_index = nav_dots.indexOf(dot) -1;
+    nav_dots[prev_dot_index].classList.add("active");
+    dot.classList.remove("active")
   } else {
     const lastSlideIndex = slides.length - 1;
     slider.style.transform = `translateX(-${amountToSlide * lastSlideIndex}px)`;
 
     current_slide.classList.remove("ative_slide");
     slides[lastSlideIndex].classList.add("ative_slide");
+    
+    const lastDotIndex = nav_dots.length - 1;
+    nav_dots[lastDotIndex].classList.add("active")
+    nav_dot_con.querySelector(".active").classList.remove("active")
   }
 }
 
@@ -62,7 +75,6 @@ for (let i = 0; i < slides.length; i++) {
   slides[i].style.left = `${i * slideWidth}px`;
 }
 
-setInterval(() => {
-    moveLeft()
+const autoCarousal = setInterval(() => {
+    moveRight()
 }, 1000);
-
