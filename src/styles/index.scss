@@ -1,6 +1,9 @@
 @import 'config';
 
 main{
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
     .carousel__con{
         width: 100vw;
         display: flex;
@@ -10,7 +13,7 @@ main{
             flex-direction: column;
             ul.carousel__slider{
                 
-                min-width: 80vw;
+                min-width: 90vw;
                 aspect-ratio: 16/9;
                 overflow: visible;
                 transition: transform .5s ease;
@@ -21,7 +24,7 @@ main{
                    position: absolute;
                     inset: 0;
                     aspect-ratio: 16/9;
-                    width: 80vw;
+                    width: 90vw;
                     img{
                         width: 100%;
                         aspect-ratio: 16/9;
@@ -51,6 +54,23 @@ main{
                     background-color: $color-brand-blue;
                 }
             }
+        }
+    }
+    section{
+        width: 100vw;
+    }
+    section.top-procucts{
+        display: flex;
+        // justify-content: center;
+        .section-heading{
+            margin: 0 auto;
+            width: 90vw;
+            color: $color-brand-blue;
+            line-height: 2rem;
+            padding: 0 .5rem ;
+            border-radius: 4px;
+            border-left: 1rem solid $color-brand-blue;
+            font-size: 1.3rem;
         }
     }
 }
