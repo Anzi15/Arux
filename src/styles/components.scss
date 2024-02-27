@@ -67,8 +67,10 @@ nav{
         justify-content: center;
         width: 70vw;
         border-right: solid 1px $color-black;
-        z-index: 7;
+        z-index: 99;
         background: $color-white;
+
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         a{
             display: flex;
             justify-content: center;
