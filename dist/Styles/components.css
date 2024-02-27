@@ -113,6 +113,13 @@ nav .icon-links svg {
   flex-direction: column;
   width: 22%;
   position: relative;
+  color: #000000;
+  gap: 0.3rem;
+  margin: 1rem 0;
+}
+.Product-card img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 .Product-card .discount-label {
   background: #5C788F;
@@ -123,6 +130,15 @@ nav .icon-links svg {
   font-size: 0.9rem;
   color: #FFFFFF;
   border-radius: 4px;
+}
+.Product-card .prices {
+  display: flex;
+  width: 100%;
+  gap: 0.6rem;
+}
+.Product-card .prices .price-compared {
+  color: #363738;
+  text-decoration: line-through 1px #000000;
 }
 
 @media (max-width: 600px) {

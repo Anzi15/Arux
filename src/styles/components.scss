@@ -111,7 +111,13 @@ nav{
     flex-direction: column;
     width: 22%;
     position: relative;
-
+    color: $color-black;
+    gap: .3rem;
+    margin: 1rem 0;
+    img{
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
     .discount-label{
         background: $color-brand-blue;
         position: absolute;
@@ -121,6 +127,18 @@ nav{
         font-size: .9rem;
         color: $color-white;
         border-radius: 4px;
+    }
+    
+    //price and compared price 
+    .prices{
+        display: flex;
+        width: 100%;
+        gap: .6rem;
+
+        .price-compared{
+            color: $color-grey;
+            text-decoration: line-through 1px $color-black;
+        }
     }
 }
 
