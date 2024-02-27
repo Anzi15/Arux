@@ -108,6 +108,23 @@ nav .icon-links svg {
   height: 1.7rem;
 }
 
+.Product-card {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  position: relative;
+}
+.Product-card .discount-label {
+  background: #5C788F;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  border-radius: 4px;
+}
+
 @media (max-width: 600px) {
   .notification p {
     font-size: 0.75rem;

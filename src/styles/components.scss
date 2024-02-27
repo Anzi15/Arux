@@ -105,6 +105,25 @@ nav{
     }
 }
 
+//product card
+.Product-card{
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    position: relative;
+
+    .discount-label{
+        background: $color-brand-blue;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        padding: .2rem;
+        font-size: .9rem;
+        color: $color-white;
+        border-radius: 4px;
+    }
+}
+
 //styling things then are under $breakpoint-s-tab
 @media (max-width: $breakpoint-s-tab) {
     .notification{

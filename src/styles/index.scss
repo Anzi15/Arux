@@ -1,16 +1,20 @@
 @import 'config';
 
+//main section 
 main{
     display: flex;
     flex-direction: column;
     gap: 6rem;
+    //the carousel
     .carousel__con{
         width: 100vw;
         display: flex;
         justify-content: center;
+        //slider con
         .carousel__slider-con{
             display: flex;
             flex-direction: column;
+            // slider 
             ul.carousel__slider{
                 
                 min-width: 90vw;
@@ -19,12 +23,15 @@ main{
                 transition: transform .5s ease;
                 transform: translateX(0);
                 margin: .5rem 0;
+                // each slide 
                 li.carousel__slide{
                     overflow: hidden;
                    position: absolute;
                     inset: 0;
                     aspect-ratio: 16/9;
                     width: 90vw;
+                    border-radius: 6px;
+                    //images inside slides
                     img{
                         width: 100%;
                         aspect-ratio: 16/9;
@@ -45,7 +52,7 @@ main{
                 .carousel__nav-dot{
                     height: .7rem;
                     aspect-ratio: 1/1;
-                    background-color: $color-grey;
+                    background-color: rgba(128, 128, 128, 0.499);
                     border-radius: 100%;
                     cursor: pointer;
                     transition: background-color  .7s ease;
@@ -56,21 +63,36 @@ main{
             }
         }
     }
+    //default section configuration
     section{
         width: 100vw;
     }
+    //default heading styles (with the border)
+    .section-heading{
+        margin: 0 auto;
+        width: 90vw;
+        color: $color-brand-blue;
+        line-height: 2rem;
+        padding: 0 .5rem ;
+        border-radius: 4px;
+        border-left: 1rem solid $color-brand-blue;
+        font-size: 1.3rem;
+    }
+    //top products section
     section.top-procucts{
-        display: flex;
-        // justify-content: center;
-        .section-heading{
-            margin: 0 auto;
+        display: flex;  
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //products container
+        .products-con{
+            margin: 4rem 0 ;
             width: 90vw;
-            color: $color-brand-blue;
-            line-height: 2rem;
-            padding: 0 .5rem ;
-            border-radius: 4px;
-            border-left: 1rem solid $color-brand-blue;
-            font-size: 1.3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            // styles for product and it's children are in "./components.scss",
+            // (product care == componenet)
         }
     }
 }
@@ -78,12 +100,12 @@ main{
 @media (max-width: $breakpoint-s-tab) {
     .carousel{
         width: 95% !important;
-
-    }
-    ul.carousel__slider{
-        min-width: 95vw !important;
-        li.carousel__slide{
-            width: 95vw !important;
+        //making the carousel bigger on smaller screen
+        ul.carousel__slider{
+            min-width: 95vw !important;
+            li.carousel__slide{
+                width: 95vw !important;
+            }
         }
     }
 }
