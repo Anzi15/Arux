@@ -116,6 +116,7 @@ nav .icon-links svg {
   color: #000000;
   gap: 0.3rem;
   margin: 1rem 0;
+  min-width: 15rem;
 }
 .Product-card img {
   aspect-ratio: 1/1;
@@ -157,6 +158,21 @@ nav .icon-links svg {
   }
   nav .brand-title {
     justify-content: center;
+  }
+  .Product-card {
+    width: 46%;
+  }
+}
+@media (max-width: 800px) {
+  .Product-card {
+    min-width: 10rem;
+    width: 49%;
+  }
+}
+@media (max-width: 375px) {
+  .Product-card {
+    width: 49%;
+    min-width: 7rem;
   }
 }
 

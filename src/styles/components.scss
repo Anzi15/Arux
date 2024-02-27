@@ -114,6 +114,7 @@ nav{
     color: $color-black;
     gap: .3rem;
     margin: 1rem 0;
+    min-width: 15rem;
     img{
         aspect-ratio: 1/1;
         object-fit: cover;
@@ -163,5 +164,20 @@ nav{
         .brand-title{
             justify-content: center;
         }
+    }
+    .Product-card{
+        width: 46%;
+    }
+}
+@media (max-width: $breakpoint-L-tab) {
+    .Product-card{
+        min-width: 10rem;
+        width: 49%;
+    }
+}
+@media (max-width: $breakpoint-mob) {
+    .Product-card{  
+        width: 49%;
+        min-width: 7rem;
     }
 }
