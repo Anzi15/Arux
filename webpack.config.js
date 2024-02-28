@@ -4,6 +4,7 @@ module.exports = {
     entry: [
         './src/js/slider.js',
         './src/js/components.js',
+        './src/js/products.js',
     ],
     output:{
         filename: '[name].js',
