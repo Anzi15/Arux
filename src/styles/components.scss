@@ -1,15 +1,5 @@
 @import 'config';
 
-// universal settings 
-*{
-    max-width: 100vw;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 // notification bar (above navbar) 
 .notification{
     min-height: 2.5rem;
@@ -145,20 +135,7 @@ nav{
     }
 }
 
-// buttons
-.big_btn{
-    padding: .8rem 1rem;
-    background: $color-brand-blue;
-    margin: 1rem 0;
-    color: $color-white;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: scale .2s ease-in;
 
-    &:hover{
-        scale: 1.06;
-    }
-}
 
 //styling things then are under $breakpoint-s-tab
 @media (max-width: $breakpoint-s-tab) {

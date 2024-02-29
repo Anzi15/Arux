@@ -1,0 +1,112 @@
+@import 'config';
+//chacning the bg of the whole page (for aesthetics)
+*{
+    background: $color-semi_white;
+
+}
+//body section
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+// main seciton  
+main{
+    gap: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    // form inside 
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        justify-content: center;
+        align-items: center;
+        //form heading
+        .form__heading{
+            margin: 2rem 0;
+            font-weight: 400;
+            letter-spacing: .1rem;
+        }
+        //labels and inputs
+        label,input{
+            width: 80%;
+        }
+        input{
+            min-height: 2rem;
+            font-size: 1.1rem;
+            padding-left: .5rem;
+            border-radius: .3rem;
+            border: 1.4px solid $color-black;
+        }
+        input[type="submit"]{
+            border: none;
+        }
+    }
+
+    //login with google stuff
+    .login-with-google-btn {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        transition: background-color .3s, box-shadow .3s;
+        cursor: pointer;
+        border: .2px solid $color-grey;
+        border-radius: 6px;
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+        
+        color: #757575;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+ 
+        img{
+            height: 1.5rem;
+        }
+        &:hover {
+            background: #75757512;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+        }
+        
+        &:active {
+          background-color: #eeeeee;
+        }
+        
+        &:focus {
+          outline: none;
+          box-shadow: 
+            0 -1px 0 rgba(0, 0, 0, .04),
+            0 2px 4px rgba(0, 0, 0, .25),
+            0 0 0 3px #c8dafc;
+        }
+
+      }
+}
+//aside image
+aside{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    img{
+        width: 80%;
+    }
+}
+
+//responsive thinigie
+@media (max-width: $breakpoint-L-tab) {
+    body{
+    flex-wrap: wrap;
+
+    }
+    main,aside{
+        width: 90%;
+    }
+}

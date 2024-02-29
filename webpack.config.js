@@ -10,7 +10,9 @@
             slider: './src/js/slider.js',
             components: './src/js/components.js',
             products: './src/js/components.js',
-            admin : './src/js/admin.js'
+            admin : './src/js/admin.js',
+            admin_login: './src/js/admin-login.js',
+            admin_signup: './src/js/admin-signup.js',
         },
         output:{
             filename: '[name].js',
@@ -27,7 +29,19 @@
             filename: 'admin/index.html',
             template: 'src/admin/index.html',
             chunks: ['admin', 'components']
-            })
+            }),
+            //admin login
+            new HtmlWebpackPlugin({
+            filename: 'admin/Login/index.html',
+            template: 'src/admin/Login/index.html',
+            chunks: ['admin_login', 'components']
+            }),
+            //admin login
+            new HtmlWebpackPlugin({
+            filename: 'admin/Signup/index.html',
+            template: 'src/admin/Signup/index.html',
+            chunks: ['admin_login', 'components']
+            }),
         
         ],
         watch: true,
