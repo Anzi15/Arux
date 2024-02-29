@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelectorAll("[data-nav-toggler]"),t=document.getElementById("mob-nav-links");document.getElementById("dark-overlay"),e.forEach((e=>{e.addEventListener("click",(()=>{((e,...t)=>{[e].forEach((e=>{t.forEach((t=>{e.classList.toggle(t)}))}))})(t,"none")}))}))})();

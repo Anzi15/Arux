@@ -4,7 +4,6 @@ const slides = [...slider.children];
 const nav_dot_con = document.getElementById('carousel__nav');
 
 const nav_dots = [...nav_dot_con.children]
-console.log(``,nav_dots[0].getBoundingClientRect())
 //functions
 function moveLeft() {
   const current_slide = slider.querySelector(".ative_slide"); //getting the current active slide from all the slides
