@@ -11,6 +11,11 @@ a[role=not-link] {
   text-decoration: none;
 }
 
+a.theme_link {
+  color: #5C788F;
+  text-decoration-color: #5C788F;
+}
+
 button {
   background: none;
   border: none;
@@ -81,10 +86,13 @@ main form label, main form input {
 }
 main form input {
   min-height: 2rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding-left: 0.5rem;
   border-radius: 0.3rem;
   border: 1.4px solid #000000;
+}
+main form input::placeholder {
+  font-size: 1rem;
 }
 main form input[type=submit] {
   border: none;

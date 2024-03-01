@@ -11,6 +11,11 @@ a[role=not-link] {
   text-decoration: none;
 }
 
+a.theme_link {
+  color: #5C788F;
+  text-decoration-color: #5C788F;
+}
+
 button {
   background: none;
   border: none;

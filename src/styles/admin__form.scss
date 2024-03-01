@@ -41,10 +41,15 @@ main{
         }
         input{
             min-height: 2rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             padding-left: .5rem;
             border-radius: .3rem;
             border: 1.4px solid $color-black;
+
+            &::placeholder{
+                font-size: 1rem;
+                
+            }
         }
         input[type="submit"]{
             border: none;

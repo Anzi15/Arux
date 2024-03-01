@@ -25,6 +25,10 @@ $breakpoint-L-tab: 800px;
 a[role="not-link"]{
     text-decoration: none;
 }
+a.theme_link{
+    color: $color-brand-blue;
+    text-decoration-color: $color-brand-blue;
+}
 button{
     background: none;
     border: none;
