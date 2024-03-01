@@ -3,11 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>Login for Administration</title>
+    <!-- stylings  -->
+    <link rel="stylesheet" href="../../styles/admin__form.css">
 </head>
 <body>
-    <form  id="log_in-form">
-        <input type="email" name="" id="">
-    </form>
+    <!-- main section  -->
+    <main>
+        <!-- form for loging in   -->
+        <form action="" id="signup_form">
+            <!-- heading  -->
+            <h1 class="form__heading">Log in</h1>
+
+            <!-- email  -->
+            <label for="email">Email</label>
+            <input type="email" name="email" autocomplete="email" id="form__email" placeholder="meow@example.com">
+
+            <!-- password -->
+            <label for="password">Password</label>
+            <input type="password" name="password" id="form__password" autocomplete="new-password" placeholder="monkey_says_meow">
+
+            <!-- submit button  -->
+            <input type="submit" value="Log in" class="big_btn">
+
+            <!-- to navigate existing users  -->
+            <p>Don't own an account yet? <a class="theme_link" href="../Signup/">Sign up here</a></p>
+        </form>
+
+        <p>or</p>
+
+        <!-- letting users sign up with google  -->
+        <button type="button" class="login-with-google-btn" >
+            <img src="../../assets/google-logo.png" alt="">
+            Sign in with Google
+        </button>
+    </main>
+
+    <!-- aside section  -->
+    <aside>
+        <!-- figure image  -->
+        <img src="https://ouch-cdn2.icons8.com/TeC_fOnhESi2Wlcitzrc7zKoQNNta79JePEEIIfGcD0/rs:fit:368:368/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMjg4/L2FmMmZmZmM4LWQ0/NzUtNGIwMi1iNmZl/LWYzYWM4ZDIyOGZi/My5zdmc.png" alt="Log in png">
+    </aside>
 </body>
 </html>
