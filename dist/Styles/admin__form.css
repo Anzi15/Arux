@@ -25,6 +25,10 @@ button {
   display: none;
 }
 
+.message.success {
+  color: green;
+}
+
 .big_btn {
   padding: 0.8rem 1rem;
   background: #5C788F;

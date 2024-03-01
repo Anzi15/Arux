@@ -36,11 +36,11 @@
             template: 'src/admin/Login/index.html',
             chunks: ['admin_login', 'components']
             }),
-            //admin login
+            //admin signup
             new HtmlWebpackPlugin({
             filename: 'admin/Signup/index.html',
             template: 'src/admin/Signup/index.html',
-            chunks: ['admin_login', 'components']
+            chunks: ['admin_signup', 'components']
             }),
         
         ],
