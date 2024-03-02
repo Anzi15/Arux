@@ -6,7 +6,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 //getting elements from dom
 const signup_form = document.getElementById('signup_form');
-const msg = document.querySelector('.message');
+const msg = signup_form.querySelector('.message');
 
 //my firebas configuration
 const firebaseConfig = {
@@ -29,23 +29,33 @@ const auth = getAuth(app);
 //eventlistners
 signup_form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    console.log(signup_form.name.value)
+    msg.classList.toggle("none");
+    msg.innerHTML=`Please wait...`
     createUserWithEmailAndPassword(auth, signup_form.email.value, signup_form.password.value)
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        console.log(user)
-
+        msg.classList.toggle("success")
+        msg.innerHTML=`Signined successfully`
         localStorage.setItem("userCredential",user);
         signup_form.reset()
-        alert('success')
+        setTimeout(() => {
+          msg.classList.toggle("success");
+          msg.classList.toggle("none");
+          window.location.href = "../";
+        }, 500);
         // ...
       })
       .catch((error) => {
-        alert('failed')
         signup_form.reset()
-        const errorCode = error.code;
         const errorMessage = error.message;
+        msg.classList.toggle("failure")
+        msg.innerHTML=errorMessage;
+        setTimeout(() => {
+          signup_form.reset()
+          msg.classList.toggle("failure");
+          msg.classList.toggle("none");
+        }, 6500);
         // ..
       });
 })

@@ -31,9 +31,10 @@ main{
         align-items: center;
         //form heading
         .form__heading{
-            margin: 2rem 0;
+            width: 80%;
             font-weight: 400;
             letter-spacing: .1rem;
+            overflow: visible;
         }
         //labels and inputs
         label,input{
@@ -105,7 +106,7 @@ aside{
     }
 }
 
-//responsive thinigie
+//responsiveness for large tablets
 @media (max-width: $breakpoint-L-tab) {
     body{
     flex-wrap: wrap;
@@ -113,5 +114,11 @@ aside{
     }
     main,aside{
         width: 90%;
+    }
+}
+// and for small devices 
+@media (max-width: $breakpoint-mob) {
+    input,label,.form__heading{
+        width: 90% !important;
     }
 }

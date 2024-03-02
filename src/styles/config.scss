@@ -6,7 +6,7 @@ $color-brand-blue: #5C788F;
 $color-semi_white: #F5F5F5;
 
 // screen breakpoints
-$breakpoint-mob: 375px;
+$breakpoint-mob: 386px;
 $breakpoint-s-tab: 600px;
 $breakpoint-L-tab: 800px;
 
@@ -37,7 +37,10 @@ button{
     display: none;
 }
 .message.success{
-    color: green    ;
+    color: green;
+}
+.message.failure{
+    color: red;
 }
 // buttons
 .big_btn{

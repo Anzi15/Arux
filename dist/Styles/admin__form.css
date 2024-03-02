@@ -29,6 +29,10 @@ button {
   color: green;
 }
 
+.message.failure {
+  color: red;
+}
+
 .big_btn {
   padding: 0.8rem 1rem;
   background: #5C788F;
@@ -81,9 +85,10 @@ main form {
   align-items: center;
 }
 main form .form__heading {
-  margin: 2rem 0;
+  width: 80%;
   font-weight: 400;
   letter-spacing: 0.1rem;
+  overflow: visible;
 }
 main form label, main form input {
   width: 80%;
@@ -146,6 +151,11 @@ aside img {
   }
   main, aside {
     width: 90%;
+  }
+}
+@media (max-width: 386px) {
+  input, label, .form__heading {
+    width: 90% !important;
   }
 }
 
