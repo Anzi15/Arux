@@ -43,6 +43,12 @@
             template: 'src/admin/Signup/index.html',
             chunks: ['admin_signup', 'components']
             }),
+            //admin unauthorized
+            new HtmlWebpackPlugin({
+            filename: 'admin/unauthorized/index.html',
+            template: 'src/admin/unauthorized/index.html',
+            chunks: []
+            }),
         
         ],
         watch: true,

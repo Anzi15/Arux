@@ -66,7 +66,6 @@ signup_form.addEventListener("submit",(e)=>{
 
         //after 6.5 seconds hiding the inidacation msg
         setTimeout(() => {
-          signup_form.reset()
           msg.classList.toggle("failure");
           msg.classList.toggle("none");
         }, 6500);

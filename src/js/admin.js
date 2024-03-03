@@ -1,7 +1,7 @@
 //essential imports
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc } from "firebase/firestore";
 
 //my firebas configuration
 const firebaseConfig = {
@@ -23,7 +23,33 @@ const db = getFirestore(app);
 
 
 //functions
-function checkAccess(userEmail) {}
+async function getCollection(collectionName){
+  const querySnapshot = await getDocs(collection(db, collectionName));
+  const returnArr = []
+  querySnapshot.forEach((doc) => {
+    returnArr.push(doc.data())
+  });
+  return returnArr
+}
+
+async function checkAccess(userEmail) {
+  const collectionArr = await getCollection('Admins')
+  console.log(``)
+  collectionArr.forEach((col)=>{
+    if(col.Email == userEmail){
+      loadContent()
+      console.log(col.Email == userEmail)
+    }else{
+      window.location.href = "/admin/unauthorized";
+    }
+  })
+
+}
+
+function loadContent(){
+  
+}
+
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
