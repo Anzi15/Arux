@@ -1,10 +1,11 @@
 "use-strict";
 import { initializeApp } from "firebase/app";
-import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth,signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 
 // getting elemes from dom 
 const login_form = document.getElementById('login_form');
 const msg = login_form.querySelector('.message');
+const googleSignupBtn = document.getElementById("google_signup_btn");
 
 //my firebas configuration
 const firebaseConfig = {
@@ -20,11 +21,12 @@ const firebaseConfig = {
 //Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+//Initialize googleAuthProvider
+const googleAuthProvider = new GoogleAuthProvider()
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-console.log(``,msg)
 //event listners
 login_form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -54,3 +56,19 @@ login_form.addEventListener("submit",(e)=>{
     });
 })
   
+//if signed in redirect =>
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      window.location.href = "../";
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+//google sign up 
+googleSignupBtn.addEventListener("click", async ()=>{
+    await signInWithRedirect(auth, googleAuthProvider);
+})
