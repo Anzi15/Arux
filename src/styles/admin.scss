@@ -47,6 +47,9 @@ body{
                 }
 
             }
+            .option.active{
+                background: $color-semi_blue;
+            }
         }
     }
     nav{

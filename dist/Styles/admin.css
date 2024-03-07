@@ -112,6 +112,9 @@ body aside .top-options .option .option-content, body aside .bottom-options .opt
 body aside .top-options .option .option-content svg, body aside .bottom-options .option .option-content svg {
   height: 1.6rem;
 }
+body aside .top-options .option.active, body aside .bottom-options .option.active {
+  background: #EBF5FF;
+}
 body nav {
   padding: 1rem;
 }
