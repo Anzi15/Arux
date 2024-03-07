@@ -1,1 +1,90 @@
 @import 'config';
+body{
+    min-height: 100vh;
+    display: flex;
+    background: $color-semi_white;
+    aside{
+        background: $color-white;
+        min-height: 100vh;
+        width: 17rem;
+        transition: transfrom .6s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 3rem;
+        .top-options,.bottom-options{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            .option{
+                width: 95%;
+                min-height: 4rem;
+                display: flex;
+                gap: 5%;
+                align-items: center;
+                justify-content: center;
+                border-radius: 1rem;
+                text-decoration: none;
+                color: $color-black;
+                &:hover{
+                    background: $color-semi_blue;
+                }
+
+                .option-content{
+                    width: 70%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    gap: 5%;
+
+                    svg{
+                        height: 1.6rem;
+                    }
+                }
+
+            }
+        }
+    }
+    nav{
+        padding: 1rem;
+        .brand-title{
+            width: 90%;
+            text-align: center;
+        }
+    }
+    .sidebar_toggler{
+        display: none;
+    }
+}
+
+@media (max-width: $breakpoint-L-tab) {
+    nav{
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    body{
+        position: relative;
+    }
+    .sidebar_toggler{
+        display: inline-block !important;
+        z-index: 10;
+    }
+    .sidebar_visible{
+        transform: translateX(0) !important;
+    }
+    aside{
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        transform: translateX(-20rem);
+        z-index: 9;
+        border-right: 1px solid rgba(128, 128, 128, 0.326);
+    }
+}

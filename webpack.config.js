@@ -1,11 +1,6 @@
     const path = require('path');
     const HtmlWebpackPlugin = require('html-webpack-plugin')
     module.exports = {
-        entry: [
-            './src/js/slider.js',
-            './src/js/components.js',
-            './src/js/products.js',
-        ],
         entry:{
             slider: './src/js/slider.js',
             components: './src/js/components.js',
@@ -13,6 +8,7 @@
             admin : './src/js/admin.js',
             admin_login: './src/js/admin-login.js',
             admin_signup: './src/js/admin-signup.js',
+            admin_components: './src/js/admin-componenets.js'
         },
         output:{
             filename: '[name].js',
@@ -29,19 +25,19 @@
             new HtmlWebpackPlugin({
             filename: 'admin/index.html',
             template: 'src/admin/index.html',
-            chunks: ['admin', 'components']
+            chunks: ['admin', 'admin_components']
             }),
             //admin login
             new HtmlWebpackPlugin({
             filename: 'admin/Login/index.html',
             template: 'src/admin/Login/index.html',
-            chunks: ['admin_login', 'components']
+            chunks: ['admin_login']
             }),
             //admin signup
             new HtmlWebpackPlugin({
             filename: 'admin/Signup/index.html',
             template: 'src/admin/Signup/index.html',
-            chunks: ['admin_signup', 'components']
+            chunks: ['admin_signup']
             }),
             //admin unauthorized
             new HtmlWebpackPlugin({
@@ -52,4 +48,12 @@
         
         ],
         watch: true,
+        mode: 'development',
+        devServer: {
+            static: {
+              directory: path.join(__dirname, 'dist'),
+            },
+            compress: true,
+            port: 9000,
+        },
     }

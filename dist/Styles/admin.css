@@ -7,6 +7,14 @@
   padding: 0;
 }
 
+.brand-title {
+  font-size: 2.1rem;
+  letter-spacing: 0.2rem;
+  user-select: none;
+  color: #000000;
+  font-weight: 550;
+}
+
 a[role=not-link] {
   text-decoration: none;
 }
@@ -54,6 +62,92 @@ button {
 @media (max-width: 600px) {
   .hidden-on-S_screen {
     display: none;
+  }
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  background: #F5F5F5;
+}
+body aside {
+  background: #FFFFFF;
+  min-height: 100vh;
+  width: 17rem;
+  transition: transfrom 0.6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+}
+body aside .top-options, body aside .bottom-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+body aside .top-options .option, body aside .bottom-options .option {
+  width: 95%;
+  min-height: 4rem;
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: #000000;
+}
+body aside .top-options .option:hover, body aside .bottom-options .option:hover {
+  background: #EBF5FF;
+}
+body aside .top-options .option .option-content, body aside .bottom-options .option .option-content {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5%;
+}
+body aside .top-options .option .option-content svg, body aside .bottom-options .option .option-content svg {
+  height: 1.6rem;
+}
+body nav {
+  padding: 1rem;
+}
+body nav .brand-title {
+  width: 90%;
+  text-align: center;
+}
+body .sidebar_toggler {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  body {
+    position: relative;
+  }
+  .sidebar_toggler {
+    display: inline-block !important;
+    z-index: 10;
+  }
+  .sidebar_visible {
+    transform: translateX(0) !important;
+  }
+  aside {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-20rem);
+    z-index: 9;
+    border-right: 1px solid rgba(128, 128, 128, 0.326);
   }
 }
 

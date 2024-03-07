@@ -4,6 +4,7 @@ $color-white: #FFFFFF;
 $color-grey: #363738;
 $color-brand-blue: #5C788F;
 $color-semi_white: #F5F5F5;
+$color-semi_blue: #EBF5FF;
 
 // screen breakpoints
 $breakpoint-mob: 386px;
@@ -22,6 +23,15 @@ $breakpoint-L-tab: 800px;
 }      
 
 // utilities classes 
+
+// brand name 
+.brand-title{
+    font-size: 2.1rem;
+    letter-spacing: .2rem;
+    user-select: none;
+    color: $color-black;
+    font-weight: 550;
+}
 a[role="not-link"]{
     text-decoration: none;
 }

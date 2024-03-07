@@ -7,6 +7,14 @@
   padding: 0;
 }
 
+.brand-title {
+  font-size: 2.1rem;
+  letter-spacing: 0.2rem;
+  user-select: none;
+  color: #000000;
+  font-weight: 550;
+}
+
 a[role=not-link] {
   text-decoration: none;
 }
@@ -74,13 +82,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-nav .brand-title {
-  font-size: 2.1rem;
-  letter-spacing: 0.2rem;
-  user-select: none;
-  color: #000000;
-  font-weight: 550;
 }
 nav ul {
   display: flex;
