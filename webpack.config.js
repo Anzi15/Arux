@@ -5,11 +5,15 @@
             slider: './src/js/slider.js',
             components: './src/js/components.js',
             products: './src/js/components.js',
+
+            // admin entries 
             admin : './src/js/admin.js',
             admin_login: './src/js/admin-login.js',
             admin_signup: './src/js/admin-signup.js',
             admin_components: './src/js/admin-componenets.js',
             admin_analytics: './src/js/admin-analytics.js',
+            admin_products: './src/js/admin-products/js',
+            admin_orders: './src/js/admin-orders/js'
         },
         output:{
             filename: '[name].js',
@@ -22,6 +26,8 @@
             template: 'src/index.html',
             chunks : ['slider','components','products']
             }),
+
+            // admin files 
             //admin
             new HtmlWebpackPlugin({
             filename: 'admin/index.html',
@@ -41,6 +47,18 @@
             chunks: ['admin_signup']
             }),
             //admin unauthorized
+            new HtmlWebpackPlugin({
+            filename: 'admin/unauthorized/index.html',
+            template: 'src/admin/unauthorized/index.html',
+            chunks: []
+            }),
+            //admin products
+            new HtmlWebpackPlugin({
+            filename: 'admin/Products/index.html',
+            template: 'src/admin/Products/index.html',
+            chunks: ['admin_products']
+            }),
+            //admin orders
             new HtmlWebpackPlugin({
             filename: 'admin/unauthorized/index.html',
             template: 'src/admin/unauthorized/index.html',
