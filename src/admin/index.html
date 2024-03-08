@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="../styles/admin.css">
 </head>
 <body>
+    <!-- side navbar  -->
     <aside id="sidebar">
         <div class="top-options">
-            <a href="#" class="option active">
+            <a href="#" class="option active" id="Sidebar__btn-dashboard">
                 <div class="option-content">
                     <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="1.5"><rect height="10" rx="2" width="8" x="2" y="2"/><rect height="6" rx="2" width="8" x="2" y="16"/><rect height="10" rx="2" width="8" x="14" y="12"/><rect height="6" rx="2" width="8" x="14" y="2"/></g></svg>
                     Dashboard
                 </div>
             </a>
 
-            <a href="#" class="option">
+            <a href="#" class="option" id="Sidebar__btn-products">
                 <div class="option-content">
                     <div class="icon ">
                         <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-handbag" viewBox="0 0 16 16">
@@ -28,7 +29,7 @@
                 </div>
             </a>
 
-            <a href="#" class="option">
+            <a href="#" class="option" id="Sidebar__btn-orders">
                 <div class="option-content">
                     <div class="icon ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -55,8 +56,9 @@
             </a>
         </div>
     </aside>
+    <!-- main section  -->
     <main>
-
+        <!-- navbar  -->
         <nav>
             <!-- hamburger to toggle navlinks on mob  -->
             <button class="sidebar_toggler" data-nav-toggler id="sidebar_toggler">
@@ -64,11 +66,20 @@
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                 </svg>
             </button>
+            
             <a href="#" role="not-link" class="brand-title">Arux</a>
-
-
-
         </nav>
+
+        <!-- analytics dashboard  -->
+        <section class="analytics visible-section" id="Dashboard">
+            <div>
+                <canvas id="demo_chart"></canvas>
+            </div>
+        </section>
+
+        <section class="product none" id="products">
+            Products
+        </section>
     </main>
 </body>
 </html>

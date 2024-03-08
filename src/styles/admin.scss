@@ -1,8 +1,10 @@
 @import 'config';
+//body
 body{
     min-height: 100vh;
     display: flex;
-    background: $color-semi_white;
+    
+    //sidebar nav
     aside{
         background: $color-white;
         min-height: 100vh;
@@ -14,12 +16,14 @@ body{
         align-items: center;
         padding-top: 3rem;
         .top-options,.bottom-options{
+            //both upper and lower options
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 1rem;
+            // individual option 
             .option{
                 width: 95%;
                 min-height: 4rem;
@@ -30,10 +34,11 @@ body{
                 border-radius: 1rem;
                 text-decoration: none;
                 color: $color-black;
+                //hover stylings
                 &:hover{
                     background: $color-semi_blue;
                 }
-
+                // option content 
                 .option-content{
                     width: 70%;
                     display: flex;
@@ -45,25 +50,46 @@ body{
                         height: 1.6rem;
                     }
                 }
-
             }
+            //stylings for active color
             .option.active{
                 background: $color-semi_blue;
             }
         }
     }
-    nav{
+    main{
+        background: $color-white;
         padding: 1rem;
+        padding: 0;
+        // navbar 
+        nav{
+            width: 100vw;
+        }
+        //title
         .brand-title{
             width: 90%;
             text-align: center;
         }
-    }
-    .sidebar_toggler{
-        display: none;
+        //nav toggler
+        .sidebar_toggler{
+            display: none;
+        }
+        //analytics
+        .analytics{
+            margin: 1rem 0;
+            background: $color-semi_white;
+            border-radius: 1rem;
+
+            #demo_chart{
+                border-radius: 1rem;
+                background: $color-white;
+                height: 17rem !important;
+            }
+        }
     }
 }
 
+// making everything responsive 
 @media (max-width: $breakpoint-L-tab) {
     nav{
         width: 100vw;
@@ -89,5 +115,9 @@ body{
         transform: translateX(-20rem);
         z-index: 9;
         border-right: 1px solid rgba(128, 128, 128, 0.326);
+
+        .top-options{
+            padding-top: 2rem;
+        }
     }
 }

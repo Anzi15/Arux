@@ -3,6 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, getDocs, doc } from "firebase/firestore";
 
+// //getting elements from dom
+// const dashboard_btn = doc
+
 //my firebas configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",

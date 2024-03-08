@@ -67,7 +67,6 @@ button {
 body {
   min-height: 100vh;
   display: flex;
-  background: #F5F5F5;
 }
 body aside {
   background: #FFFFFF;
@@ -115,15 +114,30 @@ body aside .top-options .option .option-content svg, body aside .bottom-options 
 body aside .top-options .option.active, body aside .bottom-options .option.active {
   background: #EBF5FF;
 }
-body nav {
+body main {
+  background: #FFFFFF;
   padding: 1rem;
+  padding: 0;
 }
-body nav .brand-title {
+body main nav {
+  width: 100vw;
+}
+body main .brand-title {
   width: 90%;
   text-align: center;
 }
-body .sidebar_toggler {
+body main .sidebar_toggler {
   display: none;
+}
+body main .analytics {
+  margin: 1rem 0;
+  background: #F9FAFB;
+  border-radius: 1rem;
+}
+body main .analytics #demo_chart {
+  border-radius: 1rem;
+  background: #FFFFFF;
+  height: 17rem !important;
 }
 
 @media (max-width: 800px) {
@@ -151,6 +165,9 @@ body .sidebar_toggler {
     transform: translateX(-20rem);
     z-index: 9;
     border-right: 1px solid rgba(128, 128, 128, 0.326);
+  }
+  aside .top-options {
+    padding-top: 2rem;
   }
 }
 

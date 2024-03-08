@@ -8,7 +8,8 @@
             admin : './src/js/admin.js',
             admin_login: './src/js/admin-login.js',
             admin_signup: './src/js/admin-signup.js',
-            admin_components: './src/js/admin-componenets.js'
+            admin_components: './src/js/admin-componenets.js',
+            admin_analytics: './src/js/admin-analytics.js',
         },
         output:{
             filename: '[name].js',
@@ -25,7 +26,7 @@
             new HtmlWebpackPlugin({
             filename: 'admin/index.html',
             template: 'src/admin/index.html',
-            chunks: ['admin', 'admin_components']
+            chunks: ['admin', 'admin_components', 'admin_analytics']
             }),
             //admin login
             new HtmlWebpackPlugin({
@@ -47,7 +48,6 @@
             }),
         
         ],
-        watch: true,
         mode: 'development',
         devServer: {
             static: {
