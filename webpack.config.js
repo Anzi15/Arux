@@ -12,8 +12,8 @@
             admin_signup: './src/js/admin-signup.js',
             admin_components: './src/js/admin-componenets.js',
             admin_analytics: './src/js/admin-analytics.js',
-            admin_products: './src/js/admin-products/js',
-            admin_orders: './src/js/admin-orders/js'
+            admin_products: './src/js/admin-products.js',
+            admin_orders: './src/js/admin-orders.js'
         },
         output:{
             filename: '[name].js',
@@ -56,13 +56,13 @@
             new HtmlWebpackPlugin({
             filename: 'admin/Products/index.html',
             template: 'src/admin/Products/index.html',
-            chunks: ['admin_products']
+            chunks: ['admin_products', 'admin_components']
             }),
             //admin orders
             new HtmlWebpackPlugin({
-            filename: 'admin/unauthorized/index.html',
-            template: 'src/admin/unauthorized/index.html',
-            chunks: []
+            filename: 'admin/orders/index.html',
+            template: 'src/admin/orders/index.html',
+            chunks: ['admin_components']
             }),
         
         ],
@@ -73,5 +73,6 @@
             },
             compress: true,
             port: 9000,
+            watchFiles: ['src/**/*'],
         },
     }

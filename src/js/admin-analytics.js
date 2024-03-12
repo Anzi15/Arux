@@ -29,7 +29,11 @@ datasets: [{
     tension: 0.5,
     fill: true,
     backgroundColor: '#E3FCEF',
-    borderColor: '#278F55'
+    borderColor: '#278F55',
+    responsive: true,
+    aspectRatio: "9|16",
+    maintainAspectRatio: true
+
 }]
   },
   options: {

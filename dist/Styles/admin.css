@@ -169,6 +169,9 @@ body main .analytics #demo_chart {
   aside .top-options {
     padding-top: 2rem;
   }
+  canvas {
+    padding: 0.7rem;
+  }
 }
 
 /*# sourceMappingURL=admin.css.map */
