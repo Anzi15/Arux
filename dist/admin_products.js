@@ -15,7 +15,7 @@
   \**********************************/
 /***/ (() => {
 
-eval("console.log(`hi`)\n\n//# sourceURL=webpack://arux/./src/js/admin-products.js?");
+eval("\n\n//# sourceURL=webpack://arux/./src/js/admin-products.js?");
 
 /***/ })
 

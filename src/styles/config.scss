@@ -66,7 +66,20 @@ button{
         scale: 1.06;
     }
 }
-
+.thin-heading{
+    font-weight: 400;
+}
+//default heading styles (with the border)
+.section-heading{
+    margin: 0 auto;
+    width: 90vw;
+    color: $color-brand-blue;
+    line-height: 2rem;
+    padding: 0 .5rem ;
+    border-radius: 4px;
+    border-left: 1rem solid $color-brand-blue;
+    font-size: 1.3rem;
+}
 
 @media (min-width: $breakpoint-s-tab) {
     .hidden-on-L_screen{

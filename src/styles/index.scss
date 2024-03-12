@@ -67,17 +67,7 @@ main{
     section{
         width: 100vw;
     }
-    //default heading styles (with the border)
-    .section-heading{
-        margin: 0 auto;
-        width: 90vw;
-        color: $color-brand-blue;
-        line-height: 2rem;
-        padding: 0 .5rem ;
-        border-radius: 4px;
-        border-left: 1rem solid $color-brand-blue;
-        font-size: 1.3rem;
-    }
+
     //top products section
     section.top-procucts{
         display: flex;  

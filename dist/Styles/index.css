@@ -54,6 +54,21 @@ button {
   scale: 1.06;
 }
 
+.thin-heading {
+  font-weight: 400;
+}
+
+.section-heading {
+  margin: 0 auto;
+  width: 90vw;
+  color: #5C788F;
+  line-height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  border-left: 1rem solid #5C788F;
+  font-size: 1.3rem;
+}
+
 @media (min-width: 600px) {
   .hidden-on-L_screen {
     display: none;
@@ -121,16 +136,6 @@ main .carousel__con .carousel__slider-con .carousel__nav .carousel__nav-dot.acti
 }
 main section {
   width: 100vw;
-}
-main .section-heading {
-  margin: 0 auto;
-  width: 90vw;
-  color: #5C788F;
-  line-height: 2rem;
-  padding: 0 0.5rem;
-  border-radius: 4px;
-  border-left: 1rem solid #5C788F;
-  font-size: 1.3rem;
 }
 main section.top-procucts {
   display: flex;
