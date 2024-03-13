@@ -109,15 +109,34 @@ main section.section__your__products .section__products__grid .product img.produ
   object-fit: cover;
 }
 main section.section__your__products .section__products__grid .product .product__content-con {
+  width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
   justify-content: center;
+  align-items: center;
+}
+main section.section__your__products .section__products__grid .product .product__content-con .product__title, main section.section__your__products .section__products__grid .product .product__content-con .product__config-con, main section.section__your__products .section__products__grid .product .product__content-con .product__detail-con {
+  width: 80%;
 }
 main section.section__your__products .section__products__grid .product .product__content-con .product__detail-con {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.6rem;
+  display: inline-flex;
+  gap: 1rem;
+}
+main section.section__your__products .section__products__grid .product .product__content-con .product__config-con {
+  color: #363738;
+  display: inline-flex;
+  gap: 0.4rem;
+}
+main section.section__your__products .section__products__grid .product .product__content-con .product__config-con svg {
+  color: #363738;
+  width: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+main section.section__your__products .section__products__grid .product .product__content-con .product__config-con svg:hover {
+  color: #000000;
+  scale: 1.1;
 }
 
 /*# sourceMappingURL=admin_products.css.map */

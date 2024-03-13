@@ -14,8 +14,9 @@ main{
             column-gap: 2rem;
 
             .product{
-                // min-width: 20rem;
+                // max-width: 35rem;
                 display: inline-flex;
+                // justify-content: space-between;
                 background: $color-semi_white;
                 border-radius: .5rem;
                 border: 1px solid $color-semi_blue;
@@ -34,16 +35,37 @@ main{
                 }
 
                 .product__content-con{
+                    width: 60%;
                     display: flex;
                     flex-direction: column;
-                    gap: .5rem;
+                    gap: .8rem;
                     justify-content: center;
+                    align-items: center;
+
+                    .product__title, .product__config-con, .product__detail-con{
+                        width: 80%;
+                    }
                     .product__detail-con{
-                        display: flex;
-                        justify-content: space-between;
-                        gap: .6rem;
+                        display: inline-flex;
+                        gap: 1rem;
+                    }
+                    .product__config-con{
+                        color: $color-grey;
+                        display: inline-flex;
+                        gap: .4rem;
+                        svg{
+                            color: $color-grey;
+                            width: 1.5rem;
+                            cursor: pointer;
+                            transition: all .2s ease-in;
+                            &:hover{
+                                color: $color-black;
+                                scale: 1.1;
+                            }
+                        }
                     }
                 }
+
             }
         }
     }
