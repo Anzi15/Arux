@@ -43,6 +43,7 @@ main{
                     align-items: center;
 
                     .product__title, .product__config-con, .product__detail-con{
+                        color: $color-grey;
                         width: 80%;
                         flex-wrap: wrap;
                     }
@@ -51,7 +52,6 @@ main{
                         gap: 1rem;
                     }
                     .product__config-con{
-                        color: $color-grey;
                         display: inline-flex;
                         gap: .4rem;
                         svg{
