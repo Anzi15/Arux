@@ -91,6 +91,7 @@ main section.section__your__products .section__products__grid {
   column-gap: 2rem;
 }
 main section.section__your__products .section__products__grid .product {
+  max-width: 50%;
   display: inline-flex;
   background: #F9FAFB;
   border-radius: 0.5rem;
