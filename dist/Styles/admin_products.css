@@ -87,11 +87,10 @@ main section.section__your__products .section__products__grid {
   gap: 1rem;
   width: 100%;
   padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   column-gap: 2rem;
 }
 main section.section__your__products .section__products__grid .product {
-  max-width: 50%;
   display: inline-flex;
   background: #F9FAFB;
   border-radius: 0.5rem;
@@ -119,6 +118,7 @@ main section.section__your__products .section__products__grid .product .product_
 }
 main section.section__your__products .section__products__grid .product .product__content-con .product__title, main section.section__your__products .section__products__grid .product .product__content-con .product__config-con, main section.section__your__products .section__products__grid .product .product__content-con .product__detail-con {
   width: 80%;
+  flex-wrap: wrap;
 }
 main section.section__your__products .section__products__grid .product .product__content-con .product__detail-con {
   display: inline-flex;

@@ -10,11 +10,11 @@ main{
             gap: 1rem;
             width: 100%;
             padding: 1rem;
-            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
             column-gap: 2rem;
 
             .product{
-                max-width: 50%;
+                // max-width: 35rem;
                 display: inline-flex;
                 // justify-content: space-between;
                 background: $color-semi_white;
@@ -44,6 +44,7 @@ main{
 
                     .product__title, .product__config-con, .product__detail-con{
                         width: 80%;
+                        flex-wrap: wrap;
                     }
                     .product__detail-con{
                         display: inline-flex;
