@@ -79,6 +79,15 @@ button {
     display: none;
   }
 }
+main .add__products-con {
+  width: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: right;
+}
+main .add__products-con .big_btn {
+  padding: 0.5rem;
+}
 main section.section__your__products {
   margin: 2rem 0;
 }

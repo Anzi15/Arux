@@ -136,6 +136,7 @@ body main {
 }
 body main nav {
   width: 100vw;
+  padding: 1rem;
 }
 body main .brand-title {
   width: 90%;
