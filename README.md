@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Anzi15/Arux">
-    <img src="https://scontent.fkhi5-2.fna.fbcdn.net/v/t39.30808-1/404338963_122111768576103852_3887662244884141609_n.jpg?stp=cp0_dst-jpg_p60x60&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE0R6tgqpTtS4zjMigclW01_9I1hSZZ-ZL_0jWFJln5kuH3b_35bEJzZ41j4XsDmjMYKanK699U6_bNSQ6Pi--w&_nc_ohc=c_gR8luwdXkAX8YcQUS&_nc_ht=scontent.fkhi5-2.fna&oh=00_AfDa0i5_r3PDu7pAt5dr5UqCN-Frgsa3IUS86x4ejmJZdg&oe=65F516BB" alt="Logo" width="80" height="80">
+    <img src="[https://scontent.fkhi5-2.fna.fbcdn.net/v/t39.30808-1/404338963_122111768576103852_3887662244884141609_n.jpg?stp=cp0_dst-jpg_p60x60&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE0R6tgqpTtS4zjMigclW01_9I1hSZZ-ZL_0jWFJln5kuH3b_35bEJzZ41j4XsDmjMYKanK699U6_bNSQ6Pi--w&_nc_ohc=c_gR8luwdXkAX8YcQUS&_nc_ht=scontent.fkhi5-2.fna&oh=00_AfDa0i5_r3PDu7pAt5dr5UqCN-Frgsa3IUS86x4ejmJZdg&oe=65F516BB](https://scontent.fkhi5-2.fna.fbcdn.net/v/t39.30808-6/404338963_122111768576103852_3887662244884141609_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE0R6tgqpTtS4zjMigclW01_9I1hSZZ-ZL_0jWFJln5kuH3b_35bEJzZ41j4XsDmjMYKanK699U6_bNSQ6Pi--w&_nc_ohc=zk7kUAfnn-QAX95bE7Y&_nc_zt=23&_nc_ht=scontent.fkhi5-2.fna&oh=00_AfATC5bH0YInx6mKA2fP3ZCoxNWZSBhPLstXL4wes17YYw&oe=65F73F20)" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Arux</h3>
