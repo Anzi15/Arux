@@ -29,7 +29,7 @@ button {
   border: none;
 }
 
-.none {
+.none, .hidden {
   display: none;
 }
 
@@ -173,7 +173,8 @@ body main .product_details_inp .info_inpts .image-inpts .image-upload img {
   width: 5rem;
 }
 body main .product_details_inp .info_inpts .image-inpts .image-upload .preview-img {
-  width: 100%;
+  width: 25rem;
+  aspect-ratio: 16/9;
   object-fit: cover;
 }
 body main .product_details_inp .info_inpts .image-inpts .image-upload.highlight {

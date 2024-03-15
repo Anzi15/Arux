@@ -22,16 +22,23 @@ const handleFiles = function(files, dropArea){
   });
 }
 // once something is dropped 
-const handleDrop = function(e){
+const handleDrop = function(e, areaElem){
   const data = e.dataTransfer;
   const files = data.files
-  handleFiles(files, e.target)
+  handleFiles(files, areaElem)
 }
 const previewFile = function(file, dropArea){
+  console.log(``,dropArea)
+   const hidePreviewElem = dropArea.querySelectorAll('[data-hideOnImagePreview]');
+   hidePreviewElem.forEach((elem)=>{
+    elem.classList.add('hidden')
+   })
+   const previewDisplay = dropArea.querySelector('.preview-img')
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = function(){
-      dropArea.innerHTML = `<img class="preview-img" src="${reader.result}" />`
+      previewDisplay.classList.remove('hidden')
+      previewDisplay.src = reader.result
     }
 }
 // to highlight the drop area 
@@ -76,7 +83,9 @@ imageDropAreas.forEach((areaElem)=>{
   }
 
   // once something is dropped
-  areaElem.addEventListener('drop', handleDrop, false)
+  areaElem.addEventListener('drop', (e)=>{
+    handleDrop(e,areaElem)
+  }, false)
 
 })
   

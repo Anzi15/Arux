@@ -56,11 +56,13 @@
                     <!-- for primary (main) image  -->
                     <div class="image-upload " id="primary_image-upload" onclick="document.getElementById('primary_image-inp').click()">
 
-                        <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" alt="upload-inidication" draggable="false" id="primary_image-indication">
+                        <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" alt="upload-inidication" draggable="false" id="primary_image-indication" data-hideOnImagePreview>
 
-                        <p>Drop your image here or <a href="#upload">click to upload</a></p>
+                        <p data-hideOnImagePreview>Drop your image here or <a href="#upload">click to upload</a></p>
 
                         <input hidden id="primary_image-inp" type="file" name="image_primary_upload_inp" accept="image/*"/>
+
+                        <img class="preview-img hidden" src="" />
                     </div>
 
                     
