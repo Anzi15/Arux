@@ -59,6 +59,12 @@
             template: 'src/admin/Products/index.html',
             chunks: ['admin_products', 'admin_components']
             }),
+            //admin new product
+            new HtmlWebpackPlugin({
+            filename: 'admin/Products/new/index.html',
+            template: 'src/admin/Products/new/index.html',
+            chunks: ['admin_new_product']
+            }),
             //admin orders
             new HtmlWebpackPlugin({
             filename: 'admin/orders/index.html',
