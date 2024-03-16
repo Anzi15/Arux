@@ -16,7 +16,7 @@
         <a href="/admin/" class="go_back_btn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-              </svg>
+            </svg>
         </a>
     </nav>
 
@@ -54,15 +54,27 @@
                 <div class="image-inpts">
 
                     <!-- for primary (main) image  -->
-                    <div class="image-upload " id="primary_image-upload" onclick="document.getElementById('primary_image-inp').click()">
+                    <div 
+                    class="image-upload" id="primary_image-upload"
+                    >
 
-                        <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" alt="upload-inidication" draggable="false" id="primary_image-indication" data-hideOnImagePreview>
+                        <img 
+                        src="https://cdn-icons-png.flaticon.com/512/126/126477.png" 
+                        alt="upload-inidication" draggable="false" id="primary_image-indication" data-hideOnImagePreview>
 
                         <p data-hideOnImagePreview>Drop your image here or <a href="#upload">click to upload</a></p>
 
-                        <input hidden id="primary_image-inp" type="file" name="image_primary_upload_inp" accept="image/*"/>
+                        <input hidden id="primary_image-inp" type="file" name="image_primary_upload_inp" accept="image/*"
+                        class="input_file"/>
 
-                        <img class="preview-img hidden" src="" />
+                        <img data-showOnImagePreview class="preview-img hidden" src="" />
+
+                        <button
+                        data-showOnImagePreview
+                        class="cancelImage hidden"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                        </svg> 
+                    </button>
                     </div>
 
                     

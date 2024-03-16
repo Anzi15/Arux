@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+*[role=overflowable] {
+  overflow-x: visible !important;
+}
+
 .brand-title {
   font-size: 2.1rem;
   letter-spacing: 0.2rem;

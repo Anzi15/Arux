@@ -20,6 +20,7 @@ body{
     }
     
     main{
+        width: 100vw;
         display: flex;
         gap: 4rem;
         aside{
@@ -66,6 +67,7 @@ body{
             }
         }
         .product_details_inp{
+            max-width: 90% !important;
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -78,28 +80,28 @@ body{
                 gap: 1rem;
                 flex-direction: column;
                 .image-inpts{
-                    // overflow: hidden !important;
                     .image-upload{
+                        padding: .2rem;
                         background: $color-semi_white;
-                        max-width: 90%;
                         border: dashed 3px $color-light-grey;
                         border-radius: .5rem;
-                        aspect-ratio: 16/9;
+                        aspect-ratio: 1/1;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         gap: 1rem;
                         flex-direction: column;
                         transition: all .15s ease-in;
+                        position: relative;
                         
                         img{
                             width: 5rem;
                         }
                         .preview-img{
-                            width: 25rem;
-                            aspect-ratio: 16/9;
+                            border-radius: 6px;
+                            width: 100%;
                             object-fit: cover;
-
+                            height: 100%;
                         }
                     }
                     .image-upload.highlight{
@@ -107,7 +109,7 @@ body{
                         background: $color-semi_blue
                     }
                     #primary_image-upload{
-                        min-width: 25rem;
+                        width: 20rem;
                     }
                 }
             }
@@ -117,7 +119,11 @@ body{
 }
 
 @media (max-width: $breakpoint-s-tab) {
+    main{
+        padding: 1rem;
+        justify-content: center;
+    }
     aside{
-        width: 4rem !important;
+        display: none !important;
     }
 }
