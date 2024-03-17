@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, getDocs, doc } from "firebase/firestore";
 
-//my firebas configuration
+//my firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
   authDomain: "arux-24899.firebaseapp.com",

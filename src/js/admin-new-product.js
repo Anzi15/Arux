@@ -1,9 +1,30 @@
 "use-strict";
+//esential imports
+import {initializeApp} from 'firebase/app'
+import {getStorage, ref} from 'firebase/storage'
+
+//my firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
+  authDomain: "arux-24899.firebaseapp.com",
+  projectId: "arux-24899",
+  storageBucket: "arux-24899.appspot.com",
+  messagingSenderId: "95411992302",
+  appId: "1:95411992302:web:336d7a38ca931af33225ff",
+  measurementId: "G-LXN5WG6V2S",
+  storageBucket: "https://arux-24899.appspot.com/"
+};
+
 //getting elems from dom 
 const primary_image_upload = document.getElementById('primary_image-upload');
+const sec1_image_upload = document.getElementById('sec-1_image-upload');
+const sec2_image_upload = document.getElementById('sec-2_image-upload');
 
 // variables, arrays and objects
-const imageDropAreas = [primary_image_upload]
+const imageDropAreas = [primary_image_upload, sec1_image_upload, sec2_image_upload];
+const app = initializeApp(firebaseConfig);
+const storage = getStorage();
+const storageRef = ref(storage, 'Product-imgs');
 // functions 
 
 //to upload the image to the firebase storeage

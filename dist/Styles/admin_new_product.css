@@ -170,6 +170,7 @@ body main .product_details_inp .info_inpts .image-inpts .image-upload {
   aspect-ratio: 1/1;
   display: flex;
   align-items: center;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
   flex-direction: column;
@@ -185,12 +186,27 @@ body main .product_details_inp .info_inpts .image-inpts .image-upload .preview-i
   object-fit: cover;
   height: 100%;
 }
+body main .product_details_inp .info_inpts .image-inpts .image-upload a {
+  color: #363738;
+}
+body main .product_details_inp .info_inpts .image-inpts .image-upload p {
+  max-width: 90%;
+  text-align: center;
+}
 body main .product_details_inp .info_inpts .image-inpts .image-upload.highlight {
   border: dashed 2px #5C788F;
   background: #EBF5FF;
 }
-body main .product_details_inp .info_inpts .image-inpts #primary_image-upload {
-  width: 20rem;
+body main .product_details_inp .info_inpts .image-inpts #primary_image-upload, body main .product_details_inp .info_inpts .image-inpts .sec-img-con {
+  width: 25rem;
+}
+body main .product_details_inp .info_inpts .image-inpts .sec-img-con {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+body main .product_details_inp .info_inpts .image-inpts .sec-img-con .image-upload {
+  width: 48%;
 }
 
 @media (max-width: 600px) {

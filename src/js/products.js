@@ -9,7 +9,7 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-//my firebas configuration
+//my firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
   authDomain: "arux-24899.firebaseapp.com",

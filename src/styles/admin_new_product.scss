@@ -88,6 +88,7 @@ body{
                         aspect-ratio: 1/1;
                         display: flex;
                         align-items: center;
+                        align-items: center;
                         justify-content: center;
                         gap: 1rem;
                         flex-direction: column;
@@ -103,13 +104,28 @@ body{
                             object-fit: cover;
                             height: 100%;
                         }
+                        a{
+                            color: $color-grey;
+                        }
+                        p{
+                            max-width: 90%;
+                            text-align: center;
+                        }
                     }
                     .image-upload.highlight{
                         border: dashed 2px $color-brand-blue;
                         background: $color-semi_blue
                     }
-                    #primary_image-upload{
-                        width: 20rem;
+                    #primary_image-upload, .sec-img-con{
+                        width: 25rem;
+                    }
+                    .sec-img-con{
+                        margin: 1rem 0;
+                        display: flex;
+                        justify-content: space-between  ;
+                        .image-upload{
+                            width: 48%;
+                        }
                     }
                 }
             }
