@@ -58,6 +58,26 @@ button {
   scale: 1.06;
 }
 
+.outline-btn {
+  border-radius: 6px;
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  color: #5C788F;
+  border: solid 2px #5C788F;
+  transition: scale 0.2s ease-in;
+}
+.outline-btn:hover {
+  background: #5C788F;
+  color: #FFFFFF;
+}
+
+.two_btn_con {
+  width: 100%;
+  justify-content: right;
+  display: flex;
+  gap: 2rem;
+}
+
 .thin-heading {
   font-weight: 400;
 }
@@ -147,24 +167,25 @@ body main aside .step.active * {
   color: #FFFFFF !important;
   border-color: #5C788F !important;
 }
-body main .product_details_inp {
-  max-width: 90% !important;
+body main section.product_details_inp {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   color: #363738;
 }
-body main .product_details_inp #onboarding_msg {
+body main section.product_details_inp h1#header {
+  font-size: 2rem;
+}
+body main section.product_details_inp #onboarding_msg {
   margin: 1rem 0;
 }
-body main .product_details_inp .info_inpts {
+body main section.product_details_inp .info_inpts {
   display: flex;
-  gap: 1rem;
-  flex-direction: column;
+  gap: 4rem;
+  flex-wrap: wrap;
 }
-body main .product_details_inp .info_inpts .image-inpts .image-upload {
+body main section.product_details_inp .info_inpts .image-inpts .image-upload {
   padding: 0.2rem;
-  background: #F9FAFB;
   border: dashed 3px #E0E3E7;
   border-radius: 0.5rem;
   aspect-ratio: 1/1;
@@ -177,42 +198,81 @@ body main .product_details_inp .info_inpts .image-inpts .image-upload {
   transition: all 0.15s ease-in;
   position: relative;
 }
-body main .product_details_inp .info_inpts .image-inpts .image-upload img {
-  width: 5rem;
+body main section.product_details_inp .info_inpts .image-inpts .image-upload svg {
+  transition: all 0.15s ease-in;
+  width: 3.5rem;
+  color: #363738;
 }
-body main .product_details_inp .info_inpts .image-inpts .image-upload .preview-img {
+body main section.product_details_inp .info_inpts .image-inpts .image-upload .preview-img {
   border-radius: 6px;
   width: 100%;
   object-fit: cover;
   height: 100%;
 }
-body main .product_details_inp .info_inpts .image-inpts .image-upload a {
+body main section.product_details_inp .info_inpts .image-inpts .image-upload a {
   color: #363738;
 }
-body main .product_details_inp .info_inpts .image-inpts .image-upload p {
+body main section.product_details_inp .info_inpts .image-inpts .image-upload p {
   max-width: 90%;
   text-align: center;
 }
-body main .product_details_inp .info_inpts .image-inpts .image-upload.highlight {
+body main section.product_details_inp .info_inpts .image-inpts .image-upload.highlight {
   border: dashed 2px #5C788F;
   background: #EBF5FF;
 }
-body main .product_details_inp .info_inpts .image-inpts #primary_image-upload, body main .product_details_inp .info_inpts .image-inpts .sec-img-con {
+body main section.product_details_inp .info_inpts .image-inpts .image-upload.highlight svg {
+  color: #5C788F;
+}
+body main section.product_details_inp .info_inpts .image-inpts #primary_image-upload, body main section.product_details_inp .info_inpts .image-inpts .sec-img-con {
   width: 25rem;
 }
-body main .product_details_inp .info_inpts .image-inpts .sec-img-con {
+body main section.product_details_inp .info_inpts .image-inpts .sec-img-con {
   margin: 1rem 0;
   display: flex;
   justify-content: space-between;
 }
-body main .product_details_inp .info_inpts .image-inpts .sec-img-con .image-upload {
+body main section.product_details_inp .info_inpts .image-inpts .sec-img-con .image-upload {
   width: 48%;
+}
+body main section.product_details_inp .info_inpts .product-details-inp {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  padding-top: 0;
+}
+body main section.product_details_inp .info_inpts .product-details-inp h2 {
+  padding-bottom: 2rem;
+}
+body main section.product_details_inp .info_inpts .product-details-inp label {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+body main section.product_details_inp .info_inpts .product-details-inp .input, body main section.product_details_inp .info_inpts .product-details-inp textarea {
+  color: #363738;
+  margin: 0.2rem 0;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  width: 100% !important;
+  border: 2.5px solid #E0E3E7;
+}
+body main section.product_details_inp .info_inpts .product-details-inp .input:active, body main section.product_details_inp .info_inpts .product-details-inp .input:focus, body main section.product_details_inp .info_inpts .product-details-inp .input:focus-visible, body main section.product_details_inp .info_inpts .product-details-inp textarea:active, body main section.product_details_inp .info_inpts .product-details-inp textarea:focus, body main section.product_details_inp .info_inpts .product-details-inp textarea:focus-visible {
+  outline-color: #5C788F;
+}
+body main section.product_details_inp .info_inpts .product-details-inp textarea {
+  resize: vertical;
+  min-height: 6rem;
+  max-height: 15rem;
 }
 
 @media (max-width: 600px) {
   main {
     padding: 1rem;
     justify-content: center;
+  }
+  main #primary_image-upload, main .sec-img-con {
+    width: 90vw !important;
   }
   aside {
     display: none !important;

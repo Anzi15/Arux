@@ -71,6 +71,24 @@ button{
         scale: 1.06;
     }
 }
+.outline-btn{
+    border-radius: 6px;
+    margin: 1rem 0;
+    padding: .8rem 1rem;    
+    color: $color-brand-blue;
+    border: solid 2px $color-brand-blue;
+    transition: scale .2s ease-in;
+    &:hover{
+        background: $color-brand-blue;
+        color: $color-white;
+    }
+}
+.two_btn_con{
+    width: 100%;
+    justify-content: right;
+    display: flex;
+    gap: 2rem;
+}
 .thin-heading{
     font-weight: 400;
 }

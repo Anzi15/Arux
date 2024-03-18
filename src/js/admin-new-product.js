@@ -65,12 +65,16 @@ const previewFile = function(file, dropArea){
    })
   //  elem where img will be displayed 
    const previewDisplay = dropArea.querySelector('.preview-img')
+   const inpt_elem = dropArea.querySelector('.input_file');
    //reading the file using filereader api to display it
     let reader = new FileReader();
     reader.readAsDataURL(file);
 
     reader.onloadend = function(){
-      previewDisplay.src = reader.result
+      previewDisplay.src = reader.result;
+      // to check latter whether the elem is empty or not
+      inpt_elem.setAttribute("data-role_fullfilled","true")
+      inpt_elem.dataset.role_fullfilled = 'true';
     }
 }
 // to make the drop area default once clicked cancel btn 
@@ -85,12 +89,7 @@ const unhighlight = function(elem){
 
 
 // eventlistners
-primary_image_upload.addEventListener("change",(e)=>{
-    if (e.target.files[0]) {
-        handleImageUpload(e.target)
-        previewFile(e.target.files[0], primary_image_upload)
-    }
-})
+
 // primary_image_upload.addEventListener("mouseover")
 //to prevent (Drag n drop) default actions
 imageDropAreas.forEach((areaElem)=>{
@@ -126,5 +125,13 @@ imageDropAreas.forEach((areaElem)=>{
   areaElem.addEventListener('click',()=>{
     areaElem.querySelector('.input_file').click()
   })
+
+  //on any chnage (inp upload mainly)
+  areaElem.addEventListener("change",(e)=>{
+    if (e.target.files[0]) {
+        handleImageUpload(e.target)
+        previewFile(e.target.files[0], areaElem)
+    }
+})
 })
   
