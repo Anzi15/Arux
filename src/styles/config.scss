@@ -44,7 +44,7 @@ a.theme_link{
     color: $color-brand-blue;
     text-decoration-color: $color-brand-blue;
 }
-button{
+button, input[type="submit"]{
     background: none;
     border: none;
 }
@@ -54,13 +54,13 @@ button{
 .message.success{
     color: green;
 }
-.message.failure{
+.message.failure, .red{
     color: red;
 }
 // buttons
 .big_btn{
     padding: .8rem 1rem;
-    background: $color-brand-blue;
+    background: $color-brand-blue !important;
     margin: 1rem 0;
     color: $color-white;
     text-decoration: none;

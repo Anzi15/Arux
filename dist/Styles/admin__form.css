@@ -28,7 +28,7 @@ a.theme_link {
   text-decoration-color: #5C788F;
 }
 
-button {
+button, input[type=submit] {
   background: none;
   border: none;
 }
@@ -41,13 +41,13 @@ button {
   color: green;
 }
 
-.message.failure {
+.message.failure, .red {
   color: red;
 }
 
 .big_btn {
   padding: 0.8rem 1rem;
-  background: #5C788F;
+  background: #5C788F !important;
   margin: 1rem 0;
   color: #FFFFFF;
   text-decoration: none;

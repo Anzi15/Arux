@@ -14,7 +14,8 @@
             admin_analytics: './src/js/admin-analytics.js',
             admin_products: './src/js/admin-products.js',
             admin_new_product: './src/js/admin-new-product.js',
-            admin_orders: './src/js/admin-orders.js'
+            admin_orders: './src/js/admin-orders.js',
+            admin_new_product_form_submission: './src/js/admin-new-product_form_submission.js'
         },
         output:{
             filename: '[name].js',
@@ -63,7 +64,7 @@
             new HtmlWebpackPlugin({
             filename: 'admin/Products/new/index.html',
             template: 'src/admin/Products/new/index.html',
-            chunks: ['admin_new_product']
+            chunks: ['admin_new_product','admin_new_product_form_submission']
             }),
             //admin orders
             new HtmlWebpackPlugin({
