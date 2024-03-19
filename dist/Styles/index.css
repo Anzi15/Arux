@@ -34,7 +34,7 @@ button, input[type=submit] {
 }
 
 .none, .hidden {
-  display: none;
+  display: none !important;
 }
 
 .message.success {
@@ -45,6 +45,35 @@ button, input[type=submit] {
   color: red;
 }
 
+/* loader */
+.loader-con {
+  overflow: visible;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.loader-con .loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #EBF5FF;
+  border-right-color: #5C788F;
+  animation: l2 1s infinite linear;
+}
+
+@keyframes l2 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes l30 {
+  100% {
+    transform: rotate(-1turn);
+  }
+}
 .big_btn {
   padding: 0.8rem 1rem;
   background: #5C788F !important;

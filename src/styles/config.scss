@@ -49,7 +49,7 @@ button, input[type="submit"]{
     border: none;
 }
 .none,.hidden{
-    display: none;
+    display: none !important;
 }
 .message.success{
     color: green;
@@ -57,6 +57,30 @@ button, input[type="submit"]{
 .message.failure, .red{
     color: red;
 }
+/* loader */
+.loader-con{
+    overflow: visible;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem   ;
+    .loader {
+        width: 50px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid $color-semi_blue  ;
+        border-right-color: $color-brand-blue;
+        animation: l2 1s infinite linear;
+    }
+}
+@keyframes l2 {to{transform: rotate(1turn)}}
+
+@keyframes l30 {
+100% {transform: rotate(-1turn)}
+}
+
 // buttons
 .big_btn{
     padding: .8rem 1rem;
