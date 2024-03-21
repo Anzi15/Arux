@@ -1,4 +1,7 @@
 "use strict";
+// essential imports 
+import {initializeApp} from "firebase/app"
+import { getStorage, ref, uploadBytes,uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 //getting elems form dom
 const forms_section = document.getElementById('forms_section');
@@ -9,22 +12,37 @@ let imagesObj;
 const prev_step_btn = document.querySelector('#prev_step_btn');
 const form_msg_display = document.querySelector('#form__msg-display');
 
+//firebase
+//my firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
+    authDomain: "arux-24899.firebaseapp.com",
+    projectId: "arux-24899",
+    storageBucket: "arux-24899.appspot.com",
+    messagingSenderId: "95411992302",
+    appId: "1:95411992302:web:336d7a38ca931af33225ff",
+    measurementId: "G-LXN5WG6V2S",
+    storageBucket: "https://arux-24899.appspot.com/"
+};
+  
+const app = initializeApp(firebaseConfig)
+
 //functions
-const checkEmptySrc = (dropAreaArr)=>{
-    const arr = [...dropAreaArr];
-    let areEmpty = false;
-    arr.forEach((area)=>{
+const hasEmptySrc = (dropAreaArr) => {
+    for (const area of dropAreaArr) {
         const img = area.querySelector('.preview-img');
-        
-        if(img.src.trim() == window.location.origin + window.location.pathname){
-            areEmpty = true;
+
+        if (img.src.trim() === "" || img.src.trim() === window.location.origin + window.location.pathname) {
             const msg = area.querySelector('.image-upload-msg');
+            msg.classList.add('red');
             msg.innerHTML = `This can't be empty!`;
-            msg.classList.add('red')
+            return true; 
         }
-    })
-    return areEmpty
-}
+    }
+
+    return false; 
+};
+
 const updateSteps = (direction='next')=>{
     const step_indicator = document.querySelector('.step-indicator');
     const currentActiveStep = step_indicator.querySelectorAll('.active');
@@ -57,16 +75,59 @@ const gatherDataOnlocalStorage = (storageKey, key, value)=>{
     localStorage.setItem(storageKey, stringifiedObj)
 
 }
-const prepareToUpload = (locallySavedKey)=>{
-    const productObj = JSON.parse(localStorage.getItem(locallySavedKey));
+const prepareToUpload = (imgsObj)=>{
+    const storage = getStorage();
+    const storageRef = ref(storage, 'Products');
+    let imgNum = 0;
+    const imgFileArr = [
+        imgsObj.primary_img,
+        imgsObj.secondary_imgs[0],
+        imgsObj.secondary_imgs[1],
+    ];
+    const uploadedImgsURL = {secondary_imgs:[]};
 
-    forms_section.innerHTML = `
+    imgFileArr.forEach(file =>{
+        file++;
+        uploadBytes(storageRef, file).then((snapshot) => {
+          const uploadTask = uploadBytesResumable(storageRef, file);
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-    <div class ="loader-con">
-        Uploading image please wait...
-        <div class="loader"></div>
-    </div>
-    `
+                forms_section.innerHTML = `
+                <div class ="loader-con">
+                    Uploading image please wait...
+                    <h3> ${imgNum}/${imgFileArr.length} | ${progress}% done </h3>
+                    <div class="loader"></div>
+                </div>
+                `
+            },
+            (error) => {
+                forms_section.innerHTML = `
+                <div class ="loader-con">
+                    error: ${error} <br>
+                    <h3> Task failed! <a href="">Please try again.</a></h3>
+
+                </div>
+                `
+            },
+            () => {
+              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                if(imgNum < 2){
+                    uploadedImgsURL[primary_img] = downloadURL
+                }else{
+                    uploadedImgsURL.secondary_imgs.push(downloadURL)
+                }
+
+              });
+            }
+          );
+        });
+        
+        localStorage.setItem("uploadedImgsUrls", JSON.stringify(uploadedImgsURL));
+    })
 }
 
 
@@ -74,8 +135,8 @@ const prepareToUpload = (locallySavedKey)=>{
 form_step_1.addEventListener('submit',(e)=>{
     e.preventDefault();
     const dropAreas = [...e.target.querySelectorAll('.image-upload')]
-    
-    if(!checkEmptySrc(dropAreas)){
+
+     if(!hasEmptySrc(dropAreas)){
         const toStoreElems = [...e.target.querySelectorAll('[data-identification_name]')];
 
         const primary_img = e.target.querySelector('#primary_img').src;
@@ -91,15 +152,15 @@ form_step_1.addEventListener('submit',(e)=>{
             primary_img,
             secondary_imgs,
         }
-        imagesObj = images
+        imagesObj = {...images}
         
         toStoreElems.forEach((elem)=>{
             const feildName = elem.dataset.identification_name
             gatherDataOnlocalStorage("product_to_be_Added", feildName, elem.value);
         })
+        updateSteps()
     }
 
-    updateSteps()
 })
 
 form_step_2.addEventListener('submit',(e)=>{
@@ -110,7 +171,7 @@ form_step_2.addEventListener('submit',(e)=>{
         gatherDataOnlocalStorage("product_to_be_Added", feildName, elem.value);
     })
 
-    prepareToUpload("product_to_be_Added")
+    prepareToUpload(imagesObj);
 })
 
 window.onload = ()=>{
