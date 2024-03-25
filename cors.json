@@ -1,12 +1,5 @@
-{
-    "storage": {
-      "rules": "storage.rules",
-      "cors": [
-        {
-          "origin": ["http://localhost:9000"],
-          "method": ["GET", "POST", "PUT", "DELETE"],
-          "maxAgeSeconds": 3600
-        }
-      ]
-    }
-}
+[{
+    "origin": ["http://localhost:9000","https://aurx.store","https://arux.netlify.app","https://anzi15.github.io/arux","https://arux.vercel.app"],
+    "method": ["GET", "POST", "PUT", "DELETE"],
+    "maxAgeSeconds": 3600
+}]
