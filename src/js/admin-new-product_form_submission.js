@@ -1,16 +1,16 @@
 "use strict";
 // essential imports 
 import {initializeApp} from "firebase/app"
-// import { 
-//     getStorage, 
-//     ref, 
-//     uploadBytes,
-//     uploadBytesResumable, 
-//     getDownloadURL 
-// } from "firebase/storage";
+import {
+    getStorage,
+    ref,
+    getDownloadURL,
+    uploadBytes
+} from "firebase/storage";
 import {v4}  from "uuid";
-import { getFirestore } from "firebase/firestore";
-
+import { 
+    getFirestore,
+ } from "firebase/firestore";
 //getting elems form dom
 const forms_section = document.getElementById('forms_section');
 const form_step_1 = document.querySelector('#form_step_1');
@@ -34,7 +34,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig)
-  
+const firebaseStorage = getStorage()
 
 //functions
 const hasEmptySrc = (dropAreaArr) => {
@@ -76,38 +76,72 @@ const updateSteps = (direction='next')=>{
 }
 
 // Function to upload image and get url
-const uploadImgToImgBB = async function (file) {
-    const apiKey = '5d7edd7bd9bc6cbfa53d30c3e83e3970';
-    const formData = new FormData();
-    formData.append('image', file);
-    formData.append('key', apiKey);
 
+const uploadToFirebaseStorage = async function (file) {
+    const imageRef = ref(firebaseStorage, `Products/${v4()}`);
     try {
-        const response = await fetch('https://api.imgbb.com/1/upload', {
-            method: 'POST',
-            body: formData,
-        });
+        const metadata = {
+            contentType: "image",
+            customMetadata: {
+                'origin': window.location.origin
+            }
+        };
 
-        if (!response.ok) {
-            throw new Error('Failed to upload image');
-        } else {
-            const data = await response.json();
-            return data.data.url; // URL of the uploaded image
-        }
+        const uploadResponse = await uploadBytes(imageRef, file, metadata);
+        const imageURL = await getDownloadURL(uploadResponse.ref);
+        
+        return imageURL;
+        
     } catch (error) {
-        console.error('Error uploading image:', error);
-        return null;
+        console.log(`MEOW ERROR:${error}`)
     }
 };
 
+// const uploadToImgHost = async (file)=>{
+//     console.log(``,file)
+//     const apiKey = `6d207e02198a847aa98d0a2a901485a5`;
+
+//     console.log(``,base64Image)
+
+//     const formData = new FormData();
+//     formData.append('key', apiKey);
+//     formData.append('action', 'upload');
+//     formData.append('source', base64Image);
+//     formData.append('format', 'json');
+
+//     const options = {
+//         method: 'POST',
+//         body: formData,
+//         mode: 'no-cors' // Set mode to 'no-cors'
+//     };
+
+//     try {
+//         const apiCall = await fetch("https://freeimage.host/api/1/upload", options);
+        
+//         if (!apiCall.ok) {
+//             throw new Error(`Failed to upload image: ${apiCall.statusText}`);
+//         }
+
+//         const responseData = await apiCall.json();
+//         console.log(responseData);
+//         return responseData;
+//     } catch (error) {
+//         console.error('Error uploading image:', error);
+//         throw error;
+//     }
+// }
+
+
 const storeProductToDB = (productDataObj, productImgObj)=>{
     const combinedData = {...productDataObj};
+    console.log(``)
+    combinedData.primary_img = uploadToFirebaseStorage(productImgObj[primary_img]);
+    console.log(``,productImgObj.primary_img)
 
-    combinedData.primary_img = uploadImgToImgBB(productImgObj[primary_img]);
 
-    combinedData.secondary_1 = uploadImgToImgBB(productImgObj.secondary_img_0);
+    // combinedData.secondary_1 = uploadToFirebaseStorage(productImgObj.secondary_img_0);
 
-    combinedData.secondary_2 = uploadImgToImgBB(productImgObj.secondary_img_1);
+    // combinedData.secondary_2 = uploadToFirebaseStorage(productImgObj.secondary_img_1);
 
     console.log(combinedData);
 
@@ -125,8 +159,9 @@ form_step_1.addEventListener('submit',(e)=>{
         const primary_img = e.target.querySelector('#primary_img').src;
         const secondary_imgs = [...e.target.querySelectorAll('.secondary_image_preview')]
 
+        console.log(``,primary_img)
         const images = {
-            primary_img
+            primary_img,
         }
 
         for (let i = 0; i < secondary_imgs.length; i++) {

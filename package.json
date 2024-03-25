@@ -10,8 +10,10 @@
   "author": "Anzi | Lemme.code",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "chart.js": "^4.4.2",
     "firebase": "^10.8.0",
+    "imgbb-uploader": "^1.5.1",
     "uuid": "^9.0.1",
     "webpack": "^5.90.2",
     "webpack-cli": "^5.1.4"
