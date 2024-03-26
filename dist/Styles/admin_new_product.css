@@ -203,8 +203,9 @@ body main section.product_details_inp {
   gap: 2rem;
   color: #363738;
 }
-body main section.product_details_inp h1#header {
+body main section.product_details_inp #form__msg-display {
   font-size: 2rem;
+  margin: 1rem 0;
 }
 body main section.product_details_inp #onboarding_msg {
   margin: 1rem 0;

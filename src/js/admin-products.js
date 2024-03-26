@@ -8,8 +8,8 @@ import {
 } from "firebase/firestore";
 
 // getting elems from dom 
-const your_products_con = document.getElementById('section__products__grid');
-console.log(``,your_products_con)
+const products_con = document.getElementById('section__products__grid');
+
 //my firebas configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
@@ -30,25 +30,25 @@ const doc_ref = collection(db, "Products");
 const querySnapshot = await getDocs(doc_ref);
 querySnapshot.forEach(doc => {
     // inserting each product into the "your product section "
-    addProduct(your_products_con, doc.id, doc.data())
+    console.log(``,doc.data())
+    addProductToDom(products_con, doc.id, doc.data())
 });
 
 //functions
 
 //func to insert products into dom
-function addProduct(product_con, product_id, product_Data){
-    console.log(product_Data)
-    product_con.innerHTML += 
+function addProductToDom(elem, product_id, product_Data){
+    elem.innerHTML += 
     `
     <div class="product" data-product_id="${product_id}">
-    <img src="${product_Data.images[0]}" alt="" class="product__img">
+    <img src="${product_Data.primary_img}" alt="" class="product__img">
     <div class="product__content-con">
         <h3 class="product__title">
             ${product_Data.title}
         </h3>
         <div class="product__detail-con">
             <p class="product__price">Rs.${product_Data.price}</p>
-            <p class="product__order">Orders: ${product_Data.orders}</p>
+            <p class="product__order">Orders: ${product_Data.shipping_fees}</p>
         </div>
         <div class="product__config-con">
             <button class="product__edit-btn" id="product__delete-btn-${product_id}" data-product_id="${product_id}">
