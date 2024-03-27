@@ -1,57 +1,19 @@
 "use strict";
 // essential imports
-import { initializeApp } from "firebase/app";
-import {
-  getStorage,
-  ref,
-  getDownloadURL,
-  uploadBytes,
-  uploadString,
-} from "firebase/storage";
-import { v4 } from "uuid";
-import { addDoc, collection, doc, getFirestore, setDoc } from "firebase/firestore";
+import {showMsg, storeObjToDB, uploadImageToFirebase} from "./admin-modules"
+
 //getting elems form dom
-const forms_section = document.getElementById("forms_section");
-const form_step_1 = document.querySelector("#form_step_1");
-const form_step_2 = document.querySelector("#form_step_2");
+const formBasicInfo = document.querySelector("#formBasicInfo");
+const formAdditionalInfo = document.querySelector("#formAdditionalInfo");
 let product_data_obj = {};
 let imagesObj = {};
 const prev_step_btn = document.querySelector("#prev_step_btn");
 
-//firebase
-//my firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
-  authDomain: [
-    "arux-24899.firebaseapp.com",
-    "localhost",
-    "arux.netlify.app",
-    "arux.store",
-    "anzi15.github.io/arux",
-    "arux.vercel.app",
-  ],
-  projectId: "arux-24899",
-  storageBucket: "arux-24899.appspot.com",
-  messagingSenderId: "95411992302",
-  appId: "1:95411992302:web:336d7a38ca931af33225ff",
-  measurementId: "G-LXN5WG6V2S",
-};
+//FIREBASE
 
-const app = initializeApp(firebaseConfig);
-const firebaseStorage = getStorage(app);
-const db = getFirestore(app)
 
-//functionsc
-const showMsg = (
-  elem,
-  message = "your message will display here",
-  color = "black"
-) => {
-  elem.style.color = color;
-  elem.innerText = message;
-  return "done";
-};
 
+//FUNCTIONS
 const hasAnyEmptyImgs = (dropAreaArr) => {
   for (const area of dropAreaArr) {
     const img = area.querySelector(".preview-img");
@@ -92,50 +54,23 @@ const updateSteps = (direction = "next") => {
   currentActiveForm.classList.add("hidden");
 };
 
-// Function to upload image to firebase and get url
-const uploadToFirebaseStorage = async (file) => {
-  const imageRef = ref(firebaseStorage, `Products/${v4()}`);
-  const metadata = {
-    contentType: "image/jpeg",
-  };
-  const base64Image = file.split(",")[1];
-
-  try {
-    const uploadResponse = await uploadString(
-      imageRef,
-      base64Image,
-      "base64",
-      metadata
-    );
-
-    const url = await getDownloadURL(uploadResponse.ref);
-
-    return url;
-  } catch (error) {
-    return "error";
-  }
-};
-
 const storeProductToDB = async (productDataObj, productImgObj) => {
   const combinedData = {
-    primary_img: await uploadToFirebaseStorage(productImgObj.primary_img),
-    secondary_img_1: await uploadToFirebaseStorage(
+    primary_img: await uploadImageToFirebase(productImgObj.primary_img),
+    secondary_img_1: await uploadImageToFirebase(
       productImgObj.secondary_img_1
     ),
-    secondary_img_2: await uploadToFirebaseStorage(
+    secondary_img_2: await uploadImageToFirebase(
       productImgObj.secondary_img_2
     ),
     ...productDataObj,
   };
 
-  const newDoc = await addDoc(collection(db, "Products"),combinedData)
-
-  console.log(`Document written with id: ${newDoc.id}`)
-
+ await storeObjToDB("Products", combinedData)
 };
 
 //event listners
-form_step_1.addEventListener("submit", (e) => {
+formBasicInfo.addEventListener("submit", (e) => {
   e.preventDefault();
   const dropAreas = [...e.target.querySelectorAll(".image-upload")];
 
@@ -153,12 +88,10 @@ form_step_1.addEventListener("submit", (e) => {
     };
 
     for (let i = 0; i < secondary_imgs.length; i++) {
-      images[`secondary_img_${i+1}`] = secondary_imgs[i].src;
+      images[`secondary_img_${i + 1}`] = secondary_imgs[i].src;
     }
 
     imagesObj = { ...images };
-    console.log(imagesObj);
-    alert('breakpoint')
 
     toStoreElems.forEach((elem) => {
       const feildName = elem.dataset.identification_name;
@@ -168,7 +101,7 @@ form_step_1.addEventListener("submit", (e) => {
   }
 });
 
-form_step_2.addEventListener("submit", (e) => {
+formAdditionalInfo.addEventListener("submit", (e) => {
   e.preventDefault();
   const toStoreElems = [
     ...e.target.querySelectorAll("[data-identification_name]"),
@@ -183,5 +116,5 @@ form_step_2.addEventListener("submit", (e) => {
 });
 
 prev_step_btn.addEventListener("click", () => {
-  updateSteps("previous");
+  updateSteps("previous")
 });
