@@ -22,7 +22,10 @@ $breakpoint-L-tab: 800px;
     margin: 0;
     padding: 0;
 }
-*[role="overflowable"]{
+.swal2-container{
+    overflow-x: visible !important;
+}
+*[role="overflowable"], .swal2-container *{
     overflow-x: visible !important;
 
 }      
@@ -58,27 +61,35 @@ button, input[type="submit"]{
     color: red;
 }
 /* loader */
-.loader-con{
-    overflow: visible;
+.loader-wrapper{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem   ;
-    .loader {
-        width: 50px;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        border: 8px solid $color-semi_blue  ;
-        border-right-color: $color-brand-blue;
-        animation: l2 1s infinite linear;
+    right: 0vw;
+    top: 0vh;
+    user-select: none;
+    .loader{
+        padding: 2rem 1rem;
+        img{
+            width: 5rem;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
     }
 }
-@keyframes l2 {to{transform: rotate(1turn)}}
-
-@keyframes l30 {
-100% {transform: rotate(-1turn)}
+.loader-wrapper.overlay{
+    background: $color-white;
+    width: 100vw;
+    min-height: 100vh;
+    top: 0;
+    position: fixed;
+    z-index: 10;
+    .loader{
+        z-index: 11 !important;
+    }
 }
 
 // buttons

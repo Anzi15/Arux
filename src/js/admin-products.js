@@ -1,39 +1,16 @@
-//essential imports
-import { initializeApp } from "firebase/app";
-import {
-    getFirestore,
-    collection,
-    getDocs,
-    doc
-} from "firebase/firestore";
+import {removeLoader, getAllFirestoreDocuments} from "./admin-modules"
 
 // getting elems from dom 
 const products_con = document.getElementById('section__products__grid');
 
-//my firebas configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
-    authDomain: "arux-24899.firebaseapp.com",
-    projectId: "arux-24899",
-    storageBucket: "arux-24899.appspot.com",
-    messagingSenderId: "95411992302",
-    appId: "1:95411992302:web:336d7a38ca931af33225ff",
-    measurementId: "G-LXN5WG6V2S"
-};
-  
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const allProducts = await getAllFirestoreDocuments("Products");
+ (()=>{
+    allProducts.forEach(product => {
+        addProductToDom(products_con, product.id, product.data())
+    });
 
-//reading products from db 
-const doc_ref = collection(db, "Products");
-const querySnapshot = await getDocs(doc_ref);
-querySnapshot.forEach(doc => {
-    // inserting each product into the "your product section "
-    console.log(``,doc.data())
-    addProductToDom(products_con, doc.id, doc.data())
-});
-
+    removeLoader(products_con)
+ })()
 //functions
 
 //func to insert products into dom

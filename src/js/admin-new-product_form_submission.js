@@ -1,6 +1,12 @@
 "use strict";
 // essential imports
-import {showMsg, storeObjToDB, uploadImageToFirebase} from "./admin-modules"
+import {
+  showMsg,
+  storeObjToDB,
+  uploadImageToFirebase,
+  addLoader,
+  showAskingAlert,
+} from "./admin-modules";
 
 //getting elems form dom
 const formBasicInfo = document.querySelector("#formBasicInfo");
@@ -8,10 +14,6 @@ const formAdditionalInfo = document.querySelector("#formAdditionalInfo");
 let product_data_obj = {};
 let imagesObj = {};
 const prev_step_btn = document.querySelector("#prev_step_btn");
-
-//FIREBASE
-
-
 
 //FUNCTIONS
 const hasAnyEmptyImgs = (dropAreaArr) => {
@@ -53,25 +55,71 @@ const updateSteps = (direction = "next") => {
   currentActiveForm.classList.remove("currentActiveForm");
   currentActiveForm.classList.add("hidden");
 };
-
+showAskingAlert(
+  "success",
+  "Product added successfully",
+  "Continue by going to dashboard or adding another product.",
+  "Go to dashboard",
+  () => {
+    window.location.replace("../Products");
+  },
+  true,
+  "Add another Product",
+  ()=>{window.location.reload()},
+  false
+);
 const storeProductToDB = async (productDataObj, productImgObj) => {
-  const combinedData = {
-    primary_img: await uploadImageToFirebase(productImgObj.primary_img),
-    secondary_img_1: await uploadImageToFirebase(
-      productImgObj.secondary_img_1
-    ),
-    secondary_img_2: await uploadImageToFirebase(
-      productImgObj.secondary_img_2
-    ),
-    ...productDataObj,
-  };
+  try {
+    const combinedData = {
+      primary_img: await uploadImageToFirebase(productImgObj.primary_img),
+      secondary_img_1: await uploadImageToFirebase(
+        productImgObj.secondary_img_1
+      ),
+      secondary_img_2: await uploadImageToFirebase(
+        productImgObj.secondary_img_2
+      ),
+      ...productDataObj,
+    };
 
- await storeObjToDB("Products", combinedData)
+    const storingProduct = await storeObjToDB("Products", combinedData);
+
+    if (storingProduct == "error") {
+      showAskingAlert(
+        "error",
+        "Task failed :(",
+        "Check your internet and try again..",
+        "Alright!",
+        () => {
+          window.location.reload();
+        },
+        false,
+        "",
+        () => {
+          window.location.reload();
+        },
+        false
+      );
+      throw new Error("Error creating product");
+    } else {
+      showAskingAlert(
+        "success",
+        "Product added successfully",
+        "Continue by going to dashboard or adding another product.",
+        "Go to dashboard",
+        () => {
+          window.location.replace("../");
+        },
+        "Add another Product",
+        ()=>{window.location.reload()},
+        false
+      );
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//event listners
-formBasicInfo.addEventListener("submit", (e) => {
-  e.preventDefault();
+const handleBasicFormSubmission = (e) => {
   const dropAreas = [...e.target.querySelectorAll(".image-upload")];
 
   if (!hasAnyEmptyImgs(dropAreas)) {
@@ -99,10 +147,9 @@ formBasicInfo.addEventListener("submit", (e) => {
     });
     updateSteps();
   }
-});
+};
 
-formAdditionalInfo.addEventListener("submit", (e) => {
-  e.preventDefault();
+const handleAdditionalFormSubmission = (e) => {
   const toStoreElems = [
     ...e.target.querySelectorAll("[data-identification_name]"),
   ];
@@ -113,8 +160,20 @@ formAdditionalInfo.addEventListener("submit", (e) => {
   });
 
   storeProductToDB(product_data_obj, imagesObj);
+};
+
+//event listners
+formBasicInfo.addEventListener("submit", (e) => {
+  e.preventDefault();
+  handleBasicFormSubmission(e);
+});
+
+formAdditionalInfo.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addLoader(e.target, "Uploading images, please wait!", true);
+  handleAdditionalFormSubmission(e);
 });
 
 prev_step_btn.addEventListener("click", () => {
-  updateSteps("previous")
+  updateSteps("previous");
 });
