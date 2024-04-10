@@ -5,7 +5,8 @@ import {
   storeObjToDB,
   uploadImageToFirebase,
   addLoader,
-  showAskingAlert,
+  showConfirmationDialog,
+  showAlert
 } from "./admin-modules";
 
 //getting elems form dom
@@ -55,19 +56,7 @@ const updateSteps = (direction = "next") => {
   currentActiveForm.classList.remove("currentActiveForm");
   currentActiveForm.classList.add("hidden");
 };
-showAskingAlert(
-  "success",
-  "Product added successfully",
-  "Continue by going to dashboard or adding another product.",
-  "Go to dashboard",
-  () => {
-    window.location.replace("../Products");
-  },
-  true,
-  "Add another Product",
-  ()=>{window.location.reload()},
-  false
-);
+
 const storeProductToDB = async (productDataObj, productImgObj) => {
   try {
     const combinedData = {
@@ -84,35 +73,22 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
     const storingProduct = await storeObjToDB("Products", combinedData);
 
     if (storingProduct == "error") {
-      showAskingAlert(
+      showAlert(
         "error",
         "Task failed :(",
         "Check your internet and try again..",
         "Alright!",
-        () => {
-          window.location.reload();
-        },
-        false,
-        "",
-        () => {
-          window.location.reload();
-        },
-        false
       );
       throw new Error("Error creating product");
     } else {
-      showAskingAlert(
+      const confirmAlert = await showConfirmationDialog(
         "success",
         "Product added successfully",
         "Continue by going to dashboard or adding another product.",
         "Go to dashboard",
-        () => {
-          window.location.replace("../");
-        },
         "Add another Product",
-        ()=>{window.location.reload()},
-        false
       );
+      confirmAlert.isConfirmed ? window.location.replace("../products") : window.location.reload()
     }
   } catch (error) {
     console.log(error);
