@@ -1,24 +1,26 @@
 import {removeLoader, getAllFirestoreDocuments, deleteDocumentFromFirestore, showConfirmationDialog, showNotification} from "./admin-modules"
+// import {route} from "./url-routing";
 
 // getting elems from dom 
 const productsContainer = document.getElementById('section__products__grid');
 
 const allProducts = await getAllFirestoreDocuments("Products");
+
 (()=>{
-allProducts.forEach(product => {
-    addProductToDom(productsContainer, product.id, product.data())
-});
+    allProducts.forEach(product => {
+        addProductToDom(productsContainer, product.id, product.data())
+    });
 
-removeLoader(productsContainer);
+    removeLoader(productsContainer);
 
-const productDeleteBtns = productsContainer.querySelectorAll(".product__delete-btn");
+    const productDeleteBtns = productsContainer.querySelectorAll(".product__delete-btn");
+    const productEditBtns = productsContainer.querySelectorAll(".product__edit-btn");
 
-productDeleteBtns.forEach((btn) =>{
-    btn.addEventListener("click",(e)=>{
-        deleteProduct(btn.dataset.product_id)
+    productDeleteBtns.forEach((btn) =>{
+        btn.addEventListener("click",(e)=>{
+            deleteProduct(btn.dataset.product_id)
+        })
     })
-})
-
 
 })()
 //functions
@@ -57,12 +59,13 @@ function addProductToDom(elem, product_id, product_Data){
             <p class="product__order">Orders: ${product_Data.shipping_fees}</p>
         </div>
         <div class="product__config-con">
-            <button class="product__edit-btn" id="product__edit-btn-${product_id}" data-product_id="${product_id}">
+            <a href="/admin/Products/edit?product=${product_id}" 
+            class="product__edit-btn" id="product__edit-btn-${product_id}" data-product_id="${product_id}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                 </svg>
-            </button>
+            </a>
 
             <button class="product__delete-btn" id="product__delete-btn-${product_id}" data-product_id="${product_id}">
                 <svg data-product_id="${product_id}" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -75,3 +78,4 @@ function addProductToDom(elem, product_id, product_Data){
 </div>
     `
 }
+
