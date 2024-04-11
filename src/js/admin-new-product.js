@@ -27,11 +27,6 @@ const storage = getStorage();
 const storageRef = ref(storage, 'Product-imgs');
 // functions 
 
-//to upload the image to the firebase storeage
-const handleImageUpload = function(elem){
-    
-}
-
 //to prevent (Drag n drop) default actions
 const preventDefaults = function(e) {
   e.preventDefault()
@@ -43,12 +38,14 @@ const handleFiles = function(files, dropArea){
     previewFile(file, dropArea)
   });
 }
+
 // once something is dropped 
-const handleDrop = function(e, areaElem){
+const handleDrop = function(e, area){
   const data = e.dataTransfer;
   const files = data.files
-  handleFiles(files, areaElem)
+  handleFiles(files, area)
 }
+
 //previwing file before uploading them
 const previewFile = function(file, dropArea){
   // elems the need to be hiden when preview img is displayed
@@ -92,7 +89,7 @@ const unhighlight = function(elem){
 
 // primary_image_upload.addEventListener("mouseover")
 //to prevent (Drag n drop) default actions
-imageDropAreas.forEach((areaElem)=>{
+imageDropAreas.forEach((area)=>{
   // events 
   const preventDefaultEvents = ['dragenter', 'dragover', 'dragleave', 'drop'];
   const highlightEvents = ['dragenter', 'dragover'];
@@ -100,37 +97,37 @@ imageDropAreas.forEach((areaElem)=>{
 
   //preventing defaults
   preventDefaultEvents.forEach(event => {
-    areaElem.addEventListener(event, preventDefaults)
+    area.addEventListener(event, preventDefaults)
   });
 
   // highlighting 
   highlightEvents.forEach(event => {
-    areaElem.addEventListener(event, ()=>{
-      highlight(areaElem)
+    area.addEventListener(event, ()=>{
+      highlight(area)
     })
   })
   // unhighlighting
   unHighlightEvents.forEach(event =>{
-    areaElem.addEventListener(event, ()=>{
-      unhighlight(areaElem)
+    area.addEventListener(event, ()=>{
+      unhighlight(area)
     })
   }) 
 
   // once something is dropped
-  areaElem.addEventListener('drop', (e)=>{
-    handleDrop(e,areaElem)
+  area.addEventListener('drop', (e)=>{
+    handleDrop(e,area)
   }, false)
 
   //removing img (cancel) btn eventlistners
-  areaElem.addEventListener('click',()=>{
-    areaElem.querySelector('.input_file').click()
+  area.addEventListener('click',()=>{
+    area.querySelector('.input_file').click()
   })
 
   //on any chnage (inp upload mainly)
-  areaElem.addEventListener("change",(e)=>{
+  area.addEventListener("change",(e)=>{
     if (e.target.files[0]) {
         handleImageUpload(e.target)
-        previewFile(e.target.files[0], areaElem)
+        previewFile(e.target.files[0], area)
     }
 })
 })

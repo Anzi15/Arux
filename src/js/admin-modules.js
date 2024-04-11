@@ -212,5 +212,5 @@ export {
   removeLoader,
   addLoader,
   showAlert,
-  showNotification
+  showNotification,
 };

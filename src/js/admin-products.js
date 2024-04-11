@@ -14,7 +14,6 @@ const allProducts = await getAllFirestoreDocuments("Products");
     removeLoader(productsContainer);
 
     const productDeleteBtns = productsContainer.querySelectorAll(".product__delete-btn");
-    const productEditBtns = productsContainer.querySelectorAll(".product__edit-btn");
 
     productDeleteBtns.forEach((btn) =>{
         btn.addEventListener("click",(e)=>{
