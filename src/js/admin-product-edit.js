@@ -1,18 +1,76 @@
 "use-strict";
-//esential imports
-import {preventDefaults, classAdder, classRemover} from "./admin-modules.js"
 
+import { doc } from "firebase/firestore";
+//esential imports
+import {preventDefaults, classAdder, classRemover, getFirestoreDocument} from "./admin-modules.js"
+import {getParamFromUrl} from "./general-modules.js"
 
 //getting elems from dom 
 const primary_image_upload = document.getElementById('primary_image-upload');
 const sec1_image_upload = document.getElementById('sec-1_image-upload');
 const sec2_image_upload = document.getElementById('sec-2_image-upload');
 
+const meow = {
+  "secondary_img_1": "https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F68246759-9d74-416f-b3fe-3d7177594e8f?alt=media&token=7587d378-4fab-4fdf-b7b6-8a48e16913ac",
+  "primary_img": "https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F9ceacc79-d283-4f2b-83d2-4bbb4e45a18e?alt=media&token=99510dca-c6bc-4d68-8a64-1560fce2cb90",
+  "Description": "Best for your bf",
+  "Additional_product_details": "",
+  "secondary_img_2": "https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F4ddaef46-43b2-46c0-b8b5-5581ead70c80?alt=media&token=69d68768-b634-464b-809e-67114f56c99e",
+  "shipping_fees": "",
+  "price": "299",
+  "title": "Body posture corrector"
+}
+
 // variables, arrays and objects
 const imageDropAreas = [primary_image_upload, sec1_image_upload, sec2_image_upload];
-// functions 
+let productID = getParamFromUrl("product-ID");
+const allFeildElems = {
+  // primary_img: document.getElementById("primary_img"),
+  // secondary_img_1: document.getElementById("sec-1-img"),
+  // secondary_img_2: document.getElementById("sec-2-img"),
+  // title: document.getElementById("title_inp"),
+  // description: document.getElementById("product_description"),
+  // price: document.getElementById(""),
+  // shipping_fees: document.getElementById(""),
+  // additional_details: document.getElementById(""),
+};
 
-//to prevent (Drag n drop) default actions
+const toStoreElems = document.querySelectorAll("[data-identification_name]");
+
+//functions
+// This function asynchronously populates input fields with values from a Firestore document
+(async () => {
+  // Loop through the elements to store them in an object
+  toStoreElems.forEach((elem) => {
+    const feildName = elem.dataset.identification_name;
+    allFeildElems[feildName] = elem;
+  });
+
+  const allImgElems = {
+    primary_img : document.getElementById('primary_img'),
+    secondary_img_1 : document.getElementById('secondary_img_1'),
+    secondary_img_2 : document.getElementById('secondary_img_2'),
+  }
+
+  // Retrieve the Firestore document for the specified productID
+  const productDoc = await getFirestoreDocument("Products", productID);
+
+  // Populate input fields with values from the Firestore document
+  for (const fieldName in allFeildElems) {
+    const fieldValue = productDoc[fieldName];
+    if (fieldValue) {
+      allFeildElems[fieldName].value = fieldValue;
+    }
+  }
+  for (const fieldName in allImgElems) {
+    console.log(``,fieldName,allImgElems)
+    const imageURL = productDoc[fieldName];
+    if (imageURL) {
+      allImgElems[fieldName].src = imageURL;
+    }
+  }
+})();
+
 
 // to handle files 
 const handleFiles = function(files, dropArea){
@@ -20,12 +78,14 @@ const handleFiles = function(files, dropArea){
     previewFile(file, dropArea)
   });
 }
+
 // once something is dropped 
 const handleDrop = function(e, area){
   const data = e.dataTransfer;
   const files = data.files
   handleFiles(files, area)
 }
+
 //previwing file before uploading them
 const previewFile = function(file, dropArea){
   // elems the need to be hiden when preview img is displayed
@@ -54,13 +114,8 @@ const previewFile = function(file, dropArea){
       inpt_elem.dataset.role_fullfilled = 'true';
     }
 }
-// to make the drop area default once clicked cancel btn 
-// to highlight the drop area 
 
-// eventlistners
-
-// primary_image_upload.addEventListener("mouseover")
-//to prevent (Drag n drop) default actions
+//image dropArea to upload images
 imageDropAreas.forEach((area)=>{
   // events 
   const preventDefaultEvents = ['dragenter', 'dragover', 'dragleave', 'drop'];
@@ -103,4 +158,4 @@ imageDropAreas.forEach((area)=>{
     }
 })
 })
-  
+

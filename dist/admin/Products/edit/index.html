@@ -6,7 +6,7 @@
     <title>Edit product</title>
     <!-- stylings  -->
     <link rel="stylesheet" href="../../../Styles/admin_new_product.css">
-</head>
+<script defer src="../../../admin_edit_product_form_submission.js"></script><script defer src="../../../admin_product_edit.js"></script></head>
 <body>
     <nav>
         <a href="/admin/">
@@ -44,7 +44,6 @@
         <section class=" product_details_inp" id="forms_section">
             <!-- display area to show msgs  -->
             <div>
-                
                 <div class="forms-con">
                     <div class="msg_display" >
                         <h1 id="form__msg-display" class="thin-heading">Edit Product</h1>
@@ -60,11 +59,11 @@
                             class="image-upload" id="primary_image-upload"
                             >
 
-                                <input hidden id="primary_image-inp" type="file" name="image_primary_upload_inp" accept="image/*"
+                            <input hidden id="primary_image-inp" type="file" name="image_primary_upload_inp" accept="image/*"
                                 class="input_file"
                                 />
 
-                                <img data-showOnImagePreview class="preview-img hidden" src="" id="primary_img"/>
+                                <img data-showOnImagePreview class="preview-img" src="" id="primary_img"/>
 
                             </div>
 
@@ -79,7 +78,7 @@
                                     type="file" name="image_primary_upload_inp" accept="image/*"
                                     class="input_file"/>
 
-                                    <img data-showOnImagePreview class="preview-img hidden secondary_image_preview" src="" />
+                                    <img data-showOnImagePreview class="preview-imgsecondary_image_preview" src="" id="sec-1-img"/>
 
                                 </div>
 
@@ -92,7 +91,9 @@
                                     hidden type="file" name="image_primary_upload_inp" accept="image/*"
                                     class="input_file"/>
 
-                                    <img data-showOnImagePreview class="preview-img hidden secondary_image_preview" src="" />
+                                    <img data-showOnImagePreview class="preview-imgsecondary_image_preview"
+                                    id="sec-2-img"
+                                    src="" />
 
                                 </div>
                             </div>

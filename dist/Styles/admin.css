@@ -189,6 +189,7 @@ body aside .top-options .option .option-content svg, body aside .bottom-options 
 }
 body aside .top-options .option.active, body aside .bottom-options .option.active {
   background: #EBF5FF;
+  border-left: 0.5rem solid #5C788F;
 }
 body main {
   background: #FFFFFF;

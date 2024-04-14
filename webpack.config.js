@@ -16,6 +16,8 @@
             admin_new_product: './src/js/admin-new-product.js',
             admin_orders: './src/js/admin-orders.js',
             admin_new_product_form_submission: './src/js/admin-new-product_form_submission.js',
+            admin_edit_product_form_submission: './src/js/admin-edit-product_form_submission.js',
+            admin_product_edit: './src/js/admin-product-edit.js'
         },
         output:{
             filename: '[name].js',
@@ -78,7 +80,7 @@
             new HtmlWebpackPlugin({
                 filename: 'admin/Products/edit/index.html',
                 template: 'src/admin/Products/edit/index.html',
-                chunks: []
+                chunks: ['admin_edit_product_form_submission', 'admin_product_edit']
             }),
         
         ],

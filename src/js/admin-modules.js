@@ -16,6 +16,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { getDatabase, onDisconnect } from "firebase/database";
 
 //firebase configuration
 const firebaseConfig = {
@@ -38,6 +39,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const firebaseStorage = getStorage(app);
 const db = getFirestore(app);
+
+const clientIsConnectedToDb = ()=>{
+  const dataBase = getDatabase();
+  const connectedRef = ref(dataBase, ".info/connected");
+  onValue(connectedRef, (snap) => {
+    if (snap.val() === true) {
+      return true;
+    } else {
+      return false;
+      // const offlineInterval = setInterval(() => {
+      //   showNotification
+      // }, 3821);
+    }
+  });
+}
+(()=>{
+ if(!clientIsConnectedToDb) showNotification("error", "You seem offline :(")
+})()
 
 const showMsg = (
   elem,
@@ -96,16 +115,40 @@ const storeObjToDB = async (
   }
 };
 
+
+
 const getAllFirestoreDocuments = async (collectionName = "Products") => {
   try {
-    const doc_ref = collection(db, collectionName);
-    const querySnapshot = await getDocs(doc_ref);
-    return querySnapshot;
+    if(window.navigator.onLine || clientIsConnectedToDb){
+      const doc_ref = collection(db, collectionName);
+      const querySnapshot = await getDocs(doc_ref);
+      return querySnapshot;
+    }else{
+      showNotification("error","You seem having internet issues :(", 8000)
+    } 
+      
   } catch (error) {
     console.log(`Error getting documents from firestore: ${error}`);
+    showNotification("error",error)
     return error;
   }
 };
+
+const getFirestoreDocument = async (collectionName, docID)=>{
+try {
+    const docRef = doc(db, collectionName, docID);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data()
+    } else {
+      console.log("No such document! doc_id:",docID);
+      throw new Error("Something went wrong :(")
+    }
+} catch (error) {
+  showNotification("error","Something went wrong :(", 8000)
+  return error
+}
+}
 
 const deleteDocumentFromFirestore = async (collectionName, document_id) => {
   let returningObj={}
@@ -185,7 +228,7 @@ const showAlert = async (icon = "success", title, text, btnText) => {
   return false;
 };
 
-async function showNotification (icon, text){
+async function showNotification (icon, text, duration = 4000){
   const Toast = Swal.mixin({
     toast: true,
     position: 'top',
@@ -193,7 +236,7 @@ async function showNotification (icon, text){
       popup: 'colored-toast',
     },
     showConfirmButton: false,
-    timer: 3821,
+    timer: duration,
     timerProgressBar: true,
   });
   await Toast.fire({
@@ -202,15 +245,35 @@ async function showNotification (icon, text){
   })
 }
 
+const preventDefaults = function(e) {
+  e.preventDefault()
+  e.stopPropagation()
+}
+const classAdder = (elem, ...classes)=>{
+  const classListArr = [...classes]
+  classListArr.forEach((className)=>{
+    elem.classList.add(className)
+  })
+}
+const classRemover = (elem, ...classes)=>{
+  const classListArr = [...classes]
+  classListArr.forEach((className)=>{
+    elem.classList.remove(className)
+  })
+}
 export {
   showMsg,
   uploadImageToFirebase,
   showConfirmationDialog,
   storeObjToDB,
   getAllFirestoreDocuments,
+  getFirestoreDocument,
   deleteDocumentFromFirestore,
   removeLoader,
   addLoader,
   showAlert,
   showNotification,
+  preventDefaults,
+  classAdder,
+  classRemover
 };

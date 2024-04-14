@@ -54,6 +54,7 @@ body{
             //stylings for active color
             .option.active{
                 background: $color-semi_blue;
+                border-left: 0.5rem solid $color-brand_blue;
             }
         }
     }
