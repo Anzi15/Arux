@@ -45,6 +45,7 @@ const toStoreElems = document.querySelectorAll("[data-identification_name]");
     const feildName = elem.dataset.identification_name;
     allFeildElems[feildName] = elem;
   });
+  console.log(``,)
 
   const allImgElems = {
     primary_img : document.getElementById('primary_img'),
@@ -58,12 +59,13 @@ const toStoreElems = document.querySelectorAll("[data-identification_name]");
   // Populate input fields with values from the Firestore document
   for (const fieldName in allFeildElems) {
     const fieldValue = productDoc[fieldName];
+    console.log(``,fieldName,fieldValue)
     if (fieldValue) {
       allFeildElems[fieldName].value = fieldValue;
+      console.log(allFeildElems[fieldName].value)
     }
   }
   for (const fieldName in allImgElems) {
-    console.log(``,fieldName,allImgElems)
     const imageURL = productDoc[fieldName];
     if (imageURL) {
       allImgElems[fieldName].src = imageURL;

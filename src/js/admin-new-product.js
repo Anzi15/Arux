@@ -12,10 +12,8 @@ const sec2_image_upload = document.getElementById('sec-2_image-upload');
 const imageDropAreas = [primary_image_upload, sec1_image_upload, sec2_image_upload];
 // functions 
 
-//to prevent (Drag n drop) default actions
-
 // to handle files 
-const handleFiles = function(files, dropArea){
+function handleFiles(files, dropArea){
   ([...files]).forEach(file => {
     previewFile(file, dropArea)
   });
@@ -54,12 +52,9 @@ const previewFile = function(file, dropArea){
       inpt_elem.dataset.role_fullfilled = 'true';
     }
 }
-// to make the drop area default once clicked cancel btn 
-// to highlight the drop area 
 
 // eventlistners
 
-// primary_image_upload.addEventListener("mouseover")
 //to prevent (Drag n drop) default actions
 imageDropAreas.forEach((area)=>{
   // events 
@@ -98,7 +93,6 @@ imageDropAreas.forEach((area)=>{
   //on any chnage (inp upload mainly)
   area.addEventListener("change",(e)=>{
     if (e.target.files[0]) {
-        handleImageUpload(e.target)
         previewFile(e.target.files[0], area)
     }
 })

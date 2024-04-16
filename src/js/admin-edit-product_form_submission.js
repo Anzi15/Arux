@@ -17,24 +17,6 @@ let imagesObj = {};
 const prev_step_btn = document.querySelector("#prev_step_btn");
 
 //FUNCTIONS
-const hasAnyEmptyImgs = (dropAreaArr) => {
-  for (const area of dropAreaArr) {
-    const img = area.querySelector(".preview-img");
-
-    if (
-      img.src.trim() === "" ||
-      img.src.trim() === window.location.origin + window.location.pathname
-    ) {
-      const msg = area.querySelector(".image-upload-msg");
-
-      showMsg(msg, `This can't be empty!`, "red");
-
-      return true;
-    }
-  }
-
-  return false;
-};
 
 const updateSteps = (direction = "next") => {
   const step_indicator = document.querySelector(".step-indicator");
@@ -98,7 +80,6 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
 const handleBasicFormSubmission = (e) => {
   const dropAreas = [...e.target.querySelectorAll(".image-upload")];
 
-  if (!hasAnyEmptyImgs(dropAreas)) {
     const toStoreElems = [
       ...e.target.querySelectorAll("[data-identification_name]"),
     ];
@@ -123,12 +104,13 @@ const handleBasicFormSubmission = (e) => {
     });
     updateSteps();
   }
-};
 
 const handleAdditionalFormSubmission = (e) => {
   const toStoreElems = [
     ...e.target.querySelectorAll("[data-identification_name]"),
   ];
+
+
 
   toStoreElems.forEach((elem) => {
     const feildName = elem.dataset.identification_name;

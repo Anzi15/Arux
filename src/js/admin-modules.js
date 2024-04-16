@@ -103,6 +103,7 @@ const storeObjToDB = async (
 ) => {
   try {
     if (navigator.onLine) {
+      console.log(``,dataObj)
       const newDoc = await addDoc(collection(db, collectionName), dataObj);
 
       return newDoc;
@@ -172,29 +173,41 @@ const addLoader = (
   LoaderMessage = "",
   overlayLoader = false
 ) => {
+  const LoaderMessageArr = [...LoaderMessage];
   if (parentElem == null || parentElem == undefined) return;
+  const numOfMsgs = LoaderMessage.length
 
   if (overlayLoader) {
     parentElem.innerHTML += `<div class="loader-wrapper overlay">
     <div class="loader">
-        <img src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="Loading..."
+        <img id="loadingImg" src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="${LoaderMessageArr[0]}"
         draggable="false"
         oncontextmenu="return false">
 
     </div>
-    <p class="loader-msg">${LoaderMessage}</p>
+    <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
     </div>`;
   } else {
     parentElem.innerHTML += `<div class="loader-wrapper">
     <div class="loader">
-        <img src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="Loading..."
+        <img id="loadingImg" src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="${LoaderMessageArr[0]}"
         draggable="false"
         oncontextmenu="return false">
 
     </div>
-    <p class="loader-msg">${LoaderMessage}</p>
+    <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
     </div>`;
   }
+
+  const autoLoadingMessageUpdater = setInterval(() => {
+    const loadingMsg = LoaderMessageArr[Math.floor(Math.random() * numOfMsgs)]
+
+    const LoadingMsgElem = document.getElementById('LoadingMsg');
+    const loadingImgElem = document.getElementById('loadingImg');
+
+    LoadingMsgElem.innerText= loadingMsg;
+    loadingImgElem.alt = loadingMsg
+  }, 8000);
 };
 
 const showConfirmationDialog = async (
