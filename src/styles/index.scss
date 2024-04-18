@@ -7,29 +7,36 @@ main{
     gap: 6rem;
     //the carousel
     .carousel__con{
-        width: 100vw;
+        margin: 0 auto;
+        width: 50vw;
         display: flex;
         justify-content: center;
+        align-items: center;
         //slider con
         .carousel__slider-con{
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             // slider 
             ul.carousel__slider{
-                
+                width: 100%;
+                display: flex !important;
                 min-width: 90vw;
                 aspect-ratio: 16/9;
                 overflow: visible;
                 transition: transform .5s ease;
                 transform: translateX(0);
+                position: relative !important;
                 margin: .5rem 0;
                 // each slide 
                 li.carousel__slide{
                     overflow: hidden;
-                   position: absolute;
+                    position: absolute;
                     inset: 0;
                     aspect-ratio: 16/9;
-                    width: 90vw;
+                    width: 90%;
                     border-radius: 6px;
                     //images inside slides
                     img{
