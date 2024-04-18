@@ -141,12 +141,15 @@ button, input[type=submit] {
   }
 }
 body {
-  min-height: 100vh;
+  max-height: 100vh;
   display: flex;
+  overflow-y: hidden;
 }
 body aside {
   background: #FFFFFF;
-  min-height: 100vh;
+  height: 100vh;
+  position: sticky;
+  top: 0;
   width: 17rem;
   transition: transfrom 0.6s ease-in-out;
   display: flex;

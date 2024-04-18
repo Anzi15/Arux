@@ -1,13 +1,16 @@
 @import 'config';
 //body
 body{
-    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
+    overflow-y: hidden;
     
     //sidebar nav
     aside{
         background: $color-white;
-        min-height: 100vh;
+        height: 100vh;
+        position: sticky;
+        top: 0;
         width: 17rem;
         transition: transfrom .6s ease-in-out;
         display: flex;

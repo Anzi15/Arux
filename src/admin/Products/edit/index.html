@@ -20,6 +20,11 @@
         </a>
     </nav>
 
+    <div class="loader-wrapper overlay">
+        <span class="loader">
+            <img src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="Loading...">
+        </span>
+    </div>
     <main>
         <aside>
             <div class="step-indicator">
@@ -78,7 +83,9 @@
                                     type="file" name="image_primary_upload_inp" accept="image/*"
                                     class="input_file"/>
 
-                                    <img data-showOnImagePreview class="preview-imgsecondary_image_preview" src="" id="secondary_img_1"/>
+                                    <img data-showOnImagePreview class="preview-img secondary_image_preview" src="" id="secondary_img_1"
+                                    
+                                    />
 
                                 </div>
 
@@ -91,7 +98,7 @@
                                     hidden type="file" name="image_primary_upload_inp" accept="image/*"
                                     class="input_file"/>
 
-                                    <img data-showOnImagePreview class="preview-imgsecondary_image_preview"
+                                    <img data-showOnImagePreview class="preview-img secondary_image_preview"
                                     id="secondary_img_2"
                                     src="" />
 
@@ -143,7 +150,7 @@
 
                                 <label for="shipping_fees">Shipping fees</label>
 
-                                <input type="number" name="Shipping_fees" class="input" data-identification_name="shipping_fees"
+                                <input type="number" name="Shipping_fees" class="input" data-identification_name="Shipping_fees"
                                 required
                                 placeholder="Rs. 120">
                             </div>
@@ -159,7 +166,7 @@
                             <div class="next-btn-con two_btn_con">
                                 <a class="prev_step_btn outline-btn" id="prev_step_btn">Previous step</a>
 
-                                <input type="submit" value="Next Step" class="next big_btn">
+                                <input type="submit" value="Save Changes" class="next big_btn">
                             </div>
                         </div>
                     </form>

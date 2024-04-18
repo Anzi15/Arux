@@ -71,8 +71,6 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
       ...productDataObj,
     };
 
-    console.log(``,combinedData)
-
     const storingProduct = await storeObjToDB("Products", combinedData);
     
     if (storingProduct == "error") {
@@ -93,9 +91,7 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
       );
       confirmAlert.isConfirmed ? window.location.replace("../products") : window.location.reload()
     }
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {  }
 };
 
 const handleBasicFormSubmission = (e) => {
@@ -141,43 +137,13 @@ const handleAdditionalFormSubmission = async (e) => {
     const elem = toStoreElems[i];
     const feildName =  elem.dataset.identification_name;
     const elemValue = await elem.value
-    console.log(elemValue)
-    alert(elem.value)
     if(elem.type == "number"){
       product_data_obj[feildName] = parseInt(elem.value);
     }else{
       product_data_obj[feildName] = (elem.value);
     }
   }
-  const loadingMsgs = [
-    "Did you know? Images speak louder than words!",
-    "Attention to detail makes all the difference!",
-    "Fun Fact: Every product tells a story.",
-    "Quote of the day: 'The future belongs to those who believe in the beauty of their dreams.' - Eleanor Roosevelt",
-    "Patience is a virtue, and great products are worth the wait!",
-    "Did you know? Quality is never an accident; it is always the result of high intention, sincere effort, intelligent direction, and skillful execution.",
-    "Good things come to those who wait, but better things come to those who work for it.",
-    "Rome wasn't built in a day, and neither is a successful e-commerce store!",
-    "Quote of the day: 'Success is not final, failure is not fatal: It is the courage to continue that counts.' - Winston Churchill",
-    "Did you know? Innovation distinguishes between a leader and a follower.",
-    "Believe you can and you're halfway there!",
-    "Every great accomplishment starts with the decision to try.",
-    "Fun Fact: Diamonds are just chunks of coal that stuck to their goals!",
-    "Quote of the day: 'The only way to do great work is to love what you do.' - Steve Jobs",
-    // Additional messages:
-    "Tip: If this is taking longer than usual, check your internet connection.",
-    "Success doesn't happen overnight, but it's worth the wait!",
-    "Fun Fact: The average person spends about 2 years of their life waiting in line - your wait is almost over!",
-    "Tip: Take a deep breath and relax, your product is almost ready to shine!",
-    "Dream big, work hard, and your efforts will pay off!",
-    "Fun Fact: The world's first e-commerce transaction was in 1994 for a Sting CD - we've come a long way since then!",
-    "Tip: While you wait, why not explore our latest collections for some inspiration?",
-    "The journey to success is paved with patience and perseverance - you're on the right path!",
-    "Fun Fact: The longest recorded time spent waiting on hold is 15 hours - luckily, your wait won't be that long!",
-    "Tip: Trust the process, and soon you'll see the results you've been waiting for!",
-];
-  addLoader(e.target, loadingMsgs, true);
-  // Continue with the rest of your code...
+  addLoader(e.target, true);
   storeProductToDB(product_data_obj, imagesObj);
 };
 
