@@ -150,7 +150,7 @@ const toStoreElems = document.querySelectorAll("[data-identification_name]");
   })
   })
 })();
-
+"use strict";
 
 const saveChanges = async ()=>{
   addLoader(formAdditionalInfo, true)

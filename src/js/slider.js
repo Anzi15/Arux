@@ -1,8 +1,15 @@
+"use strict";
+
 // getting elements from dom
 const slider = document.querySelector(".carousel__slider");
+
 const slides = [...slider.children];
-const nav_dot_con = document.getElementById('carousel__nav');
-const nav_dots = [...nav_dot_con.children];
+
+const amountToSlide = slides[0].getBoundingClientRect().width;
+
+const sliderDotCon = document.getElementById('carousel__nav');
+
+let navDots = [];
 
 //functions
 
@@ -11,137 +18,102 @@ const nav_dots = [...nav_dot_con.children];
   for (let i = 0; i < slides.length; i++) {
     const slideWidth = slides[i].getBoundingClientRect().width;
     slides[i].style.left = `${i * slideWidth}px`;
+
+    //populating the slider's nav dots accordingly 
+    const newDot = document.createElement("div");
+    newDot.classList.add("carousel__nav-dot");
+    sliderDotCon.appendChild(newDot);
   }
+  navDots = [...sliderDotCon.children];
+  navDots[0].classList.add("active")
 })();
 
-function moveLeft() {
-  const current_slide = slider.querySelector(".active_slide");
+
+const resetSlider = (currentSlide)=>{
+  //reseting slides..
+  slider.style.transform = `translateX(${0})`;
+
+  currentSlide.classList.remove("active_slide");
+  slides[0].classList.add("active_slide");
+
+  //reseting navigation dots 
+  syncDotWithSlide(0)
+}
+
+const moveToNextSlide = function () {
+  const currentSlide = slider.querySelector(".active_slide");
   //getting the current active slide from all the slides
   const next_slide =
-  current_slide == null ? slides[0] : current_slide.nextElementSibling; //checking if we have reached to the end of slides to handle it accordingly
+  currentSlide == null ? slides[0] : currentSlide.nextElementSibling; //checking if we have reached to the end of slides to handle it accordingly
 
-  if (!next_slide) {
-    //if we have reached the end
-    slider.style.transform = `translateX(${0})`;
-    current_slide.classList.remove("active_slide");
-    slides[0].classList.add("active_slide");
-    // moving the indication dot to the first dot after there's dot ahead
-    nav_dot_con.querySelector(".active").classList.remove("active");
-    nav_dot_con.children[0].classList.add("active")
-  } else {
-    //if we haven't slide as much as the width of a slide
-    const amountToSlide = next_slide.getBoundingClientRect().width; //getting the width of a slide
-
+  if (next_slide) {
     slider.style.transform = `translateX(-${
       amountToSlide * slides.indexOf(next_slide)
     }px)`; //applying the styles to scroll accordingly
 
-    current_slide.classList.remove("active_slide");
+    currentSlide.classList.remove("active_slide");
     next_slide.classList.add("active_slide");
-    //removing the active slide class to resolve future conflicts
 
     // moving the indication dots according to the slide 
-    carouselNavDotUpdate("right")
+    syncDotWithSlide(slides.indexOf(next_slide))
+  } else {
+    resetSlider(currentSlide)
   }
 }
 
-//basically does the same thing as moveLeft() function but in opposite direction
-function moveRight() {
-  const current_slide = slider.querySelector(".active_slide");
-  const prev_slide = current_slide.previousSibling;
-  const amountToSlide = current_slide.getBoundingClientRect().width;
+//basically does the same thing as moveToNextSlide() function but in opposite direction
+const moveToPrevSlide = function () {
+  const currentSlide = slider.querySelector(".active_slide");
+  const prev_slide = currentSlide.previousElementSibling;
 
   if (prev_slide) {
     slider.style.transform = `translateX(-${
       amountToSlide * slides.indexOf(prev_slide)
     }px)`;
 
-    current_slide.classList.remove("active_slide");
+    currentSlide.classList.remove("active_slide");
     prev_slide.classList.add("active_slide");
-    
-    const dot =   nav_dot_con.querySelector(".active")
-    const prev_dot_index = nav_dots.indexOf(dot) -1;
-    nav_dots[prev_dot_index].classList.add("active");
-    dot.classList.remove("active")
+
+    syncDotWithSlide(slides.indexOf(prev_slide))
   } else {
     const lastSlideIndex = slides.length - 1;
     slider.style.transform = `translateX(-${amountToSlide * lastSlideIndex}px)`;
 
-    current_slide.classList.remove("active_slide");
-    slides[lastSlideIndex].classList.add("active_slide");
+    currentSlide.classList.remove("active_slide");
+    slider.lastElementChild.classList.add("active_slide");
     
-    carouselNavDotUpdate("left")
+    syncDotWithSlide(slides.length-1)
+
   }
 }
 
-//syncing the slides according to the dots clicked
-function syncSlide(e){
-  const current_slide = slider.querySelector(".active_slide"); //getting the current active slide
-  const index = nav_dots.indexOf(e.target); //getting the index of the dot clicked
+//moving the slides according to the dots clicked
+function dotSlide(e){
+  const currentSlide = slider.querySelector(".active_slide"); //getting the current active slide
+  const index = navDots.indexOf(e.target); //getting the index of the dot clicked
   const amountToSlide = slides[index].getBoundingClientRect().width; //getting the width of a single slide
   slider.style.transform = `translateX(-${amountToSlide * index}px)`; //slide Slide's withs multiplied by the index
   
   //changing the classes of slides to avoid future conflicts
-  current_slide.classList.remove("active_slide");
+  currentSlide.classList.remove("active_slide");
   slides[index].classList.add("active_slide");
 
   //changing the classes of dots for indication
   e.target.parentElement.querySelector(".active").classList.remove("active")
-  nav_dots[index].classList.add("active")
+  navDots[index].classList.add("active")
+}
+
+function syncDotWithSlide (indexOfSlide){
+  sliderDotCon.querySelector(".active").classList.remove("active");
+  navDots[indexOfSlide].classList.add("active");
 }
 
 
-
-
-// const autoCarousal = setInterval(() => {
-//     moveLeft()
-// }, 5000);
+const autoCarousal = setInterval(() => {
+    moveToNextSlide()
+}, 5000);
 
 // event listner 
-nav_dots.forEach((dot)=>{
-  dot.addEventListener("click",syncSlide)
+navDots.forEach((dot)=>{
+  dot.addEventListener("click",dotSlide)
 })
-
-//event listner for slide (on touch screens)
-let touchstartX = 0;
-let touchendX = 0;
-    
-function checkDirection() {
-  if (touchendX < touchstartX) moveLeft()
-  if (touchendX > touchstartX) moveRight()
-}
-
-slider.addEventListener('touchstart', e => {
-  touchstartX = e.changedTouches[0].screenX
-})
-
-slider.addEventListener('touchend', e => {
-  touchendX = e.changedTouches[0].screenX
-  checkDirection()
-})
-
-const carouselNavDotUpdate = function (direction="right"){
-  const currentActiveDot = nav_dot_con.querySelector('.active');
-  
-  switch (direction) {
-    case "right":
-      if (currentActiveDot.nextElementSibling) {
-        currentActiveDot.nextElementSibling.classList.add("active");
-      } else {
-        nav_dot_con.firstElementChild.classList.add("active");
-      }
-      break;
-    case "left":
-      if (currentActiveDot.previousElementSibling) {
-        currentActiveDot.previousElementSibling.classList.add("active");
-      } else {
-        currentActiveDot.lastElementChild.classList.add("active");
-      }
-      break;
-    default:
-      // Handle default case (if any)
-      break;
-  }
-  
-  currentActiveDot.classList.remove("active")
-}

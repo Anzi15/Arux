@@ -1,3 +1,5 @@
+"use strict";
+
 import {removeLoader, getAllFirestoreDocuments, deleteDocumentFromFirestore, showConfirmationDialog, showNotification} from "./admin-modules"
 // import {route} from "./url-routing";
 

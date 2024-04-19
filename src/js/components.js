@@ -1,3 +1,5 @@
+"use strict";
+
 // getting elements form dom 
 const navToggleBtn = document.querySelectorAll('[data-nav-toggler]');
 const mobNav = document.getElementById('mob-nav-links');

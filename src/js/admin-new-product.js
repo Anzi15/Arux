@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 //esential imports
 import {preventDefaults, classAdder, classRemover} from "./admin-modules.js"
 

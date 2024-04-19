@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/components.js":
@@ -15,7 +16,7 @@
   \******************************/
 /***/ (() => {
 
-eval("// getting elements form dom \r\nconst navToggleBtn = document.querySelectorAll('[data-nav-toggler]');\r\nconst mobNav = document.getElementById('mob-nav-links');\r\nconst dark_overlay = document.getElementById('dark-overlay');\r\n\r\n// functions \r\nconst classToggler = (elem, ...classlist)=>{\r\n    const elemArr = [elem]\r\n    elemArr.forEach((element) =>{\r\n        classlist.forEach(Class =>{\r\n            element.classList.toggle(Class)\r\n        })\r\n    })\r\n}\r\n\r\n// adding event listners \r\nnavToggleBtn.forEach((btn)=>{\r\n    btn.addEventListener(\"click\",()=>{\r\n        classToggler(mobNav,\"none\")\r\n    })\r\n})\r\n\r\n\n\n//# sourceURL=webpack://arux/./src/js/components.js?");
+eval("\r\n\r\n// getting elements form dom \r\nconst navToggleBtn = document.querySelectorAll('[data-nav-toggler]');\r\nconst mobNav = document.getElementById('mob-nav-links');\r\nconst dark_overlay = document.getElementById('dark-overlay');\r\n\r\n// functions \r\nconst classToggler = (elem, ...classlist)=>{\r\n    const elemArr = [elem]\r\n    elemArr.forEach((element) =>{\r\n        classlist.forEach(Class =>{\r\n            element.classList.toggle(Class)\r\n        })\r\n    })\r\n}\r\n\r\n// adding event listners \r\nnavToggleBtn.forEach((btn)=>{\r\n    btn.addEventListener(\"click\",()=>{\r\n        classToggler(mobNav,\"none\")\r\n    })\r\n})\r\n\r\n\n\n//# sourceURL=webpack://arux/./src/js/components.js?");
 
 /***/ })
 

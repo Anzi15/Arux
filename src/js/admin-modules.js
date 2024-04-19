@@ -1,3 +1,5 @@
+"use strict";
+
 import { initializeApp } from "firebase/app";
 import {
   getStorage,
@@ -18,6 +20,8 @@ import {
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getDatabase, onDisconnect } from "firebase/database";
+
+//TODO: break down admin-modules into seprate files, like firebase modules, ui-modules, etc.
 
 //firebase configuration
 const firebaseConfig = {

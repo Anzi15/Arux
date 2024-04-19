@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 //importing essentials
 import { initializeApp } from "firebase/app";

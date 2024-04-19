@@ -1,3 +1,5 @@
+"use strict";
+
 import { readUsedSize } from "chart.js/helpers";
 
 function getParamFromUrl(paramName) {

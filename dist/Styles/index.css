@@ -147,7 +147,7 @@ main {
 }
 main .carousel__con {
   margin: 0 auto;
-  width: 50vw;
+  width: 90vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,7 +175,7 @@ main .carousel__con .carousel__slider-con ul.carousel__slider li.carousel__slide
   position: absolute;
   inset: 0;
   aspect-ratio: 16/9;
-  width: 90%;
+  width: 100%;
   border-radius: 6px;
 }
 main .carousel__con .carousel__slider-con ul.carousel__slider li.carousel__slide img {

@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 import { initializeApp } from "firebase/app";
 import { getAuth,signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 

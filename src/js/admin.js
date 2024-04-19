@@ -1,3 +1,5 @@
+"use strict";
+
 //essential imports
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
