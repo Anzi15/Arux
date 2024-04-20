@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Anzi15/Arux">
-    <img src="https://scontent.fkhi5-2.fna.fbcdn.net/v/t39.30808-6/404338963_122111768576103852_3887662244884141609_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE0R6tgqpTtS4zjMigclW01_9I1hSZZ-ZL_0jWFJln5kuH3b_35bEJzZ41j4XsDmjMYKanK699U6_bNSQ6Pi--w&_nc_ohc=zk7kUAfnn-QAX95bE7Y&_nc_zt=23&_nc_ht=scontent.fkhi5-2.fna&oh=00_AfATC5bH0YInx6mKA2fP3ZCoxNWZSBhPLstXL4wes17YYw&oe=65F73F20" alt="Logo" width="80" height="80">
+    <img src="https://github.com/Anzi15/Arux/assets/88719016/c52594f3-8113-42d1-9e95-dff296e0dd7d" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Arux</h3>
