@@ -17,6 +17,8 @@ import {
   doc,
   deleteDoc,
   updateDoc,
+  query,
+  where
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getDatabase, onDisconnect } from "firebase/database";
@@ -45,22 +47,8 @@ const app = initializeApp(firebaseConfig);
 const firebaseStorage = getStorage(app);
 const db = getFirestore(app);
 
-const clientIsConnectedToDb = () => {
-  const dataBase = getDatabase();
-  const connectedRef = ref(dataBase, ".info/connected");
-  onValue(connectedRef, (snap) => {
-    if (snap.val() === true) {
-      return true;
-    } else {
-      return false;
-      // const offlineInterval = setInterval(() => {
-      //   showNotification
-      // }, 3821);
-    }
-  });
-};
 (() => {
-  if (!clientIsConnectedToDb) showNotification("error", "You seem offline :(");
+  if (!window.navigator.onLine) showNotification("error", "You seem offline :(");
 })();
 
 const showMsg = (
@@ -108,22 +96,27 @@ const storeObjToDB = async (
 ) => {
   try {
     if (navigator.onLine) {
-      console.log(``, dataObj);
       const newDoc = await addDoc(collection(db, collectionName), dataObj);
-
       return newDoc;
     } else {
       throw new Error("No internet");
     }
   } catch (error) {
     console.log(`Error storing product to database: ${error}`);
+    showConfirmationDialog("error","No internet","failed to save changes to the cloud please try again latter","Refresh page", "Go to dashboard").then(response => {
+      if(response.isConfirmed){
+        window.location.reload()
+      }else{
+        window.location.replace("/admin/products")
+      }
+    })
     return "error";
   }
 };
 
 const getAllFirestoreDocuments = async (collectionName = "Products") => {
   try {
-    if (window.navigator.onLine || clientIsConnectedToDb) {
+    if (window.navigator.onLine) {
       const doc_ref = collection(db, collectionName);
       const querySnapshot = await getDocs(doc_ref);
       return querySnapshot;
@@ -196,6 +189,16 @@ const updateFirestoreDocument = async (
   }
 };
 
+const checkFieldValueExistsInDB = async(collectionName, fieldName, fieldValue)=>{
+  const collRef = collection(db, collectionName);
+
+  const q = query(collRef, where(fieldName, "==", fieldValue));
+
+  const querySnapshot = await getDocs(q);
+  if(querySnapshot.docs.length) return true;
+  return false;
+}
+
 const deleteDocumentFromFirestore = async (collectionName, document_id) => {
   let returningObj = {};
   try {
@@ -203,7 +206,7 @@ const deleteDocumentFromFirestore = async (collectionName, document_id) => {
     returningObj.taskCompleted = true;
   } catch (error) {
     returningObj.taskCompleted = false;
-    returningObj.errorMsg = " wSomethingent wrong, please try again!";
+    returningObj.errorMsg = " Something went wrong, please try again!";
   }
   return returningObj;
 };
@@ -269,15 +272,6 @@ const addLoader = (
     </div>`;
   }
 
-  const autoLoadingMessageUpdater = setInterval(() => {
-    const loadingMsg = LoaderMessageArr[Math.floor(Math.random() * numOfMsgs)];
-
-    const LoadingMsgElem = document.getElementById("LoadingMsg");
-    const loadingImgElem = document.getElementById("loadingImg");
-
-    LoadingMsgElem.innerText = loadingMsg;
-    loadingImgElem.alt = loadingMsg;
-  }, 8000);
 };
 
 const showConfirmationDialog = async (
@@ -351,6 +345,7 @@ export {
   storeObjToDB,
   getAllFirestoreDocuments,
   getFirestoreDocument,
+  checkFieldValueExistsInDB,
   updateFirestoreDocument,
   deleteDocumentFromFirestore,
   removeLoader,

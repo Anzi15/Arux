@@ -15,6 +15,32 @@
   overflow-x: visible !important;
 }
 
+.socials-con {
+  display: flex;
+  gap: 1rem;
+}
+.socials-con li {
+  border: 2px solid #FFFFFF;
+  padding: 0.5rem;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.socials-con li:hover {
+  background-color: #F9FAFB !important;
+}
+.socials-con li:hover svg {
+  color: #000000;
+}
+.socials-con li a svg {
+  transition: all 0.3s ease-in-out;
+  width: 1.5rem;
+}
+
 .brand-title {
   font-size: 2.1rem;
   letter-spacing: 0.2rem;
@@ -140,6 +166,15 @@ button, input[type=submit] {
     display: none;
   }
 }
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
 * {
   background: #F9FAFB;
 }

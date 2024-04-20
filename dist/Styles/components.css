@@ -15,6 +15,32 @@
   overflow-x: visible !important;
 }
 
+.socials-con {
+  display: flex;
+  gap: 1rem;
+}
+.socials-con li {
+  border: 2px solid #FFFFFF;
+  padding: 0.5rem;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.socials-con li:hover {
+  background-color: #F9FAFB !important;
+}
+.socials-con li:hover svg {
+  color: #000000;
+}
+.socials-con li a svg {
+  transition: all 0.3s ease-in-out;
+  width: 1.5rem;
+}
+
 .brand-title {
   font-size: 2.1rem;
   letter-spacing: 0.2rem;
@@ -140,6 +166,15 @@ button, input[type=submit] {
     display: none;
   }
 }
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
 .notification {
   min-height: 2.5rem;
   width: 100%;
@@ -246,6 +281,79 @@ nav .icon-links svg {
   text-decoration: line-through 1px #000000;
 }
 
+footer {
+  margin-top: 5rem;
+  min-height: 20rem;
+  width: 100vw;
+  background: #000000;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+footer div.column {
+  height: 90% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #F9FAFB;
+  gap: 1rem;
+  max-width: 19rem;
+}
+footer div.column li {
+  width: 80%;
+  list-style: none;
+}
+footer div.column li a {
+  color: #F9FAFB;
+  text-decoration: none;
+}
+footer div.column li a:hover {
+  text-decoration: underline;
+}
+footer div.column h3 {
+  width: 80%;
+  color: #FFFFFF;
+}
+footer div.email-newsletter-column {
+  width: 25%;
+  max-width: 20rem;
+}
+footer div.email-newsletter-column h3 {
+  width: fit-content !important;
+}
+footer div.email-newsletter-column div.email-newsletter {
+  max-width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+footer div.email-newsletter-column div.email-newsletter form div {
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #FFFFFF;
+  border-radius: 0.4rem;
+}
+footer div.email-newsletter-column div.email-newsletter form div input[type=email] {
+  height: 2rem;
+  font-size: 0.9rem;
+  font-weight: 380;
+  background: transparent;
+  color: #F9FAFB;
+  border: none;
+}
+footer div.email-newsletter-column div.email-newsletter form div input[type=email]:focus-visible {
+  outline: none;
+}
+footer div.email-newsletter-column div.email-newsletter form div button {
+  min-width: 1.1rem;
+}
+footer div.column-socials h3 {
+  width: fit-content !important;
+}
+
 @media (max-width: 600px) {
   .notification p {
     font-size: 0.75rem;
@@ -271,6 +379,25 @@ nav .icon-links svg {
   .Product-card {
     min-width: 10rem;
     width: 49%;
+  }
+  footer {
+    gap: 3rem;
+  }
+  footer div.column {
+    width: 48%;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    min-width: fit-content;
+  }
+  footer div.email-newsletter-column {
+    max-width: none;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+  }
+  footer div.email-newsletter-column .email-newsletter {
+    width: fit-content !important;
   }
 }
 @media (max-width: 386px) {
