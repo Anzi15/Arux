@@ -100,6 +100,7 @@ nav{
     gap: .3rem;
     margin: 1rem 0;
     min-width: 15rem;
+    aspect-ratio: 1/1;
     img{
         aspect-ratio: 1/1;
         object-fit: cover;
@@ -128,6 +129,11 @@ nav{
     }
 }
 
+
+
+
+
+
 //footer
 footer{
     margin-top: 5rem;
@@ -139,7 +145,6 @@ footer{
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 0;
-    // gap: 5rem;
 
     div.column{
         height: 90% !important;
@@ -148,7 +153,7 @@ footer{
         justify-content: center;
         color: $color-semi_white;
         gap: 1rem;
-        max-width: 19rem;
+        max-width: fit-content;
 
 
         li{
@@ -181,7 +186,8 @@ footer{
             flex-direction: column;
             gap: .3rem;
             form{
-                div{   
+                div{
+                    width: 100%;   
                     padding: .3rem .5rem;
                     display: flex;
                     justify-content: space-between;
@@ -194,6 +200,7 @@ footer{
                         background: transparent;
                         color: $color-semi_white;
                         border: none;
+                        width: 90%;
     
                         &:focus-visible{
                             outline: none;

@@ -4,7 +4,8 @@
         entry:{
             slider: './src/js/slider.js',
             components: './src/js/components.js',
-            products: './src/js/components.js',
+            homepage: './src/js/homepage.js',
+            products: './src/js/products.js',
 
             // admin entries 
             admin : './src/js/admin.js',
@@ -28,7 +29,7 @@
             new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html',
-            chunks : ['slider','components','products']
+            chunks : ['slider','components','homepage']
             }),
 
             // admin files 

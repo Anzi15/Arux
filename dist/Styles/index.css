@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+body {
+  padding: 0;
+}
+
 .swal2-container {
   overflow-x: visible !important;
 }
@@ -15,6 +19,25 @@
   overflow-x: visible !important;
 }
 
+.skeleton-loading {
+  background-color: #ffffff;
+  animation: skeleton-loading 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #f0f0f0;
+  }
+  25% {
+    background-color: #f5f4f4;
+  }
+  50% {
+    background-color: #dfdfdf;
+  }
+  100% {
+    background-color: #d6d6d6;
+  }
+}
 .socials-con {
   display: flex;
   gap: 1rem;

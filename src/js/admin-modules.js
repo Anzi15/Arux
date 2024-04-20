@@ -48,7 +48,11 @@ const firebaseStorage = getStorage(app);
 const db = getFirestore(app);
 
 (() => {
-  if (!window.navigator.onLine) showNotification("error", "You seem offline :(");
+  if (!window.navigator.onLine) showAlert("error","No internet","You seem offline","Refresh page").then(response => {
+    if(response.isConfirmed){
+      window.location.reload()
+    }
+  })
 })();
 
 const showMsg = (
@@ -294,13 +298,14 @@ const showConfirmationDialog = async (
   return showTaskCompleteAlert;
 };
 
-const showAlert = async (icon = "success", title, text, btnText) => {
+async function showAlert  (icon = "success", title, text, btnText) {
   const alert = await Swal.fire({
     icon,
     title,
     text,
     confirmButtonText: btnText,
     confirmButtonColor: "#59748A",
+    allowOutsideClick: false
   });
   return alert
 };

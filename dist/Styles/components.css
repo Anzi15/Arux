@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+body {
+  padding: 0;
+}
+
 .swal2-container {
   overflow-x: visible !important;
 }
@@ -15,6 +19,25 @@
   overflow-x: visible !important;
 }
 
+.skeleton-loading {
+  background-color: #ffffff;
+  animation: skeleton-loading 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #f0f0f0;
+  }
+  25% {
+    background-color: #f5f4f4;
+  }
+  50% {
+    background-color: #dfdfdf;
+  }
+  100% {
+    background-color: #d6d6d6;
+  }
+}
 .socials-con {
   display: flex;
   gap: 1rem;
@@ -256,6 +279,7 @@ nav .icon-links svg {
   gap: 0.3rem;
   margin: 1rem 0;
   min-width: 15rem;
+  aspect-ratio: 1/1;
 }
 .Product-card img {
   aspect-ratio: 1/1;
@@ -299,7 +323,7 @@ footer div.column {
   justify-content: center;
   color: #F9FAFB;
   gap: 1rem;
-  max-width: 19rem;
+  max-width: fit-content;
 }
 footer div.column li {
   width: 80%;
@@ -330,6 +354,7 @@ footer div.email-newsletter-column div.email-newsletter {
   gap: 0.3rem;
 }
 footer div.email-newsletter-column div.email-newsletter form div {
+  width: 100%;
   padding: 0.3rem 0.5rem;
   display: flex;
   justify-content: space-between;
@@ -343,6 +368,7 @@ footer div.email-newsletter-column div.email-newsletter form div input[type=emai
   background: transparent;
   color: #F9FAFB;
   border: none;
+  width: 90%;
 }
 footer div.email-newsletter-column div.email-newsletter form div input[type=email]:focus-visible {
   outline: none;
