@@ -342,6 +342,50 @@ main section.speacial-offer .poster-con .poster-content .img-con img {
 main section.speacial-offer .poster-con .poster-content .img-con img:hover {
   scale: 1.02;
 }
+main section.key-features .features-con {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+main section.key-features .features-con .feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 20%;
+}
+main section.key-features .features-con .feature .icon {
+  margin: 1rem 0;
+  min-width: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: #5C788F;
+  border: 0.7rem #EBF5FF solid;
+  transition: all 0.5s ease;
+}
+main section.key-features .features-con .feature .icon svg {
+  width: 3rem;
+  color: #EBF5FF;
+}
+main section.key-features .features-con .feature .icon:hover {
+  border-width: 0.000001px;
+  background: #EBF5FF;
+}
+main section.key-features .features-con .feature .icon:hover svg {
+  color: #5C788F;
+}
+main section.key-features .features-con .feature h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.2rem;
+  color: #363738;
+}
+main section.key-features .features-con .feature p {
+  letter-spacing: -0.01rem;
+}
 
 @media (max-width: 600px) {
   .carousel {
@@ -381,6 +425,14 @@ main section.speacial-offer .poster-con .poster-content .img-con img:hover {
   }
   section.speacial-offer .poster-con .poster-content .img-con img {
     width: 90% !important;
+  }
+  section.key-features .features-con {
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+  }
+  section.key-features .features-con .feature {
+    width: 100% !important;
   }
 }
 

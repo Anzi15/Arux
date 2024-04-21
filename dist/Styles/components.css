@@ -211,7 +211,7 @@ input[data-autocompleted] {
 }
 
 nav {
-  padding: 1rem;
+  padding: 1rem 2rem;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -268,6 +268,10 @@ nav .icon-links {
 nav .icon-links svg {
   cursor: pointer;
   height: 1.7rem;
+  transition: all 0.5s ease-in;
+}
+nav .icon-links svg:hover {
+  scale: 1.05;
 }
 
 .Product-card {
