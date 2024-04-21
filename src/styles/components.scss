@@ -100,9 +100,10 @@ nav{
     gap: .3rem;
     margin: 1rem 0;
     min-width: 15rem;
-    aspect-ratio: 1/1;
+    min-height: 16rem;
     img{
         aspect-ratio: 1/1;
+        min-width:100%;
         object-fit: cover;
     }
     .discount-label{

@@ -279,10 +279,11 @@ nav .icon-links svg {
   gap: 0.3rem;
   margin: 1rem 0;
   min-width: 15rem;
-  aspect-ratio: 1/1;
+  min-height: 16rem;
 }
 .Product-card img {
   aspect-ratio: 1/1;
+  min-width: 100%;
   object-fit: cover;
 }
 .Product-card .discount-label {

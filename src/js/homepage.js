@@ -1,7 +1,5 @@
 'use strict';
-import { prodErrorMap } from 'firebase/auth';
-import {getAllFirestoreDocuments, showAlert} from './admin-modules'
-import { all } from 'axios';
+import {getFewFirestoreDocs, showAlert} from './admin-modules';
 
 //getting elems from dom
 const topProductsCon = document.getElementById('top-products-con');
@@ -10,15 +8,11 @@ const topProductsCon = document.getElementById('top-products-con');
 (async () => {
     if(window.navigator.onLine){
 
-        const allProducts = await getAllFirestoreDocuments("Products");
-
-        let productAddedToDom = 0;
+        const allProducts = await getFewFirestoreDocs("Products",4);
         
-        removeCertainClassedElemsFromCom(topProductsCon,"skeleton-loading")
-        for (const product of allProducts.docs) {
-            addProductToDom(topProductsCon, product.data());
-            productAddedToDom++;
-            if (productAddedToDom >= 4) break;
+        removeCertainClassedElemsFromDom(topProductsCon,"placeolder-products")
+        for (const product of allProducts) {
+            addProductToDom(topProductsCon, product.data);
         }
     }else{
         const alerReponse = await showAlert("error","You seem offline","Check your internet connection and retry","Retry");
@@ -32,7 +26,7 @@ function addProductToDom(elem, product){
     `
     <a class="Product-card" href="#" role="not-link">
                     <div class="discount-label">-20%</div>
-                    <img src="${product.primary_img}" alt="${product.title}">
+                    <img loading="lazy" class="skeleton-loading" src="${product.primary_img}" alt="${product.title}">
                     <h4>${product.title}</h4>
                     <div class="prices">
                         Rs.${product.price}
@@ -41,7 +35,7 @@ function addProductToDom(elem, product){
     </a>`
 }
 
-function removeCertainClassedElemsFromCom(elemCon, elemClass){
+function removeCertainClassedElemsFromDom(elemCon, elemClass){
     const allElems = elemCon.querySelectorAll(`.${elemClass}`);
 
     allElems.forEach((elem)=>{

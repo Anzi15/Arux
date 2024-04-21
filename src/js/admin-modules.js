@@ -18,7 +18,9 @@ import {
   deleteDoc,
   updateDoc,
   query,
-  where
+  where,
+  limitToLast,
+  orderBy
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getDatabase, onDisconnect } from "firebase/database";
@@ -133,6 +135,26 @@ const getAllFirestoreDocuments = async (collectionName = "Products") => {
     return error;
   }
 };
+
+const getFewFirestoreDocs = async (collectionName, limit) => {
+  try {
+    const collRef = collection(db, collectionName);
+    const q = query(collRef, orderBy("title"), limitToLast(limit));
+    const querySnapshot = await getDocs(q);
+    const documents = [];
+
+    querySnapshot.forEach((doc) => {
+        documents.push({ id: doc.id, data: doc.data() });
+    });
+
+    return documents;
+  } catch (error) {
+    console.error("Error getting documents: ", error);
+    showNotification("error", "Something went wrong, please try again", 90000);
+    return [];
+  }
+};
+
 
 const getFirestoreDocument = async (collectionName, docID) => {
   try {
@@ -349,6 +371,7 @@ export {
   showConfirmationDialog,
   storeObjToDB,
   getAllFirestoreDocuments,
+  getFewFirestoreDocs,
   getFirestoreDocument,
   checkFieldValueExistsInDB,
   updateFirestoreDocument,

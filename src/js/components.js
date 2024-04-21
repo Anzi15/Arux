@@ -37,7 +37,7 @@ emailNewsletterForm.addEventListener("submit", async (e)=>{
     const emailExist = await checkFieldValueExistsInDB("newsletter-subscribers","email",emailFeildValue)
 
     if(!emailExist){
-        const storeTask = await storeObjToDB("newsletter-subscribers",{email: emailFeildValue});
+        storeObjToDB("newsletter-subscribers",{email: emailFeildValue});
     }
 
     return false;
