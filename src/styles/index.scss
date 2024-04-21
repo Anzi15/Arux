@@ -92,6 +92,79 @@ main{
             // (product care == componenet)
         }
     }
+
+    //speacial products
+    section.speacial-offer{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        .poster-con{
+            width: 90%;
+            border-radius: 6px;
+            background: $color-black;
+            aspect-ratio: 16/9;
+    
+
+            .poster-content{
+                user-select: none;
+                display: flex;
+                justify-content: space-evenly;
+                height: 100%;
+                .txt{
+                    max-width: 40%;
+                    min-height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 1.2rem;
+                    .category-text{
+                        color: $color-gold;
+                        font-weight: 550;
+                    }
+                    .offer-title{
+                        font-size: 3rem;
+                        color: $color-semi_white;
+                        line-height: 3.5rem;
+                    }
+                    .cta{
+                        padding: 1.3rem;
+                        border-radius: 6px;
+                        background: $color-gold;
+                        background: linear-gradient(0deg, #dda90d 0%, $color-gold 100%);
+                        transition: all 0.3s ease;
+                        font-size: 1rem;
+                        font-weight: 500;
+                        cursor: pointer;
+
+                        &:hover{
+                        background: linear-gradient(0deg, $color-gold 0%, #dda90d 100%);
+                        scale: 1.001;
+                        }
+
+                    }
+                }
+                .img-con{
+                    min-width: 45%;
+                    display: flex;
+                    align-items: center;
+                    min-height: 100%;
+                    max-width: 45%;
+                    justify-content: right;
+
+                    img{
+                        height: 80% ;
+                        filter: brightness(85%);
+                        filter: drop-shadow(0px 30px 60px rgba(148, 147, 147, 0.25)) drop-shadow(0px 18px 36px rgba(123, 123, 123, 0.3));
+                        transition: all .3s ease;
+                        
+                        &:hover{
+                            scale: 1.02;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: $breakpoint-s-tab) {
