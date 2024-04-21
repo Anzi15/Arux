@@ -102,7 +102,6 @@ main{
             width: 90%;
             border-radius: 6px;
             background: $color-black;
-            aspect-ratio: 16/9;
     
 
             .poster-content{
@@ -131,9 +130,9 @@ main{
                         border-radius: 6px;
                         background: $color-gold;
                         background: linear-gradient(0deg, #dda90d 0%, $color-gold 100%);
-                        transition: all 0.3s ease;
+                        transition: all 1s ease;
                         font-size: 1rem;
-                        font-weight: 500;
+                        font-weight: 560;
                         cursor: pointer;
 
                         &:hover{
@@ -153,9 +152,10 @@ main{
 
                     img{
                         height: 80% ;
-                        filter: brightness(85%);
+                        filter: brightness(55%);
+                        filter: saturate(40%);
                         filter: drop-shadow(0px 30px 60px rgba(148, 147, 147, 0.25)) drop-shadow(0px 18px 36px rgba(123, 123, 123, 0.3));
-                        transition: all .3s ease;
+                        transition: all .3s ease-in-out;
                         
                         &:hover{
                             scale: 1.02;
@@ -175,6 +175,39 @@ main{
             min-width: 95vw !important;
             li.carousel__slide{
                 width: 95vw !important;
+            }
+        }
+    }
+}
+@media (max-width: $breakpoint-L-tab) {
+    section.speacial-offer{
+        .poster-con{
+            padding: 1.5rem 0;
+            aspect-ratio: none !important;
+            height: max-content;
+            padding: 2rem 1rem;
+            
+            .poster-content{
+                width: 90%;
+                flex-direction: column-reverse;
+                align-items: center;
+                justify-content: center !important;
+                gap: 3rem;
+                .txt{
+                    min-width: 90%; 
+                    .offer-title{
+                        font-size: 2.5rem !important;
+                    }
+
+                }
+                .img-con{
+                    max-width: 100%;
+                    min-width: 100% !important;
+                    width: 100% !important;
+                    img{
+                        width: 90% !important;
+                    }
+                }
             }
         }
     }
