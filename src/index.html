@@ -15,11 +15,23 @@
 </head>
 <body>
     <!-- notification section (upon navbar) -->
+    <!-- header  -->
     <div class="notification">
         <p>Summer Sale For All - OFF 50%!</p>
     </div>
-    <!-- header  -->
+
     <header>
+        <!-- mobile only navbar  -->
+        <nav class="mobile-only-nav closed" id="mob-only-nav">
+            <ul class="hidden-on-L_screen mob-nav-links " id="mob-nav-links">
+    
+    
+                <a href="" role="not-link active">Home</a>
+                <a href="" role="not-link">Contact</a>
+                <a href="" role="not-link">About</a>
+                <a href="" role="not-link">All products</a>
+            </ul>
+        </nav>
         <nav id="nav">
             <!-- hamburger to toggle navlinks on mob  -->
             <button class="hidden-on-L_screen hamburger" data-nav-toggler>
@@ -28,21 +40,6 @@
                 </svg>
             </button>
 
-            <!-- mobile only navbar  -->
-            <ul class="hidden-on-L_screen mob-nav-links none" id="mob-nav-links">
-
-                <button class="nav-close-btn" data-nav-toggler>
-                    <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                      </svg>
-                </button>
-
-
-                <a href="" role="not-link">Home</a>
-                <a href="" role="not-link">Contact</a>
-                <a href="" role="not-link">About</a>
-                <a href="" role="not-link">All products</a>
-            </ul>
 
             <!-- brand name  -->
             <a href="#" role="not-link" class="brand-title">Arux</a>
@@ -152,9 +149,9 @@
                             Enhance your classics, <br>
                             With T-800 SmartWatch.
                         </h1>
-                        <button class="cta">
-                            Standrize yourself, buy now!
-                        </button>
+                        <a href="/product?id='smartwatch'" class="cta">
+                            Buy now!
+                        </a>
                         
                     </div>
                     <div class="img-con">

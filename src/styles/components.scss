@@ -40,42 +40,7 @@ nav{
         }
     }
 
-    // links (mobile one)
-    ul.mob-nav-links{
-        position: absolute;
-        flex-direction: column;
-        height: 100vh;
-        left: 0;
-        top: 0;
-        justify-content: center;
-        width: 70vw;
-        border-right: solid 1px $color-black;
-        z-index: 99;
-        background: $color-white;
 
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        a{
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-            font-size: 1.3rem;
-            color: $color-black;
-            &:hover{
-                background: #e1e0e0;
-            }
-        }
-
-        .nav-close-btn{
-            position: absolute;
-            top: 2%;
-            right: 5%;
-            font-size: 1.7rem;
-
-            svg{
-                height: 1.7rem;
-            }
-        }
-    }
 
     //the icons (Cart and wishlist)
     .icon-links{
@@ -93,6 +58,41 @@ nav{
         }
 
     }
+}
+// navbar (mobile one)
+nav.mobile-only-nav{
+    padding: 0;
+    height: 50vh;
+    transition: all .6s ease-in-out;
+    ul.mob-nav-links{
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        min-height: 50vh;
+        justify-content: space-evenly;
+        width: 100vw;
+        border-right: solid 1px $color-black;
+        z-index: 99;
+        background: $color-white;
+        
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        a{
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            font-size: 1.3rem;
+            color: $color-black;
+            &:hover{
+                background: #e1e0e0;
+            }
+        }
+
+    }
+}
+nav.mobile-only-nav.closed{
+    height: 0!important;
+    overflow:  hidden;
 }
 
 //product card
@@ -251,6 +251,11 @@ footer{
     }
     .Product-card{
         width: 46%;
+    }
+}
+@media (min-width:$breakpoint-s-tab) {
+    nav.mobile-only-nav{
+        display: none;
     }
 }
 @media (max-width: $breakpoint-L-tab) {

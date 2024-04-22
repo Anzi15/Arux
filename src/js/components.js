@@ -4,7 +4,7 @@ import {storeObjToDB, checkFieldValueExistsInDB} from "./admin-modules";
 
 // getting elements form dom 
 const navToggleBtn = document.querySelectorAll('[data-nav-toggler]');
-const mobNav = document.getElementById('mob-nav-links');
+const mobNav = document.getElementById('mob-only-nav');
 const dark_overlay = document.getElementById('dark-overlay');
 const emailNewsletterForm = document.getElementById('email-newsletter-form-submission-form');
 
@@ -18,14 +18,7 @@ const classToggler = (elem, ...classlist)=>{
     })
 };
 
-// adding event listners 
-(()=>{
-    navToggleBtn.forEach((btn)=>{
-        btn.addEventListener("click",()=>{
-            classToggler(mobNav,"none")
-        })
-    })
-})();
+
 emailNewsletterForm.addEventListener("submit", async (e)=>{
     e.preventDefault(); 
     e.stopImmediatePropagation();
@@ -41,4 +34,12 @@ emailNewsletterForm.addEventListener("submit", async (e)=>{
     }
 
     return false;
-})
+});
+// adding event listners 
+(()=>{
+    navToggleBtn.forEach((btn)=>{
+        btn.addEventListener("click",()=>{
+            classToggler(mobNav,"closed")
+        })
+    })
+})();

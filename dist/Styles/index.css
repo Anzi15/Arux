@@ -311,6 +311,10 @@ main section.speacial-offer .poster-con .poster-content .txt .offer-title {
   line-height: 3.5rem;
 }
 main section.speacial-offer .poster-con .poster-content .txt .cta {
+  display: flex;
+  justify-content: center;
+  color: #000000;
+  text-decoration: none;
   padding: 1.3rem;
   border-radius: 6px;
   background: #FBBC04;
@@ -378,12 +382,13 @@ main section.key-features .features-con .feature .icon:hover svg {
   color: #5C788F;
 }
 main section.key-features .features-con .feature h1 {
-  font-size: 1.5rem;
-  letter-spacing: 0.05rem;
-  word-spacing: 0.2rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.03rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #363738;
 }
 main section.key-features .features-con .feature p {
+  font-size: 0.9rem;
   letter-spacing: -0.01rem;
 }
 
@@ -406,7 +411,7 @@ main section.key-features .features-con .feature p {
     padding: 2rem 1rem;
   }
   section.speacial-offer .poster-con .poster-content {
-    width: 90%;
+    width: 95%;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center !important;
@@ -419,6 +424,7 @@ main section.key-features .features-con .feature p {
     font-size: 2.5rem !important;
   }
   section.speacial-offer .poster-con .poster-content .img-con {
+    padding: 2rem 0;
     max-width: 100%;
     min-width: 100% !important;
     width: 100% !important;
@@ -432,6 +438,7 @@ main section.key-features .features-con .feature p {
     width: 90%;
   }
   section.key-features .features-con .feature {
+    margin: 2rem 0;
     width: 100% !important;
   }
 }

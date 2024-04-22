@@ -228,38 +228,6 @@ nav ul li a:hover {
   text-underline-offset: 3px;
   text-decoration: underline 1px #000000;
 }
-nav ul.mob-nav-links {
-  position: absolute;
-  flex-direction: column;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  justify-content: center;
-  width: 70vw;
-  border-right: solid 1px #000000;
-  z-index: 99;
-  background: #FFFFFF;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-nav ul.mob-nav-links a {
-  display: flex;
-  justify-content: center;
-  padding: 1rem 0;
-  font-size: 1.3rem;
-  color: #000000;
-}
-nav ul.mob-nav-links a:hover {
-  background: #e1e0e0;
-}
-nav ul.mob-nav-links .nav-close-btn {
-  position: absolute;
-  top: 2%;
-  right: 5%;
-  font-size: 1.7rem;
-}
-nav ul.mob-nav-links .nav-close-btn svg {
-  height: 1.7rem;
-}
 nav .icon-links {
   display: flex;
   align-items: center;
@@ -272,6 +240,40 @@ nav .icon-links svg {
 }
 nav .icon-links svg:hover {
   scale: 1.05;
+}
+
+nav.mobile-only-nav {
+  padding: 0;
+  height: 50vh;
+  transition: all 0.6s ease-in-out;
+}
+nav.mobile-only-nav ul.mob-nav-links {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  justify-content: space-evenly;
+  width: 100vw;
+  border-right: solid 1px #000000;
+  z-index: 99;
+  background: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+nav.mobile-only-nav ul.mob-nav-links a {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+  color: #000000;
+}
+nav.mobile-only-nav ul.mob-nav-links a:hover {
+  background: #e1e0e0;
+}
+
+nav.mobile-only-nav.closed {
+  height: 0 !important;
+  overflow: hidden;
 }
 
 .Product-card {
@@ -404,6 +406,11 @@ footer div.column-socials h3 {
   }
   .Product-card {
     width: 46%;
+  }
+}
+@media (min-width: 600px) {
+  nav.mobile-only-nav {
+    display: none;
   }
 }
 @media (max-width: 800px) {

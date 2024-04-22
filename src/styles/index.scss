@@ -126,6 +126,10 @@ main{
                         line-height: 3.5rem;
                     }
                     .cta{
+                        display: flex;
+                        justify-content: center;
+                        color: $color-black;
+                        text-decoration: none;
                         padding: 1.3rem;
                         border-radius: 6px;
                         background: $color-gold;
@@ -204,12 +208,13 @@ main{
                     }   
                 }
                 h1{
-                    font-size: 1.5rem;
-                    letter-spacing: 0.05rem;
-                    word-spacing: .2rem;
+                    font-size: 1.7rem;
+                    letter-spacing: 0.03rem;
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     color: $color-grey;
                 }
                 p{
+                    font-size: .9rem;
                     letter-spacing: -0.01rem;
                 }
             }
@@ -238,7 +243,7 @@ main{
             padding: 2rem 1rem;
             
             .poster-content{
-                width: 90%;
+                width: 95%;
                 flex-direction: column-reverse;
                 align-items: center;
                 justify-content: center !important;
@@ -251,6 +256,7 @@ main{
 
                 }
                 .img-con{
+                    padding: 2rem 0;
                     max-width: 100%;
                     min-width: 100% !important;
                     width: 100% !important;
@@ -268,6 +274,7 @@ main{
             width: 90%;
 
             .feature{
+                margin: 2rem 0;
                 width: 100% !important;
             }
         }
