@@ -112,8 +112,8 @@ body{
         transform: translateX(0) !important;
     }
     aside{
-        height: 100vh;
-        position: absolute;
+        height: 100vh !important;
+        position: absolute !important;
         top: 0;
         left: 0;
         bottom: 0;

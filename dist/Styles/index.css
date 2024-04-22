@@ -391,6 +391,41 @@ main section.key-features .features-con .feature p {
   font-size: 0.9rem;
   letter-spacing: -0.01rem;
 }
+main section.product-gallery {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+main section.product-gallery .gallery-con {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+}
+main section.product-gallery .gallery-con .big-product {
+  height: 100%;
+  overflow: hidden;
+}
+main section.product-gallery .gallery-con .big-product img {
+  height: 100% !important;
+  width: 100;
+  aspect-ratio: 1/1;
+}
+main section.product-gallery .gallery-con .small-product-con {
+  height: 100% !important;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main section.product-gallery .gallery-con .small-product-con .small-product {
+  max-height: 49%;
+  aspect-ratio: 1/1;
+}
+main section.product-gallery .gallery-con .small-product-con .small-product img {
+  aspect-ratio: 1/1;
+  width: 100%;
+}
 
 @media (max-width: 600px) {
   .carousel {
@@ -440,6 +475,28 @@ main section.key-features .features-con .feature p {
   section.key-features .features-con .feature {
     margin: 2rem 0;
     width: 100% !important;
+  }
+  section.product-gallery .gallery-con {
+    flex-direction: column;
+  }
+  section.product-gallery .gallery-con .big-product, section.product-gallery .gallery-con .small-product-con {
+    width: 100% !important;
+  }
+  section.product-gallery .gallery-con .big-product img {
+    width: 100%;
+  }
+  section.product-gallery .gallery-con .small-product-con {
+    flex-direction: row !important;
+  }
+  section.product-gallery .gallery-con .small-product-con .small-product {
+    overflow: hidden;
+    width: 49% !important;
+  }
+  section.product-gallery .gallery-con .small-product-con .small-product img {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
   }
 }
 

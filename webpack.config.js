@@ -25,7 +25,7 @@
             path: __dirname + '/dist',
         },
         plugins: [
-            //index.html
+            //home page
             new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html',
