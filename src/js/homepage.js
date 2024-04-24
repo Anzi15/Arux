@@ -5,21 +5,21 @@ import {getFewFirestoreDocs, showAlert} from './admin-modules';
 const topProductsCon = document.getElementById('top-products-con');
 
 
-// (async () => {
-//     if(window.navigator.onLine){
+(async () => {
+    if(window.navigator.onLine){
 
-//         const allProducts = await getFewFirestoreDocs("Products",4);
+        const allProducts = await getFewFirestoreDocs("Products",4);
         
-//         removeCertainClassedElemsFromDom(topProductsCon,"placeolder-products")
-//         for (const product of allProducts) {
-//             addProductToDom(topProductsCon, product.data);
-//         }
-//     }else{
-//         const alerReponse = await showAlert("error","You seem offline","Check your internet connection and retry","Retry");
-//         if(alerReponse.isConfirmed) {window.location.reload()}
-//     }
+        removeCertainClassedElemsFromDom(topProductsCon,"placeolder-products")
+        for (const product of allProducts) {
+            addProductToDom(topProductsCon, product.data);
+        }
+    }else{
+        const alerReponse = await showAlert("error","You seem offline","Check your internet connection and retry","Retry");
+        if(alerReponse.isConfirmed) {window.location.reload()}
+    }
 
-// })();
+})();
 
 function addProductToDom(elem, product){
     elem.innerHTML += 
