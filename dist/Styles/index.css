@@ -168,6 +168,14 @@ button, input[type=submit] {
   font-weight: 400;
 }
 
+.hero__title {
+  margin: 2.5rem 0;
+  font-size: 3rem;
+  font-weight: 400 !important;
+  color: rgba(18, 18, 18, 0.7490196078);
+  padding-left: 10%;
+}
+
 .section-heading {
   margin: 0 auto;
   width: 90vw;
@@ -319,7 +327,7 @@ main section.speacial-offer .poster-con .poster-content .txt .cta {
   border-radius: 6px;
   background: #FBBC04;
   background: linear-gradient(0deg, #dda90d 0%, #FBBC04 100%);
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   font-size: 1rem;
   font-weight: 560;
   cursor: pointer;
@@ -392,9 +400,13 @@ main section.key-features .features-con .feature p {
   letter-spacing: -0.01rem;
 }
 main section.product-gallery {
+  margin: 6rem 0;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
 }
 main section.product-gallery .gallery-con {
   width: 90%;
@@ -434,7 +446,6 @@ main section.product-gallery .gallery-con .big-product:hover .product-name {
   display: inline-block;
 }
 main section.product-gallery .gallery-con .small-product-con {
-  height: 100% !important;
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -521,38 +532,47 @@ main section.product-gallery .gallery-con .small-product-con .small-product:hove
     width: 100% !important;
   }
   section.product-gallery .gallery-con {
+    width: 100%;
     flex-direction: column;
+    align-items: center;
   }
   section.product-gallery .gallery-con .big-product, section.product-gallery .gallery-con .small-product-con {
-    width: 100% !important;
+    width: 100vw !important;
+    justify-content: flex-start !important;
   }
   section.product-gallery .gallery-con .big-product {
+    width: 100vw;
     aspect-ratio: 1/1;
     min-height: 58%;
     height: none !important;
     max-width: none !important;
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
   }
   section.product-gallery .gallery-con .big-product img {
-    height: 90%;
+    height: 100%;
   }
   section.product-gallery .gallery-con .big-product .product-name {
     font-size: 1.7rem;
   }
   section.product-gallery .gallery-con .small-product-con {
+    margin: 1rem 0;
     max-height: 40%;
+    width: 100%;
     flex-direction: row !important;
+    justify-content: space-between;
   }
   section.product-gallery .gallery-con .small-product-con .small-product {
     overflow: hidden;
-    width: 49% !important;
+    width: 48%;
+    max-height: fit-content !important;
   }
   section.product-gallery .gallery-con .small-product-con .small-product img {
     height: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
+    aspect-ratio: none;
   }
 }
 

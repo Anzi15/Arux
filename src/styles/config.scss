@@ -1,5 +1,6 @@
 // colors 
 $color-black: #000000;
+$color-light-black: #121212a3;
 $color-white: #FFFFFF;
 $color-grey: #363738;
 $color-light-grey: #E0E3E7;
@@ -169,6 +170,13 @@ button, input[type="submit"]{
 }
 .thin-heading{
     font-weight: 400;
+}
+.hero__title{
+    margin: 2.5rem 0;
+    font-size: 3rem;
+    font-weight: 400 !important;
+    color: #121212bf;
+    padding-left: 10%;
 }
 //default heading styles (with the border)
 .section-heading{

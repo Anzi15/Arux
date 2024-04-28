@@ -20,7 +20,10 @@ import {
   query,
   where,
   limitToLast,
-  orderBy
+  orderBy,
+  startAfter,
+  limit,
+  initializeFirestore
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getDatabase, onDisconnect } from "firebase/database";
@@ -47,7 +50,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const firebaseStorage = getStorage(app);
-const db = getFirestore(app);
+const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+});
 
 (() => {
   if (!window.navigator.onLine) showAlert("error","No internet","You seem offline","Refresh page").then(response => {
@@ -136,22 +141,31 @@ const getAllFirestoreDocuments = async (collectionName = "Products") => {
   }
 };
 
-const getFewFirestoreDocs = async (collectionName, limit) => {
+const getFewFirestoreDocs = async (collectionName, starFrom, endTo, lastDocId  ) => {
   try {
     const collRef = collection(db, collectionName);
-    const q = query(collRef, orderBy("title"), limitToLast(limit));
+    let q = query(collRef, orderBy("title"), limit(endTo));
     const querySnapshot = await getDocs(q);
     const documents = [];
 
+    if (lastDocId) {
+      const lastDocRef = doc(db, collectionName, lastDocId);
+      q = query(collRef, orderBy("title"), startAfter(lastDocRef), limit(endTo));
+    }
+    let index = 0;
     querySnapshot.forEach((doc) => {
-        documents.push({ id: doc.id, data: doc.data() });
+      if(index >= starFrom && index <= 50)
+        {
+          documents.push({ id: doc.id, data: doc.data() });
+        }
+        index++
     });
 
-    return documents;
+    return { documents, lastDocId: querySnapshot.docs[querySnapshot.docs.length - 1]?.id || null };
   } catch (error) {
     console.error("Error getting documents: ", error);
     showNotification("error", "Something went wrong, please try again", 90000);
-    return [];
+    return { documents: [], lastDocId: null };
   }
 };
 

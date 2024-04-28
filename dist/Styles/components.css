@@ -168,6 +168,14 @@ button, input[type=submit] {
   font-weight: 400;
 }
 
+.hero__title {
+  margin: 2.5rem 0;
+  font-size: 3rem;
+  font-weight: 400 !important;
+  color: rgba(18, 18, 18, 0.7490196078);
+  padding-left: 10%;
+}
+
 .section-heading {
   margin: 0 auto;
   width: 90vw;
@@ -265,7 +273,7 @@ nav.mobile-only-nav ul.mob-nav-links a {
   justify-content: center;
   padding: 1rem 0;
   font-size: 1.3rem;
-  color: #000000;
+  color: rgba(18, 18, 18, 0.6392156863);
 }
 nav.mobile-only-nav ul.mob-nav-links a:hover {
   background: #e1e0e0;
@@ -285,7 +293,7 @@ nav.mobile-only-nav.closed {
   gap: 0.3rem;
   margin: 1rem 0;
   min-width: 15rem;
-  min-height: 16rem;
+  min-height: 14rem;
 }
 .Product-card img {
   aspect-ratio: 1/1;

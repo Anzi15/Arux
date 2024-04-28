@@ -134,7 +134,7 @@ main{
                         border-radius: 6px;
                         background: $color-gold;
                         background: linear-gradient(0deg, #dda90d 0%, $color-gold 100%);
-                        transition: all 1s ease;
+                        transition: all .5s ease;
                         font-size: 1rem;
                         font-weight: 560;
                         cursor: pointer;
@@ -225,7 +225,10 @@ main{
         margin: 6rem 0;
         width: 100vw;
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
+        align-items: center;
+        gap: 2rem;
         .gallery-con{
             width: 90%;
             display: flex;
@@ -266,11 +269,11 @@ main{
                 }
             }
             .small-product-con{
-                height: 100% !important;
                 width: 30%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                
                 .small-product{
                     position: relative;
                     max-height: 49%;
@@ -321,6 +324,7 @@ main{
         }
     }
 }
+
 @media (max-width: $breakpoint-L-tab) {
     section.speacial-offer{
         .poster-con{
@@ -368,30 +372,38 @@ main{
     }
     section.product-gallery{
         .gallery-con{
+            width: 100%;
             flex-direction: column;
+            align-items: center;
             .big-product,.small-product-con{
-                width: 100% !important;
+                width: 100vw !important;
+                justify-content: flex-start !important;
             }
             .big-product{
+                width: 100vw;
                 aspect-ratio: 1/1;
                 min-height: 58%;
                 height: none !important;
                 max-width: none !important;
                 display: flex;
-                justify-content: center;
+                justify-content: center !important;
                 img{
-                    height: 90%;
+                    height: 100%;
                 }
                 .product-name{
                     font-size: 1.7rem;
                 }
             }
             .small-product-con{
+                margin: 1rem 0;
                 max-height: 40%;
+                width: 100%;
                 flex-direction: row !important;
+                justify-content: space-between;
                 .small-product{
                     overflow: hidden;
-                    width: 49% !important;
+                    width: 48%;
+                    max-height: fit-content !important;
                     img{
                         height: 100%;
                         aspect-ratio: 1/1;

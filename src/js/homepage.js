@@ -1,5 +1,5 @@
 'use strict';
-import {getFewFirestoreDocs, showAlert} from './admin-modules';
+import {getFewFirestoreDocs, showAlert, showNotification} from './admin-modules';
 
 //getting elems from dom
 const topProductsCon = document.getElementById('top-products-con');
@@ -7,12 +7,15 @@ const topProductsCon = document.getElementById('top-products-con');
 
 (async () => {
     if(window.navigator.onLine){
-
-        const allProducts = await getFewFirestoreDocs("Products",4);
+        const allProducts = await getFewFirestoreDocs("Products",0,4);
         
-        removeCertainClassedElemsFromDom(topProductsCon,"placeolder-products")
-        for (const product of allProducts) {
-            addProductToDom(topProductsCon, product.data);
+        if(allProducts.documents.length){
+            removeCertainClassedElemsFromDom(topProductsCon,"placeolder-products")
+            for (const product of allProducts.documents) {
+                addProductToDom(topProductsCon, product.data);
+            }
+        }else{
+             showNotification("error","You're having internet issues","Check your internet connection and retry");
         }
     }else{
         const alerReponse = await showAlert("error","You seem offline","Check your internet connection and retry","Retry");

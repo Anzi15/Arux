@@ -14,24 +14,25 @@
     <meta name="description" content="Shop through the collection of handpicked gadgets for you!">
 <script defer src="slider.js"></script><script defer src="components.js"></script><script defer src="homepage.js"></script></head>
 <body>
-    <!-- notification section (upon navbar) -->
-    <!-- header  -->
+    <!-- notification area above navbar  -->
     <div class="notification">
         <p>Summer Sale For All - OFF 50%!</p>
     </div>
+    
     <header>
+        <!-- mobile only navbar  -->
 
-    <!-- mobile only navbar  -->
-    <nav class="mobile-only-nav closed" id="mob-only-nav">
-        <ul class="hidden-on-L_screen mob-nav-links " id="mob-nav-links">
+        <nav class="mobile-only-nav closed" id="mob-only-nav">
+            <ul class="hidden-on-L_screen mob-nav-links " id="mob-nav-links">
 
 
-            <a href="" role="not-link active">Home</a>
-            <a href="" role="not-link">Contact</a>
-            <a href="" role="not-link">About</a>
-            <a href="" role="not-link">All products</a>
-        </ul>
-    </nav>
+                <a href="" role="not-link active">Home</a>
+                <a href="/contact" role="not-link">Contact</a>
+                <a href="/about" role="not-link">About</a>
+                <a href="/products" role="not-link">All products</a>
+            </ul>
+        </nav>
+        <!-- desktop nav  -->
         <nav id="nav">
             <!-- hamburger to toggle navlinks on mob  -->
             <button class="hidden-on-L_screen hamburger" data-nav-toggler>
@@ -46,10 +47,10 @@
 
             <!-- navigation links  -->
             <ul class="hidden-on-S_screen">
-                <li><a href="" role="not-link">Home</a></li>
-                <li><a href="" role="not-link">Contact</a></li>
-                <li><a href="" role="not-link">About</a></li>
-                <li><a href="" role="not-link">All products</a></li>
+                <li><a href="" role="not-link active">Home</a></li>
+                <li><a href="/contact" role="not-link">Contact</a></li>
+                <li><a href="/about" role="not-link">About</a></li>
+                <li><a href="/products" role="not-link">All products</a></li>
             </ul>
 
             <!-- wish list and cart  -->
@@ -161,28 +162,31 @@
             </div>
         </section>
 
-                <!-- section product gallery -->
-                <section class="product-gallery">
-                    <div class="gallery-con">
-                        <a class="big-product"  href="#">
-                            <img src="/assets/airpods-pro.webp" alt="" class="skeleton-loading" loading="lazy" draggable="false">
+        <!-- section product gallery -->
+        <section class="product-gallery">
+            <h4 class="section-heading">
+                You might like:
+            </h4>
+            <div class="gallery-con">
+                <a class="big-product"  href="#">
+                    <img src="/assets/airpods-pro.webp" alt="" class="skeleton-loading" loading="lazy" draggable="false">
 
-                            <h1 class="product-name">Airpods Pro</h1>
-                        </a>
-                        <div class="small-product-con">
-                            <a class="small-product"  href="#">
-                                <img src="/assets/Air-31.webp" alt="" class="skeleton-loading"loading="lazy" draggable="false">
+                    <h1 class="product-name">Airpods Pro</h1>
+                </a>
+                <div class="small-product-con">
+                    <a class="small-product"  href="#">
+                        <img src="/assets/Air-31.webp" alt="" class="skeleton-loading"loading="lazy" draggable="false">
 
-                                <h1 class="product-name">Air31 Buds</h1>
-                            </a>
-                            <a class="small-product" href="#">
-                                <img src="https://telectronics.pk/wp-content/uploads/nc/products/M90-Pro-TWS-True-Wireless-Earbuds-Telectronics.pk-700x700.webp" alt="" class="skeleton-loading"loading="lazy" draggable="false">
+                        <h1 class="product-name">Air31 Buds</h1>
+                    </a>
+                    <a class="small-product" href="#">
+                        <img src="https://telectronics.pk/wp-content/uploads/nc/products/M90-Pro-TWS-True-Wireless-Earbuds-Telectronics.pk-700x700.webp" alt="" class="skeleton-loading"loading="lazy" draggable="false">
 
-                                <h1 class="product-name">M-90 Buds</h1>
-                            </a>
-                        </div>
-                    </div>
-                </section>
+                        <h1 class="product-name">M-90 Buds</h1>
+                    </a>
+                </div>
+            </div>
+        </section>
                 
         <!-- section key features  -->
         <section class="key-features">

@@ -82,7 +82,7 @@ nav.mobile-only-nav{
             justify-content: center;
             padding: 1rem 0;
             font-size: 1.3rem;
-            color: $color-black;
+            color: $color-light-black;
             &:hover{
                 background: #e1e0e0;
             }
@@ -105,7 +105,7 @@ nav.mobile-only-nav.closed{
     gap: .3rem;
     margin: 1rem 0;
     min-width: 15rem;
-    min-height: 16rem;
+    min-height: 14rem;
     img{
         aspect-ratio: 1/1;
         min-width:100%;

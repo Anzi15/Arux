@@ -6,6 +6,7 @@
             components: './src/js/components.js',
             homepage: './src/js/homepage.js',
             products: './src/js/products.js',
+            products_menu: './src/js/products-menu.js',
 
             // admin entries 
             admin : './src/js/admin.js',
@@ -30,6 +31,13 @@
             filename: 'index.html',
             template: 'src/index.html',
             chunks : ['slider','components','homepage']
+            }),
+
+            //Products (all products menu)
+            new HtmlWebpackPlugin({
+                filename: 'products/index.html',
+                template: 'src/Products/index.html',
+                chunks : ['products_menu','components']
             }),
 
             // admin files 
@@ -57,12 +65,14 @@
             template: 'src/admin/unauthorized/index.html',
             chunks: []
             }),
+            
             //admin products
             new HtmlWebpackPlugin({
             filename: 'admin/Products/index.html',
             template: 'src/admin/Products/index.html',
             chunks: ['admin_products', 'admin_components']
             }),
+
             //admin new product
             new HtmlWebpackPlugin({
             filename: 'admin/Products/new/index.html',
