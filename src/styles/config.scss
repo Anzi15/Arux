@@ -123,6 +123,12 @@ button, input[type="submit"]{
             object-fit: cover;
         }
     }
+    .loader-msg{
+        max-width: 90vw;
+        font-size: 1.2rem;
+        color: $color-light-black;
+        text-align: center;
+    }
 }
 .loader-wrapper.overlay{
     background: $color-white;
@@ -172,11 +178,12 @@ button, input[type="submit"]{
     font-weight: 400;
 }
 .hero__title{
-    margin: 2.5rem 0;
+    padding: 2rem 0;
+    margin-left: auto;
     font-size: 3rem;
     font-weight: 400 !important;
     color: #121212bf;
-    padding-left: 10%;
+    width: 90vw;
 }
 //default heading styles (with the border)
 .section-heading{

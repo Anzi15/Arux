@@ -76,7 +76,7 @@ const showMsg = (
 const uploadImageToFirebase = async (file) => {
   const imageRef = ref(firebaseStorage, `Products/${v4()}`);
   const metadata = {
-    contentType: "image/jpeg",
+    contentType: "image/webp",
   };
   const base64Image = file.split(",")[1];
 
@@ -105,9 +105,11 @@ const storeObjToDB = async (
   collectionName = "Products",
   dataObj = { key: "Please provide a data-obj to continue" }
 ) => {
+  console.log("para:" , dataObj, collectionName)
   try {
     if (navigator.onLine) {
       const newDoc = await addDoc(collection(db, collectionName), dataObj);
+      console.log("new doc:" , newDoc)
       return newDoc;
     } else {
       throw new Error("No internet");
@@ -118,7 +120,7 @@ const storeObjToDB = async (
       if(response.isConfirmed){
         window.location.reload()
       }else{
-        window.location.replace("/admin/products")
+        window.location.replace("../products")
       }
     })
     return "error";
@@ -137,35 +139,26 @@ const getAllFirestoreDocuments = async (collectionName = "Products") => {
   } catch (error) {
     console.log(`Error getting documents from firestore: ${error}`);
     showNotification("error", error);
-    return error;
+    return [];
   }
 };
 
-const getFewFirestoreDocs = async (collectionName, starFrom, endTo, lastDocId  ) => {
+const getFewFirestoreDocs = async (collectionName, limit) => {
   try {
     const collRef = collection(db, collectionName);
-    let q = query(collRef, orderBy("title"), limit(endTo));
+    const q = query(collRef, orderBy("title"), limitToLast(limit));
     const querySnapshot = await getDocs(q);
     const documents = [];
 
-    if (lastDocId) {
-      const lastDocRef = doc(db, collectionName, lastDocId);
-      q = query(collRef, orderBy("title"), startAfter(lastDocRef), limit(endTo));
-    }
-    let index = 0;
     querySnapshot.forEach((doc) => {
-      if(index >= starFrom && index <= 50)
-        {
-          documents.push({ id: doc.id, data: doc.data() });
-        }
-        index++
+        documents.push({ id: doc.id, data: doc.data() });
     });
 
-    return { documents, lastDocId: querySnapshot.docs[querySnapshot.docs.length - 1]?.id || null };
+    return documents;
   } catch (error) {
     console.error("Error getting documents: ", error);
     showNotification("error", "Something went wrong, please try again", 90000);
-    return { documents: [], lastDocId: null };
+    return [];
   }
 };
 
@@ -289,6 +282,7 @@ const addLoader = (
 ];
   if (parentElem == null || parentElem == undefined) return;
   const numOfMsgs = LoaderMessageArr.length;
+  let currentMsgIndex=0;
 
   if (overlayLoader) {
     parentElem.innerHTML += `<div class="loader-wrapper overlay">
@@ -311,6 +305,13 @@ const addLoader = (
     <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
     </div>`;
   }
+
+  const LoadingMsgElem = document.getElementById('LoadingMsg');
+  setInterval(() => {
+    currentMsgIndex >= numOfMsgs ? currentMsgIndex = 0 : currentMsgIndex++
+    LoadingMsgElem.innerText = LoaderMessageArr[currentMsgIndex];
+    LoadingMsgElem.previousElementSibling.alt = LoaderMessageArr[currentMsgIndex];
+  }, 8000);
 
 };
 

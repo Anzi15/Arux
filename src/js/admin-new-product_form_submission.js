@@ -1,3 +1,4 @@
+
 "use strict";
 import { confirmPasswordReset } from "firebase/auth";
 // essential imports

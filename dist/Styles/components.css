@@ -118,6 +118,12 @@ button, input[type=submit] {
   aspect-ratio: 1/1;
   object-fit: cover;
 }
+.loader-wrapper .loader-msg {
+  max-width: 90vw;
+  font-size: 1.2rem;
+  color: rgba(18, 18, 18, 0.6392156863);
+  text-align: center;
+}
 
 .loader-wrapper.overlay {
   background: #FFFFFF;
@@ -169,11 +175,12 @@ button, input[type=submit] {
 }
 
 .hero__title {
-  margin: 2.5rem 0;
+  padding: 2rem 0;
+  margin-left: auto;
   font-size: 3rem;
   font-weight: 400 !important;
   color: rgba(18, 18, 18, 0.7490196078);
-  padding-left: 10%;
+  width: 90vw;
 }
 
 .section-heading {
@@ -318,6 +325,9 @@ nav.mobile-only-nav.closed {
 .Product-card .prices .price-compared {
   color: #363738;
   text-decoration: line-through 1px #000000;
+}
+.Product-card:hover h4 {
+  text-decoration: underline;
 }
 
 footer {
