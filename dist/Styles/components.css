@@ -335,6 +335,53 @@ nav.mobile-only-nav.closed {
   text-decoration: underline;
 }
 
+quantity-selector {
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+}
+quantity-selector input[type=number] {
+  color: #363738;
+  width: 50%;
+  text-align: center;
+  height: 3rem;
+  font-size: 1.5rem;
+  border: solid 1px #363738;
+  border-right: none;
+  border-left: none;
+  outline: none;
+  -moz-appearance: textfield;
+}
+quantity-selector input::-webkit-outer-spin-button,
+quantity-selector input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+quantity-selector button {
+  border: solid 1px #363738;
+  width: 25%;
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  transition: all 0.1s ease-in;
+}
+quantity-selector button:hover {
+  border-color: #5C788F;
+  background: #5C788F;
+  color: #F5F5F5;
+}
+quantity-selector button svg {
+  width: 2rem;
+}
+quantity-selector #plusBtn {
+  border-radius: 0;
+  background: #5C788F;
+  border-color: #5C788F;
+  color: #F5F5F5;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
 footer {
   margin-top: 5rem;
   min-height: 20rem;

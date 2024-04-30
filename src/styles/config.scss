@@ -1,4 +1,4 @@
-// colors 
+//*colors 
 $color-black: #000000;
 $color-light-black: #121212a3;
 $color-white: #FFFFFF;
@@ -9,12 +9,12 @@ $color-semi_white: #F9FAFB;
 $color-semi_blue: #EBF5FF;
 $color-gold: #FBBC04;
 
-// screen breakpoints
+//*screen breakpoints
 $breakpoint-mob: 386px;
 $breakpoint-s-tab: 600px;
 $breakpoint-L-tab: 800px;
 
-//universal styles
+//*universal styles
 
 *{
     max-width: 100vw;
@@ -40,7 +40,7 @@ body{
 
 }      
 
-// utilities classes 
+//*utilities classes 
 .skeleton-loading{
     background-color: #ffffff;
     animation: skeleton-loading 3.5s ease-in-out infinite alternate; 
@@ -81,7 +81,7 @@ body{
     }
 }
 
-// brand name 
+//*brand name 
 .brand-title{
     font-size: 2.1rem;
     letter-spacing: .2rem;
@@ -147,7 +147,7 @@ button, input[type="submit"]{
     }
 }
 
-// buttons
+//*buttons
 .big_btn{
     padding: .8rem 1rem;
     background: $color-brand-blue !important;
@@ -190,7 +190,7 @@ button, input[type="submit"]{
     color: #121212bf;
     width: 90vw;
 }
-//default heading styles (with the border)
+//*default heading styles (with the border)
 .section-heading{
     margin: 0 auto;
     width: 90vw;
@@ -213,7 +213,7 @@ button, input[type="submit"]{
     }
 }
 
-//preventing color change on autofilling the form in chrome
+//*preventing color change on autofilling the form in chrome
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;

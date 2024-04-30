@@ -275,5 +275,48 @@ main .details-section .product-data .product-description {
   letter-spacing: 0.05rem;
   font-weight: 500;
 }
+main .details-section .cta-con {
+  padding: 2rem 0;
+}
+main .details-section .cta-con .add-to-cart-cta {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+main .details-section .cta-con .add-to-cart-cta button#addToCart {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: solid 1.4px #363738;
+  color: rgba(18, 18, 18, 0.6392156863);
+  border-radius: 6px;
+  transition: all 0.1s ease-in;
+}
+main .details-section .cta-con .add-to-cart-cta button#addToCart:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+main .details-section .cta-con .add-to-cart-cta button#addToCart svg {
+  height: 2rem;
+}
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+  main .imgs-section, main .details-section {
+    width: 95%;
+  }
+  main .add-to-cart-cta {
+    justify-content: left !important;
+  }
+}
 
 /*# sourceMappingURL=individual-product.css.map */
