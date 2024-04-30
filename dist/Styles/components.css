@@ -337,7 +337,7 @@ nav.mobile-only-nav.closed {
 
 quantity-selector {
   display: flex;
-  width: 12rem;
+  width: 10rem;
   justify-content: space-between;
 }
 quantity-selector input[type=number] {
@@ -462,7 +462,7 @@ footer div.column-socials h3 {
     font-size: 0.75rem;
   }
   nav .brand-title, nav .hamburger, nav .icon-links {
-    width: 33.3333333333%;
+    width: fit-content;
     display: flex;
   }
   nav .hamburger {
