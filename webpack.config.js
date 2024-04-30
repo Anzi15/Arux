@@ -2,11 +2,13 @@
     const HtmlWebpackPlugin = require('html-webpack-plugin')
     module.exports = {
         entry:{
+            //user side entries
             slider: './src/js/slider.js',
             components: './src/js/components.js',
             homepage: './src/js/homepage.js',
             products: './src/js/products.js',
             products_menu: './src/js/products-menu.js',
+            individual_product: './src/js/individual-product.js',
 
             // admin entries 
             admin : './src/js/admin.js',
@@ -38,6 +40,12 @@
                 filename: 'products/index.html',
                 template: 'src/Products/index.html',
                 chunks : ['products_menu','components']
+            }),
+            //individual prodcut
+            new HtmlWebpackPlugin({
+                filename: 'product/index.html',
+                template: 'src/Product/index.html',
+                chunks : ['individual_product','components']
             }),
 
             // admin files 

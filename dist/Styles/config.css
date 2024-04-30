@@ -6,6 +6,10 @@
   margin: 0;
   padding: 0;
 }
+*::selection {
+  background: #E0E3E7;
+  color: #000000;
+}
 
 body {
   padding: 0;

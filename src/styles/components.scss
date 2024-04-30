@@ -15,7 +15,8 @@
 
 // navbar
 nav{
-    padding: 1rem 2rem;
+    border-bottom: 1.5px solid #F5F5F5;
+    padding: 1.5rem 2.5rem;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -58,6 +59,7 @@ nav{
         }
 
     }
+
 }
 // navbar (mobile one)
 nav.mobile-only-nav{

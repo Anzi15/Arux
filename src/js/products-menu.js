@@ -13,7 +13,6 @@ let lastDocID;
 
     if(window.navigator.onLine){
         const allProducts = await getAllFirestoreDocuments("Products");
-        console.log(allProducts)
         if(allProducts.docs.length){
             removeCertainClassedElemsFromDom(products_con, "placeolder-products");
 
