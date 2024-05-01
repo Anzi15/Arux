@@ -223,9 +223,10 @@ main {
   justify-content: space-evenly;
 }
 main .imgs-section {
-  padding: 7rem 0;
-  width: 55%;
+  padding: 5rem 0;
+  width: 48%;
   display: flex;
+  flex-direction: column;
 }
 main .imgs-section .primary-img-con, main .imgs-section .sec-img-con {
   display: flex;
@@ -234,19 +235,18 @@ main .imgs-section .primary-img-con, main .imgs-section .sec-img-con {
 main .imgs-section .primary-img-con img, main .imgs-section .sec-img-con img {
   width: 100%;
 }
-main .imgs-section .primary-img-con {
-  width: 68%;
+main .imgs-section .primary-img-con img {
+  width: 100%;
 }
 main .imgs-section .sec-img-con {
-  width: 30%;
-  flex-direction: column;
+  width: 100%;
 }
 main .imgs-section .sec-img-con img {
-  width: 100%;
+  width: 50%;
 }
 main .details-section {
   padding: 6.5rem 1.5rem;
-  width: 36%;
+  width: 38%;
   display: flex;
   flex-direction: column;
 }
@@ -284,13 +284,14 @@ main .details-section .cta-con .quantity-con {
   padding: 1rem 0;
 }
 main .details-section .cta-con .quantity-con p {
-  color: #BFBFBF;
+  color: #7C7C7C;
   padding: 0.5rem 0;
 }
 main .details-section .cta-con .quantity-con quantity-selector {
   width: 12rem;
 }
 main .details-section .cta-con div.two_btn_con {
+  gap: 1.2rem;
   transition: all 0.1s ease-in;
   overflow: visible;
   margin: 1rem 0;
@@ -311,7 +312,8 @@ main .details-section .cta-con div.two_btn_con button {
   transition: all 0.1s ease-in;
 }
 main .details-section .cta-con div.two_btn_con button:hover {
-  background-color: #000000;
+  background: linear-gradient(0deg, #000000 0%, #1b1b1b 100%);
+  color: #FFFFFF;
   color: #FFFFFF;
 }
 main .details-section .cta-con div.two_btn_con button svg {
@@ -319,11 +321,29 @@ main .details-section .cta-con div.two_btn_con button svg {
 }
 main .details-section .cta-con div.two_btn_con button.buyNowBtn {
   width: 100%;
-  background: #000000;
+  background: linear-gradient(0deg, #000000 0%, #1b1b1b 100%);
   color: #FFFFFF;
 }
 main .details-section .cta-con div.two_btn_con button.buyNowBtn:hover {
+  background: linear-gradient(0deg, #1b1b1b 0%, #000000 100%);
   border: 10px;
+}
+main .details-section .features-section {
+  border: 1px solid #7C7C7C;
+  border-radius: 4px;
+}
+main .details-section .features-section .feature {
+  padding: 2rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+main .details-section .features-section .feature .icon svg, main .details-section .features-section .feature .icon img {
+  width: 3rem;
+}
+main .details-section .features-section .feature .context {
+  display: grid;
+  gap: 0.5rem;
 }
 
 @media (max-width: 800px) {
@@ -334,16 +354,6 @@ main .details-section .cta-con div.two_btn_con button.buyNowBtn:hover {
   main .imgs-section, main .details-section {
     padding: 1rem 1rem;
     width: 95%;
-  }
-  main .imgs-section {
-    flex-direction: column;
-  }
-  main .imgs-section .primary-img-con {
-    width: 100%;
-  }
-  main .imgs-section .sec-img-con {
-    flex-direction: row;
-    width: 100%;
   }
   main .add-to-cart-cta {
     flex-wrap: nowrap !important;

@@ -4,9 +4,10 @@ main{
     display: flex;
     justify-content: space-evenly;
     .imgs-section{
-        padding: 7rem 0;
-        width: 55%;
+        padding: 5rem 0;
+        width: 48%;
         display: flex;
+        flex-direction: column;
         .primary-img-con,.sec-img-con{
             display: flex;
             justify-content: space-between;
@@ -15,22 +16,20 @@ main{
             }
         }
         .primary-img-con{
-            width: 68%;
-            img{
-                
-            }
-        }
-        .sec-img-con{
-            width: 30%;
-            flex-direction: column;
             img{
                 width: 100%;
             }
         }
+        .sec-img-con{
+            width: 100%;
+            img{
+                width: 50%;
+            }
+        }
     }
-    .details-section{
+    .details-section{   
         padding: 6.5rem 1.5rem;
-        width: 36%;
+        width: 38%;
         display: flex;
         flex-direction: column;
 
@@ -61,6 +60,7 @@ main{
 
             }
         }
+
         .cta-con{
             width: 100%;
             padding: 2rem 0;
@@ -69,7 +69,7 @@ main{
                 overflow: visible !important;
                 padding: 1rem 0;
                 p{
-                    color: $color-medium-grey;
+                    color: $color-dark-grey;
                     padding: .5rem 0;
                 }
                 quantity-selector{
@@ -77,6 +77,7 @@ main{
                 }
             }
             div.two_btn_con{
+                gap: 1.2rem;
                 transition: all .1s ease-in;
                 overflow: visible;
                 margin: 1rem 0;
@@ -96,7 +97,8 @@ main{
                     transition: all .1s ease-in;
     
                     &:hover{
-                        background-color: $color-black;
+                        background: linear-gradient(0deg, $color-black 0%, #1b1b1b 100%);
+                        color: $color-white;
                         color: $color-white
                     }
                     svg{
@@ -106,12 +108,33 @@ main{
                 }
                 button.buyNowBtn{
                     width: 100%;
-                    background: $color-black;
+                    background: linear-gradient(0deg, $color-black 0%, #1b1b1b 100%);
                     color: $color-white;
 
                     &:hover{
+                        background: linear-gradient(0deg, #1b1b1b 0%, $color-black 100%);
                         border: 10px;
                     }
+                }
+            }
+        }
+        .features-section{
+            border: 1px solid $color-dark-grey;
+            border-radius: 4px;
+            .feature{
+                padding: 2rem 1rem;
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                .icon{
+                    svg,img{
+                        width: 3rem;
+                    }
+                }
+                .context{
+                    display: grid;
+                    gap: .5rem;
+    
                 }
             }
         }
@@ -127,16 +150,6 @@ main{
         .imgs-section,.details-section{
             padding: 1rem 1rem ;
             width: 95%;
-        }
-        .imgs-section{
-            flex-direction: column;
-            .primary-img-con{
-                width: 100%;
-            }
-            .sec-img-con{
-                flex-direction: row;
-                width: 100%;
-            }
         }
         .add-to-cart-cta{
             flex-wrap: nowrap !important;
