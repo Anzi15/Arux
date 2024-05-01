@@ -4,6 +4,8 @@ $color-light-black: #121212a3;
 $color-white: #FFFFFF;
 $color-grey: #363738;
 $color-light-grey: #E0E3E7;
+$color-medium-grey: #BFBFBF;
+$color-dark-grey: #7C7C7C;
 $color-brand-blue: #5C788F;
 $color-semi_white: #F9FAFB;
 $color-semi_blue: #EBF5FF;
@@ -178,6 +180,7 @@ button, input[type="submit"]{
     justify-content: right;
     display: flex;
     gap: 2rem;
+    
 }
 .thin-heading{
     font-weight: 400;

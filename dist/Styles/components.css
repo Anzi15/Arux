@@ -337,20 +337,27 @@ nav.mobile-only-nav.closed {
 
 quantity-selector {
   display: flex;
-  width: 10rem;
+  width: 9rem;
   justify-content: space-between;
+  height: 3rem;
+  border: solid 1px #7C7C7C;
+  overflow: visible !important;
+  align-items: center;
 }
 quantity-selector input[type=number] {
   color: #363738;
   width: 50%;
   text-align: center;
-  height: 3rem;
-  font-size: 1.5rem;
-  border: solid 1px #363738;
-  border-right: none;
-  border-left: none;
+  height: 100%;
+  font-size: 1.4rem;
+  font-weight: 500;
   outline: none;
+  border: none;
   -moz-appearance: textfield;
+}
+quantity-selector input[type=number]:focus-visible {
+  height: 4rem;
+  border: solid 1.3px #7C7C7C;
 }
 quantity-selector input::-webkit-outer-spin-button,
 quantity-selector input::-webkit-inner-spin-button {
@@ -358,28 +365,19 @@ quantity-selector input::-webkit-inner-spin-button {
   margin: 0;
 }
 quantity-selector button {
-  border: solid 1px #363738;
+  display: grid;
   width: 25%;
   cursor: pointer;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   transition: all 0.1s ease-in;
 }
-quantity-selector button:hover {
-  border-color: #5C788F;
-  background: #5C788F;
-  color: #F5F5F5;
-}
 quantity-selector button svg {
   width: 2rem;
-}
-quantity-selector #plusBtn {
-  border-radius: 0;
-  background: #5C788F;
-  border-color: #5C788F;
-  color: #F5F5F5;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
 }
 
 footer {

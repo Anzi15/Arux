@@ -87,32 +87,33 @@
                 </div>
 
                 <div class="cta-con">
-                    <div class="add-to-cart-cta">
+                    <div class="quantity-con ">
+                        <p>Quantity</p>
+                        <quantity-selector>
+                            <button id="subtractBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
+                                </svg>
+                        </button>
 
-                        <div class="quantity-con">
-                            <quantity-selector>
-                                <button id="subtractBtn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
-                                    </svg>
-                            </button>
+                        <input type="number" id="quantityInpElem" value="1" onchange="this.value <= 0 ? this.value = 1 : 'meow'; ">
+                        
+                        <button id="plusBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                </svg>
+                        </button>
+                    </quantity-selector>
+                    </div>
 
-                            <input type="number" id="quantityInpElem" value="1" onchange="this.value <= 0 ? this.value = 1 : 'meow'; ">
-                            
-                            <button id="plusBtn">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                                  </svg>
-                            </button>
-                        </quantity-selector>
-                        </div>
+                    <div class="two_btn_con">
 
-                        <button id="addToCart">
+                        
+                        <button class="buyNowBtn" id="buyNowBtn">Buy now</button>
+                        <button id="addToCartBtn" class="addToCartBtn">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                             </svg>
-
-                            <p>Add to Cart</p>
                         </button>
                     </div>
                 </div>
