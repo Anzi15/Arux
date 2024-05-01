@@ -350,7 +350,7 @@ section.product-suggestions {
   width: 100vw;
   display: grid;
   justify-content: center;
-  margin: 2rem 0;
+  margin-top: 7rem;
 }
 section.product-suggestions .products-con {
   padding: 2rem 0;
