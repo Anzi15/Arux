@@ -346,6 +346,20 @@ main .details-section .features-section .feature .context {
   gap: 0.5rem;
 }
 
+section.product-suggestions {
+  width: 100vw;
+  display: grid;
+  justify-content: center;
+  margin: 2rem 0;
+}
+section.product-suggestions .products-con {
+  padding: 2rem 0;
+  width: 90vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 800px) {
   main {
     flex-direction: column;

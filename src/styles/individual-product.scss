@@ -141,6 +141,21 @@ main{
     }
 }
 
+section.product-suggestions{
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    margin: 2rem 0;
+    
+    .products-con{
+        padding: 2rem 0;
+        width: 90vw;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
+
 
 //*responsiveness
 @media (max-width: $breakpoint-L-tab) {
