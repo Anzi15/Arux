@@ -7,7 +7,6 @@ import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-m
 
 //variables
 const products_con = document.getElementById('products-con');
-let lastDocID;
 
 (async ()=>{
 
@@ -27,4 +26,4 @@ let lastDocID;
         if(alerReponse.isConfirmed) {window.location.reload()}
     }
     
-})()
+})();

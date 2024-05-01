@@ -11,6 +11,9 @@ main{
         .primary-img-con,.sec-img-con{
             display: flex;
             justify-content: space-between;
+            .skeleton-loading{
+                aspect-ratio: 1/1;
+            }
             img{
                 width: 100%;  
             }
@@ -19,11 +22,15 @@ main{
             img{
                 width: 100%;
             }
+            margin: 1rem 0;
         }
         .sec-img-con{
             width: 100%;
+            gap: 2%;
             img{
-                width: 50%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                width: 49%;
             }
         }
     }
@@ -42,11 +49,15 @@ main{
             border-bottom: 2px solid $color-light-grey;
             color: $color-grey;
 
+
+
             .product-title{
+                width: fit-content;
                 font-size: 2rem;
                 letter-spacing: 0.02rem;
             }
             .product-price{
+                width: fit-content;
                 font-size: 1.7rem;
                 font-weight: 490;
                 letter-spacing: 0.05rem;
@@ -57,7 +68,7 @@ main{
                 font-size: 1rem;
                 letter-spacing: 0.05rem;
                 font-weight: 500;
-
+                width: fit-content;
             }
         }
 
@@ -82,7 +93,7 @@ main{
                 overflow: visible;
                 margin: 1rem 0;
                 justify-content: left;
-                button{
+                button,a{
                     width: fit-content;
                     display: flex;
                     justify-content: center;
@@ -95,6 +106,7 @@ main{
                     color: $color-light-black;
                     border-radius: 6px;
                     transition: all .1s ease-in;
+                    text-decoration: none;
     
                     &:hover{
                         background: linear-gradient(0deg, $color-black 0%, #1b1b1b 100%);
@@ -106,7 +118,7 @@ main{
                     }
                 
                 }
-                button.buyNowBtn{
+                .buyNowBtn{
                     width: 100%;
                     background: linear-gradient(0deg, $color-black 0%, #1b1b1b 100%);
                     color: $color-white;
@@ -127,8 +139,9 @@ main{
                 gap: 1rem;
                 align-items: center;
                 .icon{
+                    min-width: 3rem;
                     svg,img{
-                        width: 3rem;
+                        width: 2.5rem;
                     }
                 }
                 .context{
@@ -138,6 +151,10 @@ main{
                 }
             }
         }
+    }
+    .skeleton-loading{
+        border-radius: 4px;
+
     }
 }
 

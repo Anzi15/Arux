@@ -174,17 +174,14 @@ const getFirestoreDocument = async (collectionName, docID) => {
       throw new Error("Something went wrong :(");
     }
   } catch (error) {
-    const confirmationObj = await showConfirmationDialog(
+    const confirmationObj = await showAlert(
       "error",
       "Something went wrong :(",
       "Please try again",
-      "Refresh",
-      "Go to dashboard"
+      "Try again!"
     );
     if (confirmationObj.isConfirmed) {
       window.location.reload();
-    }else{
-      window.location.replace("/admin/products")
     }
     return error;
   }

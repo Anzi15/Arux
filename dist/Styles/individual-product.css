@@ -24,6 +24,7 @@ body {
 }
 
 .skeleton-loading {
+  user-select: none;
   background-color: #ffffff;
   animation: skeleton-loading 3.5s ease-in-out infinite alternate;
 }
@@ -31,15 +32,19 @@ body {
 @keyframes skeleton-loading {
   0% {
     background-color: #f0f0f0;
+    color: #f0f0f0;
   }
   25% {
     background-color: #f5f4f4;
+    color: #f5f4f4;
   }
   50% {
     background-color: #dfdfdf;
+    color: #dfdfdf;
   }
   100% {
     background-color: #d6d6d6;
+    color: #d6d6d6;
   }
 }
 .socials-con {
@@ -232,17 +237,26 @@ main .imgs-section .primary-img-con, main .imgs-section .sec-img-con {
   display: flex;
   justify-content: space-between;
 }
+main .imgs-section .primary-img-con .skeleton-loading, main .imgs-section .sec-img-con .skeleton-loading {
+  aspect-ratio: 1/1;
+}
 main .imgs-section .primary-img-con img, main .imgs-section .sec-img-con img {
   width: 100%;
+}
+main .imgs-section .primary-img-con {
+  margin: 1rem 0;
 }
 main .imgs-section .primary-img-con img {
   width: 100%;
 }
 main .imgs-section .sec-img-con {
   width: 100%;
+  gap: 2%;
 }
 main .imgs-section .sec-img-con img {
-  width: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 49%;
 }
 main .details-section {
   padding: 6.5rem 1.5rem;
@@ -260,10 +274,12 @@ main .details-section .product-data {
   color: #363738;
 }
 main .details-section .product-data .product-title {
+  width: fit-content;
   font-size: 2rem;
   letter-spacing: 0.02rem;
 }
 main .details-section .product-data .product-price {
+  width: fit-content;
   font-size: 1.7rem;
   font-weight: 490;
   letter-spacing: 0.05rem;
@@ -274,6 +290,7 @@ main .details-section .product-data .product-description {
   font-size: 1rem;
   letter-spacing: 0.05rem;
   font-weight: 500;
+  width: fit-content;
 }
 main .details-section .cta-con {
   width: 100%;
@@ -297,7 +314,7 @@ main .details-section .cta-con div.two_btn_con {
   margin: 1rem 0;
   justify-content: left;
 }
-main .details-section .cta-con div.two_btn_con button {
+main .details-section .cta-con div.two_btn_con button, main .details-section .cta-con div.two_btn_con a {
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -310,21 +327,22 @@ main .details-section .cta-con div.two_btn_con button {
   color: rgba(18, 18, 18, 0.6392156863);
   border-radius: 6px;
   transition: all 0.1s ease-in;
+  text-decoration: none;
 }
-main .details-section .cta-con div.two_btn_con button:hover {
+main .details-section .cta-con div.two_btn_con button:hover, main .details-section .cta-con div.two_btn_con a:hover {
   background: linear-gradient(0deg, #000000 0%, #1b1b1b 100%);
   color: #FFFFFF;
   color: #FFFFFF;
 }
-main .details-section .cta-con div.two_btn_con button svg {
+main .details-section .cta-con div.two_btn_con button svg, main .details-section .cta-con div.two_btn_con a svg {
   height: 2rem;
 }
-main .details-section .cta-con div.two_btn_con button.buyNowBtn {
+main .details-section .cta-con div.two_btn_con .buyNowBtn {
   width: 100%;
   background: linear-gradient(0deg, #000000 0%, #1b1b1b 100%);
   color: #FFFFFF;
 }
-main .details-section .cta-con div.two_btn_con button.buyNowBtn:hover {
+main .details-section .cta-con div.two_btn_con .buyNowBtn:hover {
   background: linear-gradient(0deg, #1b1b1b 0%, #000000 100%);
   border: 10px;
 }
@@ -338,12 +356,18 @@ main .details-section .features-section .feature {
   gap: 1rem;
   align-items: center;
 }
+main .details-section .features-section .feature .icon {
+  min-width: 3rem;
+}
 main .details-section .features-section .feature .icon svg, main .details-section .features-section .feature .icon img {
-  width: 3rem;
+  width: 2.5rem;
 }
 main .details-section .features-section .feature .context {
   display: grid;
   gap: 0.5rem;
+}
+main .skeleton-loading {
+  border-radius: 4px;
 }
 
 section.product-suggestions {

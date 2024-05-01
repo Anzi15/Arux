@@ -1,7 +1,5 @@
 "use strict";
 
-import { readUsedSize } from "chart.js/helpers";
-
 function getParamFromUrl(paramName) {
     const searchParams = new URLSearchParams(window.location.search);
     const paramValue = searchParams.get(paramName)
