@@ -233,6 +233,15 @@ main .imgs-section {
   display: flex;
   flex-direction: column;
 }
+main .imgs-section .product-tree {
+  display: flex;
+  gap: 0.5rem;
+  font-size: larger;
+  padding: 1.5rem 0;
+}
+main .imgs-section .product-tree .all-products-link {
+  color: #7C7C7C;
+}
 main .imgs-section .primary-img-con, main .imgs-section .sec-img-con {
   display: flex;
   justify-content: space-between;
@@ -248,15 +257,41 @@ main .imgs-section .primary-img-con {
 }
 main .imgs-section .primary-img-con img {
   width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 main .imgs-section .sec-img-con {
   width: 100%;
   gap: 2%;
 }
-main .imgs-section .sec-img-con img {
+main .imgs-section .sec-img-con div {
+  width: 49%;
+}
+main .imgs-section .sec-img-con div img {
+  width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
-  width: 49%;
+}
+main .imgs-section .overlay-img-preview {
+  background: rgba(35, 29, 29, 0.42);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  border: 1px solid rgba(35, 29, 29, 0.3);
+  width: 100vw !important;
+  height: 105vh !important;
+  position: fixed;
+  z-index: 11;
+  inset: 0;
+  top: -3vh;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+}
+main .imgs-section .overlay-img-preview img {
+  max-width: 30rem !important;
+  z-index: 12 !important;
 }
 main .details-section {
   padding: 6.5rem 1.5rem;
@@ -315,6 +350,7 @@ main .details-section .cta-con div.two_btn_con {
   justify-content: left;
 }
 main .details-section .cta-con div.two_btn_con button, main .details-section .cta-con div.two_btn_con a {
+  cursor: pointer;
   width: fit-content;
   display: flex;
   justify-content: center;
