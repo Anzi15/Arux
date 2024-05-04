@@ -30,6 +30,9 @@ $breakpoint-L-tab: 800px;
         background: $color-light-grey;
         color: $color-black;
     }
+    img{
+        user-select: none;
+    }
 }
 body{
     padding: 0;

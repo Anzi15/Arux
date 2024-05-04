@@ -10,6 +10,9 @@
   background: #E0E3E7;
   color: #000000;
 }
+* img {
+  user-select: none;
+}
 
 body {
   padding: 0;

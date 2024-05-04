@@ -32,10 +32,14 @@ nav{
         li{
             a{
                 color: $color-black;
-
+                
                 &:hover{
                     text-underline-offset: 3px;
                     text-decoration: underline 1px $color-black;
+                }
+                svg{
+                    color: $color-black;
+
                 }
             }
         }
@@ -50,6 +54,7 @@ nav{
         gap: .5rem;
         
         svg{
+            color: $color-black;
             cursor: pointer;
             height: 1.7rem;
             transition: all .5s ease-in;

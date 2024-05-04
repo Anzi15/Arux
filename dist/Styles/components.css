@@ -10,6 +10,9 @@
   background: #E0E3E7;
   color: #000000;
 }
+* img {
+  user-select: none;
+}
 
 body {
   padding: 0;
@@ -253,12 +256,16 @@ nav ul li a:hover {
   text-underline-offset: 3px;
   text-decoration: underline 1px #000000;
 }
+nav ul li a svg {
+  color: #000000;
+}
 nav .icon-links {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 nav .icon-links svg {
+  color: #000000;
   cursor: pointer;
   height: 1.7rem;
   transition: all 0.5s ease-in;
