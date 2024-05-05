@@ -25,4 +25,4 @@ const handleNonEmptyCart = ()=>{
 };
 
 //*event listners
-handleEmptyCart()
+// handleEmptyCart()
