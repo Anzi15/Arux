@@ -3,10 +3,12 @@
 //*essential imports
 import {
     getFirestoreDocument,
-    getFewFirestoreDocs
+    getFewFirestoreDocs,
+    showNotification
 } from './admin-modules';
 import {getParamFromUrl} from './general-modules';
 import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-modules';
+import { doc } from 'firebase/firestore';
 
 //*variables and dom elements
 const quantityInpElem = document.getElementById('quantityInpElem');
@@ -14,7 +16,7 @@ const quantitySubtractBtn = document.getElementById('subtractBtn');
 const quantityPlusBtn = document.getElementById('plusBtn');
 const recomendedProductsCon = document.getElementById('recomended-products-con');
 const productNavTreeProductName = document.getElementById('product-tree-this-product-name');
-
+const addToCartBtn = document.getElementById('addToCartBtn');
 
 let docID = getParamFromUrl("id");
 let productDoc;
@@ -60,6 +62,36 @@ const domImgs = {
     removeCertainClassedElemsFromDom(recomendedProductsCon, "placeolder-products")
 })()
 
+const addProductToCart = (productId, quantity)=>{
+    let currentCart = JSON.parse(localStorage.getItem("cart"));
+    if(currentCart == null){
+        currentCart = []
+    }
+    const currentProduct = {productId, quantity}
+
+    let itemAlreadyInCart = false;
+    let previousItem = null;
+    currentCart.forEach(item =>{
+        if(item.productId == productId){
+            itemAlreadyInCart = true;
+            previousItem = item;
+        }
+    })
+
+    if(!itemAlreadyInCart){
+        currentCart.push(currentProduct);
+
+        localStorage.setItem("cart",JSON.stringify(currentCart));
+    }else{
+        currentCart[currentCart.indexOf(previousItem)].quantity++;
+
+        localStorage.setItem("cart",JSON.stringify(currentCart));
+    }
+    console.log(localStorage.getItem("cart"))
+
+    showNotification("success","Product added to your cart",6000)
+}
+
 //*eventlistners
 quantityPlusBtn.onclick = ()=>{quantityInpElem.value++}
 quantitySubtractBtn.onclick = ()=>{
@@ -71,3 +103,6 @@ for(const elem in domImgs){
         domImgs[elem].parentElement.classList.toggle("overlay-img-preview")
     })
 }
+addToCartBtn.addEventListener("click",()=>{
+    addProductToCart(docID, quantityInpElem.value)
+})

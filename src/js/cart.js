@@ -3,11 +3,11 @@ import {getFewFirestoreDocs} from './admin-modules';
 import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-modules'
 
 //*dom elems and variables
-const cartItems = localStorage.getItem("cartItems");
+const cartItems = localStorage.getItem("cart");
 const cartIsEmpty = cartItems == null ? true : false;
 
 const emptyCartElem = document.getElementById('empty-cart');
-const nonEmptyCartElem = document.getElementById('d');
+const nonEmptyCartElem = document.getElementById('non-empty-cart');
 
 //*functions
 const handleEmptyCart = async ()=>{
@@ -21,8 +21,9 @@ const handleEmptyCart = async ()=>{
 };
 
 const handleNonEmptyCart = ()=>{
-
+    nonEmptyCartElem.classList.remove("none")
 };
 
 //*event listners
+cartIsEmpty ? handleEmptyCart() : handleNonEmptyCart()
 // handleEmptyCart()

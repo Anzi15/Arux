@@ -59,9 +59,9 @@
         </nav>
     </header>
 
-    <main class="">
-        <h1 class="hero__title">Your cart</h1>
-        <div class="cart-items-con">
+    <main>
+        <section class="cart-items-con none" id="non-empty-cart">
+            <h1 class="hero__title">Your cart</h1>
             <div class="cart-item heading">
                 <div class="cart-item-section ">
                     <p>Product</p>
@@ -112,35 +112,45 @@
                 <div class="cart-item-section subtotal-section large-screen-cart-item-section" >Rs. 2000</div>
             </div>
 
-        </div>
-    </main>
-
-    <section class="empty-cart none" id="empty-cart">
-        <img src="../assets/empty-cart-bags.svg" draggable="false" alt="empty-cart">
-        <h1>Your cart is empty</h1>
-        <a href="../Products/" class="big_btn">Continue shopping</a>
-        <!--  product suggestions -->
-        <div class="product-suggestions">
-            <h4 class="section-heading">
-                You might like:
-            </h4>
-    
-            <div class="products-con" id="recomended-products-con">
-                <div class="skeleton-loading Product-card placeolder-products">
-                    
-                </div>
-                <div class="skeleton-loading Product-card placeolder-products">
-    
-                </div>
-                <div class="skeleton-loading Product-card placeolder-products">
-    
-                </div>
-                <div class="skeleton-loading Product-card placeolder-products">
-    
+            <div class="cart-footer-con">
+                <div class="cart-footer">
+                    <p>
+                        Estimated Total  
+                        <span id="cart-total-items-value-display-elem"> Rs. 2000</span>
+                    </p>
+                    <a role="not-link" href="../checkout?src=cart">Check out</a>
                 </div>
             </div>
-        </div>
-    </section >
+        </section>
+
+        <section class="empty-cart none" id="empty-cart">
+            <img src="../assets/empty-cart-bags.svg" draggable="false" alt="empty-cart">
+            <h1>Your cart is empty</h1>
+            <a href="../Products/" class="big_btn">Continue shopping</a>
+            <!--  product suggestions -->
+            <div class="product-suggestions">
+                <h4 class="section-heading">
+                    You might like:
+                </h4>
+        
+                <div class="products-con" id="recomended-products-con">
+                    <div class="skeleton-loading Product-card placeolder-products">
+                        
+                    </div>
+                    <div class="skeleton-loading Product-card placeolder-products">
+        
+                    </div>
+                    <div class="skeleton-loading Product-card placeolder-products">
+        
+                    </div>
+                    <div class="skeleton-loading Product-card placeolder-products">
+        
+                    </div>
+                </div>
+            </div>
+        </section >
+    </main>
+
 
 
     <!-- footer  -->

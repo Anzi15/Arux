@@ -1,6 +1,8 @@
 @import './config.scss';
 
+
 main{
+    min-height: 20rem;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -95,6 +97,52 @@ main{
                 }
             }
         }
+        .cart-footer-con{
+            width: 80vw;
+            display: flex;
+            justify-content: flex-end;
+            padding: 3rem 0;
+            .cart-footer{
+                min-width: 15rem;
+                width: 20rem;
+                max-width: 90vw;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 1rem;
+    
+                p{
+                    color: $color-dark-grey;
+                    font-size: 1rem;
+                    span{
+                      font-weight: 500;
+                    }
+                }
+                a{
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    gap: 1rem;
+                    border: solid 1.4px $color-grey;
+                    color: $color-light-black;
+                    border-radius: 6px;
+                    transition: all .1s ease-in;
+                    text-decoration: none;
+                    width: 80%;
+                    height: 4rem;
+                    background: linear-gradient(0deg, $color-black 0%, #1b1b1b 100%);
+                    color: $color-white;
+                    max-width: 100vw;
+    
+                    &:hover{
+                        background: linear-gradient(0deg, #1b1b1b 0%, $color-black 100%);
+                    }
+                }
+            }
+        }
     }
 
 }
@@ -126,9 +174,9 @@ section.empty-cart{
 }
 
 @media (max-width: $breakpoint-L-tab) {
-    main{
-        .hero__title,.cart-items-con{
-            width: 95vw;
+main{
+    .hero__title,.cart-items-con{
+        width: 95vw;
         }
     }
     .large-screen-cart-item-section{
@@ -141,7 +189,6 @@ section.empty-cart{
         justify-content: space-between !important;
     }
     .product-details-section{
-        max-width: 100vw ;
         flex-direction: row ;
         width: 70% !important;
         .product-img-con{
@@ -150,18 +197,6 @@ section.empty-cart{
         p{
             width: 50%;
         }
+        max-width: 100vw ;
     }
 }
-
-// @media (max-width: 320px) {
-//     .cart-item-section{
-//         width: 33.33 ;
-//         &:first-child{
-//             min-width: none ;
-//             max-width: auto;
-//             width: 33.33 ;
-//             align-items: flex-start ;
-//             flex-direction: column;
-//         }
-//     }
-// }
