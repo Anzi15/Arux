@@ -45,6 +45,7 @@ main{
                     align-items: center;
                     gap: .4rem;
                     .product-img-con{
+                        overflow: visible;
                         min-width: 7rem;
                         position: relative;
                         button{
@@ -54,6 +55,7 @@ main{
                             color: $color-white;
                             aspect-ratio: 1/1;
                             top: 0;
+                            left: -.5rem;
                             background: $color-brand-blue;
                             border-radius: 50%;
                             position: absolute;
@@ -67,6 +69,7 @@ main{
                             }
                         }
                         img.product-img{
+                            border-radius: 6px;
                             aspect-ratio: 1/1;
                             width: 7rem;
                             object-fit: cover;
