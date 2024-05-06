@@ -7,12 +7,103 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    .cart-items-con{
+    .section-cart-items{
         width: 90vw;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        #cart-items-con{
+            width: 100%;
+            display: flex;
+            padding: 3rem 0;
+            flex-direction: column;
+            gap: 1rem;
+            .cart-item{
+                border: 2.5px solid $color-semi_white;
+                border-radius: 8px;
+                min-height: 7rem;
+                padding: 1rem 0;
+                width: 100%;
+                display: flex;
+                gap: .5rem;
+                justify-content: right;
+                align-items: center;
+                div.cart-item-section{
+                    min-width: 20%;
+                    &:first-child{
+                        padding-left: .7rem;
+                        min-width: 35%;
+                    }
+                }
+                .small-screen-cart-item{
+                    display: none;
+                }
+                .product-details-section{
+                    width: 35%;
+                    display: flex;
+                    align-items: center;
+                    gap: .4rem;
+                    .product-img-con{
+                        min-width: 7rem;
+                        position: relative;
+                        button{
+                            cursor: pointer;
+                            display: none;
+                            overflow: hidden;
+                            color: $color-white;
+                            aspect-ratio: 1/1;
+                            top: 0;
+                            background: $color-brand-blue;
+                            border-radius: 50%;
+                            position: absolute;
+                            svg{
+                                width: 1.5rem;
+                            }
+                        }
+                        &:hover{
+                            button{
+                                display: block;
+                            }
+                        }
+                        img.product-img{
+                            aspect-ratio: 1/1;
+                            width: 7rem;
+                            object-fit: cover;
+                        }
+                    }
+                    div.product-context{
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        width: 90%;
+                        gap: 1rem;
+                    }
+                }
+                .quantity-section{
+                    min-width: fit-content;
+                    input{
+                        margin: 0;
+                        color: $color-dark-grey;
+                        border: $color-medium-grey 2px solid;
+                        width: 5rem;
+                        height: 3rem;
+                        font-size: 1.5rem;
+                        text-align: center;
+                        border-radius: 3px;
+    
+                        &:active, &:focus-within, &:focus-visible{
+                            border: $color-medium-grey 2px solid ;
+                        }
+    
+                        &::-webkit-inner-spin-button, 
+                        &::-webkit-outer-spin-button {  
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
         .cart-item{
             border: 2.5px solid $color-semi_white;
             border-radius: 8px;
@@ -103,7 +194,7 @@ main{
             justify-content: flex-end;
             padding: 3rem 0;
             .cart-footer{
-                min-width: 15rem;
+                min-width: 10rem;
                 width: 20rem;
                 max-width: 90vw;
                 display: flex;
@@ -175,7 +266,7 @@ section.empty-cart{
 
 @media (max-width: $breakpoint-L-tab) {
 main{
-    .hero__title,.cart-items-con{
+    .section-cart-items{
         width: 95vw;
         }
     }
@@ -192,7 +283,10 @@ main{
         flex-direction: row ;
         width: 70% !important;
         .product-img-con{
-            width: fit-content;
+            min-width: 6rem;
+            img{
+                width: 6rem;
+            }
         }
         p{
             width: 50%;

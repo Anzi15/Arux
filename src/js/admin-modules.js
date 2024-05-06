@@ -1,6 +1,6 @@
 "use strict";
 
-import { initializeApp } from "firebase/app";
+import { initializeApp, } from "firebase/app";
 import {
   getStorage,
   ref,
@@ -21,12 +21,12 @@ import {
   where,
   limitToLast,
   orderBy,
-  startAfter,
-  limit,
+  documentId,
   initializeFirestore
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getDatabase, onDisconnect } from "firebase/database";
+import firebase from "firebase/compat/app";
 
 //TODO: break down admin-modules into seprate files, like firebase modules, ui-modules, etc.
 
@@ -162,6 +162,20 @@ const getFewFirestoreDocs = async (collectionName, limit) => {
   }
 };
 
+const getListOfFirestoreDocs = async(collectionName, listOfIds)=>{
+  try {
+    const list = [...listOfIds]
+    const querySnapshot = await getDocs(query(collection(db, collectionName), where(documentId(), 'in', list)));
+
+    const products = querySnapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }));
+
+    return products;
+  } catch (error) {
+    console.error("Error fetching cart products: ", error);
+    // Handle the error appropriately
+    return [];
+  }
+}
 
 const getFirestoreDocument = async (collectionName, docID) => {
   try {
@@ -384,6 +398,7 @@ export {
   storeObjToDB,
   getAllFirestoreDocuments,
   getFewFirestoreDocs,
+  getListOfFirestoreDocs,
   getFirestoreDocument,
   checkFieldValueExistsInDB,
   updateFirestoreDocument,

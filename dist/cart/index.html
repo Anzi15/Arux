@@ -60,7 +60,7 @@
     </header>
 
     <main>
-        <section class="cart-items-con none" id="non-empty-cart">
+        <section class="section-cart-items none" id="non-empty-cart">
             <h1 class="hero__title">Your cart</h1>
             <div class="cart-item heading">
                 <div class="cart-item-section ">
@@ -81,42 +81,29 @@
 
             </div>
 
-            <div class="cart-item">
+            <div id="cart-items-con">
+                
+                <div class="cart-item skeleton-loading placeholder-items">
 
-                <div class="cart-item-section product-details-section">
-                    <div class="product-img-con">
-                        <button class="remove-product">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                              </svg>
-                        </button>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTiiwHyywjvIG1rcKlMSqWmM-nHZc05lZ09L1cK3o0Ow&s" alt="" class="product-img">
-                    </div>
-                        <div class="product-context">
-                            Best AI product - AI meow
-                            <p class="product-price small-screen-cart-item">
-                                Rs.100
-                            </p>
-                        </div>
+                </div>
+                <div class="cart-item skeleton-loading placeholder-items">
+
+                </div>
+                <div class="cart-item skeleton-loading placeholder-items">
+
+                </div>
+                <div class="cart-item skeleton-loading placeholder-items">
 
                 </div>
 
-                <div class="cart-item-section price-section large-screen-cart-item-section">
-                    <p>Rs. 999</p>
-                </div>
-
-                <div class="cart-item-section quantity-section">
-                    <input type="number" name="" id="" value="1">
-                </div>
-
-                <div class="cart-item-section subtotal-section large-screen-cart-item-section" >Rs. 2000</div>
             </div>
+
 
             <div class="cart-footer-con">
                 <div class="cart-footer">
                     <p>
-                        Estimated Total  
-                        <span id="cart-total-items-value-display-elem"> Rs. 2000</span>
+                        Estimated Total -
+                        <span id="cart-total-items-value-display-elem" class="skeleton-loading"> Rs. 2000</span>
                     </p>
                     <a role="not-link" href="../checkout?src=cart">Check out</a>
                 </div>
