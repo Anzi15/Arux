@@ -1,0 +1,113 @@
+@import "./config.scss";
+
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;   
+  justify-content: center;
+  main {
+    width: 90vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    section {
+      width: 40%;
+    }
+    section.section-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .hero__title {
+        width: 75% !important;
+        margin: 0;
+      }
+      form {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .form__field-con {
+          display: flex;
+          flex-direction: column;
+        }
+        .checkbox {
+          padding-top: 0.2rem;
+          display: flex;
+          gap: 0.3rem;
+          align-items: center;
+        }
+        label {
+          color: $color-dark-grey;
+        }
+        input {
+          min-height: 2.5rem;
+          font-size: 0.9rem;
+          font-weight: 400;
+          padding-left: 1rem;
+          color: $color-black;
+          border: 1px solid $color-light-black;
+          border-radius: 6px;
+          transition: 0.3s all ease-in;
+
+          &:focus-within {
+            border: none;
+            border: 2px $color-brand-blue solid;
+          }
+        }
+        input[type="checkbox"] {
+          height: 1rem;
+        }
+        .dual-form-feild-con {
+          display: flex;
+          justify-content: space-between;
+          .form__field-con {
+            width: 49%;
+          }
+        }
+        input[type="submit"] {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.2rem;
+          font-weight: 500;
+          gap: 1rem;
+          padding: 1rem 0.8rem;
+          border-radius: 6px;
+          transition: all 0.1s ease-in;
+          text-decoration: none;
+
+          width: 100%;
+          background: linear-gradient(0deg, $color-black 0%, #1b1b1b 100%);
+          color: $color-white;
+
+          &:hover {
+            background: linear-gradient(0deg, #1b1b1b 0%, $color-black 100%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width < 768px) {
+  body {
+    align-items: center;
+    main {
+      width: 98vw !important;
+      justify-content: center;
+      gap: 4rem;
+      section {
+        width: 90% !important;
+      }
+      section.section-form {
+        align-items: flex-start;
+        form {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

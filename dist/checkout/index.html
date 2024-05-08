@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your cart items</title>
+    <title>Checkout</title>
     <!-- stylings -->
     <link rel="stylesheet" href="../styles/components.css">
-    <link rel="stylesheet" href="../styles/cart.css">
-<script defer src="../components.js"></script><script defer src="../cart.js"></script></head>
+    <link rel="stylesheet" href="../styles/checkout.css">
+
+    
+<script defer src="../components.js"></script><script defer src="../checkout.js"></script></head>
 <body>
     <!-- notification area above navbar  -->
     <div class="notification">
@@ -60,85 +62,66 @@
     </header>
 
     <main>
-        <section class="section-cart-items none" id="non-empty-cart">
-            <h1 class="hero__title">Your cart</h1>
-            <div class="cart-item heading">
-                <div class="cart-item-section ">
-                    <p>Product</p>
-                </div>
+        <section class="section-form">
+            <h1 class="hero__title">Checkout</h1>
+            <form action="" class="details">
+                <div class="form__field-con">
+                    <label for="email">Email *</label>
 
-                <div class="cart-item-section large-screen-cart-item-section">
-                    <p>Price</p>
-                </div>
-
-                <div class="cart-item-section ">
-                    <p>Quantity</p>
-                </div>
-
-                <div class="cart-item-section subtotal-heading large-screen-cart-item-section">
-                    <p>Subtoal</p>
-                </div>
-
-            </div>
-
-            <div id="cart-items-con">
-                
-                <div class="cart-item skeleton-loading placeholder-items">
-
-                </div>
-                <div class="cart-item skeleton-loading placeholder-items">
-
-                </div>
-                <div class="cart-item skeleton-loading placeholder-items">
-
-                </div>
-                <div class="cart-item skeleton-loading placeholder-items">
-
-                </div>
-
-            </div>
+                    <input type="email" autocomplete="email" name="email" required>
 
 
-            <div class="cart-footer-con">
-                <div class="cart-footer">
-                    <p>
-                        Estimated Total -
-                        <span id="cart-total-items-value-display-elem" class="skeleton-loading"> Rs. 2000</span>
-                    </p>
-                    <a role="not-link" href="../checkout?src=cart">Check out</a>
-                </div>
-            </div>
-        </section>
+                    <div class="checkbox">
 
-        <section class="empty-cart none" id="empty-cart">
-            <img src="../assets/empty-cart-bags.svg" draggable="false" alt="empty-cart">
-            <h1>Your cart is empty</h1>
-            <a href="../Products/" class="big_btn">Continue shopping</a>
-            <!--  product suggestions -->
-            <div class="product-suggestions">
-                <h4 class="section-heading">
-                    You might like:
-                </h4>
-        
-                <div class="products-con" id="recomended-products-con">
-                    <div class="skeleton-loading Product-card placeolder-products">
+                        <input id="email-newsletter-agree" type="checkbox" checked/>
+                        <label for="email-newsletter-agree">Send me discount emails </label>
+                        
                         
                     </div>
-                    <div class="skeleton-loading Product-card placeolder-products">
-        
+                </div>
+
+                <div class="form__field-con">
+                    <label for="">Full Name* </label>
+                    <input type="text" autocomplete="name">
+                </div>
+
+                <div class="form__field-con">
+                    <label for="">Phone number*</label>
+                    <input type="tel" autocomplete="tel" >
+                </div>
+                
+                <div class="dual-form-feild-con">
+
+                    <div class="form__field-con">
+                        <label for="">Town/City*</label>
+                        <input type="text" autocomplete="shipping address-level2" required>
                     </div>
-                    <div class="skeleton-loading Product-card placeolder-products">
-        
-                    </div>
-                    <div class="skeleton-loading Product-card placeolder-products">
-        
+                    <div class="form__field-con">
+                        <label for="">Province/State*</label>
+                        <input type="text" autocomplete="shipping address-level1" required>
                     </div>
                 </div>
-            </div>
-        </section >
+
+                <div class="form__field-con">
+                    <label for="">Street Adress*</label>
+                    <input type="text" autocomplete="shipping address-line2" required> 
+                </div>
+
+                <div class="form__field-con">
+                    <label for="">Apartment, Suite, etc. (optional)</label>
+                    <input type="text" autocomplete="address-line2">
+                    
+                </div>
+                <div class="form__field-con">
+                    <input type="submit" value="Place order" >
+                </div>
+            </form>
+        </section>
+
+        <section class="section-coupon">
+
+        </section>
     </main>
-
-
 
     <!-- footer  -->
     <footer>

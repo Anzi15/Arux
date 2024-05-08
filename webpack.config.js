@@ -10,6 +10,7 @@
             products_menu: './src/js/products-menu.js',
             individual_product: './src/js/individual-product.js',
             cart: './src/js/cart.js',
+            checkout: './src/js/checkout.js',
 
             // admin entries 
             admin : './src/js/admin.js',
@@ -48,11 +49,17 @@
                 template: 'src/Product/index.html',
                 chunks : ['individual_product','components']
             }),
-            //individual prodcut
+            //cart
             new HtmlWebpackPlugin({
                 filename: 'cart/index.html',
                 template: 'src/cart/index.html',
                 chunks : ['cart','components']
+            }),
+            //checkout
+            new HtmlWebpackPlugin({
+                filename: 'checkout/index.html',
+                template: 'src/checkout/index.html',
+                chunks : ['checkout','components']
             }),
 
             // admin files 
