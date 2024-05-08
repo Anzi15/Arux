@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/checkout.js":
@@ -15,7 +16,7 @@
   \****************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://arux/./src/js/checkout.js?");
+eval("\r\n//*esential imports\r\n\r\n//*varibales and elements\r\nconst checkoutFormElem = document.getElementById('checkoutFormElem');\r\n\r\n//*Functions\r\nconst allFeildElems = checkoutFormElem.querySelectorAll(\"[data-feildName]\")\r\nconsole.log(allFeildElems)\r\nconst handleCheckout = (e)=>{\r\n}\r\n\r\n//*EventListners\r\ncheckoutFormElem.addEventListener(\"submit\",(e)=>{\r\n    e.preventDefault();\r\n    handleCheckout(e)\r\n})\r\n\r\n//*Debugging\n\n//# sourceURL=webpack://arux/./src/js/checkout.js?");
 
 /***/ })
 
