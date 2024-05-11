@@ -105,25 +105,21 @@ const storeObjToDB = async (
   collectionName = "Products",
   dataObj = { key: "Please provide a data-obj to continue" }
 ) => {
-  console.log("para:" , dataObj, collectionName)
   try {
     if (navigator.onLine) {
       const newDoc = await addDoc(collection(db, collectionName), dataObj);
-      console.log("new doc:" , newDoc)
       return newDoc;
     } else {
       throw new Error("No internet");
     }
   } catch (error) {
     console.log(`Error storing product to database: ${error}`);
-    showConfirmationDialog("error","No internet","failed to save changes to the cloud please try again latter","Refresh page", "Go to dashboard").then(response => {
+    showAlert("error","No internet","failed to save changes to the cloud please try again latter","Refresh page").then(response => {
+    return "error";
       if(response.isConfirmed){
         window.location.reload()
-      }else{
-        window.location.replace("../products")
       }
     })
-    return "error";
   }
 };
 

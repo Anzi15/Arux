@@ -17,6 +17,7 @@ const quantityPlusBtn = document.getElementById('plusBtn');
 const recomendedProductsCon = document.getElementById('recomended-products-con');
 const productNavTreeProductName = document.getElementById('product-tree-this-product-name');
 const addToCartBtn = document.getElementById('addToCartBtn');
+const getNowBtn = document.getElementById('buyNowBtn');
 
 let docID = getParamFromUrl("id");
 let productDoc;
@@ -105,4 +106,10 @@ for(const elem in domImgs){
 }
 addToCartBtn.addEventListener("click",()=>{
     addProductToCart(docID, quantityInpElem.value)
+})
+
+getNowBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    const url = `../checkout?src=${docID}&quantity=${quantityInpElem.value}`;
+    window.location.href = url;
 })

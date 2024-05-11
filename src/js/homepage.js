@@ -14,7 +14,7 @@ const topProductsCon = document.getElementById('top-products-con');
         if(allProducts.length){
             removeCertainClassedElemsFromDom(topProductsCon,"placeolder-products")
             for (const product of allProducts) {
-                addProductToDom(topProductsCon, product.data);
+                addProductToDom(topProductsCon, product.data, product.id);
             }
         }else{
              showNotification("error","You're having internet issues","Check your internet connection and retry");

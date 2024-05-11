@@ -298,7 +298,7 @@ body main section.section-form form .field-collection .dual-form-feild-con .form
 body main section.section-form form .field-collection .field-collection-title {
   color: #7C7C7C;
 }
-body main section.section-form form input[type=submit] {
+body main section.section-form form input[type=submit], body main section.section-form form .form_submit_btn {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -315,19 +315,18 @@ body main section.section-form form input[type=submit] {
   background: linear-gradient(0deg, #7699b6, 0%, #5C788F 100%);
   color: #FFFFFF;
 }
-body main section.section-form form input[type=submit]:hover {
+body main section.section-form form input[type=submit] img, body main section.section-form form .form_submit_btn img {
+  height: 1.5rem;
+}
+body main section.section-form form input[type=submit]:hover, body main section.section-form form .form_submit_btn:hover {
   background: linear-gradient(0deg, #5C788F 0%, #7699b6, 100%);
 }
 body main section.section-additional-info {
-  position: sticky;
-  position: -webkit-sticky; /* Safari */
-  top: 0;
   min-height: 100%;
   width: 48%;
   padding: 3rem;
   background: #F9FAFB;
   padding-top: 3rem;
-  min-height: 100%;
 }
 body main section.section-additional-info .products-con,
 body main section.section-additional-info .total-con,
