@@ -1,69 +1,75 @@
 @import "./config.scss";
 
 body {
-  width: 100vw;
   display: flex;
-  flex-direction: column;   
+  flex-direction: column;
   justify-content: center;
   main {
-    width: 90vw;
+    width: 100vw;
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    section {
-      width: 40%;
-    }
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+
     section.section-form {
+      width: 45%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
       .hero__title {
-        width: 75% !important;
-        margin: 0;
+        width: 92%;
       }
       form {
+        padding-top: 3rem;
         width: 85%;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        .form__field-con {
+        gap: 4rem;
+        .field-collection {
           display: flex;
           flex-direction: column;
-        }
-        .checkbox {
-          padding-top: 0.2rem;
-          display: flex;
-          gap: 0.3rem;
-          align-items: center;
-        }
-        label {
-          color: $color-dark-grey;
-        }
-        input {
-          min-height: 2.5rem;
-          font-size: 0.9rem;
-          font-weight: 400;
-          padding-left: 1rem;
-          color: $color-black;
-          border: 1px solid $color-light-black;
-          border-radius: 6px;
-          transition: 0.3s all ease-in;
+          gap: 1rem;
 
-          &:focus-within {
-            border: none;
-            border: 2px $color-brand-blue solid;
-          }
-        }
-        input[type="checkbox"] {
-          height: 1rem;
-        }
-        .dual-form-feild-con {
-          display: flex;
-          justify-content: space-between;
           .form__field-con {
-            width: 49%;
+            display: flex;
+            flex-direction: column;
+          }
+          .checkbox {
+            padding-top: 0.2rem;
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+          }
+          label {
+            color: $color-dark-grey;
+          }
+          input {
+            min-height: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding-left: 1rem;
+            color: $color-black;
+            border: 1px solid $color-light-black;
+            border-radius: 6px;
+            transition: 0.3s all ease-in;
+
+            &:focus-within {
+              border: none;
+              border: 2px $color-brand-blue solid;
+            }
+          }
+          input[type="checkbox"] {
+            height: 1rem;
+          }
+          .dual-form-feild-con {
+            display: flex;
+            justify-content: space-between;
+            .form__field-con {
+              width: 49%;
+            }
+          }
+          .field-collection-title {
+            color: $color-dark-grey;
           }
         }
         input[type="submit"] {
@@ -81,76 +87,115 @@ body {
 
           width: 100%;
           border: none;
-          background: linear-gradient(0deg, #7699b6, 0%,$color-brand-blue  100%);
+          background: linear-gradient(
+            0deg,
+            #7699b6,
+            0%,
+            $color-brand-blue 100%
+          );
           color: $color-white;
 
           &:hover {
-            background: linear-gradient(0deg, $color-brand-blue 0%, #7699b6, 100%);
+            background: linear-gradient(
+              0deg,
+              $color-brand-blue 0%,
+              #7699b6,
+              100%
+            );
           }
         }
       }
     }
-    section.section-additional-info{
-        padding-top: 3rem;
-        min-height: 100%;
-        .products-con{
-            margin: 1rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            .product{
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                .product-info{
-                    display: flex;
-                    align-items: center;
-                    img{
-                        width: 4rem;
-                        aspect-ratio: 1/1;
-                        object-fit: cover;
-                    }
-                }
-            }
-        }
-        .total-con{
-          margin: 3rem 0;
+    section.section-additional-info {
+      min-height: 100%;
+      width: 48%;
+      padding: 3rem;
+      background: $color-semi_white;
+      padding-top: 3rem;
+
+      .products-con,
+      .total-con,
+      .coupon-con {
+        width: 95%;
+      }
+      .products-con {
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .product {
+          min-height: 6rem;
+          width: 100%;
           display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          div{
+          justify-content: space-between;
+          align-items: center;
+          .product-info {
+            min-height: 6rem;
             display: flex;
-            width: 100%;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: left;
+            gap: 0.5rem;
+            div.img-con {
+              display: flex;
+              flex-direction: column;
+              justify-content: end;
+              min-height: 5.5rem;
+              min-width: 5.5rem;
+              position: relative;
+              img {
+                border: 1px solid $color-light-grey;
+                border-radius: 6px;
+                width: 5rem;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+              }
+              .quantity-dot-indicator {
+                overflow: hidden;
+                display: grid;
+                place-items: center;
+                height: 1.5rem;
+                text-align: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: $color-brand-blue;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                color: $color-white;
+                z-index: 11;
+              }
+            }
           }
         }
-        .coupon-con{
+      }
+      .total-con {
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        div {
           display: flex;
           width: 100%;
           justify-content: space-between;
-          input{
-            width: 67%;
-            height: 3rem;
-            border: 1px solid $color-dark-grey;
-            border-radius: 5px;
-            padding-left: 1rem;
-          }
-          button{
-            color: $color-white;
-            border-radius: 5px;
-            width: 30%;
-            background-color: $color-brand-blue;
-          }
         }
-        .coupon-con.applied{
-          *{
-            cursor: not-allowed;
-          }
-          cursor: not-allowed;
-          opacity: 0.5;
+        .total {
+          color: $color-light-black;
+          font-size: 1.3rem;
+          font-weight: 550;
+        }
+      }
 
+      .small-section {
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+
+        h3 {
+          font-size: 1.3rem;
+
+          color: $color-dark-grey;
         }
+      }
     }
   }
 }
@@ -159,7 +204,7 @@ body {
   body {
     align-items: center;
     main {
-      width: 98vw !important;
+      max-width: 100vw !important;
       justify-content: center;
       gap: 4rem;
       section {
@@ -169,6 +214,17 @@ body {
         align-items: flex-start;
         form {
           width: 100%;
+        }
+      }
+      section.section-additional-info {
+        width: 100% !important;
+        padding: 1.5rem;
+
+        .small-section {
+          display: flex !important;
+        }
+        .whole-content {
+          display: none;
         }
       }
     }

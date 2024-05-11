@@ -1,5 +1,4 @@
 //*essential imports
-import { remove } from 'firebase/database';
 import {getListOfFirestoreDocs, getFewFirestoreDocs} from './admin-modules';
 import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-modules'
 

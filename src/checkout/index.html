@@ -75,129 +75,155 @@
 
     <main>
       <section class="section-form">
-        <h1 class="hero__title">Checkout</h1>
         <form action="" class="details" id="checkoutFormElem">
-          <div class="form__field-con">
-            <label for="email">Email *</label>
-
-            <input type="email" autocomplete="email" name="email" required data-feildName="email"/>
-
-            <div class="checkbox">
-              <input id="email-newsletter-agree" type="checkbox" checked />
-              <label for="email-newsletter-agree"
-                >Send me discount emails
-              </label>
-            </div>
-          </div>
-
-          <div class="form__field-con">
-            <label for="name">Full Name* </label>
-            <input type="text" autocomplete="name" name="name" data-feildName="name"/>
-          </div>
-
-          <div class="form__field-con">
-            <label for="phoneNumber">Phone number*</label>
-            <input type="tel" autocomplete="tel" data-feildName="phoneNumber" name="phoneNumber"/>
-          </div>
-
-          <div class="dual-form-feild-con">
+          <div class="field-collection">
+            <h3 class="field-collection-title">Contact</h3>
             <div class="form__field-con">
-              <label for="city">Town/City*</label>
+              <label for="email">Email *</label>
+
               <input
-                type="text"
-                autocomplete="shipping address-level2"
-                required name="city" data-feildName="city"
-              />
-            </div>
-            <div class="form__field-con">
-              <label for="">Province/State*</label>
-              <input
-                type="text"
-                autocomplete="shipping address-level1"
+                type="email"
+                autocomplete="email"
+                name="email"
                 required
+                data-fieldName="email"
+              />
+
+              <div class="checkbox">
+                <input id="email-newsletter-agree" type="checkbox" checked />
+                <label for="email-newsletter-agree"
+                  >Send me discount emails
+                </label>
+              </div>
+            </div>
+            <div class="form__field-con">
+              <label for="phoneNumber">Phone number*</label>
+              <input
+                type="tel"
+                autocomplete="tel"
+                data-fieldName="phoneNumber"
+                name="phoneNumber"
+              />
+            </div>
+          </div>
+
+          <div class="field-collection">
+            <h3 class="field-collection-title">Delivery</h3>
+
+            <div class="form__field-con">
+              <label for="name">Full Name* </label>
+              <input
+                type="text"
+                autocomplete="name"
+                name="name"
+                data-fieldName="name"
+              />
+            </div>
+
+            <div class="dual-form-feild-con">
+              <div class="form__field-con">
+                <label for="city">Town/City*</label>
+                <input
+                  type="text"
+                  autocomplete="shipping address-level2"
+                  required
+                  name="city"
+                  data-fieldName="city"
+                />
+              </div>
+              <div class="form__field-con">
+                <label for="">Province/State*</label>
+                <input
+                  type="text"
+                  autocomplete="shipping address-level1"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form__field-con">
+              <label for="streeAdress">Street Adress*</label>
+              <input
+                type="text"
+                autocomplete="shipping address-line2"
+                required
+                name="streeAdress"
+                data-fieldName="streeAdress"
+              />
+            </div>
+
+            <div class="form__field-con">
+              <label for="additonalAdress"
+                >Apartment, Suite, etc. (optional)</label
+              >
+              <input
+                type="text"
+                autocomplete="address-line2"
+                name="additonalAdress"
+                data-fieldName="additonalAdress"
               />
             </div>
           </div>
 
           <div class="form__field-con">
-            <label for="streeAdress">Street Adress*</label>
-            <input type="text" autocomplete="shipping address-line2" required name="streeAdress" data-feildName="streeAdress"/>
-          </div>
-
-          <div class="form__field-con">
-            <label for="additonalAdress">Apartment, Suite, etc. (optional)</label>
-            <input type="text" autocomplete="address-line2" name="additonalAdress" data-feildName="additonalAdress"/>
-          </div>
-
-          <div class="form__field-con">
-            <input type="submit" value="Place order"/>
+            <input type="submit" value="Place order" />
           </div>
         </form>
       </section>
 
       <section class="section-additional-info">
-        <div class="products-con">
-          <div class="product">
-            <div class="product-info">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F45c0a160-78d7-4ea6-9dff-ec6449db16e9?alt=media&token=2ea0e8e3-9634-431a-8057-1030ea1300ae"
-                alt=""
-                class="skelton-img"
-              />
-              <p class="product-title">best chippi chappa</p>
-            </div>
-            <div class="product-price">
-              <span id="quantitu">1x </span> Rs. 1000
-            </div>
-          </div>
-          <div class="product">
-            <div class="product-info">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F45c0a160-78d7-4ea6-9dff-ec6449db16e9?alt=media&token=2ea0e8e3-9634-431a-8057-1030ea1300ae"
-                alt=""
-                class="skelton-img"
-              />
-              <p class="product-title">best chippi chappa</p>
-            </div>
-            <div class="product-price">
-              <span id="quantitu">1x </span> Rs. 1000
-            </div>
-          </div>
-          <div class="product">
-            <div class="product-info">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F45c0a160-78d7-4ea6-9dff-ec6449db16e9?alt=media&token=2ea0e8e3-9634-431a-8057-1030ea1300ae"
-                alt=""
-                class="skelton-img"
-              />
-              <p class="product-title">best chippi chappa</p>
-            </div>
-            <div class="product-price">
-              <span id="quantitu">1x </span> Rs. 1000
-            </div>
-          </div>
-        </div>
-        <div class="total-con">
-          <div class="subtotal">
-            <p>Subtotal:</p>
-            <p>Rs. 3000</p>
-          </div>
-          <hr />
-          <div class="shipping-fees">
-            <p>Shipping cost:</p>
-            <p>Rs. 3000</p>
-          </div>
-          <hr />
-          <div class="total">
-            <p>Total:</p>
-            <p>Rs. 3200</p>
-          </div>
+        <div class="small-section">
+          <a id="small-mob-visibilty-toggler-for-order-summary"
+            >
+            Show order summary
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-down"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+              /></svg>
+        </a>
+
+          <h3 class="total-price">Rs. 2000</h3>
         </div>
 
-        <div class="coupon-con">
-          <div class="overlay"></div>
-          <input type="text" name="" id="" placeholder="Coupon code" />
-          <button class="">Apply</button>
+        <div class="whole-content folded" id="order-summary-content">
+          <div class="products-con" id="products_con">
+            <div class="skeleton-loading product placeholder-prodcuts">
+              <div class="product-info">
+                <div class="img-con">
+
+                  
+                </div>
+                <p class="product-title">best chippi chappa</p>
+              </div>
+              <div class="product-price">
+                <p class="">Rs. 1000</p>
+              </div>
+            </div>
+          </div>
+          <div class="total-con">
+            <div class="subtotal">
+              <p>Subtotal:</p>
+              <p>Rs. 3000</p>
+            </div>
+
+            <div class="shipping-fees">
+              <p>Shipping cost:</p>
+              <p>Rs. 3000</p>
+            </div>
+
+            <div class="total">
+              <p>Total:</p>
+              <p>Rs. 3200</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
