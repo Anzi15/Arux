@@ -106,7 +106,7 @@
             new HtmlWebpackPlugin({
             filename: 'admin/orders/index.html',
             template: 'src/admin/orders/index.html',
-            chunks: ['admin','admin_components']
+            chunks: ['admin','admin_components','admin_orders']
             }),
 
             //admin product edit

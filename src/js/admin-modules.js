@@ -203,7 +203,6 @@ const userExistInFireAuth = async () => {
   return new Promise((resolve, reject) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
         resolve(user); // Resolve with user object if user is authenticated
       } else {
         console.log("User not authenticated");
@@ -227,7 +226,6 @@ const updateFirestoreDocument = async (
       const fieldValue = updatedObj[fieldName];
       data[fieldName] = fieldValue
       const updateTask = await updateDoc(docRef, data); 
-      console.log(updateTask)
     } catch (error) {
       console.log(error)
       const confirmationObj = await showConfirmationDialog(

@@ -11,7 +11,6 @@ const logOutBtn = document.getElementById('logOutBtn');
 //*Functions
 (async ()=>{
       const userCredentials = await userExistInFireAuth()
-      console.log(userCredentials)
       if(userCredentials !== false){
 
         const userIsAdmin = await checkFieldValueExistsInDB("Admins","Email",userCredentials.email)
@@ -27,7 +26,6 @@ const logOutBtn = document.getElementById('logOutBtn');
 
 function allowEntry(userCredentials){
   removeLoader(document.body);
-  console.log(userCredentials)
   userProfile.src = userCredentials.photoURL
 }
 

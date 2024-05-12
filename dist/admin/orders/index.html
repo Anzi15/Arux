@@ -7,7 +7,7 @@
     <!-- styleings  -->
     <link rel="stylesheet" href="../../Styles/admin.css" />
     <link rel="stylesheet" href="../../Styles/admin_order.css" />
-  <script defer src="../../admin.js"></script><script defer src="../../admin_components.js"></script></head>
+  <script defer src="../../admin.js"></script><script defer src="../../admin_components.js"></script><script defer src="../../admin_orders.js"></script></head>
   <body>
     <!-- side navbar  -->
     <aside id="sidebar">
@@ -174,6 +174,7 @@
         </div>
 
         <h1 class="thin-heading page-heading">Your Orders</h1>
+
         <div class="orders-con">
           <div class="order heading-indicators">
             <p class="order-number order-column">Order Number</p>
@@ -181,49 +182,52 @@
             <p class="order-customer order-column">Customer</p>
             <p class="order-total order-column">Total</p>
             <p class="order-status order-column">Status</p>
-            <p class="order-quantity order-column">Quantity</p>
+            <p class="order-Items order-column">Items</p>
           </div>
 
-          <a href="" class="order">
-            <p class="order-number order-column">#0128</p>
-            <p class="order-date order-column">20/12/25</p>
-            <p class="order-customer order-column">Anzar Larik</p>
-            <p class="order-total order-column">Rs. 30000</p>
-            <div class="order-status order-column">
-              <p class="fullfilled orderIndicator">fullfilled</p>
-            </div>
-            <p class="order-quantity order-column">4</p>
-          </a>
-          <a href="" class="order">
-            <p class="order-number order-column">#0128</p>
-            <p class="order-date order-column">20/12/25</p>
-            <p class="order-customer order-column">Anzar Larik</p>
-            <p class="order-total order-column">Rs. 30000</p>
-            <div class="order-status order-column">
-              <p class="pending orderIndicator">Pending</p>
-            </div>
-            <p class="order-quantity order-column">4</p>
-          </a>
-          <a href="" class="order">
-            <p class="order-number order-column">#0128</p>
-            <p class="order-date order-column">20/12/25</p>
-            <p class="order-customer order-column">Anzar Larik</p>
-            <p class="order-total order-column">Rs. 30000</p>
-            <div class="order-status order-column">
-              <p class="Cancelled orderIndicator">Cancelled</p>
-            </div>
-            <p class="order-quantity order-column">4</p>
-          </a>
-          <a href="" class="order">
-            <p class="order-number order-column">#0128</p>
-            <p class="order-date order-column">20/12/25</p>
-            <p class="order-customer order-column">Anzar Larik</p>
-            <p class="order-total order-column">Rs. 30000</p>
-            <div class="order-status order-column">
-              <p class="fullfilled orderIndicator">fullfilled</p>
-            </div>
-            <p class="order-quantity order-column">4</p>
-          </a>
+          <div class="orders-wrapper" id="orders-wrapper">
+              <a href="" class="order">
+                <p class="order-number order-column">#0128</p>
+                <p class="order-date order-column">20/12/25</p>
+                <p class="order-customer order-column">Anzar Larik</p>
+                <p class="order-total order-column">Rs. 30000</p>
+                <div class="order-status order-column">
+                  <p class="fullfilled orderIndicator">fullfilled</p>
+                </div>
+                <p class="order-Items order-column">4</p>
+              </a>
+              <a href="" class="order">
+                <p class="order-number order-column">#0128</p>
+                <p class="order-date order-column">20/12/25</p>
+                <p class="order-customer order-column">Anzar Larik</p>
+                <p class="order-total order-column">Rs. 30000</p>
+                <div class="order-status order-column">
+                  <p class="pending orderIndicator">Pending</p>
+                </div>
+                <p class="order-Items order-column">4</p>
+              </a>
+              <a href="" class="order">
+                <p class="order-number order-column">#0128</p>
+                <p class="order-date order-column">20/12/25</p>
+                <p class="order-customer order-column">Anzar Larik</p>
+                <p class="order-total order-column">Rs. 30000</p>
+                <div class="order-status order-column">
+                  <p class="Cancelled orderIndicator">Cancelled</p>
+                </div>
+                <p class="order-Items order-column">4</p>
+              </a>
+              <a href="" class="order">
+                <p class="order-number order-column">#0128</p>
+                <p class="order-date order-column">20/12/25</p>
+                <p class="order-customer order-column">Anzar Larik</p>
+                <p class="order-total order-column">Rs. 30000</p>
+                <div class="order-status order-column">
+                  <p class="fullfilled orderIndicator">fullfilled</p>
+                </div>
+                <p class="order-Items order-column">4</p>
+              </a>
+
+          </div>
         </div>
       </section>
     </main>
