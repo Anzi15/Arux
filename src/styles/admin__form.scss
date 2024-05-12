@@ -52,6 +52,11 @@ main{
                 
             }
         }
+        .forgotPasswordBtn{
+            display: flex;
+            justify-content: right;
+            width: 80%;
+        }
         input[type="submit"]{
             border: none;
         }

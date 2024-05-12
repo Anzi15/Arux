@@ -1,11 +1,13 @@
 "use strict";
 import { initializeApp } from "firebase/app";
-import { getAuth,signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
+import { getAuth,signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
+import Swal from 'sweetalert2'
 
 // getting elemes from dom 
 const login_form = document.getElementById('login_form');
 const msg = login_form.querySelector('.message');
 const googleSignupBtn = document.getElementById("google_signup_btn");
+const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
 
 //my firebas configuration
 const firebaseConfig = {
@@ -57,17 +59,38 @@ login_form.addEventListener("submit",(e)=>{
 })
   
 //if signed in redirect =>
+  onAuthStateChanged(auth, (user) => {
+    if (user && !user.isAnonymous) {
+      console.log(user)
+      alert("pause")
+      window.location.href = "../";
+    }
+  });
 
-    onAuthStateChanged(auth, (user) => {
-        if (user && !user.isAnonymous) {
-          console.log(user)
-          alert("pause")
-          window.location.href = "../";
-        }
-      });
 
 //google sign up 
 googleSignupBtn.addEventListener("click", async ()=>{
    const user = await signInWithRedirect(auth, googleAuthProvider);
    console.log(user)
+})
+
+forgotPasswordBtn.addEventListener("click",async (e)=>{
+  e.preventDefault()
+  const { value: email } = await Swal.fire({
+    title: "Input email address",
+    input: "email",
+    inputLabel: "Your email address",
+    inputPlaceholder: "Enter your email address"
+  });
+  if (email) {
+    sendPasswordResetEmail(auth, email)
+  .then(() => {
+    Swal.fire("Email sent to your inbox!")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+  }
 })
