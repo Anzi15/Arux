@@ -227,75 +227,82 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
-main .add__products-con {
+main section {
+  padding: 1rem;
   width: 100%;
-  padding: 2rem 1rem;
-  display: flex;
-  justify-content: right;
 }
-main .add__products-con .big_btn {
-  padding: 0.5rem;
-}
-main section.section__your__products {
-  padding: 0 1.5rem;
+main section h1.page-heading {
   margin: 2rem 0;
 }
-main section.section__your__products .section__products__grid {
-  display: grid;
-  gap: 1rem;
+main section .search-box-con {
   width: 100%;
-  padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  column-gap: 2rem;
-}
-main section.section__your__products .section__products__grid .product {
-  display: inline-flex;
-  background: #F9FAFB;
-  border-radius: 0.5rem;
-  border: 1px solid #EBF5FF;
-  gap: 0.4rem;
-  transition: all 0.2s ease-in;
-  box-shadow: rgba(0, 0, 0, 0) 0px 4px 12px;
-}
-main section.section__your__products .section__products__grid .product:hover {
-  scale: 1.02;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-main section.section__your__products .section__products__grid .product img.product__img {
-  width: 40%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-main section.section__your__products .section__products__grid .product .product__content-con {
-  width: 60%;
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
   justify-content: center;
-  align-items: center;
 }
-main section.section__your__products .section__products__grid .product .product__content-con .product__title, main section.section__your__products .section__products__grid .product .product__content-con .product__config-con, main section.section__your__products .section__products__grid .product .product__content-con .product__detail-con {
-  color: #363738;
-  width: 80%;
-  flex-wrap: wrap;
-}
-main section.section__your__products .section__products__grid .product .product__content-con .product__detail-con {
-  display: inline-flex;
+main section .search-box-con .search-box {
+  border-radius: 6px;
+  padding: 0 1rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: left;
+  width: 70%;
   gap: 1rem;
+  background: #FFFFFF;
 }
-main section.section__your__products .section__products__grid .product .product__content-con .product__config-con {
-  display: inline-flex;
-  gap: 0.4rem;
+main section .search-box-con .search-box input {
+  min-height: 3rem;
+  width: 90%;
+  border: none;
+  font-size: 1.2rem;
 }
-main section.section__your__products .section__products__grid .product .product__content-con .product__config-con svg {
-  color: #363738;
+main section .search-box-con .search-box input:focus-visible {
+  outline: none;
+}
+main section .search-box-con .search-box button {
+  color: #7C7C7C;
+}
+main section .search-box-con .search-box button svg {
   width: 1.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
 }
-main section.section__your__products .section__products__grid .product .product__content-con .product__config-con svg:hover {
-  color: #000000;
-  scale: 1.1;
+main section .orders-con {
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+main section .orders-con .heading-indicators p {
+  font-weight: 550;
+}
+main section .orders-con .order {
+  text-decoration: none;
+  color: rgba(18, 18, 18, 0.6392156863);
+  width: 100%;
+  border-bottom: 1px solid #E0E3E7;
+  min-height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+}
+main section .orders-con .order .order-column {
+  min-width: 16%;
+  max-width: 16.2%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+main section .orders-con .order .orderIndicator {
+  width: fit-content;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10rem;
+  color: #FFFFFF;
+}
+main section .orders-con .order .orderIndicator.fullfilled {
+  background: #027155;
+}
+main section .orders-con .order .orderIndicator.pending {
+  background: #b69121;
+}
+main section .orders-con .order .orderIndicator.Cancelled {
+  background: #a22c29;
 }
 
-/*# sourceMappingURL=admin_products.css.map */
+/*# sourceMappingURL=admin_order.css.map */

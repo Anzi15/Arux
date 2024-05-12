@@ -61,8 +61,6 @@ login_form.addEventListener("submit",(e)=>{
 //if signed in redirect =>
   onAuthStateChanged(auth, (user) => {
     if (user && !user.isAnonymous) {
-      console.log(user)
-      alert("pause")
       window.location.href = "../";
     }
   });
@@ -71,7 +69,6 @@ login_form.addEventListener("submit",(e)=>{
 //google sign up 
 googleSignupBtn.addEventListener("click", async ()=>{
    const user = await signInWithRedirect(auth, googleAuthProvider);
-   console.log(user)
 })
 
 forgotPasswordBtn.addEventListener("click",async (e)=>{

@@ -244,6 +244,7 @@ body aside {
   justify-content: space-between;
   align-items: center;
   padding-top: 3rem;
+  border-right: 1px solid #E0E3E7;
 }
 body aside .top-options, body aside .bottom-options {
   width: 100%;
@@ -282,17 +283,17 @@ body aside .top-options .option.active, body aside .bottom-options .option.activ
   border-left: 0.5rem solid #5C788F;
 }
 body main {
+  background: #F3F3F3 !important;
   width: calc(100% - 17rem);
   background: #FFFFFF;
-  padding: 1rem;
-  padding: 0;
 }
 body main nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
+  background: #FFFFFF;
 }
 body main nav .userCredentialImgBtn {
   height: 100%;

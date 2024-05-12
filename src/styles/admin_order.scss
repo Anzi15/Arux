@@ -1,0 +1,89 @@
+@import './config.scss';
+
+main{
+    section{
+        padding: 1rem;
+        width: 100%;
+
+        h1.page-heading{
+            margin: 2rem 0;
+        }
+        .search-box-con{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .search-box{
+                border-radius: 6px;
+                padding: 0 1rem;
+                margin: 1rem 0;
+                display: flex;
+                justify-content: left;
+                width: 70%;
+                gap: 1rem;
+                background: $color-white;
+                input{
+                    min-height: 3rem;
+                    width: 90%;
+                    border: none;
+    
+                    &:focus-visible{
+                        outline: none;
+                    }
+                    font-size: 1.2rem;
+                }
+                button{
+                    color: $color-dark-grey;
+                    svg{
+                        width: 1.5rem;
+                    }
+                }
+            }
+
+        }
+        .orders-con{
+            background: $color-white;
+            border-radius: 8px;
+            .heading-indicators{
+                p{
+                    font-weight: 550;
+                }
+            }
+
+            .order{
+                text-decoration: none;
+                color: $color-light-black;
+                width: 100%;
+                border-bottom: 1px solid $color-light-grey;
+                min-height: 6rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: .8rem;
+
+                .order-column{
+                    min-width: 16%;
+                    max-width: 16.2%;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                }
+                .orderIndicator{
+                    width: fit-content;
+                    padding: 0.7rem 1.5rem;
+                    border-radius: 10rem;
+                    color: $color-white;
+                }
+                .orderIndicator.fullfilled{
+                    background: $color-green;
+                }
+                .orderIndicator.pending{
+                    background: $color-yellow;
+                }
+                .orderIndicator.Cancelled{
+                    background: $color-red;
+                }
+            }
+
+        }
+    }
+}

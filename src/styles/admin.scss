@@ -18,6 +18,7 @@ body{
         justify-content: space-between;
         align-items: center;
         padding-top: 3rem;
+        border-right: 1px solid $color-light-grey;
         .top-options,.bottom-options{
             //both upper and lower options
             width: 100%;
@@ -62,17 +63,17 @@ body{
         }
     }
     main{
+        background: $color-urltra-light-grey !important;
         width: calc(100% - 17rem);
         background: $color-white;
-        padding: 1rem;
-        padding: 0;
         // navbar 
         nav{
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            padding: 1rem;
+            padding: 1.5rem;
+            background: $color-white;
             .userCredentialImgBtn{
                 height: 100%;
                 img{
