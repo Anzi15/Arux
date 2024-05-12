@@ -57,18 +57,17 @@ login_form.addEventListener("submit",(e)=>{
 })
   
 //if signed in redirect =>
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      window.location.href = "../";
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user && !user.isAnonymous) {
+          console.log(user)
+          alert("pause")
+          window.location.href = "../";
+        }
+      });
 
 //google sign up 
 googleSignupBtn.addEventListener("click", async ()=>{
-    await signInWithRedirect(auth, googleAuthProvider);
+   const user = await signInWithRedirect(auth, googleAuthProvider);
+   console.log(user)
 })

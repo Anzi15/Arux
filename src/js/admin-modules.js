@@ -8,6 +8,7 @@ import {
   uploadString,
 } from "firebase/storage";
 import { v4 } from "uuid";
+
 import {
   addDoc,
   collection,
@@ -25,8 +26,8 @@ import {
   initializeFirestore
 } from "firebase/firestore";
 import Swal from "sweetalert2";
-import { getDatabase, onDisconnect } from "firebase/database";
-import firebase from "firebase/compat/app";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 
 //TODO: break down admin-modules into seprate files, like firebase modules, ui-modules, etc.
 
@@ -53,6 +54,7 @@ const firebaseStorage = getStorage(app);
 const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
 });
+const auth = getAuth(app);
 
 (() => {
   if (!window.navigator.onLine) showAlert("error","No internet","You seem offline","Refresh page").then(response => {
@@ -197,6 +199,21 @@ const getFirestoreDocument = async (collectionName, docID) => {
   }
 };
 
+const userExistInFireAuth = async () => {
+  return new Promise((resolve, reject) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        resolve(user); // Resolve with user object if user is authenticated
+      } else {
+        console.log("User not authenticated");
+        resolve(false); // Resolve with false if user is not authenticated
+      }
+    });
+  });
+};
+
+
 const updateFirestoreDocument = async (
   collectionName,
   docID,
@@ -255,6 +272,20 @@ const removeLoader = (parentElem = document.body) => {
   const allChildElems = parentElem.querySelectorAll(".loader-wrapper");
   allChildElems.forEach((child) => child.remove());
 };
+
+const signOutFirebaseAuth = () => {
+  return new Promise((resolve, reject) => {
+    signOut(auth)
+      .then(() => {
+          resolve(true);
+      })
+      .catch((error) => {
+        reject(error); 
+      });
+  });
+};
+
+
 
 const addLoader = (
   parentElem = document.body,
@@ -395,10 +426,12 @@ export {
   getAllFirestoreDocuments,
   getFewFirestoreDocs,
   getListOfFirestoreDocs,
+  userExistInFireAuth,
   getFirestoreDocument,
   checkFieldValueExistsInDB,
   updateFirestoreDocument,
   deleteDocumentFromFirestore,
+  signOutFirebaseAuth,
   removeLoader,
   addLoader,
   showAlert,

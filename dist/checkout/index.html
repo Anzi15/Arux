@@ -166,7 +166,8 @@
           </div>
 
           <div class="form__field-con">
-            <input type="submit" value="Place order" />
+            <input type="submit" value="Place order" name="" class="none"/>
+            <button name="submit" class="form_submit_btn">submit</button>
           </div>
         </form>
       </section>
@@ -190,7 +191,7 @@
               /></svg>
         </a>
 
-          <h3 class="total-price">Rs. 2000</h3>
+          <h3 class="total-price skeleton-loading" id="small-mob-price-total-elem">Rs. 500000</h3>
         </div>
 
         <div class="whole-content folded" id="order-summary-content">
@@ -204,24 +205,24 @@
                 <p class="product-title">best chippi chappa</p>
               </div>
               <div class="product-price">
-                <p class="">Rs. 1000</p>
+                <p class="" >Rs. 1000</p>
               </div>
             </div>
           </div>
           <div class="total-con">
             <div class="subtotal">
-              <p>Subtotal:</p>
-              <p>Rs. 3000</p>
+              <p >Subtotal:</p>
+              <p id="product-summary-subtotal-elem" class="skeleton-loading">Rs. 3000</p>
             </div>
 
             <div class="shipping-fees">
               <p>Shipping cost:</p>
-              <p>Rs. 3000</p>
+              <p id="product-summary-shippingFees-elem" class="skeleton-loading">Rs. 3000</p>
             </div>
 
             <div class="total">
               <p>Total:</p>
-              <p>Rs. 3200</p>
+              <p id="product-summary-total-elem" class="skeleton-loading">Rs. 3200</p>
             </div>
           </div>
         </div>

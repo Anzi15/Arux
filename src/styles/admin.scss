@@ -62,17 +62,28 @@ body{
         }
     }
     main{
+        width: calc(100% - 17rem);
         background: $color-white;
         padding: 1rem;
         padding: 0;
         // navbar 
         nav{
-            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
             padding: 1rem;
+            .userCredentialImgBtn{
+                height: 100%;
+                img{
+                    width: 2rem;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                }
+            }
         }
         //title
         .brand-title{
-            width: 90%;
             text-align: center;
         }
         //nav toggler
@@ -103,6 +114,9 @@ body{
     }
     body{
         position: relative;
+        main{
+            width: 100vw !important;
+        }
     }
     .sidebar_toggler{
         display: inline-block !important;

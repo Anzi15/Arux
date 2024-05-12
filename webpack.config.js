@@ -92,28 +92,28 @@
             new HtmlWebpackPlugin({
             filename: 'admin/Products/index.html',
             template: 'src/admin/Products/index.html',
-            chunks: ['admin_products', 'admin_components']
+            chunks: ['admin', 'admin_products', 'admin_components']
             }),
 
             //admin new product
             new HtmlWebpackPlugin({
             filename: 'admin/Products/new/index.html',
             template: 'src/admin/Products/new/index.html',
-            chunks: ['admin_new_product','admin_new_product_form_submission']
+            chunks: ['admin','admin_new_product','admin_new_product_form_submission']
             }),
             
             //admin orders
             new HtmlWebpackPlugin({
             filename: 'admin/orders/index.html',
             template: 'src/admin/orders/index.html',
-            chunks: ['admin_components']
+            chunks: ['admin','admin_components']
             }),
 
             //admin product edit
             new HtmlWebpackPlugin({
                 filename: 'admin/Products/edit/index.html',
                 template: 'src/admin/Products/edit/index.html',
-                chunks: ['admin_edit_product_form_submission', 'admin_product_edit']
+                chunks: ['admin','admin_edit_product_form_submission', 'admin_product_edit']
             }),
         
         ],
