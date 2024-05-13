@@ -253,6 +253,16 @@ const checkFieldValueExistsInDB = async(collectionName, fieldName, fieldValue)=>
   if(querySnapshot.docs.length) return true;
   return false;
 }
+const searchFiretoreDocsBySpecificField = async(collectionName, fieldName, searchQuery)=>{
+  const collRef = collection(db, collectionName);
+
+  const q = query(collRef, where(fieldName, "==", searchQuery));
+
+  const querySnapshot = await getDocs(q);
+  const products = querySnapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }));
+  if(querySnapshot.docs.length) return products;
+  return [];
+}
 
 const deleteDocumentFromFirestore = async (collectionName, document_id) => {
   let returningObj = {};
@@ -427,6 +437,7 @@ export {
   userExistInFireAuth,
   getFirestoreDocument,
   checkFieldValueExistsInDB,
+  searchFiretoreDocsBySpecificField,
   updateFirestoreDocument,
   deleteDocumentFromFirestore,
   signOutFirebaseAuth,

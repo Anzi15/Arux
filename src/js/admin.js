@@ -1,7 +1,7 @@
 'use strict';
 
 //*Essential imports
-import { checkFieldValueExistsInDB, removeLoader, userExistInFireAuth, signOutFirebaseAuth, showNotification} from './admin-modules';
+import { checkFieldValueExistsInDB, userExistInFireAuth, signOutFirebaseAuth, showNotification} from './admin-modules';
 
 //*variabls and elems
 const userProfile = document.getElementById('userProfile');
@@ -25,7 +25,6 @@ const logOutBtn = document.getElementById('logOutBtn');
 })();
 
 function allowEntry(userCredentials){
-  removeLoader(document.body);
   userProfile.src = userCredentials.photoURL
 }
 

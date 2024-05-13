@@ -121,18 +121,17 @@ const handleSubmission = async (e) => {
   dataValueObj.paymentMethod = getSelectedPaymentMethod();
   dataValueObj.status = "pending";
 
-  // const storingTask = await storeObjToDB("orders", dataValueObj);
-  // if (srcParam == "cart") localStorage.removeItem("cart");
-  // if (storingTask !== "error")
-  //   showAlert(
-  //     "success",
-  //     "Order Confirmed",
-  //     "Your order is on it's way 🚛!",
-  //     "Continue shopping"
-  //   ).then((alert) => {
-  //     if (alert.isConfirmed) window.location.replace("../products");
-  //   });
-  console.log(dataValueObj)
+  const storingTask = await storeObjToDB("orders", dataValueObj);
+  if (srcParam == "cart") localStorage.removeItem("cart");
+  if (storingTask !== "error")
+    showAlert(
+      "success",
+      "Order Confirmed",
+      "Your order is on it's way 🚛!",
+      "Continue shopping"
+    ).then((alert) => {
+      if (alert.isConfirmed) window.location.replace("../products");
+    });
   };
   
   (async ()=>{

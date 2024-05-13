@@ -1,6 +1,6 @@
 "use strict";
 
-import {removeLoader, getAllFirestoreDocuments, deleteDocumentFromFirestore, showConfirmationDialog, showNotification} from "./admin-modules"
+import { getAllFirestoreDocuments, deleteDocumentFromFirestore, showConfirmationDialog, showNotification, removeLoader} from "./admin-modules"
 // import {route} from "./url-routing";
 
 // getting elems from dom 
@@ -9,11 +9,10 @@ const productsContainer = document.getElementById('section__products__grid');
 const allProducts = await getAllFirestoreDocuments("Products");
 
 (()=>{
+    removeLoader(productsContainer)
     allProducts.forEach(product => {
         addProductToDom(productsContainer, product.id, product.data())
     });
-
-    removeLoader(productsContainer);
 
     const productDeleteBtns = productsContainer.querySelectorAll(".product__delete-btn");
 
@@ -50,7 +49,7 @@ function addProductToDom(elem, product_id, product_Data){
     elem.innerHTML += 
     `
     <div product_id="${product_id}"  class="product" data-product_id="${product_id}">
-    <img src="${product_Data.primary_img}" alt="" class="product__img">
+    <img src="${product_Data.primary_img}" alt="" class="product__img skeleton-loading" loading="lazy">
     <div class="product__content-con">
         <h3 class="product__title">
             ${product_Data.title}

@@ -112,27 +112,36 @@ button, input[type=submit] {
 
 /* loader */
 .loader-wrapper {
-  background: #FFFFFF;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 0;
-  top: 0;
   user-select: none;
 }
+.loader-wrapper .loader, .loader-wrapper .loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
 .loader-wrapper .loader {
-  padding: 2rem 1rem;
+  margin: 60px auto;
+  font-size: 5px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 0.5rem solid rgba(92, 120, 143, 0.2);
+  border-right: 0.5rem solid rgba(92, 120, 143, 0.2);
+  border-bottom: 0.5rem solid rgba(92, 120, 143, 0.2);
+  border-left: 0.5rem solid #5c788f;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
 }
-.loader-wrapper .loader img {
-  width: 5rem;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-.loader-wrapper .loader-msg {
+
+.loader-msg {
   max-width: 90vw;
   font-size: 1.2rem;
   color: rgba(18, 18, 18, 0.6392156863);
@@ -225,6 +234,27 @@ input:-webkit-autofill:focus {
 
 input[data-autocompleted] {
   background-color: transparent !important;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=config.css.map */

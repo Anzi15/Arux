@@ -63,9 +63,8 @@ body{
         }
     }
     main{
-        background: $color-urltra-light-grey !important;
+        background: $color-urltra-light-grey;
         width: calc(100% - 17rem);
-        background: $color-white;
         // navbar 
         nav{
             display: flex;

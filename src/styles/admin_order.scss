@@ -56,13 +56,14 @@ main{
                 border-bottom: 1px solid $color-light-grey;
                 min-height: 6rem;
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
                 padding: .8rem;
-
+                
                 .order-column{
-                    min-width: 16%;
-                    max-width: 16.2%;
+                    min-width: fit-content;
+                    width: 16%;
                     text-align: center;
                     display: flex;
                     justify-content: center;
@@ -83,7 +84,35 @@ main{
                     background: $color-red;
                 }
             }
-
+            .noOrdersFound{
+                justify-content: center ;
+            }
         }
     }
 }
+
+    @media (width < $breakpoint-s-tab) {
+        .search-box{
+            width: 90% !important;
+        }
+        .orders-con{
+            .order-column{
+                width: 33% !important;
+            }
+            .order-date,.order-items,.order-customer{
+                display: none !important;
+            }
+        }
+    }
+    @media (width < 368px) {
+        .orders-con{
+            .heading-indicators{
+                .order-status{
+                    display: none !important;
+                }
+            }
+            .order-status{
+                margin: 1rem 0 !important;
+            }
+        }
+    }
