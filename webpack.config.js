@@ -11,6 +11,7 @@
             individual_product: './src/js/individual-product.js',
             cart: './src/js/cart.js',
             checkout: './src/js/checkout.js',
+            checkout_submission: './src/js/checkout-submission.js',
 
             // admin entries 
             admin : './src/js/admin.js',
@@ -59,7 +60,7 @@
             new HtmlWebpackPlugin({
                 filename: 'checkout/index.html',
                 template: 'src/checkout/index.html',
-                chunks : ['checkout','components']
+                chunks : ['checkout','components','checkout_submission']
             }),
 
             // admin files 

@@ -71,6 +71,53 @@ body {
           .field-collection-title {
             color: $color-dark-grey;
           }
+          .paymentMethods {
+            width: 100%;
+            label {
+              display: flex;
+              border-radius: 8px;
+              width: 100%;
+              align-items: center;
+
+              img{
+                height: 2rem;
+              }
+              .instrustions{
+                margin: 1rem 0;
+                display: none;
+                transition: height 1s ease;
+                height: 0;
+              }
+              .panel-body{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              }
+            }
+
+            .card-input-element {
+              display: none;
+            }
+
+            .card-input {
+              width: 100% ;
+              margin: 10px;
+              padding: 1rem;
+              
+            }
+
+            .card-input:hover {
+              cursor: pointer;
+            }
+            .card-input-element:checked+.card-input {
+              box-shadow: 0 0 1px 1px $color-brand-blue;
+              .instrustions{
+                display: block !important;
+                height: fit-content !important;
+              }
+            }
+
+          }
         }
         input[type="submit"],.form_submit_btn {
           cursor: pointer;

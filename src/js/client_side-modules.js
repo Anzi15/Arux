@@ -1,4 +1,6 @@
 'use strict';
+//*Esesential imports
+import { checkFieldValueExistsInDB } from "./admin-modules";
 
 function addProductToDom(elem, product, productId="demo_id"){
     elem.innerHTML += 
@@ -21,9 +23,26 @@ function removeCertainClassedElemsFromDom(elemCon, elemClass){
         elem.remove()
     }) 
 }
-
+function generateOrderNum() {
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = "";
+    for (let i = 0; i < 5; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+  }
+async function generateUniqueCode(collectionName, codeFieldName) {
+let uniqueOrderNumber;
+do {
+    uniqueOrderNumber = generateOrderNum();
+} while (
+    await checkFieldValueExistsInDB(collectionName, codeFieldName, uniqueOrderNumber)
+);
+return uniqueOrderNumber;
+}
 
 export {
     addProductToDom,
-    removeCertainClassedElemsFromDom
+    removeCertainClassedElemsFromDom,
+    generateUniqueCode
 }

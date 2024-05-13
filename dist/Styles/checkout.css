@@ -300,6 +300,47 @@ body main section.section-form form .field-collection .dual-form-feild-con .form
 body main section.section-form form .field-collection .field-collection-title {
   color: #7C7C7C;
 }
+body main section.section-form form .field-collection .paymentMethods {
+  width: 100%;
+}
+body main section.section-form form .field-collection .paymentMethods label {
+  display: flex;
+  border-radius: 8px;
+  width: 100%;
+  align-items: center;
+}
+body main section.section-form form .field-collection .paymentMethods label img {
+  height: 2rem;
+}
+body main section.section-form form .field-collection .paymentMethods label .instrustions {
+  margin: 1rem 0;
+  display: none;
+  transition: height 1s ease;
+  height: 0;
+}
+body main section.section-form form .field-collection .paymentMethods label .panel-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body main section.section-form form .field-collection .paymentMethods .card-input-element {
+  display: none;
+}
+body main section.section-form form .field-collection .paymentMethods .card-input {
+  width: 100%;
+  margin: 10px;
+  padding: 1rem;
+}
+body main section.section-form form .field-collection .paymentMethods .card-input:hover {
+  cursor: pointer;
+}
+body main section.section-form form .field-collection .paymentMethods .card-input-element:checked + .card-input {
+  box-shadow: 0 0 1px 1px #5C788F;
+}
+body main section.section-form form .field-collection .paymentMethods .card-input-element:checked + .card-input .instrustions {
+  display: block !important;
+  height: fit-content !important;
+}
 body main section.section-form form input[type=submit], body main section.section-form form .form_submit_btn {
   cursor: pointer;
   display: flex;
