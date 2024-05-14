@@ -94,6 +94,7 @@ a.theme_link {
 }
 
 button, input[type=submit] {
+  cursor: pointer;
   background: none;
   border: none;
 }
@@ -312,7 +313,6 @@ body aside .top-options .option.active, body aside .bottom-options .option.activ
   border-left: 0.5rem solid #5C788F;
 }
 body main {
-  background: #F3F3F3;
   width: calc(100% - 17rem);
 }
 body main nav {

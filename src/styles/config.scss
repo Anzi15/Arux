@@ -4,7 +4,7 @@ $color-light-black: #121212a3;
 $color-white: #FFFFFF;
 $color-grey: #363738;
 $color-light-grey: #E0E3E7;
-$color-urltra-light-grey: #F3F3F3;
+$color-ultra-light-grey: #F3F3F3;
 $color-medium-grey: #BFBFBF;
 $color-dark-grey: #7C7C7C;
 $color-brand-blue: #5C788F;
@@ -120,6 +120,7 @@ a.theme_link{
     text-decoration-color: $color-brand-blue;
 }
 button, input[type="submit"]{
+    cursor: pointer;
     background: none;
     border: none;
 }

@@ -19,7 +19,7 @@ async function loadAllOrders (){
 }
 
 function addOrderToDom(orderData, orderId){
-    orderCon.innerHTML += `<div href="/preview?id=${orderId}" class="order">
+    orderCon.innerHTML += `<a href="/admin/orders/preview?id=${orderData.orderCode}" class="order">
     <p class="order-number order-column">#${orderData.orderCode}</p>
     <p class="order-date order-column">${orderData.date}</p>
     <p class="order-customer order-column">${orderData.name}</p>
@@ -28,7 +28,7 @@ function addOrderToDom(orderData, orderId){
       <p class="${orderData.status} orderIndicator">${orderData.status}</p>
     </div>
     <p class="order-items order-column">${orderData.itemsNumber}</p>
-  </div>`
+  </a>`
 }
 const searchProducts = async (searchQuery)=>{
   let query = "";

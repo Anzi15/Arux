@@ -1,6 +1,7 @@
 @import './config.scss';
 
 main{
+
     section{
         padding: 1rem;
         width: 100%;
@@ -12,7 +13,12 @@ main{
             width: 100%;
             display: flex;
             justify-content: center;
+            padding: 3rem 0;
             .search-box{
+                border-radius: 50px;
+                background: #ffffff;
+                box-shadow:  10px 10px 20px #dbdbdb,
+                             -10px -10px 20px #ffffff;
                 border-radius: 6px;
                 padding: 0 1rem;
                 margin: 1rem 0;
@@ -20,8 +26,11 @@ main{
                 justify-content: left;
                 width: 70%;
                 gap: 1rem;
-                background: $color-white;
+                
+                
                 input{
+                    background: transparent;
+                    
                     min-height: 3rem;
                     width: 90%;
                     border: none;
@@ -60,6 +69,12 @@ main{
                 justify-content: space-between;
                 align-items: center;
                 padding: .8rem;
+                cursor: pointer;
+                font-weight: 500;
+
+                &:hover{
+                    font-weight: 600;
+                }
                 
                 .order-column{
                     min-width: fit-content;

@@ -94,6 +94,7 @@ a.theme_link {
 }
 
 button, input[type=submit] {
+  cursor: pointer;
   background: none;
   border: none;
 }
@@ -267,8 +268,12 @@ main section .search-box-con {
   width: 100%;
   display: flex;
   justify-content: center;
+  padding: 3rem 0;
 }
 main section .search-box-con .search-box {
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow: 10px 10px 20px #dbdbdb, -10px -10px 20px #ffffff;
   border-radius: 6px;
   padding: 0 1rem;
   margin: 1rem 0;
@@ -276,9 +281,9 @@ main section .search-box-con .search-box {
   justify-content: left;
   width: 70%;
   gap: 1rem;
-  background: #FFFFFF;
 }
 main section .search-box-con .search-box input {
+  background: transparent;
   min-height: 3rem;
   width: 90%;
   border: none;
@@ -311,6 +316,11 @@ main section .orders-con .order {
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+main section .orders-con .order:hover {
+  font-weight: 600;
 }
 main section .orders-con .order .order-column {
   min-width: fit-content;

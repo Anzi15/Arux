@@ -109,6 +109,12 @@
             template: 'src/admin/orders/index.html',
             chunks: ['admin','admin_components','admin_orders']
             }),
+            //admin orders preview
+            new HtmlWebpackPlugin({
+            filename: 'admin/orders/preview/index.html',
+            template: 'src/admin/orders/preview/index.html',
+            chunks: ['admin','admin_components','admin_orders_preview']
+            }),
 
             //admin product edit
             new HtmlWebpackPlugin({

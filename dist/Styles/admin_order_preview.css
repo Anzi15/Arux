@@ -257,112 +257,36 @@ input[data-autocompleted] {
     transform: rotate(360deg);
   }
 }
-* {
-  background: #F9FAFB;
+main section {
+  padding: 5rem 2rem;
 }
-
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-main {
-  gap: 2rem;
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-main form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-}
-main form .form__heading {
-  width: 80%;
-  font-weight: 400;
-  letter-spacing: 0.1rem;
-  overflow: visible;
-}
-main form label, main form input {
-  width: 80%;
-}
-main form input {
-  min-height: 2rem;
-  font-size: 1rem;
-  padding-left: 0.5rem;
-  border-radius: 0.3rem;
-  border: 1.4px solid #000000;
-}
-main form input::placeholder {
-  font-size: 1rem;
-}
-main form .forgotPasswordBtn {
-  display: flex;
-  justify-content: right;
-  width: 80%;
-}
-main form input[type=submit] {
-  border: none;
-}
-main .login-with-google-btn {
+main section div.order-indications div {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  border: 0.2px solid #363738;
-  border-radius: 6px;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-  color: #757575;
-  font-size: 1rem;
-  font-weight: 600;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  gap: 0.7rem;
+  color: #7C7C7C;
 }
-main .login-with-google-btn img {
-  height: 1.5rem;
+main section div.order-indications div a svg {
+  color: #7C7C7C;
+  width: 2.5rem;
 }
-main .login-with-google-btn:hover {
-  background: rgba(117, 117, 117, 0.0705882353);
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+main section div.order-indications hr {
+  margin: 1.5rem 0;
 }
-main .login-with-google-btn:active {
-  background-color: #eeeeee;
+main section .orderIndicator {
+  width: fit-content;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10rem;
+  color: #FFFFFF !important;
 }
-main .login-with-google-btn:focus {
-  outline: none;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 0 3px #c8dafc;
+main section .orderIndicator.fullfilled {
+  background: #027155;
 }
-
-aside {
-  display: flex;
-  justify-content: center;
-  width: 50%;
+main section .orderIndicator.pending {
+  background: #b69121;
 }
-aside img {
-  width: 80%;
+main section .orderIndicator.Cancelled {
+  background: #a22c29;
 }
 
-@media (max-width: 800px) {
-  body {
-    flex-wrap: wrap;
-  }
-  main, aside {
-    width: 90%;
-  }
-}
-@media (max-width: 386px) {
-  input, label, .form__heading {
-    width: 90% !important;
-  }
-}
-
-/*# sourceMappingURL=admin__form.css.map */
+/*# sourceMappingURL=admin_order_preview.css.map */

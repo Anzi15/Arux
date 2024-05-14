@@ -1,0 +1,40 @@
+@import './config.scss';
+
+main{
+    section{
+        padding: 5rem 2rem;
+        div.order-indications{
+            div{
+                display: flex;
+                align-items: center;
+                gap: .7rem;
+                color: $color-dark-grey;
+                a{
+                    
+                    svg{
+                        color: $color-dark-grey;
+                        width: 2.5rem;
+                    }
+                }
+            }
+            hr{
+                margin: 1.5rem 0;
+            }
+        }
+        .orderIndicator{
+            width: fit-content;
+            padding: 0.7rem 1.5rem;
+            border-radius: 10rem;
+            color: $color-white !important;
+        }
+        .orderIndicator.fullfilled{
+            background: $color-green;
+        }
+        .orderIndicator.pending{
+            background: $color-yellow;
+        }
+        .orderIndicator.Cancelled{
+            background: $color-red;
+        }
+    }
+}
