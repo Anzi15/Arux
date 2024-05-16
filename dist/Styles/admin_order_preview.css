@@ -257,36 +257,145 @@ input[data-autocompleted] {
     transform: rotate(360deg);
   }
 }
-main section {
-  padding: 5rem 2rem;
+main {
+  width: 100vw;
+  background: #F3F3F3;
 }
-main section div.order-indications div {
+main .sections-con {
+  overflow: visible !important;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+main .sections-con section.products-section {
+  gap: 2rem;
+  border-radius: 0.5rem;
+  width: 60%;
+  margin: 5rem 0;
+  padding: 1.5rem;
+  background: #FFFFFF;
+}
+main .sections-con section.products-section hr {
+  margin: 1.5rem 0;
+}
+main .sections-con section.products-section div.order-indications {
+  width: 100%;
+  display: flex;
+  justify-content: space-between !important;
+}
+main .sections-con section.products-section div.order-indications div {
   display: flex;
   align-items: center;
   gap: 0.7rem;
   color: #7C7C7C;
 }
-main section div.order-indications div a svg {
+main .sections-con section.products-section div.order-indications div a svg {
   color: #7C7C7C;
   width: 2.5rem;
 }
-main section div.order-indications hr {
-  margin: 1.5rem 0;
-}
-main section .orderIndicator {
-  width: fit-content;
+main .sections-con section.products-section div.order-indications .orderIndicator {
   padding: 0.7rem 1.5rem;
   border-radius: 10rem;
   color: #FFFFFF !important;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+  min-width: 6rem;
 }
-main section .orderIndicator.fullfilled {
+main .sections-con section.products-section div.order-indications .orderIndicator:hover {
+  scale: 1.01;
+}
+main .sections-con section.products-section div.order-indications .orderIndicator.fullfilled {
   background: #027155;
 }
-main section .orderIndicator.pending {
+main .sections-con section.products-section div.order-indications .orderIndicator.pending {
   background: #b69121;
 }
-main section .orderIndicator.Cancelled {
+main .sections-con section.products-section div.order-indications .orderIndicator.Cancelled {
   background: #a22c29;
+}
+main .sections-con section.products-section div.product-con {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+main .sections-con section.products-section div.product-con .product {
+  min-height: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .sections-con section.products-section div.product-con .product .product-data {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main .sections-con section.products-section div.product-con .product .product-data img {
+  aspect-ratio: 1/1;
+  min-width: 4rem;
+  width: 4rem;
+}
+main .sections-con section.products-section div.product-con .product .product-data .product-title-link {
+  width: calc(100% - 4rem);
+}
+main .sections-con section.products-section div.product-con .product .product-price {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+main .sections-con section.products-section div.total-con {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .sections-con section.products-section div.total-con hr {
+  margin: 1rem 0;
+}
+main .sections-con section.products-section div.total-con .total-row {
+  display: flex;
+  justify-content: space-between;
+}
+main .sections-con section.section-customer-info {
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 33%;
+  background: #FFFFFF;
+}
+main .sections-con section.section-customer-info .customer-info {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+main .sections-con section.section-customer-info .customer-info h1 {
+  padding-bottom: 1rem;
+}
+main .sections-con section.section-customer-info .customer-info .details-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (width < 1086px) {
+  .sections-con {
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 0;
+  }
+  .sections-con section.products-section, .sections-con section.section-customer-info {
+    margin: 0 !important;
+    width: 95% !important;
+  }
 }
 
 /*# sourceMappingURL=admin_order_preview.css.map */

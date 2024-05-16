@@ -10,7 +10,8 @@ const quantityParam = getParamFromUrl("quantity") == null ? 1 : getParamFromUrl(
 let checkoutProducts = [];
 let cartProductIds;
 let subTotal = 0;
-let total;
+let total =0;
+let shippingFees;
 const date = getFormattedDate()
 //dom elements
 const orderSummaryTogglerBtn = document.getElementById('small-mob-visibilty-toggler-for-order-summary');
@@ -27,15 +28,7 @@ const paymentMethodsCon = document.getElementById("paymentMethodsCon");
 const allPaymentInps = paymentMethodsCon.querySelectorAll(
   'input[type="radio"]'
 );
-const productSummaryTotalElem = document.getElementById(
-  "product-summary-total-elem"
-);
-const productSummarySubtotalElem = document.getElementById(
-  "product-summary-subtotal-elem"
-);
-const productSummaryShippingFeesElem = document.getElementById(
-  "product-summary-shippingFees-elem"
-);
+
 
 //*Functions
 (()=>{
@@ -45,6 +38,7 @@ const productSummaryShippingFeesElem = document.getElementById(
 })();
 
 function addProductToDisplay (product, productQuantity){
+  subTotal = subTotal+product.price*productQuantity
     productsCon.innerHTML += `<div class="product">
     <div class="product-info">
       <div class="img-con">
@@ -62,7 +56,6 @@ function addProductToDisplay (product, productQuantity){
       <p class="">Rs. ${product.price}</p>
     </div>
   </div>`;
-  subTotal = subTotal+product.price*productQuantity
 }
 
 async function handleSingleProductCheckout(){
@@ -104,12 +97,12 @@ const getSelectedPaymentMethod = () => {
 };
 
 const handleSubmission = async (e) => {
-  checkoutFormElem.submit.innerHTML = `<img src="https://i.gifer.com/ZKZg.gif">`;
+  checkoutFormElem.submit.innerHTML = `<img src="https://i.gifer.com/origin/13/138f4c87ed9b322952c3e0da2b264938_w200.webp">`;
 
   const allFeildElems = [
     ...checkoutFormElem.querySelectorAll("[data-fieldName]"),
   ];
-  let dataValueObj = {total, date};
+  let dataValueObj = {total, date, subTotal, total, shippingFees};
   allFeildElems.forEach((field) => {
     const fieldName = field.dataset.fieldname;
     const fieldValue = field.value;
@@ -121,6 +114,7 @@ const handleSubmission = async (e) => {
   dataValueObj.paymentMethod = getSelectedPaymentMethod();
   dataValueObj.status = "pending";
 
+  console.log(dataValueObj)
   const storingTask = await storeObjToDB("orders", dataValueObj);
   if (srcParam == "cart") localStorage.removeItem("cart");
   if (storingTask !== "error")
@@ -132,24 +126,26 @@ const handleSubmission = async (e) => {
     ).then((alert) => {
       if (alert.isConfirmed) window.location.replace("../products");
     });
-  };
+};
   
-  (async ()=>{
-    const shippingFees =  await getFirestoreDocument("storeManagement","shippingFees")
-    const prices = {
-      subTotal,
-      shippingFees: shippingFees.value,
-      total: subTotal+shippingFees.value,
-      smallMobTotal: subTotal+shippingFees.value
-      
-    }
-  
-    for(const field in totalPricesIndicators){
-      totalPricesIndicators[field].innerHTML = `Rs. ${prices[field]}`;
-      totalPricesIndicators[field].classList.remove("skeleton-loading")
-    }
-    total = prices.total
-  })()
+(async ()=>{
+  const shippingFeesObj =  await getFirestoreDocument("storeManagement","shippingFees");
+  shippingFees = shippingFeesObj.value;
+  total = shippingFees + subTotal;
+  const prices = {
+    subTotal,
+    shippingFees,
+    total,
+    smallMobTotal: subTotal+shippingFees.value
+    
+  }
+
+  for(const field in totalPricesIndicators){
+    totalPricesIndicators[field].innerHTML = `Rs. ${prices[field]}`;
+    totalPricesIndicators[field].classList.remove("skeleton-loading")
+  }
+
+})()
 
 
 //*EventListners

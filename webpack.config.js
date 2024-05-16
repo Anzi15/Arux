@@ -1,5 +1,8 @@
     const path = require('path');
     const HtmlWebpackPlugin = require('html-webpack-plugin')
+    const webpack = require('webpack')
+    const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+
     module.exports = {
         entry:{
             //user side entries
@@ -30,7 +33,34 @@
             filename: '[name].js',
             path: __dirname + '/dist',
         },
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/, // Match both .ts and .tsx files
+                    use: 'ts-loader',
+                    exclude: [/node_modules/, /\.d\.ts$/], // Exclude node_modules and .d.ts files
+                },
+                {
+                    test: /\.node$/, // Match .node files
+                    use: 'node-loader',
+                },
+                {
+                    test: /\.d\.ts$/, // Ignore .d.ts files
+                    use: 'ignore-loader',
+                },
+                // Other rules...
+            ],
+        },
+        resolve: {
+            extensions: ['.js', '.json', '.ts', '.tsx', '.node'], 
+        },
         plugins: [
+            new NodePolyfillPlugin(),
+            new webpack.ProvidePlugin({
+                process: 'process/browser',
+                Buffer: ['buffer', 'Buffer']
+              }),
+          
             //home page
             new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -134,5 +164,30 @@
             port: 9000,
             watchFiles: ['src/**/*'],
         },
-    
+        resolve: {
+            fallback: {
+                "fs": false,
+            "tls": false,
+            "net": false,
+            "util": require.resolve('util/'),
+            "path": require.resolve('path-browserify'),
+            "stream": require.resolve('stream-browserify'),
+            "zlib": require.resolve('browserify-zlib'),
+            "assert": require.resolve('assert/'),
+            "buffer": require.resolve('buffer/'),
+            "crypto": require.resolve('crypto-browserify'),
+            "http": require.resolve('stream-http'),
+            "https": require.resolve('https-browserify'),
+            "os": require.resolve('os-browserify/browser'),
+            "vm": require.resolve('vm-browserify'),
+            "url": require.resolve('url/'),
+            "constants": require.resolve('constants-browserify'),
+            "querystring": require.resolve('querystring-es3'),
+            "module": require.resolve('module'),
+            "process": require.resolve('process/browser'),
+            "child_process": false,
+            "worker_threads": false
+        }
+        },
+        target: 'web',
     }

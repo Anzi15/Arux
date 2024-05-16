@@ -31,6 +31,7 @@ function addOrderToDom(orderData, orderId){
   </a>`
 }
 const searchProducts = async (searchQuery)=>{
+  orderCon.innerHTML=""
   let query = "";
   searchQuery.includes("#") ? query = searchQuery.split("#")[1] : query = searchQuery;
   orderCon.innerHTML=""
@@ -46,7 +47,8 @@ const searchProducts = async (searchQuery)=>{
       
     }
     else if(!fetchQuery.length){
-      orderCon.innerHTML = `          <div class="order-wrapper ">
+      orderCon.innerHTML=""
+      orderCon.innerHTML = `<div class="order-wrapper ">
             <div class="order noOrdersFound">
               <h3>No Products found</h3>
             </div>
