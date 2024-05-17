@@ -56,7 +56,7 @@ main{
                 .orderIndicator.pending{
                     background: $color-yellow;
                 }
-                .orderIndicator.Cancelled{
+                .orderIndicator.cancelled{
                     background: $color-red;
                 }
             }
@@ -69,26 +69,28 @@ main{
                     min-height: 5rem;
                     width: 100%;
                     display: flex;
-                    justify-content: center;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
                     align-items: center;
                     .product-data{
-                        width: 90%;
                         display: flex;
                         align-items: center;
                         gap: 1rem;
+                        max-width: 50vw;
 
+                        a{
+                            color: $color-dark-grey;
+                        }
                         img{
                             aspect-ratio: 1/1;
                             min-width: 4rem;
                             width: 4rem;
                         }
-                        .product-title-link{
-                            width: calc(100% - 4rem);
-                        }
                     }
                     .product-price{
-                        width: 10%;
+                        padding-right: .2rem;
                         display: flex;
+                        gap: .5rem;
                         justify-content: space-between;
                     }
                 }

@@ -163,10 +163,13 @@
             compress: true,
             port: 9000,
             watchFiles: ['src/**/*'],
+            client: {
+                overlay: false
+            }
         },
         resolve: {
             fallback: {
-                "fs": false,
+            "fs": false,
             "tls": false,
             "net": false,
             "util": require.resolve('util/'),
@@ -186,7 +189,7 @@
             "module": require.resolve('module'),
             "process": require.resolve('process/browser'),
             "child_process": false,
-            "worker_threads": false
+            "worker_threads": false,
         }
         },
         target: 'web',

@@ -311,7 +311,7 @@ main .sections-con section.products-section div.order-indications .orderIndicato
 main .sections-con section.products-section div.order-indications .orderIndicator.pending {
   background: #b69121;
 }
-main .sections-con section.products-section div.order-indications .orderIndicator.Cancelled {
+main .sections-con section.products-section div.order-indications .orderIndicator.cancelled {
   background: #a22c29;
 }
 main .sections-con section.products-section div.product-con {
@@ -324,26 +324,28 @@ main .sections-con section.products-section div.product-con .product {
   min-height: 5rem;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
 main .sections-con section.products-section div.product-con .product .product-data {
-  width: 90%;
   display: flex;
   align-items: center;
   gap: 1rem;
+  max-width: 50vw;
+}
+main .sections-con section.products-section div.product-con .product .product-data a {
+  color: #7C7C7C;
 }
 main .sections-con section.products-section div.product-con .product .product-data img {
   aspect-ratio: 1/1;
   min-width: 4rem;
   width: 4rem;
 }
-main .sections-con section.products-section div.product-con .product .product-data .product-title-link {
-  width: calc(100% - 4rem);
-}
 main .sections-con section.products-section div.product-con .product .product-price {
-  width: 10%;
+  padding-right: 0.2rem;
   display: flex;
+  gap: 0.5rem;
   justify-content: space-between;
 }
 main .sections-con section.products-section div.total-con {

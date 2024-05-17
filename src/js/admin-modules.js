@@ -163,10 +163,11 @@ const getFewFirestoreDocs = async (collectionName, limit) => {
 const getListOfFirestoreDocs = async(collectionName, listOfIds)=>{
   try {
     const list = [...listOfIds]
+    console.log(list)
     const querySnapshot = await getDocs(query(collection(db, collectionName), where(documentId(), 'in', list)));
-
+    
     const products = querySnapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }));
-
+    
     return products;
   } catch (error) {
     console.error("Error fetching cart products: ", error);
