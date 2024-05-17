@@ -23,7 +23,8 @@ import {
   limitToLast,
   orderBy,
   documentId,
-  initializeFirestore
+  initializeFirestore,
+  limit
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
@@ -140,6 +141,23 @@ const getAllFirestoreDocuments = async (collectionName = "Products") => {
     return [];
   }
 };
+
+const getAllFirestoreDocumentsSorted = async(collectionName, fieldName, orderDirection)=>{
+  try {
+    if (window.navigator.onLine) {
+      const collRef = collection(db, collectionName)
+      const q = query(collRef, orderBy(fieldName, orderDirection), limit(1000));
+      const querySnapshot = await getDocs(q);
+      return querySnapshot.docs;
+    } else {
+      showNotification("error", "You seem having internet issues :(", 8000);
+    }
+  } catch (error) {
+    console.log(`Error getting documents from firestore: ${error}`);
+    showNotification("error", error);
+    return [];
+  }
+}
 
 const getFewFirestoreDocs = async (collectionName, limit) => {
   try {
@@ -433,6 +451,7 @@ export {
   showConfirmationDialog,
   storeObjToDB,
   getAllFirestoreDocuments,
+  getAllFirestoreDocumentsSorted,
   getFewFirestoreDocs,
   getListOfFirestoreDocs,
   userExistInFireAuth,

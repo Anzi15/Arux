@@ -388,6 +388,7 @@ main section.speacial-offer .poster-con .poster-content .txt .cta:hover {
   scale: 1.001;
 }
 main section.speacial-offer .poster-con .poster-content .img-con {
+  min-height: 15rem;
   min-width: 45%;
   display: flex;
   align-items: center;
@@ -545,10 +546,11 @@ main section.product-gallery .gallery-con .small-product-con .small-product:hove
 }
 @media (max-width: 800px) {
   section.speacial-offer .poster-con {
+    width: 100% !important;
     padding: 1.5rem 0;
     aspect-ratio: none !important;
     height: max-content;
-    padding: 2rem 1rem;
+    padding: 2rem;
   }
   section.speacial-offer .poster-con .poster-content {
     width: 95%;
@@ -558,6 +560,7 @@ main section.product-gallery .gallery-con .small-product-con .small-product:hove
     gap: 3rem;
   }
   section.speacial-offer .poster-con .poster-content .txt {
+    text-align: center;
     min-width: 90%;
   }
   section.speacial-offer .poster-con .poster-content .txt .offer-title {
