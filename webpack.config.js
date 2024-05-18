@@ -14,6 +14,7 @@
             individual_product: './src/js/individual-product.js',
             cart: './src/js/cart.js',
             checkout: './src/js/checkout.js',
+            contact: './src/js/contact.js',
 
             // admin entries 
             admin : './src/js/admin.js',
@@ -67,6 +68,12 @@
             template: 'src/index.html',
             chunks : ['slider','components','homepage']
             }),
+            //contact page
+            new HtmlWebpackPlugin({
+            filename: 'contact/index.html',
+            template: 'src/contact/index.html',
+            chunks : ['components','contact']
+            }),
 
             //Products (all products menu)
             new HtmlWebpackPlugin({
@@ -92,6 +99,7 @@
                 template: 'src/checkout/index.html',
                 chunks : ['checkout','components',]
             }),
+            
 
             // admin files 
             //admin
