@@ -1,6 +1,6 @@
 
 "use strict";
-import { confirmPasswordReset } from "firebase/auth";
+import { doc } from "firebase/firestore";
 // essential imports
 import {
   showMsg,
@@ -137,14 +137,15 @@ const handleAdditionalFormSubmission = async (e) => {
   for (let i = 0; i < toStoreElems.length; i++) {
     const elem = toStoreElems[i];
     const feildName =  elem.dataset.identification_name;
-    const elemValue = await elem.value
+    const elemValue = await elem.value;
     if(elem.type == "number"){
-      product_data_obj[feildName] = parseInt(elem.value);
+      if(elem.value == undefined || elem.value == null) elemValue = 0
+      product_data_obj[feildName] = parseInt(elemValue);
     }else{
       product_data_obj[feildName] = (elem.value);
     }
   }
-  addLoader(e.target, true);
+  addLoader(document.body, true);
   storeProductToDB(product_data_obj, imagesObj);
 };
 

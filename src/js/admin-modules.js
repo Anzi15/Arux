@@ -28,6 +28,7 @@ import {
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { reduceEachLeadingCommentRange } from "typescript";
 
 
 //TODO: break down admin-modules into seprate files, like firebase modules, ui-modules, etc.
@@ -349,33 +350,17 @@ const addLoader = (
   const numOfMsgs = LoaderMessageArr.length;
   let currentMsgIndex=0;
 
-  if (overlayLoader) {
-    parentElem.innerHTML += `<div class="loader-wrapper overlay">
-    <div class="loader">
-        <img id="loadingImg" src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="${LoaderMessageArr[0]}"
-        draggable="false"
-        oncontextmenu="return false">
+  parentElem.innerHTML += `<div class="loader-wrapper ${overlayLoader ? 'overlay' : 'meow'}">
+  <div class="loader">
 
-    </div>
-    <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
-    </div>`;
-  } else {
-    parentElem.innerHTML += `<div class="loader-wrapper">
-    <div class="loader">
-        <img id="loadingImg" src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/assets%2F1490.gif?alt=media&token=39b08a65-0a7f-4c60-bff2-8635da385328" alt="${LoaderMessageArr[0]}"
-        draggable="false"
-        oncontextmenu="return false">
-
-    </div>
-    <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
-    </div>`;
-  }
+  </div>
+  <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
+  </div>`;
 
   const LoadingMsgElem = document.getElementById('LoadingMsg');
   setInterval(() => {
-    currentMsgIndex >= numOfMsgs ? currentMsgIndex = 0 : currentMsgIndex++
-    LoadingMsgElem.innerText = LoaderMessageArr[currentMsgIndex];
-    LoadingMsgElem.previousElementSibling.alt = LoaderMessageArr[currentMsgIndex];
+    const randomIndex = Math.floor(Math.random() * LoaderMessageArr.length);
+    LoadingMsgElem.innerText = LoaderMessageArr[randomIndex];
   }, 8000);
 
 };

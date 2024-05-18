@@ -56,7 +56,7 @@ function addProductToDom(elem, product_id, product_Data){
         </h3>
         <div class="product__detail-con">
             <p class="product__price">Rs.${product_Data.price}</p>
-            <p class="product__order">shipping fees: ${product_Data.Shipping_fees}</p>
+            <p class="product__order ${product_Data.comparedPrice == undefined || isNaN(product_Data.comparedPrice) ? "none" : "meow"}">comapred  price: ${product_Data.comparedPrice}</p>
         </div>
         <div class="product__config-con">
             <a href="/admin/Products/edit?product-ID=${product_id}" 
