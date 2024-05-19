@@ -340,6 +340,7 @@ main section.store-status .stats-box:hover .stats-icon svg {
   color: black;
 }
 main section.team {
+  margin: 5rem 0;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -353,14 +354,16 @@ main section.team .member img {
 main section.key-features .features-con {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 3rem;
 }
 main section.key-features .features-con .feature {
+  max-width: 20rem;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  width: 20%;
 }
 main section.key-features .features-con .feature .icon {
   margin: 1rem 0;
