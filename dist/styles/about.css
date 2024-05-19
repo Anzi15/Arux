@@ -293,6 +293,108 @@ main section.ourStory .txt p {
   font-size: 1.3rem;
   word-spacing: 0.1rem;
 }
+main section.store-status {
+  margin: 5rem 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+main section.store-status .stats-box {
+  margin: 2rem 0;
+  width: 90%;
+  max-width: 20rem;
+  border: solid 1px #000000;
+  min-height: 15rem;
+  display: grid;
+  gap: 0.5rem;
+  place-items: center;
+  align-content: center;
+  transition: 0.2s ease-in-out;
+  border-radius: 8px;
+}
+main section.store-status .stats-box .stats-icon {
+  transition: 0.2s ease-in-out;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #000000;
+  padding: 0.5rem;
+  border: 0.8rem solid #E0E3E7;
+}
+main section.store-status .stats-box .stats-icon svg {
+  color: white;
+  width: 2.5rem;
+}
+main section.store-status .stats-box:hover {
+  background: #5C788F;
+  color: #FFFFFF;
+  border-color: #5C788F;
+}
+main section.store-status .stats-box:hover .stats-icon {
+  border-color: #BFBFBF;
+  background: #FFFFFF;
+}
+main section.store-status .stats-box:hover .stats-icon svg {
+  color: black;
+}
+main section.team {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 4rem 0;
+}
+main section.team .member img {
+  max-width: 20rem;
+  width: 90%;
+}
+main section.key-features .features-con {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+main section.key-features .features-con .feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 20%;
+}
+main section.key-features .features-con .feature .icon {
+  margin: 1rem 0;
+  min-width: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: #000000;
+  border: 0.7rem #E0E3E7 solid;
+  transition: all 0.5s ease;
+}
+main section.key-features .features-con .feature .icon svg {
+  width: 3rem;
+  color: #EBF5FF;
+}
+main section.key-features .features-con .feature .icon:hover {
+  border-width: 0.000001px;
+  background: #E0E3E7;
+}
+main section.key-features .features-con .feature .icon:hover svg {
+  color: black;
+}
+main section.key-features .features-con .feature h1 {
+  font-size: 1.7rem;
+  letter-spacing: 0.03rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #363738;
+}
+main section.key-features .features-con .feature p {
+  font-size: 0.9rem;
+  letter-spacing: -0.01rem;
+}
 
 @media (width < 792px) {
   section.ourStory {

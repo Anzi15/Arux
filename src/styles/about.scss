@@ -34,6 +34,116 @@ main{
             }
         }
     }
+    section.store-status{
+        margin: 5rem 0;
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        .stats-box{
+            margin: 2rem 0;
+            width: 90%;
+            max-width: 20rem;
+            border: solid 1px $color-black;
+            min-height: 15rem;
+            display: grid;
+            gap: .5rem;
+            place-items: center;
+            align-content: center;
+            transition: .2s ease-in-out;
+            border-radius: 8px;
+            .stats-icon{
+                transition: .2s ease-in-out;
+                aspect-ratio: 1/1;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                background: $color-black;
+                padding: .5rem;
+                border: .8rem solid $color-light-grey;
+                svg{
+                    color: white;
+                    width: 2.5rem;
+                }
+            }
+
+            &:hover{
+                background: $color-brand-blue;
+                color: $color-white;
+                border-color: $color-brand-blue;
+
+                .stats-icon{
+                    border-color: $color-medium-grey ;
+                    background: $color-white;
+                    svg{
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    section.team{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 4rem 0;
+        .member{
+            img{
+                max-width: 20rem;
+                width: 90%;
+            }
+        }
+    }
+    section.key-features{
+        .features-con{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+
+            .feature{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: .5rem;
+                width: 20%;
+                .icon{
+                    margin: 1rem 0;
+                    min-width: 6rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                    background: $color-black;
+                    border: .7rem $color-light-grey solid;
+                    transition: all .5s ease;
+                    svg{
+                        width: 3rem;
+                        color: $color-semi_blue;
+                    }
+
+                    &:hover{
+                        border-width: 0.000001px;
+                        background: $color-light-grey;   
+                        svg{
+                            color: black;
+                        }
+                    }   
+                }
+                h1{
+                    font-size: 1.7rem;
+                    letter-spacing: 0.03rem;
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    color: $color-grey;
+                }
+                p{
+                    font-size: .9rem;
+                    letter-spacing: -0.01rem;
+                }
+            }
+        }
+    }
 }
 
 @media (width < 792px) {
