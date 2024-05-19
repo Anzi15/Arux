@@ -74,6 +74,12 @@
             template: 'src/contact/index.html',
             chunks : ['components','contact']
             }),
+            //about page
+            new HtmlWebpackPlugin({
+            filename: 'about/index.html',
+            template: 'src/about/index.html',
+            chunks : ['components']
+            }),
 
             //Products (all products menu)
             new HtmlWebpackPlugin({
