@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
     <!-- stylings -->
-    <link rel="stylesheet" href="../styles/components.css" />
-    <link rel="stylesheet" href="../styles/checkout.css" />
+    <link rel="Stylesheet" href="../Styles/components.css" />
+    <link rel="Stylesheet" href="../Styles/checkout.css" />
   <script defer src="../components.js"></script><script defer src="../checkout.js"></script></head>
   <body>
     <!-- notification area above navbar  -->
@@ -170,58 +170,83 @@
 
             <div class="form__field-con">
               <div class="row paymentMethods" id="paymentMethodsCon">
-    
                 <div class="col-md-4 col-lg-4 col-sm-4">
-                  
                   <label>
-                    <input type="radio" name="product" class="card-input-element" data-paymentMethod="JazzCash"/>
-          
-                      <div class="panel panel-default card-input">
-                        <div class="panel-body">
-                          <img src="https://iconape.com/wp-content/png_logo_vector/jazz-cash-logo.png" alt="jazz-cash-logo"> JazzCash
-                        
-                        </div>
-                        <p class="instrustions">Send your amount to {num}, and whatsapp us the screenshot <a href="https://wa.me/+923323947336">here</a></p>
+                    <input
+                      type="radio"
+                      name="product"
+                      class="card-input-element"
+                      data-paymentMethod="JazzCash"
+                    />
+
+                    <div class="panel panel-default card-input">
+                      <div class="panel-body">
+                        <img
+                          src="https://iconape.com/wp-content/png_logo_vector/jazz-cash-logo.png"
+                          alt="jazz-cash-logo"
+                        />
+                        JazzCash
                       </div>
-          
+                      <p class="instrustions">
+                        Send your amount to {num}, and whatsapp us the
+                        screenshot
+                        <a href="https://wa.me/+923323947336">here</a>
+                      </p>
+                    </div>
                   </label>
-                  
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-4">
-                  
                   <label>
-                    <input type="radio" name="product" class="card-input-element" data-paymentMethod="EasyPaisa"/>
-          
-                      <div class="panel panel-default card-input">
-                        <div class="panel-body">
-                          <img src="https://play-lh.googleusercontent.com/ahBZCpNP4elK4uI-gImTdi7pLpEwZUMLFngwCfWWHlzOI1GZqwipiv_ekRT--mDcVg4" alt="Easypaisa">
-                          EasyPaisa
-                        </div>
-                        <p class="instrustions">Send your amount to {num}, and whatsapp us the screenshot <a href="https://wa.me/+923323947336">here</a></p>
+                    <input
+                      type="radio"
+                      name="product"
+                      class="card-input-element"
+                      data-paymentMethod="EasyPaisa"
+                    />
+
+                    <div class="panel panel-default card-input">
+                      <div class="panel-body">
+                        <img
+                          src="https://play-lh.googleusercontent.com/ahBZCpNP4elK4uI-gImTdi7pLpEwZUMLFngwCfWWHlzOI1GZqwipiv_ekRT--mDcVg4"
+                          alt="Easypaisa"
+                        />
+                        EasyPaisa
                       </div>
+                      <p class="instrustions">
+                        Send your amount to {num}, and whatsapp us the
+                        screenshot
+                        <a href="https://wa.me/+923323947336">here</a>
+                      </p>
+                    </div>
                   </label>
-                  
                 </div>
                 <div class="col-md-4 col-lg-4 col-sm-4">
-                  
                   <label>
-                    <input type="radio" name="product" class="card-input-element" data-paymentMethod="Cash On Delivey" checked/>
-          
-                      <div class="panel panel-default card-input">
-                        <div class="panel-body">
-                          <img src="https://www.pngkey.com/png/detail/825-8250823_cash-on-delivery-cash-on-delivery-now-available.png" alt="Cash on Delivery">
-                          Cash on Delivery
-                        </div>
+                    <input
+                      type="radio"
+                      name="product"
+                      class="card-input-element"
+                      data-paymentMethod="Cash On Delivey"
+                      checked
+                    />
+
+                    <div class="panel panel-default card-input">
+                      <div class="panel-body">
+                        <img
+                          src="https://www.pngkey.com/png/detail/825-8250823_cash-on-delivery-cash-on-delivery-now-available.png"
+                          alt="Cash on Delivery"
+                        />
+                        Cash on Delivery
                       </div>
+                    </div>
                   </label>
-                  
                 </div>
-            </div>
+              </div>
             </div>
           </div>
 
           <div class="form__field-con">
-            <input type="submit" value="Place order" name="" class="none"/>
+            <input type="submit" value="Place order" name="" class="none" />
             <button name="submit" class="form_submit_btn">submit</button>
           </div>
         </form>
@@ -229,8 +254,7 @@
 
       <section class="section-additional-info">
         <div class="small-section">
-          <a id="small-mob-visibilty-toggler-for-order-summary"
-            >
+          <a id="small-mob-visibilty-toggler-for-order-summary">
             Show order summary
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -243,41 +267,53 @@
               <path
                 fill-rule="evenodd"
                 d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-              /></svg>
-        </a>
+              />
+            </svg>
+          </a>
 
-          <h3 class="total-price skeleton-loading" id="small-mob-price-total-elem">Rs. 500000</h3>
+          <h3
+            class="total-price skeleton-loading"
+            id="small-mob-price-total-elem"
+          >
+            Rs. 500000
+          </h3>
         </div>
 
         <div class="whole-content folded" id="order-summary-content">
           <div class="products-con" id="products_con">
             <div class="skeleton-loading product placeholder-prodcuts">
               <div class="product-info">
-                <div class="img-con">
-
-                  
-                </div>
+                <div class="img-con"></div>
                 <p class="product-title">best chippi chappa</p>
               </div>
               <div class="product-price">
-                <p class="" >Rs. 1000</p>
+                <p class="">Rs. 1000</p>
               </div>
             </div>
           </div>
           <div class="total-con">
             <div class="subtotal">
-              <p >Subtotal:</p>
-              <p id="product-summary-subtotal-elem" class="skeleton-loading">Rs. 3000</p>
+              <p>Subtotal:</p>
+              <p id="product-summary-subtotal-elem" class="skeleton-loading">
+                Rs. 3000
+              </p>
             </div>
 
             <div class="shipping-fees">
               <p>Shipping cost:</p>
-              <p id="product-summary-shippingFees-elem" class="skeleton-loading">Rs. 3000</p>
+              <p
+                id="product-summary-shippingFees-elem"
+                class="skeleton-loading"
+              >
+                Rs. 3000
+              </p>
             </div>
 
             <div class="total">
               <p>Total:</p>
-              <p id="product-summary-total-elem" class="skeleton-loading">Rs. 3200</p>
+              <p id="product-summary-total-elem" class="skeleton-loading">
+                Rs. 3200
+              </p>
             </div>
           </div>
         </div>

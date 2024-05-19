@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Preview order details</title>
     <!-- styleings  -->
-    <link rel="stylesheet" href="../../../Styles/admin.css" />
-    <link rel="stylesheet" href="../../../Styles/admin_order_preview.css" />
+    <link rel="Stylesheet" href="../../../Styles/admin.css" />
+    <link rel="Stylesheet" href="../../../Styles/admin_order_preview.css" />
   <script defer src="../../../admin.js"></script><script defer src="../../../admin_components.js"></script><script defer src="../../../admin_orders_preview.js"></script></head>
   <body>
     <!-- side navbar  -->
@@ -153,8 +153,7 @@
         <section class="products-section">
           <div class="order-indications">
             <div>
-              <a href="../orders"
-                >
+              <a href="../orders">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -167,43 +166,60 @@
                   />
                 </svg>
               </a>
-              <h1 class="thin-heading skeleton-loading">#<span data-fieldName="orderCode">
-                RS34Q 
-              </span></h1>
+              <h1 class="thin-heading">
+                #<span class="skeleton-loading" data-fieldName="orderCode">
+                  RS34Q
+                </span>
+              </h1>
             </div>
-            <div class="fullfilled orderIndicator skeleton-loading" data-fieldName="status"></div>
+            <div
+              class="orderIndicator skeleton-loading"
+              data-fieldName="status"
+              id="orderStatusIndicator"
+            ></div>
           </div>
           <hr />
 
-          <div class="product-con">
+          <div class="product-con" id="product-con">
             <div class="product skeleton-loading">
-              <!-- <div class="product-data"> -->
-                <!-- <img
+              <!-- <div class="product-data">
+                <img
                   src="https://firebasestorage.googleapis.com/v0/b/arux-24899.appspot.com/o/Products%2F621a1155-13e3-4cc5-9fc8-620947fc1e6b?alt=media&token=5c3637f7-1828-41e4-bdfb-d4e652a84ece"
                   alt=""
                   class="product"
                 />
-                <a href="" role="not-link" class="product-title-link skeleton-loading">
+                <a href="" role="not-link" class="product-title-link">
                   <h1>Best m-10 product got ordered</h1>
                 </a>
 
-                <div class="product-quantity"></div>
-
-                <div class="product-price"></div>
               </div>
               <div class="product-price">
                 <p class="quantity">1x</p>
                 <p class="price">500</p>
-              </div> -->
+              </div>
+            </div> -->
             </div>
           </div>
 
           <div class="total-con">
             <hr />
-            <p class="total-row">SubTotal: <span class="skeleton-loading" data-fieldName="subTotal">2500</span></p>
+            <p class="total-row">
+              SubTotal:
+              <span class="skeleton-loading" data-fieldName="subTotal"
+                >2500</span
+              >
+            </p>
 
-            <p class="total-row">ShippingFees: <span class="skeleton-loading" data-fieldName="shippingFees">300</span></p>
-            <p class="total-row">Total: <span class="skeleton-loading" data-fieldName="total">2800</span></p>
+            <p class="total-row">
+              ShippingFees:
+              <span class="skeleton-loading" data-fieldName="shippingFees"
+                >300</span
+              >
+            </p>
+            <p class="total-row">
+              Total:
+              <span class="skeleton-loading" data-fieldName="total">2800</span>
+            </p>
           </div>
         </section>
 
@@ -211,17 +227,35 @@
           <div class="customer-info">
             <h1>Date</h1>
             <div class="customer-adress details-fields">
-              <p class="name">Dated : <span class="skeleton-loading" data-fieldName="date"> 2/12/2024 </span></p>
+              <p class="name">
+                Dated :
+                <span class="skeleton-loading" data-fieldName="date">
+                  2/12/2024
+                </span>
+              </p>
             </div>
           </div>
 
           <div class="customer-info">
             <h1>Customer Details</h1>
             <div class="customer-details details-fields">
-              <p class="name">Name : <span class="skeleton-loading" data-fieldName="name"> Anzi DI meow </span></p>
-              <p class="phone">Phone : <span class="skeleton-loading" data-fieldName="phoneNumber"> 0333333333 </span></p>
+              <p class="name">
+                Name :
+                <span class="skeleton-loading" data-fieldName="name">
+                  Anzi DI meow
+                </span>
+              </p>
+              <p class="phone">
+                Phone :
+                <span class="skeleton-loading" data-fieldName="phoneNumber">
+                  0333333333
+                </span>
+              </p>
               <p class="email">
-                Email : <span class="skeleton-loading" data-fieldName="email"> contact.lemme.code@ </span>
+                Email :
+                <span class="skeleton-loading" data-fieldName="email">
+                  contact.lemme.code@
+                </span>
               </p>
             </div>
           </div>
@@ -229,20 +263,44 @@
           <div class="customer-info">
             <h1>Customer Adress</h1>
             <div class="customer-adress details-fields">
-              <p class="name">Town/city : <span class="skeleton-loading" data-fieldName="city"> Shikarapur </span></p>
-              <p class="name">Province : <span class="skeleton-loading" data-fieldName="province"> Sindh </span></p>
+              <p class="name">
+                Town/city :
+                <span class="skeleton-loading" data-fieldName="city">
+                  Shikarapur
+                </span>
+              </p>
+              <p class="name">
+                Province :
+                <span class="skeleton-loading" data-fieldName="province">
+                  Sindh
+                </span>
+              </p>
               <p class="name">
                 Street Adress:
-                <span class="skeleton-loading" data-fieldName="streetAdress"> Larik muhala lakhi ghulam shah, meow </span>
+                <span class="skeleton-loading" data-fieldName="streetAdress">
+                  Larik muhala lakhi ghulam shah, meow
+                </span>
               </p>
-              <p class="name">Additonal Adress :<span class="skeleton-loading" data-fieldName="additonalAdress"> null </span></p>
+              <p class="name">
+                Additonal Adress :<span
+                  class="skeleton-loading"
+                  data-fieldName="additonalAdress"
+                >
+                  null
+                </span>
+              </p>
             </div>
           </div>
 
           <div class="customer-info">
             <h1>Payment Method</h1>
             <div class="customer-adress details-fields">
-              <p class="name">Method : <span class="skeleton-loading" data-fieldName="paymentMethod"> JazzCash </span></p>
+              <p class="name">
+                Method :
+                <span class="skeleton-loading" data-fieldName="paymentMethod">
+                  JazzCash
+                </span>
+              </p>
             </div>
           </div>
         </section>
