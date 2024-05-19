@@ -317,7 +317,8 @@ const signOutFirebaseAuth = () => {
 
 const addLoader = (
   parentElem = document.body,
-  overlayLoader = false
+  overlayLoader = false,
+  msg = true
 ) => {
   const LoaderMessageArr = [
     "Did you know? Images speak louder than words!",
@@ -347,22 +348,20 @@ const addLoader = (
     "Tip: Trust the process, and soon you'll see the results you've been waiting for!",
 ];
   if (parentElem == null || parentElem == undefined) return;
-  const numOfMsgs = LoaderMessageArr.length;
-  let currentMsgIndex=0;
 
   parentElem.innerHTML += `<div class="loader-wrapper ${overlayLoader ? 'overlay' : 'meow'}">
   <div class="loader">
 
   </div>
-  <p class="loader-msg" id="LoadingMsg">${LoaderMessageArr[0]}</p>
+  <p class="loader-msg  ${msg ? 'meow' : 'none'}" id="LoadingMsg">${LoaderMessageArr[0]}</p>
   </div>`;
 
-  const LoadingMsgElem = document.getElementById('LoadingMsg');
+if(msg){  const LoadingMsgElem = document.getElementById('LoadingMsg');
   setInterval(() => {
     const randomIndex = Math.floor(Math.random() * LoaderMessageArr.length);
     LoadingMsgElem.innerText = LoaderMessageArr[randomIndex];
   }, 8000);
-
+}
 };
 
 const showConfirmationDialog = async (

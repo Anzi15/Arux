@@ -153,7 +153,7 @@ const toStoreElems = document.querySelectorAll("[data-identification_name]");
 "use strict";
 
 const saveChanges = async ()=>{
-  addLoader(formAdditionalInfo, true)
+  addLoader(document.body, true)
   const allUpdatedFeilds = {
     ...changedElems
   };
@@ -183,7 +183,7 @@ const saveChanges = async ()=>{
   showAlert("success","Changes saved","The product has been updated successfully","Go to product dashboard")
   .then(response => {
     if(response.isConfirmed){
-      window.location.replace("../products")
+      window.location.replace("/admin/products")
     }
   })
 }

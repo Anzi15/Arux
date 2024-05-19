@@ -286,20 +286,24 @@ input[data-autocompleted] {
 }
 
 main {
-  padding: 4rem 0;
+  padding: 6rem 0;
   width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   flex-wrap: wrap-reverse;
 }
 main section.abstract-design {
   width: 90%;
-  max-width: 20rem;
+  max-width: 25rem;
+  display: flex;
+  justify-content: center;
 }
 main section.abstract-design img {
-  border-radius: 3rem;
-  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
 }
 main form {
   width: 90%;
@@ -308,6 +312,9 @@ main form {
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 0;
+}
+main form h1 {
+  margin: 1rem 0;
 }
 main form .inp-field {
   display: flex;
@@ -335,14 +342,14 @@ main form .inp-field textarea {
   min-height: 7rem;
   max-height: 16rem;
 }
-main form input[type=submit] {
+main form input[type=submit], main form button {
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 6px;
   background: linear-gradient(0deg, #000000 0%, #1b1b1b 100%);
   color: #FFFFFF;
 }
-main form input[type=submit]:hover {
+main form input[type=submit]:hover, main form button:hover {
   background: linear-gradient(0deg, #1b1b1b 0%, #000000 100%);
   border: 10px;
 }

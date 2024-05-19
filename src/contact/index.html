@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout</title>
+    <title>Contact us</title>
     <!-- stylings -->
     <link rel="stylesheet" href="../styles/components.css" />
     <link rel="stylesheet" href="../styles/contact.css" />
@@ -83,30 +83,32 @@
     
     <main>
         <section class="abstract-design">
-          <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-boho-wall-art-set_23-2149261277.jpg" alt="abstract-design">
+          <img src="https://i.ibb.co/8r5X9fQ/https-freepicdownloader.jpg" class="skeleton-loading" draggable="false" alt="abstract-design">
         </section>
         <form id="contactForm">
           <h1 class="thin-heading">Let's Talk</h1>
             <div class="inp-field">
-                <label for="">Your name</label>
+                <label for="">Your Name</label>
                 <input type="text"  autocomplete="name"
                 name="name"
-                data-fieldName="name">
+                data-fieldName="name" required>
             </div>
             <div class="inp-field">
-                <label for="">Your email</label>
+                <label for="">Your Email</label>
                 <input type="email"
                 autocomplete="email"
                 name="email"
                 required
                 data-fieldName="email">
             </div>
+  
             <div class="inp-field">
-                <label for="">Your message</label>
-                <textarea name="" id=""></textarea>
+                <label for="">Your Message</label>
+                <textarea name="message" data-fieldName="message" spellcheck="true" wrap="hard"></textarea>
             </div>
 
-            <input type="submit" value="Send message ">
+            <button>Send message</button>
+            <!-- <input type="submit" value=" " name="submitBtn"> -->
         </form>
     </main>
 
