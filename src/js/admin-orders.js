@@ -1,7 +1,7 @@
 "use strict";
 //*Essential Imports
-import {checkFieldValueExistsInDB, getAllFirestoreDocuments, searchFiretoreDocsBySpecificField} from './admin-modules.js';
-import {removeCertainClassedElemsFromDom} from './client_side-modules.js'
+import {getAllFirestoreDocuments, searchFiretoreDocsBySpecificField} from "./firebase-modules.js";
+import {removeCertainClassedElemsFromDom} from "./client_side-modules.js"
 
 //*Variables and Dom elems
 const orderCon = document.getElementById('orders-wrapper');

@@ -1,7 +1,5 @@
 "use strict";
 
-import { update } from "firebase/database";
-
 
 //getting elems form dom
 const formBasicInfo = document.querySelector("#formBasicInfo");

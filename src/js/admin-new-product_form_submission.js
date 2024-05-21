@@ -1,15 +1,15 @@
-
 "use strict";
-import { doc } from "firebase/firestore";
-// essential imports
+//*essential imports
 import {
-  showMsg,
-  storeObjToDB,
-  uploadImageToFirebase,
+  renderMessage,
   addLoader,
   showConfirmationDialog,
-  showAlert
-} from "./admin-modules";
+  showAlert,
+} from "./utility-modules";
+import {
+  createDocumentInFirestore,
+  uploadImageToFirebase,
+} from "./firebase-modules";
 
 //getting elems form dom
 const formBasicInfo = document.querySelector("#formBasicInfo");
@@ -29,7 +29,7 @@ const hasAnyEmptyImgs = (dropAreaArr) => {
     ) {
       const msg = area.querySelector(".image-upload-msg");
 
-      showMsg(msg, `This can't be empty!`, "red");
+      renderMessage(msg, `This can't be empty!`, "red");
 
       return true;
     }
@@ -72,14 +72,17 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
       ...productDataObj,
     };
 
-    const storingProduct = await storeObjToDB("Products", combinedData);
-    
+    const storingProduct = await createDocumentInFirestore(
+      "Products",
+      combinedData
+    );
+
     if (storingProduct == "error") {
       showAlert(
         "error",
         "Task failed :(",
         "Check your internet and try again..",
-        "Alright!",
+        "Alright!"
       );
       throw new Error("Error creating product");
     } else {
@@ -88,11 +91,13 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
         "Product added successfully",
         "Continue by going to dashboard or adding another product.",
         "Go to dashboard",
-        "Add another Product",
+        "Add another Product"
       );
-      confirmAlert.isConfirmed ? window.location.replace("../products") : window.location.reload()
+      confirmAlert.isConfirmed
+        ? window.location.replace("../products")
+        : window.location.reload();
     }
-  } catch (error) {  }
+  } catch (error) {}
 };
 
 const handleBasicFormSubmission = (e) => {
@@ -119,10 +124,10 @@ const handleBasicFormSubmission = (e) => {
 
     toStoreElems.forEach((elem) => {
       const feildName = elem.dataset.identification_name;
-      if(elem.type == "number"){
+      if (elem.type == "number") {
         product_data_obj[feildName] = parseInt(elem.value);
-      }else{
-        product_data_obj[feildName] = (elem.value);
+      } else {
+        product_data_obj[feildName] = elem.value;
       }
     });
     updateSteps();
@@ -130,19 +135,17 @@ const handleBasicFormSubmission = (e) => {
 };
 
 const handleAdditionalFormSubmission = async (e) => {
-
-
   const toStoreElems = e.target.querySelectorAll("[data-identification_name]");
 
   for (let i = 0; i < toStoreElems.length; i++) {
     const elem = toStoreElems[i];
-    const feildName =  elem.dataset.identification_name;
+    const feildName = elem.dataset.identification_name;
     const elemValue = await elem.value;
-    if(elem.type == "number"){
-      if(elem.value == undefined || elem.value == null) elemValue = 0
+    if (elem.type == "number") {
+      if (elem.value == undefined || elem.value == null) elemValue = 0;
       product_data_obj[feildName] = parseInt(elemValue);
-    }else{
-      product_data_obj[feildName] = (elem.value);
+    } else {
+      product_data_obj[feildName] = elem.value;
     }
   }
   addLoader(document.body, true);

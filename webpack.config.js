@@ -9,7 +9,6 @@
             slider: './src/js/slider.js',
             components: './src/js/components.js',
             homepage: './src/js/homepage.js',
-            products: './src/js/products.js',
             products_menu: './src/js/products-menu.js',
             individual_product: './src/js/individual-product.js',
             cart: './src/js/cart.js',

@@ -1,9 +1,9 @@
 'use strict';
 import Swal from 'sweetalert2'
 //*Essential imports
-import {getFirestoreDocument, getListOfFirestoreDocs, searchFiretoreDocsBySpecificField, showNotification, updateFirestoreDocument} from './admin-modules.js'
-import {getParamFromUrl,} from './general-modules.js';
-import { removeCertainClassedElemsFromDom } from './client_side-modules.js';
+import { getListOfFirestoreDocs, searchFiretoreDocsBySpecificField, showNotification, updateFirestoreDocument} from "./firebase-modules.js"
+import {getParamFromUrl} from "./utility-modules.js";
+import { removeCertainClassedElemsFromDom } from "./client_side-modules.js";
 
 //*Variables
 const orderId = getParamFromUrl("id");
@@ -19,6 +19,7 @@ const productCon = document.getElementById('product-con');
   loadOrderedProducts()
 })()
 
+//Retreiving and laoding customer info
 function loadCustomerInfo (){
   orderStatusELem.classList.add(orderDetails.status)
   allInfoFields.forEach(field =>{
@@ -28,6 +29,7 @@ function loadCustomerInfo (){
   });
 }
 
+//Retreiving and laoding products
 async function loadOrderedProducts(){
   const productIds = orderDetails.products.map(product => Object.keys(product)[0]);
   const productQuantities = orderDetails.products.map(product => Object.values(product)[0]);
@@ -42,6 +44,7 @@ async function loadOrderedProducts(){
   })
 }
 
+//structure for a product 
 function addProductToDom (productData, productId, productQuantity){
     productCon.innerHTML += `<div class="product ">
     <div class="product-data">
@@ -62,6 +65,7 @@ function addProductToDom (productData, productId, productQuantity){
   </div>`
 }
 
+//updateing the orderStatus and syncing it with db
 function updateOrderStatus(currentStatus){
   orderStatusELem.innerHTML=currentStatus
   orderStatusELem.classList.add(currentStatus)

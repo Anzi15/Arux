@@ -1,6 +1,6 @@
 "use strict";
 //esential imports
-import {preventDefaults, classAdder, classRemover} from "./admin-modules.js"
+import {preventDefaults, classAdder, classRemover} from "./utility-modules.js"
 
 
 //getting elems from dom 

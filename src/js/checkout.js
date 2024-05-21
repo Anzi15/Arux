@@ -1,8 +1,8 @@
 'use strict';
 //*esential imports
-import {getFirestoreDocument, getListOfFirestoreDocs, storeObjToDB, checkFieldValueExistsInDB, showAlert, showConfirmationDialog} from './admin-modules';
-import {getFormattedDate, getParamFromUrl} from './general-modules'
-import {removeCertainClassedElemsFromDom, generateUniqueCode} from './client_side-modules';
+import {getFirestoreDocument, getListOfFirestoreDocs, createDocumentInFirestore, } from "./firebase-modules";
+import { showAlert, getFormattedDate, getParamFromUrl } from "./utility-modules";
+import {removeCertainClassedElemsFromDom, generateUniqueCode} from "./client_side-modules";
 
 //*varibales and elements
 const srcParam = getParamFromUrl("src");
@@ -115,7 +115,7 @@ const handleSubmission = async (e) => {
   dataValueObj.status = "pending";
 
   console.log(dataValueObj)
-  const storingTask = await storeObjToDB("orders", dataValueObj);
+  const storingTask = await createDocumentInFirestore("orders", dataValueObj);
   if (srcParam == "cart") localStorage.removeItem("cart");
   if (storingTask !== "error")
     showAlert(

@@ -1,7 +1,8 @@
 'use strict';
 
 //*Essential imports
-import { checkFieldValueExistsInDB, userExistInFireAuth, signOutFirebaseAuth, showNotification} from './admin-modules';
+import { checkFieldValueExistsInDB, userExistInFireAuth, signOutFirebaseAuth} from "./firebase-modules";
+import { showNotification} from "./utility-modules";
 
 //*variabls and elems
 const userProfile = document.getElementById('userProfile');

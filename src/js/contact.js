@@ -1,5 +1,6 @@
 //*Esential imports
-import { addLoader, showAlert, storeObjToDB} from './admin-modules'
+import { addLoader, showAlert, } from "./utility-modules"
+import { createDocumentInFirestore } from "./firebase-modules"
 
 //*Variables
 const contactForm = document.getElementById('contactForm');
@@ -18,7 +19,7 @@ const handleFormSubmission = async ()=>{
     addLoader(contactForm, false, false)
 
     
-    const storeTask = await storeObjToDB("contactMessages",formDataObj);
+    const storeTask = await createDocumentInFirestore("contactMessages",formDataObj);
     showAlert("success","Thanks for reaching out 👀","We'll get back to you shortly!","Continue shopping").then(Response =>{
         window.location.replace("../products")
     })

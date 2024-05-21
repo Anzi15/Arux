@@ -1,16 +1,16 @@
 'use strict';
 
 //*essential imports
+import {showNotification, getParamFromUrl} from "./utility-modules";
+
 import {
-    getFirestoreDocument,
-    getFewFirestoreDocs,
-    showNotification
-} from './admin-modules';
-import {getParamFromUrl} from './general-modules';
-import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-modules';
-import { doc } from 'firebase/firestore';
+    getFirestoreDocument, 
+    getFewFirestoreDocs} from "./firebase-modules"
+import {addProductToDom, removeCertainClassedElemsFromDom} from "./client_side-modules";
 
 //*variables and dom elements
+
+//Elems
 const quantityInpElem = document.getElementById('quantityInpElem');
 const quantitySubtractBtn = document.getElementById('subtractBtn');
 const quantityPlusBtn = document.getElementById('plusBtn');
@@ -19,6 +19,7 @@ const productNavTreeProductName = document.getElementById('product-tree-this-pro
 const addToCartBtn = document.getElementById('addToCartBtn');
 const getNowBtn = document.getElementById('buyNowBtn');
 
+//varibales
 let docID = getParamFromUrl("id");
 let productDoc;
 const domDetails = {
@@ -31,7 +32,9 @@ const domImgs = {
     secondary_img_1: document.getElementById('product-secImg1-elem'),
     secondary_img_2: document.getElementById('product-secImg2-elem')
 };
+
 //*functions
+//self invoking function to get and add the document to dom (when the page get's rendered)
 (async ()=>{
     if(docID ==null || docID == undefined) return;
     productDoc = await getFirestoreDocument("Products",docID);
@@ -63,6 +66,7 @@ const domImgs = {
     removeCertainClassedElemsFromDom(recomendedProductsCon, "placeolder-products")
 })()
 
+//Function to product to cart
 const addProductToCart = (productId, quantity)=>{
     let currentCart = JSON.parse(localStorage.getItem("cart"));
     if(currentCart == null){
@@ -94,20 +98,26 @@ const addProductToCart = (productId, quantity)=>{
 }
 
 //*eventlistners
+//to add product quantity
 quantityPlusBtn.onclick = ()=>{quantityInpElem.value++}
+
+//to subtract product quantity
 quantitySubtractBtn.onclick = ()=>{
     quantityInpElem.value < 2 ? quantityInpElem.value=1 : quantityInpElem.value--
 }
 
+//Making imgs interactive by zooming them into the overlay when clicked
 for(const elem in domImgs){
     domImgs[elem].parentElement.addEventListener("click",()=>{
         domImgs[elem].parentElement.classList.toggle("overlay-img-preview")
     })
 }
+//Event listner to handle click on cart btn
 addToCartBtn.addEventListener("click",()=>{
     addProductToCart(docID, quantityInpElem.value)
 })
 
+//Event listner to handle get now btn
 getNowBtn.addEventListener("click",(e)=>{
     e.preventDefault();
     const url = `../checkout?src=${docID}&quantity=${quantityInpElem.value}`;

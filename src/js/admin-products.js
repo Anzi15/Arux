@@ -1,7 +1,7 @@
 "use strict";
 
-import { getAllFirestoreDocuments, deleteDocumentFromFirestore, showConfirmationDialog, showNotification, removeLoader} from "./admin-modules"
-// import {route} from "./url-routing";
+import { getAllFirestoreDocuments, deleteDocumentFromFirestore} from "./firebase-modules"
+import { showConfirmationDialog, showNotification, removeLoader} from "./utility-modules"
 
 // getting elems from dom 
 const productsContainer = document.getElementById('section__products__grid');

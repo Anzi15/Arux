@@ -1,6 +1,6 @@
 'use strict';
 //*Esesential imports
-import { checkFieldValueExistsInDB } from "./admin-modules";
+import { checkFieldValueExistsInDB } from "./firebase-modules";
 
 function addProductToDom(elem, product, productId="demo_id"){
     elem.innerHTML += 

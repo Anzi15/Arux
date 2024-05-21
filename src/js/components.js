@@ -1,6 +1,6 @@
 "use strict";
 
-import {storeObjToDB, checkFieldValueExistsInDB} from "./admin-modules";
+import {createDocumentInFirestore, checkFieldValueExistsInDB} from "./firebase-modules";
 
 // getting elements form dom 
 const navToggleBtn = document.querySelectorAll('[data-nav-toggler]');
@@ -30,7 +30,7 @@ emailNewsletterForm.addEventListener("submit", async (e)=>{
     const emailExist = await checkFieldValueExistsInDB("newsletter-subscribers","email",emailFeildValue)
 
     if(!emailExist){
-        storeObjToDB("newsletter-subscribers",{email: emailFeildValue});
+        createDocumentInFirestore("newsletter-subscribers",{email: emailFeildValue});
     }
 
     return false;

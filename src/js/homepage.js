@@ -1,11 +1,14 @@
 'use strict';
-import {getFewFirestoreDocs, showAlert, showNotification} from './admin-modules';
-import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-modules';
+//*Essential imports
+import {  getFewFirestoreDocs} from "./firebase-modules";
+import {  showAlert, showNotification } from "./utility-modules";
+import {addProductToDom, removeCertainClassedElemsFromDom} from "./client_side-modules";
 
-//getting elems from dom
+//*Variables
 const topProductsCon = document.getElementById('top-products-con');
 
-
+//*Functions
+//function to load retrive and load products
 (async () => {
     if(window.navigator.onLine){
         //TODO: make a seprate collection in firebase's firestore for everything, top products, product from 1-25, 25-50 and so on everything should be seprated in the DB

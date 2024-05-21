@@ -1,6 +1,6 @@
 //*essential imports
-import {getListOfFirestoreDocs, getFewFirestoreDocs} from './admin-modules';
-import {addProductToDom, removeCertainClassedElemsFromDom} from './client_side-modules'
+import {getListOfFirestoreDocs, getFewFirestoreDocs} from "./firebase-modules";
+import {addProductToDom, removeCertainClassedElemsFromDom} from "./client_side-modules";
 
 //*dom elems and variables
 let cartItems = JSON.parse(localStorage.getItem("cart"));

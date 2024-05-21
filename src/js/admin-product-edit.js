@@ -1,17 +1,17 @@
 "use-strict";
 
-//esential imports
-import {preventDefaults, classAdder, classRemover, getFirestoreDocument, updateFirestoreDocument, uploadImageToFirebase, showConfirmationDialog, addLoader, showNotification, showAlert, removeLoader} from "./admin-modules.js"
-import {getParamFromUrl} from "./general-modules.js"
+//*esential imports
+import {  getFirestoreDocument, updateFirestoreDocument, uploadImageToFirebase, } from "./firebase-modules.js"
+import {getParamFromUrl, preventDefaults, classAdder, classRemover, showConfirmationDialog, addLoader, showNotification, showAlert, removeLoader} from "./utility-modules.js"
 
-//getting elems from dom 
+//*getting elems from dom 
 const primary_image_upload = document.getElementById('primary_image-upload');
 const sec1_image_upload = document.getElementById('sec-1_image-upload');
 const sec2_image_upload = document.getElementById('sec-2_image-upload');
 const formAdditionalInfo = document.querySelector('#formAdditionalInfo');
 
 
-// variables, arrays and objects
+// * variables, arrays and objects
 const imageDropAreas = [primary_image_upload, sec1_image_upload, sec2_image_upload];
 let productID = getParamFromUrl("product-ID");
 const allFeildElems = {};
@@ -20,8 +20,9 @@ const changedImgs = {};
 
 const toStoreElems = document.querySelectorAll("[data-identification_name]");
 
-//FUNCTIONS
+// *FUNCTIONS
 
+//to load the product data into it's right fields
 (async () => {
   // Loop through the elements to store them in an object
   toStoreElems.forEach((elem) => {
@@ -180,13 +181,15 @@ const saveChanges = async ()=>{
   }
   const updateTask = await updateFirestoreDocument("Products", productID, allUpdatedFeilds);
   
-  showAlert("success","Changes saved","The product has been updated successfully","Go to product dashboard")
-  .then(response => {
-    if(response.isConfirmed){
-      window.location.replace("/admin/products")
-    }
-  })
+  // showAlert("success","Changes saved","The product has been updated successfully","Go to product dashboard")
+  // .then(response => {
+  //   if(response.isConfirmed){
+  //     window.location.replace("/admin/products")
+  //   }
+  // })
 }
+
+//*Event listners
 //watching elem for changes
 function watchForChanges(elem){
   elem.addEventListener("change",(e)=>{
