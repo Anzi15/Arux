@@ -1,7 +1,6 @@
 'use strict';
 
 //*Esential imports
-
 import { initializeApp, } from "firebase/app";
 import {showAlert, showConfirmationDialog, showNotification, } from "./utility-modules.js"
 
@@ -21,7 +20,11 @@ import { v4 } from "uuid";
 
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
+import {getAnalytics, getInitalAppProperties} from "firebase/analytics"
+
 //*Varibales 
+const clientIDForGoogleApiOfanlytics = `95411992302-6b1dn9afqfia47mne79t2imndkoiq1s0.apps.googleusercontent.com`
+const clientSecretForGoogleApiOfanlytics = `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`
 //firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
@@ -46,6 +49,7 @@ const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
 });
 const auth = getAuth(app);
+const analytics = getAnalytics(app);
 
 //Self invoking functions(kinda like window.onload)
 (() => {
@@ -143,7 +147,6 @@ const getFewFirestoreDocs = async (collectionName, limit) => {
 const getListOfFirestoreDocs = async(collectionName, listOfIds)=>{
     try {
       const list = [...listOfIds]
-      console.log(list)
       const querySnapshot = await getDocs(query(collection(db, collectionName), where(documentId(), 'in', list)));
       
       const products = querySnapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }));
@@ -306,6 +309,11 @@ const signOutFirebaseAuth = () => {
       });
   });
 };
+
+//* Analytics functions
+const logDemographicAnalytics = ()=>{
+  getInitalAppProperties
+}
 
 
 //*Exports

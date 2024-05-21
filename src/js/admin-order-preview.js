@@ -37,6 +37,7 @@ async function loadOrderedProducts(){
   
   let quantityIndex = 0;
   const fetchedProducts = await getListOfFirestoreDocs("Products",productIds);
+  console.log(productIds)
   removeCertainClassedElemsFromDom(productCon, "skeleton-loading")
   fetchedProducts.forEach(product =>{
     addProductToDom(product.data, product.id, productQuantities[quantityIndex]);

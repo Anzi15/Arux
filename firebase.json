@@ -1,12 +1,27 @@
 {
-    "storage": {
-      "rules": "storage.rules",
-      "cors": [
-        {
-          "origin": ["http://localhost:9000"],
-          "method": ["GET", "POST", "PUT", "DELETE"],
-          "maxAgeSeconds": 3600
-        }
-      ]
-    }
+  "storage": {
+    "rules": "storage.rules",
+    "cors": [
+      {
+        "origin": [
+          "http://localhost:9000"
+        ],
+        "method": [
+          "GET",
+          "POST",
+          "PUT",
+          "DELETE"
+        ],
+        "maxAgeSeconds": 3600
+      }
+    ]
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
+}
