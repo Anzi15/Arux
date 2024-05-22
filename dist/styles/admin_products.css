@@ -262,13 +262,31 @@ input[data-autocompleted] {
 main {
   background: #FFFFFF !important;
 }
-main .add__products-con {
-  padding: 2rem 1rem;
-  display: flex;
-  justify-content: right;
+main .heading-section {
+  display: grid;
+  gap: 3rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-main .add__products-con .big_btn {
+main .heading-section .page-heading {
+  font-family: inter, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  line-height: 4rem;
+  font-size: 3rem;
+}
+main .heading-section .add__products-con {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+main .heading-section .add__products-con .big_btn {
   padding: 0.5rem;
+}
+main .heading-section .add__products-con select {
+  border: none;
 }
 main section.section__your__products {
   width: 100%;
@@ -285,6 +303,7 @@ main section.section__your__products .section__products__grid {
   column-gap: 2rem;
 }
 main section.section__your__products .section__products__grid .product {
+  min-height: fit-content;
   display: inline-flex;
   background: #F9FAFB;
   border-radius: 0.5rem;
@@ -332,6 +351,25 @@ main section.section__your__products .section__products__grid .product .product_
 main section.section__your__products .section__products__grid .product .product__content-con .product__config-con svg:hover {
   color: #000000;
   scale: 1.1;
+}
+
+@media (width < 594px) {
+  .section__products__grid .product {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .section__products__grid .product img, .section__products__grid .product .product__title, .section__products__grid .product .product__config-con, .section__products__grid .product .product__detail-con {
+    width: 100% !important;
+  }
+  .section__products__grid .product__title, .section__products__grid .product__config-con, .section__products__grid .product__detail-con {
+    padding: 0 1rem;
+  }
+  .section__products__grid .product__title {
+    padding-top: 1rem;
+  }
+  .section__products__grid .product__config-con {
+    padding-bottom: 1rem;
+  }
 }
 
 /*# sourceMappingURL=admin_products.css.map */

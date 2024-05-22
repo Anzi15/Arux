@@ -1,5 +1,7 @@
 @import 'config';
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;700;800&family=Ceviche+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 //body
+
 body{
     max-height: 100vh;
     display: flex;
@@ -90,15 +92,70 @@ body{
             display: none;
         }
         //section
-        .analytics{
-            margin: 1rem 0;
-            background: $color-semi_white;
-            border-radius: 1rem;
+        .hero__section{
+            padding: 3rem;
+            .hero__section-main-heading{
+                font-family: "Noto Serif", serif;
+                font-size: 4rem;
+            }
+            .hero__section-secoundary-heading{
+                font-family: "Noto Serif", serif;
+                font-size: 32px;
+                font-weight: 400;
+            }
+            .hero__section-figure{
+                padding: 3rem 0;
+                img{
+                    margin: 0 auto;
+                    width: 80%;
+                }
+            }
+        }
+        section.section__get-started-with{
+            padding: 3rem;
+            .heading{
+                margin-bottom: 2rem;
+                font-size: 1.2rem;
+                font-weight: 400;
+            }
+            .options-list{
+                display: grid;
+                gap: 1.5rem;
+                .option{
+                    border-radius: .7rem;
+                    background: $color-semi_blue;
+                    padding: 1rem 2rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    text-decoration: none;
+                    transition: all .4s ease-in-out;
+                    .option-title{
+                        padding-left: 2rem;
+                        font-style: italic;
+                        transition: all .4s ease-in-out;
+                        line-height: 4rem;
+                        font-size: 3rem;
+                        font-weight: 400;
+                        color:$color-light-black;
+                    }
+                    .option-figure{
+                        max-height: 100%;
+                        overflow: hidden;
+                        img{
+                            transition: all .4s ease-in-out;
+                            width: 100%;
+                            max-width: 20rem;
+                        }
+                    }
 
-            #demo_chart{
-                border-radius: 1rem;
-                background: $color-white;
-                height: 17rem !important;
+                    &:hover{
+                       img, .option-title{
+                        scale: 1.05;
+                       }
+                    }
+                }
             }
         }
     }
@@ -138,7 +195,34 @@ body{
             padding-top: 2rem;
         }
     }
-    canvas{
-        padding: .7rem;
+    .hero__section{
+        padding: 3rem 1.5rem !important;
+        .hero__section-main-heading{
+            max-width: 100vw;
+            font-size: 3rem !important;
+        }
+        .hero__section-figure{
+            img{
+                width: 100% !important;
+            }
+        }
+        
     }
-}
+    section.section__get-started-with{
+        padding: 1rem  !important;
+        .option-list{
+            .option{
+                min-height: fit-content;
+                max-height: 100vw !important;
+                flex-direction: column;
+                .option-figure{
+                    width: 100% !important;
+                    img{
+                        width: 100% !important;
+
+                    }
+                }
+            }
+        }
+    }
+    }

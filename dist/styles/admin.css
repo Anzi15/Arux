@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;700;800&family=Ceviche+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 * {
   max-width: 100vw;
   overflow-x: hidden;
@@ -339,15 +340,68 @@ body main .brand-title {
 body main .sidebar_toggler {
   display: none;
 }
-body main .analytics {
-  margin: 1rem 0;
-  background: #F9FAFB;
-  border-radius: 1rem;
+body main .hero__section {
+  padding: 3rem;
 }
-body main .analytics #demo_chart {
-  border-radius: 1rem;
-  background: #FFFFFF;
-  height: 17rem !important;
+body main .hero__section .hero__section-main-heading {
+  font-family: "Noto Serif", serif;
+  font-size: 4rem;
+}
+body main .hero__section .hero__section-secoundary-heading {
+  font-family: "Noto Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+body main .hero__section .hero__section-figure {
+  padding: 3rem 0;
+}
+body main .hero__section .hero__section-figure img {
+  margin: 0 auto;
+  width: 80%;
+}
+body main section.section__get-started-with {
+  padding: 3rem;
+}
+body main section.section__get-started-with .heading {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+body main section.section__get-started-with .options-list {
+  display: grid;
+  gap: 1.5rem;
+}
+body main section.section__get-started-with .options-list .option {
+  border-radius: 0.7rem;
+  background: #EBF5FF;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+body main section.section__get-started-with .options-list .option .option-title {
+  padding-left: 2rem;
+  font-style: italic;
+  transition: all 0.4s ease-in-out;
+  line-height: 4rem;
+  font-size: 3rem;
+  font-weight: 400;
+  color: rgba(18, 18, 18, 0.6392156863);
+}
+body main section.section__get-started-with .options-list .option .option-figure {
+  max-height: 100%;
+  overflow: hidden;
+}
+body main section.section__get-started-with .options-list .option .option-figure img {
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  max-width: 20rem;
+}
+body main section.section__get-started-with .options-list .option:hover img, body main section.section__get-started-with .options-list .option:hover .option-title {
+  scale: 1.05;
 }
 
 @media (max-width: 800px) {
@@ -382,8 +436,29 @@ body main .analytics #demo_chart {
   aside .top-options {
     padding-top: 2rem;
   }
-  canvas {
-    padding: 0.7rem;
+  .hero__section {
+    padding: 3rem 1.5rem !important;
+  }
+  .hero__section .hero__section-main-heading {
+    max-width: 100vw;
+    font-size: 3rem !important;
+  }
+  .hero__section .hero__section-figure img {
+    width: 100% !important;
+  }
+  section.section__get-started-with {
+    padding: 1rem !important;
+  }
+  section.section__get-started-with .option-list .option {
+    min-height: fit-content;
+    max-height: 100vw !important;
+    flex-direction: column;
+  }
+  section.section__get-started-with .option-list .option .option-figure {
+    width: 100% !important;
+  }
+  section.section__get-started-with .option-list .option .option-figure img {
+    width: 100% !important;
   }
 }
 

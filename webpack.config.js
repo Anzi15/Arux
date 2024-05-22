@@ -20,7 +20,6 @@
             admin_login: './src/js/admin-login.js',
             admin_signup: './src/js/admin-signup.js',
             admin_components: './src/js/admin-componenets.js',
-            admin_analytics: './src/js/admin-analytics.js',
             admin_products: './src/js/admin-products.js',
             admin_new_product: './src/js/admin-new-product.js',
             admin_orders: './src/js/admin-orders.js',

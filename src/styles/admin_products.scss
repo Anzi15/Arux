@@ -2,13 +2,39 @@
 
 main{
     background: $color-white !important;
-    .add__products-con{
-        padding: 2rem 1rem;
-        display: flex;
-        justify-content: right;
+    .heading-section{
+        display: grid;
+        gap: 3rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        .page-heading{
+            font-family: inter, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.01rem;
+            line-height: 4rem;
+            font-size: 3rem;
+        }
 
-        .big_btn{
-            padding: .5rem;
+        .add__products-con{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+    
+            .big_btn{
+                padding: .5rem;
+            }
+            select{
+                border: none;
+                // appearance: none;
+                // &::after{
+                //     content: "hey";
+                // }
+                // option:disabled{
+                //     color: black;
+                // }
+            }
         }
     }
     section.section__your__products{
@@ -25,9 +51,8 @@ main{
             column-gap: 2rem;
 
             .product{
-                // max-width: 35rem;
+                min-height: fit-content;
                 display: inline-flex;
-                // justify-content: space-between;
                 background: $color-semi_white;
                 border-radius: .5rem;
                 border: 1px solid $color-semi_blue;
@@ -46,6 +71,7 @@ main{
                 }
 
                 .product__content-con{
+                
                     width: 60%;
                     display: flex;
                     flex-direction: column;
@@ -83,3 +109,23 @@ main{
     }
 }
 
+@media (width < 594px) {
+    .section__products__grid{
+        .product{
+        display: flex;
+        flex-direction: column !important;
+        img, .product__title, .product__config-con, .product__detail-con{
+        width: 100% !important;
+        }
+        }
+        .product__title, .product__config-con, .product__detail-con{
+        padding: 0 1rem;
+        }
+        .product__title{
+            padding-top: 1rem;
+        }
+        .product__config-con{
+            padding-bottom: 1rem;
+        }
+    }
+}
