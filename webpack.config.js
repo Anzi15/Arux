@@ -26,7 +26,9 @@
             admin_orders_preview: './src/js/admin-order-preview.js',
             admin_new_product_form_submission: './src/js/admin-new-product_form_submission.js',
             admin_edit_product_form_submission: './src/js/admin-edit-product_form_submission.js',
-            admin_product_edit: './src/js/admin-product-edit.js'
+            admin_product_edit: './src/js/admin-product-edit.js',
+            admin_management: './src/js/admin-management.js',
+            
         },
         output:{
             filename: '[name].js',
@@ -163,6 +165,13 @@
                 filename: 'admin/Products/edit/index.html',
                 template: 'src/admin/Products/edit/index.html',
                 chunks: ['admin','admin_edit_product_form_submission', 'admin_product_edit']
+            }),
+
+            //admin management
+            new HtmlWebpackPlugin({
+                filename: 'admin/management/index.html',
+                template: 'src/admin/management/index.html',
+                chunks: ['admin','admin_management']
             }),
         
         ],

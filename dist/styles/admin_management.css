@@ -259,115 +259,12 @@ input[data-autocompleted] {
     transform: rotate(360deg);
   }
 }
-main section {
-  padding: 1rem;
-  width: 100%;
-}
-main section h1.page-heading {
-  margin: 2rem 0;
-}
-main section .search-box-con {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 3rem 0;
-}
-main section .search-box-con .search-box {
-  border-radius: 50px;
-  background: #ffffff;
-  box-shadow: 10px 10px 20px #dbdbdb, -10px -10px 20px #ffffff;
-  border-radius: 6px;
-  padding: 0 1rem;
-  margin: 1rem 0;
-  display: flex;
-  justify-content: left;
-  width: 70%;
-  gap: 1rem;
-}
-main section .search-box-con .search-box input {
-  background: transparent;
-  min-height: 3rem;
-  width: 90%;
-  border: none;
-  font-size: 1.2rem;
-}
-main section .search-box-con .search-box input:focus-visible {
-  outline: none;
-}
-main section .search-box-con .search-box button {
-  color: #7C7C7C;
-}
-main section .search-box-con .search-box button svg {
-  width: 1.5rem;
-}
-main section .orders-con {
-  background: #FFFFFF;
-  border-radius: 8px;
-}
-main section .orders-con .heading-indicators p {
-  font-weight: 550;
-}
-main section .orders-con .order {
-  text-decoration: none;
-  color: rgba(18, 18, 18, 0.6392156863);
-  width: 100%;
-  border-bottom: 1px solid #E0E3E7;
-  min-height: 6rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem;
-  cursor: pointer;
-  font-weight: 500;
-}
-main section .orders-con .order:hover {
-  font-weight: 600;
-}
-main section .orders-con .order .order-column {
-  min-width: fit-content;
-  width: 16%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-main section .orders-con .order .orderIndicator {
-  width: fit-content;
-  padding: 0.7rem 1.5rem;
-  border-radius: 10rem;
-  color: #FFFFFF;
-}
-main section .orders-con .order .orderIndicator.fullfilled {
-  background: #027155;
-}
-main section .orders-con .order .orderIndicator.pending {
-  background: #b69121;
-}
-main section .orders-con .order .orderIndicator.cancelled {
-  background: #a22c29;
-}
-main section .orders-con .noOrdersFound {
-  justify-content: center;
+main .page-heading {
+  font-family: inter, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  line-height: 4rem;
+  font-size: 3rem;
 }
 
-@media (width < 600px) {
-  .search-box {
-    width: 90% !important;
-  }
-  .orders-con .order-column {
-    width: 33% !important;
-  }
-  .orders-con .order-date, .orders-con .order-items, .orders-con .order-customer {
-    display: none !important;
-  }
-}
-@media (width < 368px) {
-  .orders-con .heading-indicators .order-status {
-    display: none !important;
-  }
-  .orders-con .order-status {
-    margin: 1rem 0 !important;
-  }
-}
-
-/*# sourceMappingURL=admin_order.css.map */
+/*# sourceMappingURL=admin_management.css.map */

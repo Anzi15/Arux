@@ -6,7 +6,7 @@ import {removeCertainClassedElemsFromDom} from "./client_side-modules.js"
 //*Variables and Dom elems
 const orderCon = document.getElementById('orders-wrapper');
 const orderSearchBox = document.getElementById('orderSearchBox');
-let tempString = '';
+let searchQueryInProcess = false;
 
 //*Functions
 async function loadAllOrders (){
@@ -19,7 +19,7 @@ async function loadAllOrders (){
 }
 
 function addOrderToDom(orderData, orderId){
-    orderCon.innerHTML += `<a href="/admin/orders/preview?id=${orderData.orderCode}" class="order">
+    orderCon.innerHTML += `<a  draggable='false' href="/admin/orders/preview?id=${orderData.orderCode}" class="order">
     <p class="order-number order-column">#${orderData.orderCode}</p>
     <p class="order-date order-column">${orderData.date}</p>
     <p class="order-customer order-column">${orderData.name}</p>
@@ -31,13 +31,15 @@ function addOrderToDom(orderData, orderId){
   </a>`
 }
 const searchProducts = async (searchQuery)=>{
+  searchQueryInProcess = true;
   orderCon.innerHTML=""
   let query = "";
   searchQuery.includes("#") ? query = searchQuery.split("#")[1] : query = searchQuery;
   orderCon.innerHTML=""
+  console.log(query)
   if(query.trim()!=='') {
+    console.log(query)
     const fetchQuery = await searchFiretoreDocsBySpecificField("orders","orderCode",query)
-    console.log(fetchQuery)
 
     if(fetchQuery.length){
       orderCon.innerHTML=''
@@ -55,14 +57,20 @@ const searchProducts = async (searchQuery)=>{
           </div>`
     }
   }else{
-    orderCon.innerHTML=''
-    loadAllOrders()
+    orderCon.innerHTML=""
+    await loadAllOrders()
   }
+  searchQueryInProcess = false;
 }
 
 //*EventListners
-orderSearchBox.addEventListener("input",(e)=>{
-  searchProducts(e.target.value)
+orderSearchBox.addEventListener("input",async (e)=>{
+  if(!searchQueryInProcess){
+    await searchProducts(e.target.value)
+  }else if(e.target.value.trim()==''){
+    orderCon.innerHTML = ''
+    loadAllOrders()
+  }
 })
 
 //*other
