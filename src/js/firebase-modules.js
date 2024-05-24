@@ -89,7 +89,7 @@ const getFirestoreDocument = async (collectionName, docID) => {
 };
 
 //To get all docs from a collection
-const getAllFirestoreDocuments = async (collectionName = "Products") => {
+const getAllFirestoreDocuments = async (collectionName = "products") => {
     try {
         if (window.navigator.onLine) {
         const doc_ref = collection(db, collectionName);
@@ -194,7 +194,7 @@ const deleteDocumentFromFirestore = async (collectionName, document_id) => {
 
 //To create a new doc in firestore
 const createDocumentInFirestore = async (
-    collectionName = "Products",
+    collectionName = "products",
     dataObj = { key: "Please provide a data-obj to continue" }
   ) => {
     console.log(dataObj)
@@ -240,7 +240,7 @@ const searchFiretoreDocsBySpecificField = async(collectionName, fieldName, searc
 //* FireStorage Functions
 // Function to upload image to firebase and get url
 const uploadImageToFirebase = async (file) => {
-  const imageRef = ref(firebaseStorage, `Products/${v4()}`);
+  const imageRef = ref(firebaseStorage, `products/${v4()}`);
   const metadata = {
     contentType: "image/webp",
   };

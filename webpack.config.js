@@ -81,16 +81,16 @@
             chunks : ['components']
             }),
 
-            //Products (all products menu)
+            //products (all products menu)
             new HtmlWebpackPlugin({
                 filename: 'products/index.html',
-                template: 'src/Products/index.html',
+                template: 'src/products/index.html',
                 chunks : ['products_menu','components']
             }),
             //individual prodcut
             new HtmlWebpackPlugin({
                 filename: 'product/index.html',
-                template: 'src/Product/index.html',
+                template: 'src/product/index.html',
                 chunks : ['individual_product','components']
             }),
             //cart
@@ -135,15 +135,15 @@
             
             //admin products
             new HtmlWebpackPlugin({
-            filename: 'admin/Products/index.html',
-            template: 'src/admin/Products/index.html',
+            filename: 'admin/products/index.html',
+            template: 'src/admin/products/index.html',
             chunks: ['admin', 'admin_products', 'admin_components']
             }),
 
             //admin new product
             new HtmlWebpackPlugin({
-            filename: 'admin/Products/new/index.html',
-            template: 'src/admin/Products/new/index.html',
+            filename: 'admin/products/new/index.html',
+            template: 'src/admin/products/new/index.html',
             chunks: ['admin','admin_new_product','admin_new_product_form_submission']
             }),
             
@@ -162,8 +162,8 @@
 
             //admin product edit
             new HtmlWebpackPlugin({
-                filename: 'admin/Products/edit/index.html',
-                template: 'src/admin/Products/edit/index.html',
+                filename: 'admin/products/edit/index.html',
+                template: 'src/admin/products/edit/index.html',
                 chunks: ['admin','admin_edit_product_form_submission', 'admin_product_edit']
             }),
 

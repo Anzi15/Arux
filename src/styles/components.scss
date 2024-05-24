@@ -103,7 +103,7 @@ nav.mobile-only-nav.closed{
 }
 
 //product card
-.Product-card{
+.product-card{
     display: flex;
     flex-direction: column;
     width: 22%;
@@ -307,7 +307,7 @@ footer{
             justify-content: center;
         }
     }
-    .Product-card{
+    .product-card{
         width: 46%;
     }
 }
@@ -317,7 +317,7 @@ footer{
     }
 }
 @media (max-width: $breakpoint-L-tab) {
-    .Product-card{
+    .product-card{
         min-width: 10rem;
         width: 49%;
     }
@@ -343,7 +343,7 @@ footer{
     }
 }
 @media (max-width: $breakpoint-mob) {
-    .Product-card{  
+    .product-card{  
         width: 49%;
         min-width: 7rem;
     }
