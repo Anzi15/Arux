@@ -173,19 +173,8 @@ const updateFirestoreDocument = async (
         data[fieldName] = fieldValue
         const updateTask = await updateDoc(docRef, data); 
       } catch (error) {
-        console.log(error)
-        const confirmationObj = await showConfirmationDialog(
-          "error",
-          "Something went wrong while saving changes to the document :(",
-          "Please try again",
-          "Refresh",
-          "Go to the dashboard"
-        );
-        if (confirmationObj.isConfirmed) {
-          window.location.reload();
-        }else if(confirmationObj.isDenied){
-          window.location.replace("/admin/products");
-        }
+        showNotification("error","Something went wrong")
+        return error;
       }   
     }
 };
@@ -208,6 +197,7 @@ const createDocumentInFirestore = async (
     collectionName = "Products",
     dataObj = { key: "Please provide a data-obj to continue" }
   ) => {
+    console.log(dataObj)
     try {
       if (navigator.onLine) {
         const newDoc = await addDoc(collection(db, collectionName), dataObj);
@@ -219,9 +209,6 @@ const createDocumentInFirestore = async (
       console.log(`Error storing product to database: ${error}`);
       showAlert("error","No internet","failed to save changes to the cloud please try again latter","Refresh page").then(response => {
       return "error";
-        if(response.isConfirmed){
-          window.location.reload()
-        }
       })
     }
 };

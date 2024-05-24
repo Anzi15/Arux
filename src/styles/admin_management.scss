@@ -1,11 +1,80 @@
 @import './config.scss';
 
 main{
+    section{
+        padding: 2rem;
+
+    }
     .page-heading{
+        padding: 2rem;
         font-family: inter, sans-serif;
         font-weight: 400;
         letter-spacing: 0.01rem;
-        line-height: 4rem;
         font-size: 3rem;
+    }
+    section.header-notification{
+        width: 100%;
+        .thin-heading{
+            padding: 1rem 0;
+        }
+        form.edit-notification-input-con{
+            min-height: 4rem;
+            background: $color-semi_blue;
+            display: flex;
+            gap: 1rem;
+            border-radius: 7px;
+            width: 80%;
+            input[type="text"]{
+                color: $color-dark-grey;
+                padding-left: 1.5rem;
+                font-size: 1.4rem;
+                background-color: inherit;
+                width: 90%;
+                border: none;
+                outline: none;
+                transition: color 0.3s ease;
+                &:focus{
+                    color: $color-black;
+                }
+            }
+            input[type="submit"], button{
+                font-size: 1.1rem;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                background: $color-brand-blue;
+                color: $color-white;
+            }
+        }
+    }
+    section.coupon-codes{
+
+        .coupon-codes-con{
+            margin: 2rem 0;
+            padding: 2.5rem;
+            display: grid;
+            gap: 1.5rem;
+            border-radius: 8px;
+            background: $color-semi_blue;
+            .heading-row{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .coupon{
+                padding: 1.5rem;
+                border: 1.5px solid $color-dark-grey;
+                border-radius: 8px;
+                background: $color-white;
+                display: flex;
+                justify-content: space-between;
+                .details-column{
+                    display: grid;
+                    gap: .5em;
+                }
+            }
+        }
     }
 }

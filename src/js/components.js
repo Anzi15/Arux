@@ -1,14 +1,19 @@
 "use strict";
 
-import {createDocumentInFirestore, checkFieldValueExistsInDB} from "./firebase-modules";
+import {createDocumentInFirestore, checkFieldValueExistsInDB, getFirestoreDocument} from "./firebase-modules";
 
 // getting elements form dom 
 const navToggleBtn = document.querySelectorAll('[data-nav-toggler]');
 const mobNav = document.getElementById('mob-only-nav');
-const dark_overlay = document.getElementById('dark-overlay');
 const emailNewsletterForm = document.getElementById('email-newsletter-form-submission-form');
+const notificationArea = document.getElementById('notificationAreaElem');
 
-// functions 
+// *functions 
+(async ()=>{
+    const currentNotification = await getFirestoreDocument("storeManagement","headerNotificationMsg");
+    notificationArea.innerText = currentNotification.value;
+    notificationArea.classList.remove("skeleton-loading")
+})()
 const classToggler = (elem, ...classlist)=>{
     const elemArr = [elem]
     elemArr.forEach((element) =>{
@@ -17,7 +22,6 @@ const classToggler = (elem, ...classlist)=>{
         })
     })
 };
-
 
 emailNewsletterForm.addEventListener("submit", async (e)=>{
     e.preventDefault(); 
@@ -35,11 +39,11 @@ emailNewsletterForm.addEventListener("submit", async (e)=>{
 
     return false;
 });
-// adding event listners 
+//*event listners 
 (()=>{
     navToggleBtn.forEach((btn)=>{
         btn.addEventListener("click",()=>{
             classToggler(mobNav,"closed")
         })
-    })
+    });
 })();

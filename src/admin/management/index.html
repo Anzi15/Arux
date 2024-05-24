@@ -160,10 +160,36 @@
           />
         </button>
       </nav>
-      <div class="page-heading">
-        <h1>Store <br>
+      <div>
+        <h1 class="page-heading">Store <br>
         Management </h1>
       </div>
+
+      <section class="header-notification" class="">
+        <h3 class="thin-heading">Edit store notfication </h3>
+        <form class="edit-notification-input-con skeleton-loading" id="edit-notification-input-con">
+            <input type="text" name="input" required>
+            <button type="submit" name="submit_btn">Update</button>
+        </form>
+      </section>
+
+      <section class="coupon-codes">
+        <h3 class="thin-heading">Manage Coupon Codes</h3>
+
+        <div class="coupon-codes-con" id="coupon-codes-con">
+            <div class="heading-row">
+                <h3 class="thin-heading" >Your coupons</h3>
+
+                <button class="addNewCoupon" id="addNewCouponBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.7rem"fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                      </svg>
+                </button>
+            </div>
+            <h1 class="thin-heading" style="text-align: center;" id="couponLogElem">Fetching coupons..</h1>
+        </div>
+      </section>
     </main>
 </body>
 </html>

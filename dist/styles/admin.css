@@ -28,6 +28,7 @@ body {
 }
 
 .skeleton-loading {
+  cursor: progress !important;
   user-select: none;
   background-color: #ffffff;
   animation: skeleton-loading 3.5s ease-in-out infinite alternate;
@@ -114,8 +115,6 @@ button, input[type=submit] {
 
 /* loader */
 .loader-wrapper {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -154,8 +153,8 @@ button, input[type=submit] {
 
 .loader-wrapper.overlay {
   background: #FFFFFF;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100%;
   top: 0;
   position: fixed;
   z-index: 10;
