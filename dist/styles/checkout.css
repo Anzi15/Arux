@@ -482,6 +482,41 @@ body main section.section-additional-info .small-section h3 {
   font-size: 1.3rem;
   color: #7C7C7C;
 }
+body main section.section-additional-info .coupon-con {
+  padding: 2rem 0;
+}
+body main section.section-additional-info .coupon-con form.coupon-inp {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+body main section.section-additional-info .coupon-con form.coupon-inp input[type=text] {
+  background: none;
+  min-height: 3rem;
+  width: 72%;
+  border-radius: 6px;
+  border: solid 1px #7C7C7C;
+  outline: none;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #7C7C7C;
+  padding-left: 1rem;
+}
+body main section.section-additional-info .coupon-con form.coupon-inp button[type=submit] {
+  min-height: 3rem;
+  padding: 0 1rem;
+  width: auto;
+  background: #5C788F;
+  color: #FFFFFF;
+  border-radius: 6px;
+}
+body main section.section-additional-info .coupon-con form.coupon-inp .applied-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+}
 
 @media (width < 768px) {
   body {

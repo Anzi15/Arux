@@ -20,7 +20,7 @@ const loadCurrentNotification = async ()=>{
     headerMsgForm.classList.remove("skeleton-loading")
 }
 const addCouponToDom= (couponData, docID)=>{
-    couponCodesCon.innerHTML += `<div class="coupon ${docID}" >
+    couponCodesCon.innerHTML += `<div class="coupon ${docID}" data-docid=${docID}>
     <div class="details-column">
         <p class="coupon-code">
             ${couponData.code}
@@ -57,7 +57,7 @@ const loadAllCoupons = async ()=>{
 async function deleteCoupon (docID){
     const confirmationDialog = await showConfirmationDialog("question","Are you use","Do you wana delete this coupon?","Delete","Cancel")
     if(confirmationDialog.isConfirmed){
-        const couponElem = couponCodesCon.querySelector(`.${docID}`);
+        const couponElem = document.querySelector(`[data-docid="${docID}"]`);
         couponElem.remove();
         const deleteTask = await deleteDocumentFromFirestore("coupons",docID)
     }

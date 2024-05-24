@@ -5,7 +5,7 @@ import { checkFieldValueExistsInDB } from "./firebase-modules";
 function addProductToDom(elem, product, productId="demo_id"){
     elem.innerHTML += 
     `
-    <a class="Product-card" href="/Product?id=${productId}" role="not-link">
+    <a class="product-card" href="/Product?id=${productId}" role="not-link">
                     <div class="discount-label ${product.comparedPrice == undefined || isNaN(product.comparedPrice) ? "none" : "meow"}">
                     ${Math.round((product.comparedPrice - product.price) / product.comparedPrice * 100)}%</div>
                     <img loading="lazy" class="skeleton-loading" src="${product.primary_img}" alt="${product.title}">

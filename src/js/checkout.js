@@ -1,7 +1,7 @@
 'use strict';
 //*esential imports
-import {getFirestoreDocument, getListOfFirestoreDocs, createDocumentInFirestore, } from "./firebase-modules";
-import { showAlert, getFormattedDate, getParamFromUrl } from "./utility-modules";
+import {getFirestoreDocument, getListOfFirestoreDocs, createDocumentInFirestore, checkFieldValueExistsInDB, } from "./firebase-modules";
+import { showAlert, getFormattedDate, getParamFromUrl, showNotification } from "./utility-modules";
 import {removeCertainClassedElemsFromDom, generateUniqueCode} from "./client_side-modules";
 
 //*varibales and elements
@@ -10,8 +10,9 @@ const quantityParam = getParamFromUrl("quantity") == null ? 1 : getParamFromUrl(
 let checkoutProducts = [];
 let cartProductIds;
 let subTotal = 0;
-let total =0;
+let total = 0;
 let shippingFees;
+let couponDisount = 0;
 const date = getFormattedDate()
 //dom elements
 const orderSummaryTogglerBtn = document.getElementById('small-mob-visibilty-toggler-for-order-summary');
@@ -20,6 +21,7 @@ const productsCon = document.getElementById('products_con');
 const totalPricesIndicators = {
   shippingFees: document.getElementById("product-summary-shippingFees-elem"),
   subTotal: document.getElementById("product-summary-subtotal-elem"),
+  couponDisount: document.getElementById("product-coupon-discount-elem"),
   total: document.getElementById("product-summary-total-elem"),
   smallMobTotal: document.getElementById("small-mob-price-total-elem"),
 };
@@ -28,6 +30,7 @@ const paymentMethodsCon = document.getElementById("paymentMethodsCon");
 const allPaymentInps = paymentMethodsCon.querySelectorAll(
   'input[type="radio"]'
 );
+const couponInpForm = document.getElementById('coupon-inp-form');
 
 
 //*Functions
@@ -86,6 +89,30 @@ async function handleCartCheckout() {
     })
 };
 
+async function calculateTotals(){
+  
+  const shippingFeesObj =  await getFirestoreDocument("storeManagement","shippingFees");
+  shippingFees = shippingFeesObj.value;
+  total = shippingFees + subTotal;
+  const smallMobTotal = total
+  const prices = {
+    subTotal,
+    shippingFees,
+    total,
+    smallMobTotal
+    
+  }
+
+  for(const field in totalPricesIndicators){
+    totalPricesIndicators[field].innerHTML = `Rs. ${prices[field]}`;
+    totalPricesIndicators[field].classList.remove("skeleton-loading")
+  }
+
+  if(couponDisount){
+    totalPricesIndicators.couponDisount.classList.remove("none") 
+  }
+}
+
 
 const getSelectedPaymentMethod = () => {
   const selectedInput = Array.from(allPaymentInps).find((inp) => inp.checked);
@@ -129,26 +156,23 @@ const handleSubmission = async (e) => {
 };
   
 (async ()=>{
-  const shippingFeesObj =  await getFirestoreDocument("storeManagement","shippingFees");
-  shippingFees = shippingFeesObj.value;
-  total = shippingFees + subTotal;
-  const prices = {
-    subTotal,
-    shippingFees,
-    total,
-    smallMobTotal: subTotal+shippingFees.value
-    
-  }
 
-  for(const field in totalPricesIndicators){
-    totalPricesIndicators[field].innerHTML = `Rs. ${prices[field]}`;
-    totalPricesIndicators[field].classList.remove("skeleton-loading")
-  }
-
+  calculateTotals()
 })()
 
 
 //*EventListners
+couponInpForm.addEventListener("submit",async (e)=>{
+  e.preventDefault();
+  const couponInp = e.target.couponCodeInp;
+  const isCouponValid = await checkFieldValueExistsInDB("coupons","code",couponInp.value.trim())
+  if(isCouponValid){
+    showNotification("success","Coupon applied!!")
+    e.target.classList.add("applied")
+  }else{
+    showNotification("error","Enter a valid coupon :(")
+  }
+})
 
 orderSummaryTogglerBtn.addEventListener("click",(e)=>{
     if(orderSummaryContent.classList.contains("folded")){
