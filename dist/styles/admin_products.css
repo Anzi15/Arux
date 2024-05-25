@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   max-width: 100vw;
   overflow-x: hidden;
@@ -281,10 +282,65 @@ main .heading-section .add__products-con {
   justify-content: space-between;
 }
 main .heading-section .add__products-con .big_btn {
+  overflow: hidden;
+  max-height: 2.1rem;
+  display: grid;
+  place-items: center;
   padding: 0.5rem;
 }
-main .heading-section .add__products-con select {
-  border: none;
+main .heading-section .add__products-con details > summary {
+  list-style-type: "▶️";
+  text-align: center;
+}
+main .heading-section .add__products-con details[open] > summary {
+  list-style-type: "🔽";
+  margin-bottom: 1rem;
+}
+main .heading-section .add__products-con details {
+  width: 12rem;
+  padding: 0.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid gray;
+  border-radius: 0.2rem;
+}
+main .heading-section .add__products-con details ul {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main .heading-section .add__products-con details ul a {
+  width: 100%;
+  padding: 1rem 0;
+  color: inherit;
+  text-decoration: none;
+  max-width: 100%;
+  display: flex;
+  background: #EBF5FF;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+main .heading-section .add__products-con details ul a li {
+  text-wrap: wrap;
+  list-style: none;
+}
+main .heading-section .add__products-con details ul a:hover {
+  border: 1px solid #7C7C7C;
+}
+main .heading-section .add__products-con details button {
+  border-radius: 0.2rem;
+  margin: 1rem 0;
+  background: #5C788F;
+  color: #FFFFFF;
+  padding: 1rem 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 main section.section__your__products {
   width: 100%;
@@ -367,6 +423,12 @@ main section.section__your__products .section__products__grid .product .product_
   }
   .section__products__grid .product__config-con {
     padding-bottom: 1rem;
+  }
+  .add__products-con {
+    flex-direction: column-reverse;
+  }
+  .add__products-con details {
+    width: 100% !important;
   }
 }
 

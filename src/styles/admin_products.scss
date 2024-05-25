@@ -23,18 +23,71 @@ main{
             justify-content: space-between;
     
             .big_btn{
+                overflow: hidden;
+                max-height: 2.1rem;
+                display: grid;
+                place-items: center;
                 padding: .5rem;
             }
-            select{
-                border: none;
-                // appearance: none;
-                // &::after{
-                //     content: "hey";
-                // }
-                // option:disabled{
-                //     color: black;
-                // }
+            details > summary {
+                list-style-type: '▶️';
+                text-align: center;
             }
+            
+            details[open] > summary {
+                list-style-type: '🔽';
+                margin-bottom: 1rem;
+            }
+            
+            details {
+                width: 12rem;
+                padding: 0.5rem;
+                display: grid;
+                place-items: center;
+                border: 1px solid gray;
+                border-radius: 0.2rem;
+
+                ul{
+                    width: 100%;
+                    display: flex;
+                    gap: .5rem;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    a{
+                        width: 100%;
+                        padding: 1rem 0;
+                        color: inherit;
+                        text-decoration: none;
+                        max-width: 100%;
+                        display: flex;
+                        background: $color-semi_blue;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        li{
+                            text-wrap: wrap;
+                            list-style: none;
+                        }
+                        &:hover{
+                            border: 1px solid $color-dark-grey;
+                        }
+                    }
+                }
+                button{
+                    border-radius: 0.2rem;
+                    margin: 1rem 0;
+                    background: $color-brand-blue;
+                    color: $color-white;
+                    padding: 1rem 0;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+
+                }
+            }
+            
         }
     }
     section.section__your__products{
@@ -126,6 +179,12 @@ main{
         }
         .product__config-con{
             padding-bottom: 1rem;
+        }
+    }
+    .add__products-con{
+        flex-direction: column-reverse;
+        details{
+            width: 100% !important;
         }
     }
 }
