@@ -1,7 +1,7 @@
 'use strict';
 //*esential imports
 import {getFirestoreDocument, getListOfFirestoreDocs, createDocumentInFirestore, checkFieldValueExistsInDB, searchFiretoreDocsBySpecificField, } from "./firebase-modules";
-import { showAlert, getFormattedDate, getParamFromUrl, showNotification } from "./utility-modules";
+import { showAlert, getFormattedDate, getParamFromUrl, showNotification, addLoader, removeLoader } from "./utility-modules";
 import {removeCertainClassedElemsFromDom, generateUniqueCode} from "./client_side-modules";
 
 //*varibales and elements
@@ -13,7 +13,8 @@ let subTotal = 0;
 let total = 0;
 let shippingFees;
 let couponDisount = 0;
-const date = getFormattedDate()
+const date = getFormattedDate();
+let couponUsed = "none";
 //dom elements
 const orderSummaryTogglerBtn = document.getElementById('small-mob-visibilty-toggler-for-order-summary');
 const orderSummaryContent = document.getElementById('order-summary-content');
@@ -124,12 +125,14 @@ const getSelectedPaymentMethod = () => {
 };
 
 const handleSubmission = async (e) => {
-  checkoutFormElem.submit.innerHTML = `<img src="https://i.gifer.com/origin/13/138f4c87ed9b322952c3e0da2b264938_w200.webp">`;
+  addLoader(document.body, true, false)
+  checkoutFormElem.submit.innerHTML = `Loading..`;
 
   const allFeildElems = [
     ...checkoutFormElem.querySelectorAll("[data-fieldName]"),
   ];
-  let dataValueObj = {total, date, subTotal, total, shippingFees};
+
+  let dataValueObj = {total, date, subTotal, total, shippingFees, couponUsed, couponDisount};
   allFeildElems.forEach((field) => {
     const fieldName = field.dataset.fieldname;
     const fieldValue = field.value;
@@ -153,6 +156,7 @@ const handleSubmission = async (e) => {
     ).then((alert) => {
       if (alert.isConfirmed) window.location.replace("../products");
     });
+    removeLoader(document.body)
 };
   
 (()=>{
@@ -168,15 +172,25 @@ couponInpForm.addEventListener("submit",async (e)=>{
   const fetchedCoupon = await searchFiretoreDocsBySpecificField("coupons","code",couponInp.value.trim())
   try{
     const isCouponValid = fetchedCoupon[0].data.code == couponInp.value.trim() 
-    if(!fetchedCoupon || !fetchedCoupon.length || !isCouponValid) throw new Error("Not a valid coupon");
-    couponDisount = fetchedCoupon[0].data.discount;
-    calculateTotals();
+    if(!fetchedCoupon || !fetchedCoupon.length || !isCouponValid) {
+      couponInpForm.submitBtn.innerHTML = `Failed`;
+      setTimeout(() => {
+      couponInpForm.submitBtn.innerHTML = `Apply coupon`;
+      }, 800);
+      throw new Error("Not a valid coupon");
 
-    showNotification("success","Coupon Applied Sucessfully")
-    couponInpForm.innerHTML+=`<div class="applied-overlay"></div>`
+    }
+      else{
+        couponDisount = fetchedCoupon[0].data.discount;
+        showNotification("success","Coupon Applied Sucessfully!")
+        couponInpForm.innerHTML+=`<div class="applied-overlay"></div>`
+        calculateTotals();
+        couponUsed = couponInp.value.trim();
+    }
+
     
   }catch(error){
-    showNotification("error","Not a valid coupon")
+    showNotification("error","Enter a valid coupon!")
   }
 })
 
