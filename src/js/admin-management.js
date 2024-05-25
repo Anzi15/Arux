@@ -97,7 +97,7 @@ addNewCouponBtn.addEventListener("click",async (e)=>{
                 showConfirmButton:false
             });
 
-            const checkTask = await checkFieldValueExistsInDB("coupons","code",value);
+            const checkTask = await checkFieldValueExistsInDB("coupons","code",value.trim());
             if(!checkTask){
                 await Swal.fire({
                     allowOutsideClick: false,
