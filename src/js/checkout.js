@@ -95,6 +95,7 @@ async function calculateTotals(){
 
   shippingFees = shippingFeesObj.value;
   total = shippingFees + subTotal - couponDisount;
+  total = total <= 0 ? 0 : total;
 
   const smallMobTotal = total
   const prices = {

@@ -260,11 +260,13 @@ input[data-autocompleted] {
   }
 }
 body {
-  max-height: 100vh;
+  overflow: visible;
+  min-height: 100vh;
   display: flex;
-  overflow-y: hidden;
 }
 body aside {
+  position: sticky;
+  top: 0;
   background: #FFFFFF;
   height: 100vh;
   position: sticky;

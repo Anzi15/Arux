@@ -3,12 +3,14 @@
 //body
 
 body{
-    max-height: 100vh;
+    overflow: visible;
+    min-height: 100vh;
     display: flex;
-    overflow-y: hidden;
     
     //sidebar nav
     aside{
+        position: sticky;
+        top: 0;
         background: $color-white;
         height: 100vh;
         position: sticky;

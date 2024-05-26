@@ -1,18 +1,30 @@
 "use strict";
 
-import { getAllFirestoreDocuments, deleteDocumentFromFirestore} from "./firebase-modules"
-import { showConfirmationDialog, showNotification, removeLoader} from "./utility-modules"
+//* Esential Imports
+import { getAllFirestoreDocuments, deleteDocumentFromFirestore, getFirestoreDocument} from "./firebase-modules"
+import { showConfirmationDialog, showNotification, removeLoader, getParamFromUrl} from "./utility-modules";
+import Swal from "sweetalert2"
 
-// getting elems from dom 
+//* Varibles
 const productsContainer = document.getElementById('section__products__grid');
+const newProductBtn = document.getElementById('newProductBtn');
+const addNewCollectionBtn = document.getElementById('addNewCollectionBtn');
+const collectionOptionsCon = document.getElementById('collection-options-con');
 
-const allProducts = await getAllFirestoreDocuments("Products");
+const selectedCollection = getParamFromUrl("collection");
+
+const collection = selectedCollection == null ? "Products" : selectedCollection
+const allProducts = await getAllFirestoreDocuments(collection);
 
 (()=>{
     removeLoader(productsContainer)
-    allProducts.forEach(product => {
-        addProductToDom(productsContainer, product.id, product.data())
-    });
+    if(allProducts.docs.length){
+        allProducts.forEach(product => {
+            addProductToDom(productsContainer, product.id, product.data())
+        });
+    }else{
+        productsContainer.innerHTML = `<h3 class"thin-heading empty-collection-msg">Add some products</h3>`
+    }
 
     const productDeleteBtns = productsContainer.querySelectorAll(".product__delete-btn");
 
@@ -21,10 +33,41 @@ const allProducts = await getAllFirestoreDocuments("Products");
             deleteProduct(btn.dataset.product_id)
         })
     })
-
+    loadAllCollectionNames()
 })()
 //functions
-
+async function loadAllCollectionNames (){
+    const productCollectionDoc = await getFirestoreDocument("storeManagement","allCollectionNames");
+    productCollectionDoc.array.forEach(collection=>{
+        collectionOptionsCon.innerHTML += `<a href="/admin/products?collection=${collection}" class="option" data-collectionName="${collection}">
+        <li>${collection}</li>
+      </a>`
+    })
+}
+async function createNewCollection(collectionName){
+    Swal.fire({
+        title: "Add a document to the collection",
+        text: "You must add atLeast a document to create a collection.",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonText: "Cancel collection",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Add a product"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "",
+                text: "Just a second...",
+                buttons: false,
+                closeOnClickOutside: false,
+                icon: "info",
+                showConfirmButton: false,
+              });
+            window.location.replace(`/admin/products/new?collection=${collectionName}&CollectionType=new`)
+        }
+      });
+}
 
 async function deleteProduct(product_id){
     const confirmAlert = await showConfirmationDialog("warning", "Are you sure to delete this product?", "This can't be un-done, so choose wisely!", "Delete", "Cancel");
@@ -79,3 +122,24 @@ function addProductToDom(elem, product_id, product_Data){
     `
 }
 
+//* EventListners
+newProductBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    window.location.replace(`/admin/products/new?collection=${collection}`)
+});
+
+addNewCollectionBtn.addEventListener("click",async (e)=>{
+    const collectionName = await Swal.fire({
+        title: "Enter a name for new collection",
+        input: "text",
+        inputLabel: "Collection xyz",
+        showCancelButton: true,
+        inputValidator: (value) => {
+          if (!value) {
+            return "You need to write something!";
+          }else{
+            createNewCollection(value)
+          }
+        }
+      });
+})
