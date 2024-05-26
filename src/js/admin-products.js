@@ -35,6 +35,7 @@ const allProducts = await getAllFirestoreDocuments(collection);
     })
     loadAllCollectionNames()
 })()
+
 //functions
 async function loadAllCollectionNames (){
     const productCollectionDoc = await getFirestoreDocument("storeManagement","allCollectionNames");
@@ -76,7 +77,7 @@ async function deleteProduct(product_id){
         const productElemInDom = productsContainer.querySelector(`[product_id="${product_id}"]`);
 
         if(productElemInDom){
-            const deleteTask = await deleteDocumentFromFirestore("Products", product_id);
+            const deleteTask = await deleteDocumentFromFirestore(collection, product_id);
             if(deleteTask.taskCompleted){
                 showNotification("success","Product deleted successfully");
                 productElemInDom.remove();
@@ -102,7 +103,7 @@ function addProductToDom(elem, product_id, product_Data){
             <p class="product__order ${product_Data.comparedPrice == undefined || isNaN(product_Data.comparedPrice) ? "none" : "meow"}">comapred  price: ${product_Data.comparedPrice}</p>
         </div>
         <div class="product__config-con">
-            <a href="/admin/Products/edit?product-ID=${product_id}" 
+            <a href="/admin/Products/edit?product-ID=${product_id}&collection=${collection}" 
             class="product__edit-btn" id="product__edit-btn-${product_id}" data-product_id="${product_id}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>

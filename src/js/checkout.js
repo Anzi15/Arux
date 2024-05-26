@@ -33,6 +33,8 @@ const allPaymentInps = paymentMethodsCon.querySelectorAll(
 );
 const couponInpForm = document.getElementById('coupon-inp-form');
 
+const selectedCollection = getParamFromUrl("collection");
+const collectionName = selectedCollection == null ? "Products" : selectedCollection;
 
 //*Functions
 (()=>{
@@ -63,31 +65,37 @@ function addProductToDisplay (product, productQuantity){
 }
 
 async function handleSingleProductCheckout(){
-  const product = await getFirestoreDocument("Products", srcParam);
+  const product = await getFirestoreDocument(collectionName, srcParam);
   removeCertainClassedElemsFromDom(productsCon, "placeholder-prodcuts");
   addProductToDisplay(product, quantityParam);
-  const productObj = {};
-  productObj[srcParam] = quantityParam;
+  const productObj = {collectionName, productId: srcParam, quantity: quantityParam};
   checkoutProducts.push(productObj)
 };
 
 async function handleCartCheckout() {
     const cartItems = JSON.parse(localStorage.getItem("cart"));
 
-    if(cartItems == null || cartItems.length==0)location.replace("../cart");
-    
-    cartProductIds = cartItems.map((item) => item.productId);
+    if(cartItems == null) window.location.replace("../cart")
 
-    const fetchedCartItems = await getListOfFirestoreDocs("Products",cartProductIds);
-    removeCertainClassedElemsFromDom(productsCon, "placeholder-prodcuts");
-    fetchedCartItems.forEach(item =>{
-        addProductToDisplay(item.data, cartItems[fetchedCartItems.indexOf(item)].quantity);
+    const fetchPromises = cartItems.map(async item => {
+      const fetchedItem = await getFirestoreDocument(item.collectionName, item.productId);
+      checkoutProducts.push({collectionName: item.collectionName, productId: item.productId, quantity: item.quantity})
+      return { id: item.id, fetchedItem, quantity: item.quantity };
 
-        const productObj = {};
-        productObj[item.id] = cartItems[fetchedCartItems.indexOf(item)].quantity;
-      
-        checkoutProducts.push(productObj)
-    })
+  });
+
+  const fetchedItems = await Promise.all(fetchPromises);
+
+  // Load items into the DOM
+  fetchedItems.forEach(item => {
+    addProductToDisplay(item.fetchedItem, item.quantity);
+  });
+  
+  if(cartItems == null || cartItems.length==0)location.replace("../cart");
+  
+  cartProductIds = cartItems.map((item) => item.productId);
+  
+  removeCertainClassedElemsFromDom(productsCon, "placeholder-prodcuts");
 };
 
 async function calculateTotals(){

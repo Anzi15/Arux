@@ -260,9 +260,9 @@ input[data-autocompleted] {
 }
 main section.filters {
   color: rgba(18, 18, 18, 0.6392156863);
-  width: 100vw;
+  width: 90vw;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   padding-left: 8%;
 }
@@ -290,6 +290,12 @@ main section.products .products-con {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+@media (width < 600px) {
+  .filters {
+    display: block !important;
+  }
 }
 
 /*# sourceMappingURL=products-menu.css.map */

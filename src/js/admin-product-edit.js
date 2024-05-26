@@ -17,6 +17,9 @@ let productID = getParamFromUrl("product-ID");
 const allFeildElems = {};
 const changedElems = {}; 
 const changedImgs = {};
+const selectedCollection = getParamFromUrl("collection");
+
+const collection = selectedCollection == null ? "Products" : selectedCollection
 
 const toStoreElems = document.querySelectorAll("[data-identification_name]");
 
@@ -39,7 +42,7 @@ const toStoreElems = document.querySelectorAll("[data-identification_name]");
   }
 
   // Retrieve tproductIDhe Firestore document for the specified  in the url parameter
-  const productDoc = await getFirestoreDocument("Products", productID);
+  const productDoc = await getFirestoreDocument(collection, productID);
 
   removeLoader(document.body)
 
@@ -179,15 +182,14 @@ const saveChanges = async ()=>{
       console.log()
     }
   }
-  const updateTask = await updateFirestoreDocument("Products", productID, allUpdatedFeilds);
-  
-  // showAlert("success","Changes saved","The product has been updated successfully","Go to product dashboard")
-  // .then(response => {
-  //   if(response.isConfirmed){
-  //     window.location.replace("/admin/products")
-  //   }
-  // })
+  const updateTask = await updateFirestoreDocument(collection, productID, allUpdatedFeilds);
 }
+showAlert("success","Changes saved","The product has been updated successfully","Go to product dashboard")
+.then(response => {
+  if(response.isConfirmed){
+    window.location.replace(`/admin/products?collection=${collection}`)
+  }
+})
 
 //*Event listners
 //watching elem for changes

@@ -3,9 +3,9 @@
 main{
   section.filters{
     color: $color-light-black;
-    width: 100vw;
+    width: 90vw;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
     padding-left: 8%;
     select {
@@ -33,5 +33,11 @@ main{
       flex-wrap: wrap;
       justify-content: space-evenly;
     }
+  }
+}
+
+@media (width < 600px) {
+  .filters{
+    display: block !important;
   }
 }

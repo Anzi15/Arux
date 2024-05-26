@@ -80,6 +80,12 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
       productCollectionName,
       combinedData
     );
+    if(productCollectionName !== "Products"){
+      const storingProductInAllProductsCollection = await createDocumentInFirestore(
+        "Products",
+        combinedData
+      );
+    }
 
     if (storingProduct == "error") {
       showAlert(
@@ -106,7 +112,7 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
         "Add another Product"
       );
       confirmAlert.isConfirmed
-        ? window.location.replace("../products")
+        ? window.location.replace(`/admin/products?collection=${collection}`)
         : window.location.reload();
     }
   } catch (error) {}
