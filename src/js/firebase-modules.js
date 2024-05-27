@@ -23,26 +23,22 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import {getAnalytics, getInitalAppProperties} from "firebase/analytics"
 
 //*Varibales 
-const clientIDForGoogleApiOfanlytics = `95411992302-6b1dn9afqfia47mne79t2imndkoiq1s0.apps.googleusercontent.com`
-const clientSecretForGoogleApiOfanlytics = `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`
-//firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
+  apiKey: "AIzaSyAUP7Mncn62Xe0WYGC9TgqsYGBmBD3eXQU",
   authDomain: [
-    "arux-24899.firebaseapp.com",
+    "al-zehra.firebaseapp.com",
     "localhost",
-    "arux.netlify.app",
-    "arux.store",
-    "anzi15.github.io/arux",
-    "arux.vercel.app",
+    "al-zehra-perfumes.netlify.app",
+    "al-zehra-perfumes.store",
+    "anzi15.github.io/al-zehra-perfumes",
+    "al-zehra-perfumes.vercel.app",
   ],
-  projectId: "arux-24899",
-  storageBucket: "arux-24899.appspot.com",
-  messagingSenderId: "95411992302",
-  appId: "1:95411992302:web:336d7a38ca931af33225ff",
-  measurementId: "G-LXN5WG6V2S",
+  projectId: "al-zehra",
+  storageBucket: "al-zehra.appspot.com",
+  messagingSenderId: "409292615047",
+  appId: "1:409292615047:web:a1282da2b9182c2fdbb722",
+  measurementId: "G-MXCEGHNV6P"
 };
-
 const app = initializeApp(firebaseConfig);
 const firebaseStorage = getStorage(app);
 const db = initializeFirestore(app, {

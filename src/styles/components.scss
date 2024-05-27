@@ -23,9 +23,17 @@ nav{
     justify-content: space-between;
 
 
+    .brand-title{
+        img{
+            width: 3rem;
+            aspect-ratio: 1/1;
+
+        }
+    }
 
     // the links (desktop one) 
     ul{
+
         display: flex;
         gap: 1.5rem;
 
@@ -37,6 +45,7 @@ nav{
                     text-underline-offset: 3px;
                     text-decoration: underline 1px $color-black;
                 }
+
                 svg{
                     color: $color-black;
 
@@ -296,6 +305,9 @@ footer{
         .brand-title,.hamburger,.icon-links{
             width: fit-content;
             display: flex;
+            img{
+
+            }
         }
         .hamburger{
             justify-content: left;

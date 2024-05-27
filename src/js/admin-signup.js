@@ -11,15 +11,14 @@ const googleSignupBtn = document.getElementById("google_signup_btn");
 
 //my firebas configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
-    authDomain: "arux-24899.firebaseapp.com",
-    projectId: "arux-24899",
-    storageBucket: "arux-24899.appspot.com",
-    messagingSenderId: "95411992302",
-    appId: "1:95411992302:web:336d7a38ca931af33225ff",
-    measurementId: "G-LXN5WG6V2S"
+  apiKey: "AIzaSyAUP7Mncn62Xe0WYGC9TgqsYGBmBD3eXQU",
+  authDomain: "al-zehra.firebaseapp.com",
+  projectId: "al-zehra",
+  storageBucket: "al-zehra.appspot.com",
+  messagingSenderId: "409292615047",
+  appId: "1:409292615047:web:a1282da2b9182c2fdbb722",
+  measurementId: "G-MXCEGHNV6P"
 };
-
 //Initialize Firebase
 const app = initializeApp(firebaseConfig);
 

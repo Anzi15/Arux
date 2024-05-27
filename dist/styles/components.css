@@ -278,6 +278,10 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+nav .brand-title img {
+  width: 3rem;
+  aspect-ratio: 1/1;
+}
 nav ul {
   display: flex;
   gap: 1.5rem;
