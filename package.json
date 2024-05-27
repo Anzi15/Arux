@@ -1,7 +1,7 @@
 {
-  "name": "Al zehra perfumes",
+  "name": "Arux",
   "version": "1.0.0",
-  "description": "Al zehra perfumes is an e-commerce website built for one of my client, to sell tech products and gadgets",
+  "description": "Arux is an e-commerce website built for one of my client, to sell tech products and gadgets",
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",

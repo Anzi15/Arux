@@ -1,5 +1,13 @@
-[{
-    "origin": ["http://localhost:9000","https://aurx.store","https://Al zehra perfumes.netlify.app","https://anzi15.github.io/Al zehra perfumes","https://Al zehra perfumes.vercel.app"],
+[
+  {
+    "origin": [
+      "http://localhost:9000",
+      "https://aurx.store",
+      "https://Arux.netlify.app",
+      "https://anzi15.github.io/Arux",
+      "https://Arux.vercel.app"
+    ],
     "method": ["GET", "POST", "PUT", "DELETE"],
     "maxAgeSeconds": 3600
-}]
+  }
+]
