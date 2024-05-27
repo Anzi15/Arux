@@ -105,6 +105,18 @@
                 template: 'src/checkout/index.html',
                 chunks : ['checkout','components',]
             }),
+            //privacy policy
+            new HtmlWebpackPlugin({
+                filename: 'privacy-policy/index.html',
+                template: 'src/privacy-policy/index.html',
+                chunks : ['components']
+            }),
+            //shipping-policy
+            new HtmlWebpackPlugin({
+                filename: 'shipping-policy/index.html',
+                template: 'src/shipping-policy/index.html',
+                chunks : ['components']
+            }),
             
 
             // admin files 

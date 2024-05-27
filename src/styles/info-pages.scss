@@ -1,0 +1,15 @@
+@import './config.scss';
+
+main{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    *{
+        width: 90%;
+        padding: .5rem 0;
+    }
+    .para-con{
+        margin: 1rem 0;
+    }
+}
