@@ -12,6 +12,7 @@ const notificationArea = document.getElementById('notificationAreaElem');
 (async ()=>{
     const currentNotification = await getFirestoreDocument("storeManagement","headerNotificationMsg");
     notificationArea.innerText = currentNotification.value;
+    console.log(currentNotification.value)
     notificationArea.classList.remove("skeleton-loading")
 })()
 const classToggler = (elem, ...classlist)=>{
