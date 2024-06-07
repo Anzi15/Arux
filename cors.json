@@ -1,5 +1,13 @@
-[{
-    "origin": ["http://localhost:9000","https://aurx.store","https://arux.netlify.app","https://anzi15.github.io/arux","https://arux.vercel.app"],
+[
+  {
+    "origin": [
+      "http://localhost:9000",
+      "https://aurx.store",
+      "https://Arux.netlify.app",
+      "https://anzi15.github.io/Arux",
+      "https://Arux.vercel.app"
+    ],
     "method": ["GET", "POST", "PUT", "DELETE"],
     "maxAgeSeconds": 3600
-}]
+  }
+]

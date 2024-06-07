@@ -1,7 +1,7 @@
 'use strict';
 import Swal from 'sweetalert2'
 //*Essential imports
-import { getListOfFirestoreDocs, searchFiretoreDocsBySpecificField, showNotification, updateFirestoreDocument} from "./firebase-modules.js"
+import { getFirestoreDocument, getListOfFirestoreDocs, searchFiretoreDocsBySpecificField, showNotification, updateFirestoreDocument} from "./firebase-modules.js"
 import {getParamFromUrl} from "./utility-modules.js";
 import { removeCertainClassedElemsFromDom } from "./client_side-modules.js";
 
@@ -31,22 +31,25 @@ function loadCustomerInfo (){
 
 //Retreiving and laoding products
 async function loadOrderedProducts(){
-  const productIds = orderDetails.products.map(product => Object.keys(product)[0]);
-  const productQuantities = orderDetails.products.map(product => Object.values(product)[0]);
-  if(!productIds || !productIds.length) showNotification("error","Something went wrong while getting products")
-  
-  let quantityIndex = 0;
-  const fetchedProducts = await getListOfFirestoreDocs("Products",productIds);
-  console.log(productIds)
-  removeCertainClassedElemsFromDom(productCon, "skeleton-loading")
-  fetchedProducts.forEach(product =>{
-    addProductToDom(product.data, product.id, productQuantities[quantityIndex]);
-    quantityIndex++
-  })
+  const fetchPromises = orderDetails.products.map(async item => {
+    const fetchedItem = await getFirestoreDocument(item.collectionName, item.productId);
+    return { id: item.productId, fetchedItem, quantity: item.quantity, collection: item.collectionName};
+});
+
+// Wait for all fetches to complete
+const fetchedItems = await Promise.all(fetchPromises);
+
+// Load items into the DOM
+fetchedItems.forEach(item => {
+  console.log(item)
+    addProductToDom(item.fetchedItem, item.id, item.quantity, item.collection);
+});
+
+removeCertainClassedElemsFromDom(productCon, "placeholder-items");
 }
 
 //structure for a product 
-function addProductToDom (productData, productId, productQuantity){
+function addProductToDom (productData, productId, productQuantity, collectionName){
     productCon.innerHTML += `<div class="product ">
     <div class="product-data">
       <img
@@ -54,7 +57,7 @@ function addProductToDom (productData, productId, productQuantity){
         alt="${productData.title}"
         class="skeleton-loading"
       />
-      <a href="../../product?id=${productId}" role="not-link" class="product-title-link">
+      <a href="../../product?id=${productId}&collection=${collectionName}" role="not-link" class="product-title-link">
         <h1>${productData.title}</h1>
       </a>
 

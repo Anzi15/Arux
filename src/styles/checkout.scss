@@ -245,6 +245,56 @@ body {
           color: $color-dark-grey;
         }
       }
+      .coupon-con{
+        padding: 2rem 0;
+        form.coupon-inp{
+          padding: 4rem 0;
+          position: relative;
+          width: 100%;
+          display: flex;
+          gap: 1rem;
+          input[type="text"]{
+            background: none;
+            min-height: 3rem;
+            width: 72%;
+            border-radius: 6px;
+            border: solid 1px $color-dark-grey;
+            outline: none;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: $color-dark-grey;
+            padding-left: 1rem;
+          }
+          button[type="submit"]{
+            min-height: 3rem;
+            padding: 0 1rem;
+            width: auto;
+            background: $color-brand-blue;
+            color: $color-white;
+            border-radius: 6px;
+          }
+          .applied-overlay{
+            width: 100%;
+            min-height: 100%;
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: rgba(65, 52, 52, 0.35);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.2px);
+            -webkit-backdrop-filter: blur(6.2px);
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: $color-white;
+            &::after{
+              content: "Applied";
+
+            }
+          }
+        }
+      }
     }
   }
 }

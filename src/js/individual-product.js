@@ -19,6 +19,9 @@ const productNavTreeProductName = document.getElementById('product-tree-this-pro
 const addToCartBtn = document.getElementById('addToCartBtn');
 const getNowBtn = document.getElementById('buyNowBtn');
 
+const selectedCollection = getParamFromUrl("collection");
+const collectionName = selectedCollection == null ? "Products" : selectedCollection
+
 //varibales
 let docID = getParamFromUrl("id");
 let productDoc;
@@ -37,7 +40,7 @@ const domImgs = {
 //self invoking function to get and add the document to dom (when the page get's rendered)
 (async ()=>{
     if(docID ==null || docID == undefined) return;
-    productDoc = await getFirestoreDocument("Products",docID);
+    productDoc = await getFirestoreDocument(collectionName,docID);
 
     productNavTreeProductName.innerHTML = productDoc.title;
     productNavTreeProductName.classList.remove("skeleton-loading")
@@ -67,12 +70,12 @@ const domImgs = {
 })()
 
 //Function to product to cart
-const addProductToCart = (productId, quantity)=>{
+const addProductToCart = (productId, quantity, collectionName)=>{
     let currentCart = JSON.parse(localStorage.getItem("cart"));
     if(currentCart == null){
         currentCart = []
     }
-    const currentProduct = {productId, quantity}
+    const currentProduct = {productId, quantity, collectionName}
 
     let itemAlreadyInCart = false;
     let previousItem = null;
@@ -114,12 +117,12 @@ for(const elem in domImgs){
 }
 //Event listner to handle click on cart btn
 addToCartBtn.addEventListener("click",()=>{
-    addProductToCart(docID, quantityInpElem.value)
+    addProductToCart(docID, quantityInpElem.value, collectionName)
 })
 
 //Event listner to handle get now btn
 getNowBtn.addEventListener("click",(e)=>{
     e.preventDefault();
-    const url = `../checkout?src=${docID}&quantity=${quantityInpElem.value}`;
+    const url = `../checkout?src=${docID}&collection=${collectionName}&quantity=${quantityInpElem.value}`;
     window.location.href = url;
 })

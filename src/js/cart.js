@@ -1,5 +1,5 @@
 //*essential imports
-import {getListOfFirestoreDocs, getFewFirestoreDocs} from "./firebase-modules";
+import {getListOfFirestoreDocs, getFewFirestoreDocs, getFirestoreDocument} from "./firebase-modules";
 import {addProductToDom, removeCertainClassedElemsFromDom} from "./client_side-modules";
 
 //*dom elems and variables
@@ -30,28 +30,52 @@ const handleNonEmptyCart = ()=>{
     loadCartItems()
 };
 
-async function loadCartItems(){
-    const productIds = cartItems.map((item) => item.productId);
-    const fetchedCartItems = await getListOfFirestoreDocs("Products",productIds);
+async function loadCartItems() {
+    // Fetch all items concurrently
+    const fetchPromises = cartItems.map(async item => {
+        const fetchedItem = await getFirestoreDocument(item.collectionName, item.productId);
+        return { id: item.productId, fetchedItem, quantity: item.quantity };
+    });
+
+    // Wait for all fetches to complete
+    const fetchedItems = await Promise.all(fetchPromises);
+
+    // Load items into the DOM
+    fetchedItems.forEach(item => {
+        loadItemInDom(item.id, item.fetchedItem, item.quantity);
+    });
+
+    // Remove placeholder items and setup event listeners
     removeCertainClassedElemsFromDom(cartItemsCon, "placeholder-items");
 
-    fetchedCartItems.forEach(item =>{
-        loadItemInDom(item.id, item.data, cartItems[fetchedCartItems.indexOf(item)].quantity)
-    })
     deleteProductBtn = [...cartItemsCon.querySelectorAll(".remove-product-btn")];
     quantityElems = [...cartItemsCon.querySelectorAll(".item-quantity-elem")];
 
-    deleteProductBtn.forEach(btn =>{
-        btn.addEventListener("click",(e)=>{
-            removeCartItem(btn.getAttribute("data-itemID"))
-        })
+    deleteProductBtn.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            removeCartItem(btn.getAttribute("data-itemID"));
+        });
     });
-    quantityElems.forEach(elem =>{
-        elem.addEventListener("change", totalCartValueCounter)
-    })
 
-    totalCartValueCounter()
-};
+    
+    // Calculate total cart value
+    totalCartValueCounter();
+    quantityElems.forEach(elem => {
+        elem.addEventListener("input",(e)=>{
+            totalCartValueCounter();
+            const productId = e.target.dataset.productid;
+            const newQuantity = e.target.value;
+            for (let item of cartItems) {
+                if (item.productId === productId) {
+                    item.quantity = newQuantity;
+                    break;
+                }
+            }
+            localStorage.setItem("cart",JSON.stringify(cartItems))
+        });
+    });
+}
+
 
 function loadItemInDom(itemId,itemData, itemQuantity){
     cartItemsCon.innerHTML += `<div class="cart-item" id="item-id-${itemId}">
@@ -79,7 +103,7 @@ function loadItemInDom(itemId,itemData, itemQuantity){
     </div>
 
     <div class="cart-item-section quantity-section">
-        <input type="number" class="item-quantity-elem" value="${itemQuantity}" onchange="this.value <= 0 ? this.value = 1 : 'meow'; ">
+        <input type="number" class="item-quantity-elem" value="${itemQuantity}" data-productid="${itemId}" onchange="this.value <= 0 ? this.value = 1 : 'meow'; ">
     </div>
 
     <div class="cart-item-section subtotal-section large-screen-cart-item-section" >${itemData.price}</div>

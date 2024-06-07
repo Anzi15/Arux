@@ -5,9 +5,12 @@ import {
   addLoader,
   showConfirmationDialog,
   showAlert,
+  getParamFromUrl,
 } from "./utility-modules";
 import {
   createDocumentInFirestore,
+  getFirestoreDocument,
+  updateFirestoreDocument,
   uploadImageToFirebase,
 } from "./firebase-modules";
 
@@ -17,6 +20,7 @@ const formAdditionalInfo = document.querySelector("#formAdditionalInfo");
 let product_data_obj = {};
 let imagesObj = {};
 const prev_step_btn = document.querySelector("#prev_step_btn");
+const productCollectionName = getParamFromUrl("collection") == null ? "Products" : getParamFromUrl("collection");
 
 //FUNCTIONS
 const hasAnyEmptyImgs = (dropAreaArr) => {
@@ -73,9 +77,15 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
     };
 
     const storingProduct = await createDocumentInFirestore(
-      "Products",
+      productCollectionName,
       combinedData
     );
+    if(productCollectionName !== "Products"){
+      const storingProductInAllProductsCollection = await createDocumentInFirestore(
+        "Products",
+        combinedData
+      );
+    }
 
     if (storingProduct == "error") {
       showAlert(
@@ -86,6 +96,14 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
       );
       throw new Error("Error creating product");
     } else {
+      if(getParamFromUrl("CollectionType")=="new"){
+        const productCollectionDoc = await getFirestoreDocument("storeManagement","allCollectionNames");
+
+        productCollectionDoc.array.push(productCollectionName)
+        
+        const updateTask = await updateFirestoreDocument("storeManagement","allCollectionNames",productCollectionDoc);
+        console.log(updateTask)
+      }
       const confirmAlert = await showConfirmationDialog(
         "success",
         "Product added successfully",
@@ -94,7 +112,7 @@ const storeProductToDB = async (productDataObj, productImgObj) => {
         "Add another Product"
       );
       confirmAlert.isConfirmed
-        ? window.location.replace("../products")
+        ? window.location.replace(`/admin/products?collection=${collection}`)
         : window.location.reload();
     }
   } catch (error) {}
