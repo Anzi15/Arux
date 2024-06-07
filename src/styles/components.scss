@@ -22,7 +22,14 @@ nav{
     align-items: center;
     justify-content: space-between;
 
-
+    .brand-title{
+        display: flex;
+        align-items: center;
+        img,svg{
+            width: 8rem;
+            // max-height: 5rem;
+        }
+    }
 
     // the links (desktop one) 
     ul{
