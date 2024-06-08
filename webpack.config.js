@@ -19,7 +19,7 @@ module.exports = {
         admin : './src/js/admin.js',
         admin_login: './src/js/admin-login.js',
         admin_signup: './src/js/admin-signup.js',
-        admin_components: './src/js/admin-componenets.js',
+        admin_components: './src/js/admin-components.js',
         admin_products: './src/js/admin-products.js',
         admin_new_product: './src/js/admin-new-product.js',
         admin_orders: './src/js/admin-orders.js',
@@ -85,9 +85,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'products/index.html',
             template: 'src/products/index.html',
-            chunks : ['products_menu','components']
+            chunks : ['components','products_menu']
         }),
-        //individual prodcut
+        //individual product
         new HtmlWebpackPlugin({
             filename: 'product/index.html',
             template: 'src/product/index.html',

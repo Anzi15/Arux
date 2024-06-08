@@ -23,21 +23,21 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import {getAnalytics, getInitalAppProperties} from "firebase/analytics"
 
 //*Varibales 
-const firebaseConfig = {
-  apiKey: "AIzaSyAUP7Mncn62Xe0WYGC9TgqsYGBmBD3eXQU",
+const firebaseConfig =  {
+  apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
   authDomain: [
-    "al-zehra.firebaseapp.com",
+    "arux-24899.firebaseapp.com",
     "localhost",
-    "al-zehra-perfumes.netlify.app",
-    "al-zehra-perfumes.store",
-    "anzi15.github.io/al-zehra-perfumes",
-    "al-zehra-perfumes.vercel.app",
+    "arux.netlify.app",
+    "arux.store",
+    "anzi15.github.io/arux",
+    "arux.vercel.app",
   ],
-  projectId: "al-zehra",
-  storageBucket: "al-zehra.appspot.com",
-  messagingSenderId: "409292615047",
-  appId: "1:409292615047:web:a1282da2b9182c2fdbb722",
-  measurementId: "G-MXCEGHNV6P"
+  projectId: "arux-24899",
+  storageBucket: "arux-24899.appspot.com",
+  messagingSenderId: "95411992302",
+  appId: "1:95411992302:web:336d7a38ca931af33225ff",
+  measurementId: "G-LXN5WG6V2S",
 };
 const app = initializeApp(firebaseConfig);
 const firebaseStorage = getStorage(app);

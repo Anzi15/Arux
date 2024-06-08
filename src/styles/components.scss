@@ -26,7 +26,7 @@ nav{
         display: flex;
         align-items: center;
         img,svg{
-            width: 8rem;
+            width: 4rem;
             // max-height: 5rem;
         }
     }
@@ -110,7 +110,7 @@ nav.mobile-only-nav.closed{
 }
 
 //product card
-.Product-card{
+.product-card{
     display: flex;
     flex-direction: column;
     width: 22%;
