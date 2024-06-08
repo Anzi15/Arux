@@ -12,7 +12,7 @@ function addProductToDom(elem, product, productId="demo_id", collection="Product
                     <h4>${product.title}</h4>
                     <div class="prices">
                         Rs.${product.price}
-                        <p class="price-compared ${product.comparedPrice == undefined || isNaN(product.comparedPrice) ? "none" : "meow"}">Rs.${product.comparedPrice}</p>
+                        <s class="price-compared ${product.comparedPrice == undefined || isNaN(product.comparedPrice) ? "none" : "meow"}">Rs.${product.comparedPrice}</s>
                     </div>
     </a>`
     

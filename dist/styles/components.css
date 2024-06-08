@@ -495,11 +495,6 @@ nav.mobile-only-nav.closed {
   width: 100%;
   gap: 0.6rem;
 }
-.product-card .prices .price-compared {
-  color: #363738;
-  -webkit-text-decoration: line-through 1px #000000;
-  text-decoration: line-through 1px #000000;
-}
 .product-card:hover h4 {
   text-decoration: underline;
 }
@@ -704,7 +699,7 @@ footer div.column-socials h3 {
   }
 }
 @media (max-width: 800px) {
-  .Product-card {
+  .product-card {
     min-width: 10rem;
     width: 49%;
   }
