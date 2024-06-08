@@ -1,3 +1,5 @@
+ 
+
 @import './config.scss';
 
 main{
@@ -8,9 +10,14 @@ main{
     .sections-con{
         overflow: visible !important;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         section.products-section{
             gap: 2rem;
             border-radius: .5rem;
@@ -23,11 +30,19 @@ main{
             }
             div.order-indications{
                 width: 100%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: space-between !important;
+                -webkit-box-pack: justify !important;
+                    -ms-flex-pack: justify !important;
+                        justify-content: space-between !important;
                 div{
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    align-items: center;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
                     gap: .7rem;
                     color: $color-dark-grey;
                     a{
@@ -43,6 +58,8 @@ main{
                     border-radius: 10rem;
                     color: $color-white !important;
                     cursor: pointer;
+                    -webkit-transition: all .4s ease-in;
+                    -o-transition: all .4s ease-in;
                     transition: all .4s ease-in;
                     min-width: 6rem;
     
@@ -62,19 +79,35 @@ main{
             }
             div.product-con{
                 margin: 2rem 0;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
                 gap: 2rem;
                 .product{
                     min-height: 5rem;
                     width: 100%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    align-items: center;
+                    -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                    -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                            justify-content: space-between;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
                     .product-data{
+                        display: -webkit-box;
+                        display: -ms-flexbox;
                         display: flex;
-                        align-items: center;
+                        -webkit-box-align: center;
+                            -ms-flex-align: center;
+                                align-items: center;
                         gap: 1rem;
                         max-width: 50vw;
 
@@ -89,9 +122,13 @@ main{
                     }
                     .product-price{
                         padding-right: .2rem;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
                         display: flex;
                         gap: .5rem;
-                        justify-content: space-between;
+                        -webkit-box-pack: justify;
+                            -ms-flex-pack: justify;
+                                justify-content: space-between;
                     }
                 }
             }
@@ -101,22 +138,38 @@ main{
                     margin: 1rem 0;
                 }
                 width: 100%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
                 gap: 1rem;
                 .total-row{
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    justify-content: space-between;
+                    -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                            justify-content: space-between;
                 }
             }
         }
         section.section-customer-info{
+            height: -webkit-fit-content;
+            height: -moz-fit-content;
             height: fit-content;
             position: sticky;
             top: 1rem;
             margin: 5rem 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column  ;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column  ;
+                    flex-direction: column  ;
             border-radius: .5rem;
             padding:  1.5rem;
             width: 33%;
@@ -124,15 +177,25 @@ main{
 
             .customer-info{
                 margin: 2rem 0;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
                 
                 h1{
                     padding-bottom: 1rem;
                 }
                 .details-fields{
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    flex-direction: column;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                            flex-direction: column;
                     gap: .5rem;
                 }
             }
@@ -142,8 +205,13 @@ main{
 
 @media (width < 1086px) {
     .sections-con{
-        align-items: center;
-        flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         gap: 3rem;
         padding: 2rem 0;
         section.products-section,section.section-customer-info{

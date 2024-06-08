@@ -1,33 +1,63 @@
+ 
+
 @import 'config';
 
 //main section 
 main{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     gap: 6rem;
     //the carousel
     .carousel__con{
         margin: 0 auto;
         width: 90vw;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         //slider con
         .carousel__slider-con{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
             width: 100%;
             // slider 
             ul.carousel__slider{
                 width: 100%;
+                display: -webkit-box !important;
+                display: -ms-flexbox !important;
                 display: flex !important;
                 min-width: 90vw;
                 aspect-ratio: 16/9;
                 overflow: visible;
+                -webkit-transition: -webkit-transform .5s ease;
+                transition: -webkit-transform .5s ease;
+                -o-transition: transform .5s ease;
                 transition: transform .5s ease;
-                transform: translateX(0);
+                transition: transform .5s ease, -webkit-transform .5s ease;
+                -webkit-transform: translateX(0);
+                    -ms-transform: translateX(0);
+                        transform: translateX(0);
                 position: relative !important;
                 margin: .5rem 0;
                 // each slide 
@@ -42,7 +72,8 @@ main{
                     img{
                         width: 100%;
                         aspect-ratio: 16/9;
-                        object-fit: cover;
+                        -o-object-fit: cover;
+                           object-fit: cover;
                     }
                 }
 
@@ -52,8 +83,12 @@ main{
                 z-index: 9;
                 width: 100%;
                 right: 50%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
                 gap: .5rem;
                 
                 .carousel__nav-dot{
@@ -62,6 +97,8 @@ main{
                     background-color: rgba(128, 128, 128, 0.499);
                     border-radius: 100%;
                     cursor: pointer;
+                    -webkit-transition: background-color  .7s ease;
+                    -o-transition: background-color  .7s ease;
                     transition: background-color  .7s ease;
                 }
                 .carousel__nav-dot.active{
@@ -77,27 +114,43 @@ main{
 
     //top products section
     section.top-procucts{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;  
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-orient: vertical;  
+        -webkit-box-direction: normal;  
+            -ms-flex-direction: column;  
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         //products container
         .products-con{
             margin: 4rem 0 ;
             width: 90vw;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            // Styles for product and it's children are in "./components.scss",
-            // (product care == componenet)
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
         }
     }
 
     //speacial products
     section.speacial-offer{
         width: 100vw;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         .poster-con{
             width: 90%;
             border-radius: 6px;
@@ -105,16 +158,30 @@ main{
     
 
             .poster-content{
-                user-select: none;
+                -webkit-user-select: none;
+                   -moz-user-select: none;
+                    -ms-user-select: none;
+                        user-select: none;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: space-evenly;
+                -webkit-box-pack: space-evenly;
+                    -ms-flex-pack: space-evenly;
+                        justify-content: space-evenly;
                 height: 100%;
                 .txt{
                     max-width: 40%;
                     min-height: 100%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    flex-direction: column;
-                    justify-content: center;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                            flex-direction: column;
+                    -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                            justify-content: center;
                     gap: 1.2rem;
                     .category-text{
                         color: $color-gold;
@@ -126,20 +193,30 @@ main{
                         line-height: 3.5rem;
                     }
                     .cta{
+                        display: -webkit-box;
+                        display: -ms-flexbox;
                         display: flex;
-                        justify-content: center;
+                        -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                                justify-content: center;
                         color: $color-black;
                         text-decoration: none;
                         padding: 1.3rem;
                         border-radius: 6px;
                         background: $color-gold;
+                        background: -webkit-gradient(linear, left bottom, left top, from(#dda90d), to($color-gold));
+                        background: -o-linear-gradient(bottom, #dda90d 0%, $color-gold 100%);
                         background: linear-gradient(0deg, #dda90d 0%, $color-gold 100%);
+                        -webkit-transition: all .5s ease;
+                        -o-transition: all .5s ease;
                         transition: all .5s ease;
                         font-size: 1rem;
                         font-weight: 560;
                         cursor: pointer;
 
                         &:hover{
+                        background: -webkit-gradient(linear, left bottom, left top, from($color-gold), to(#dda90d));
+                        background: -o-linear-gradient(bottom, $color-gold 0%, #dda90d 100%);
                         background: linear-gradient(0deg, $color-gold 0%, #dda90d 100%);
                         scale: 1.001;
                         }
@@ -149,17 +226,28 @@ main{
                 .img-con{
                     min-height: 15rem;
                     min-width: 45%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    align-items: center;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
                     min-height: 100%;
                     max-width: 45%;
-                    justify-content: right;
+                    -webkit-box-pack: right;
+                        -ms-flex-pack: right;
+                            justify-content: right;
 
                     img{
                         height: 80% ;
-                        filter: brightness(55%);
-                        filter: saturate(40%);
-                        filter: drop-shadow(0px 30px 60px rgba(148, 147, 147, 0.25)) drop-shadow(0px 18px 36px rgba(123, 123, 123, 0.3));
+                        -webkit-filter: brightness(55%);
+                                filter: brightness(55%);
+                        -webkit-filter: saturate(40%);
+                                filter: saturate(40%);
+                        -webkit-filter: drop-shadow(0px 30px 60px rgba(148, 147, 147, 0.25)) drop-shadow(0px 18px 36px rgba(123, 123, 123, 0.3));
+                                filter: drop-shadow(0px 30px 60px rgba(148, 147, 147, 0.25)) drop-shadow(0px 18px 36px rgba(123, 123, 123, 0.3));
+                        -webkit-transition: all .3s ease-in-out;
+                        -o-transition: all .3s ease-in-out;
                         transition: all .3s ease-in-out;
                         
                         &:hover{
@@ -175,25 +263,44 @@ main{
     section.key-features{
         .features-con{
             width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: space-evenly;
+            -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: space-evenly;
 
             .feature{
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 gap: .5rem;
                 width: 20%;
                 .icon{
                     margin: 1rem 0;
                     min-width: 6rem;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
+                    -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                            justify-content: center;
                     aspect-ratio: 1/1;
                     border-radius: 50%;
                     background: $color-brand-blue;
                     border: .7rem $color-semi_blue solid;
+                    -webkit-transition: all .5s ease;
+                    -o-transition: all .5s ease;
                     transition: all .5s ease;
                     svg{
                         width: 3rem;
@@ -211,7 +318,7 @@ main{
                 h1{
                     font-size: 1.7rem;
                     letter-spacing: 0.03rem;
-                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                   
                     color: $color-grey;
                 }
                 p{
@@ -225,15 +332,27 @@ main{
     section.product-gallery{
         margin: 6rem 0;
         width: 100vw;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         gap: 2rem;
         .gallery-con{
             width: 90%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             gap: 2%;
 
             .big-product{
@@ -241,8 +360,12 @@ main{
                 height: 100%;
                 overflow: hidden;
                 position: relative;
+                -webkit-transition: all .5s ease;
+                -o-transition: all .5s ease;
                 transition: all .5s ease;
                 img{
+                    -webkit-transition: all .5s ease;
+                    -o-transition: all .5s ease;
                     transition: all .5s ease;
                     height: 100%;
                     max-width: 100%  !important;
@@ -251,7 +374,11 @@ main{
                     position: absolute;
                     top: 50%;
                     right: 50%;
-                    transform: translate(50%, -50%);
+                    -webkit-transform: translate(50%, -50%);
+                        -ms-transform: translate(50%, -50%);
+                            transform: translate(50%, -50%);
+                    -webkit-transition: all .5s ease;
+                    -o-transition: all .5s ease;
                     transition: all .5s ease;
                     display: none;
                     color: $color-semi_white;
@@ -260,7 +387,8 @@ main{
                 }
                 &:hover{
                     img{
-                        filter: brightness(50%);
+                        -webkit-filter: brightness(50%);
+                                filter: brightness(50%);
                         scale: 1.1;
                     }
                     .product-name{
@@ -270,19 +398,30 @@ main{
             }
             .small-product-con{
                 width: 30%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
                 
                 .small-product{
                     position: relative;
                     max-height: 49%;
                     aspect-ratio: 1/1; 
                     overflow: hidden;
+                    -webkit-transition: all .5s ease;
+                    -o-transition: all .5s ease;
                     transition: all .5s ease;
                     img{
                         aspect-ratio: 1/1; 
                         width: 100%;
+                        -webkit-transition: all .5s ease;
+                        -o-transition: all .5s ease;
                         transition: all .5s ease;
                         
                     }
@@ -290,7 +429,11 @@ main{
                         position: absolute;
                         top: 50%;
                         right: 50%;
-                        transform: translate(50%, -50%);
+                        -webkit-transform: translate(50%, -50%);
+                            -ms-transform: translate(50%, -50%);
+                                transform: translate(50%, -50%);
+                        -webkit-transition: all .5s ease;
+                        -o-transition: all .5s ease;
                         transition: all .5s ease;
                         display: none;
                         color: $color-semi_white;
@@ -299,7 +442,8 @@ main{
                     }
                     &:hover{
                         img{
-                            filter: brightness(50%);
+                            -webkit-filter: brightness(50%);
+                                    filter: brightness(50%);
                             scale: 1.1;
                         }
                         .product-name{
@@ -331,14 +475,23 @@ main{
             width: 100% !important;
             padding: 1.5rem 0;
             aspect-ratio: none !important;
+            height: -webkit-max-content;
+            height: -moz-max-content;
             height: max-content;
             padding: 2rem;
             
             .poster-content{
                 width: 95%;
-                flex-direction: column-reverse;
-                align-items: center;
-                justify-content: center !important;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: reverse;
+                    -ms-flex-direction: column-reverse;
+                        flex-direction: column-reverse;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                -webkit-box-pack: center !important;
+                    -ms-flex-pack: center !important;
+                        justify-content: center !important;
                 gap: 3rem;
                 .txt{
                     text-align: center;
@@ -362,8 +515,13 @@ main{
     }
     section.key-features{
         .features-con{
-            align-items: center;
-            flex-direction: column;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
             width: 90%;
 
             .feature{
@@ -375,11 +533,18 @@ main{
     section.product-gallery{
         .gallery-con{
             width: 100%;
-            flex-direction: column;
-            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
             .big-product,.small-product-con{
                 width: 100vw !important;
-                justify-content: flex-start !important;
+                -webkit-box-pack: start !important;
+                    -ms-flex-pack: start !important;
+                        justify-content: flex-start !important;
             }
             .big-product{
                 width: 100vw;
@@ -387,8 +552,12 @@ main{
                 min-height: 58%;
                 height: none !important;
                 max-width: none !important;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center !important;
+                -webkit-box-pack: center !important;
+                    -ms-flex-pack: center !important;
+                        justify-content: center !important;
                 img{
                     height: 100%;
                 }
@@ -400,17 +569,26 @@ main{
                 margin: 1rem 0;
                 max-height: 40%;
                 width: 100%;
-                flex-direction: row !important;
-                justify-content: space-between;
+                -webkit-box-orient: horizontal !important;
+                -webkit-box-direction: normal !important;
+                    -ms-flex-direction: row !important;
+                        flex-direction: row !important;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
                 .small-product{
                     overflow: hidden;
                     width: 48%;
+                    max-height: -webkit-fit-content !important;
+                    max-height: -moz-fit-content !important;
                     max-height: fit-content !important;
                     img{
                         height: 100%;
                         aspect-ratio: 1/1;
-                        object-fit: cover;
-                        object-position: center;
+                        -o-object-fit: cover;
+                           object-fit: cover;
+                        -o-object-position: center;
+                           object-position: center;
                         aspect-ratio: none;
                     }
                 }

@@ -1,3 +1,5 @@
+ 
+
 @import 'config';
 
 // notification bar (above navbar) 
@@ -6,9 +8,15 @@
     width: 100%;
     background: $color-black;
     color: $color-white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
     white-space: nowrap;
 }
@@ -18,21 +26,33 @@ nav{
     border-bottom: 1.5px solid #F5F5F5;
     padding: 1.5rem 2.5rem;
     width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 
     .brand-title{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         img,svg{
             width: 4rem;
-            // max-height: 5rem;
+
         }
     }
 
     // the links (desktop one) 
     ul{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         gap: 1.5rem;
 
@@ -42,7 +62,8 @@ nav{
                 
                 &:hover{
                     text-underline-offset: 3px;
-                    text-decoration: underline 1px $color-black;
+                    -webkit-text-decoration: underline 1px $color-black;
+                            text-decoration: underline 1px $color-black;
                 }
                 svg{
                     color: $color-black;
@@ -56,14 +77,20 @@ nav{
 
     //the icons (Cart and wishlist)
     .icon-links{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         gap: .5rem;
         
         svg{
             color: $color-black;
             cursor: pointer;
             height: 1.7rem;
+            -webkit-transition: all .5s ease-in;
+            -o-transition: all .5s ease-in;
             transition: all .5s ease-in;
             &:hover{
                 scale: 1.05;
@@ -77,23 +104,40 @@ nav{
 nav.mobile-only-nav{
     padding: 0;
     height: 50vh;
+    -webkit-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
     transition: all .6s ease-in-out;
     ul.mob-nav-links{
         overflow: hidden;
+        -webkit-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         min-height: 50vh;
-        justify-content: space-evenly;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         width: 100vw;
         border-right: solid 1px $color-black;
         z-index: 99;
         background: $color-white;
         
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         a{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             padding: 1rem 0;
             font-size: 1.3rem;
             color: $color-light-black;
@@ -111,8 +155,13 @@ nav.mobile-only-nav.closed{
 
 //product card
 .product-card{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 22%;
     position: relative;
     color: $color-black;
@@ -123,7 +172,8 @@ nav.mobile-only-nav.closed{
     img{
         aspect-ratio: 1/1;
         min-width:100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
     .discount-label{
         background: $color-brand-blue;
@@ -138,13 +188,16 @@ nav.mobile-only-nav.closed{
     
     //price and compared price 
     .prices{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         width: 100%;
         gap: .6rem;
 
         .price-compared{
             color: $color-grey;
-            text-decoration: line-through 1px $color-black;
+            -webkit-text-decoration: line-through 1px $color-black;
+                    text-decoration: line-through 1px $color-black;
         }
     }
 
@@ -157,13 +210,19 @@ nav.mobile-only-nav.closed{
 
 //quantity selector
 quantity-selector{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 9rem;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     height: 3rem;
     border: solid 1px $color-dark-grey;
     overflow: visible !important;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     input[type="number"]{
         color: $color-grey;
         width: 50%;
@@ -189,15 +248,22 @@ quantity-selector{
     
     button{
         height: 100% !important;
+        display: -ms-grid;
         display: grid;
         width: 25%;
         cursor: pointer;
         font-size: 1.5rem;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         font-weight: 400;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
+        -webkit-transition: all .1s ease-in;
+        -o-transition: all .1s ease-in;
         transition: all .1s ease-in;
         svg{
             width: 2rem;
@@ -211,19 +277,35 @@ footer{
     min-height: 20rem;
     width: 100vw;
     background: $color-black;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 2rem 0;
 
     div.column{
         height: 90% !important;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         color: $color-semi_white;
         gap: 1rem;
+        max-width: -webkit-fit-content;
+        max-width: -moz-fit-content;
         max-width: fit-content;
 
 
@@ -249,19 +331,30 @@ footer{
         width: 25%;
         max-width: 20rem;
         h3{
+            width: -webkit-fit-content !important;
+            width: -moz-fit-content !important;
             width: fit-content !important;
         }
         div.email-newsletter{
             max-width: 100% !important; 
+            display: -webkit-box; 
+            display: -ms-flexbox; 
             display: flex;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
             gap: .3rem;
             form{
                 div{
                     width: 100%;   
                     padding: .3rem .5rem;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    justify-content: space-between;
+                    -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                            justify-content: space-between;
                     border: 2px solid $color-white;
                     border-radius: .4rem;
                     input[type=email]{
@@ -286,6 +379,8 @@ footer{
     }
     div.column-socials{
         h3{
+            width: -webkit-fit-content !important;
+            width: -moz-fit-content !important;
             width: fit-content !important;
         }
     }
@@ -301,17 +396,27 @@ footer{
     }
     nav{
         .brand-title,.hamburger,.icon-links{
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
             width: fit-content;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
         .hamburger{
-            justify-content: left;
+            -webkit-box-pack: left;
+                -ms-flex-pack: left;
+                    justify-content: left;
         }
         .icon-links{
-            justify-content: right;
+            -webkit-box-pack: right;
+                -ms-flex-pack: right;
+                    justify-content: right;
         }
         .brand-title{
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
         }
     }
     .Product-card{
@@ -333,17 +438,29 @@ footer{
         div.column{
             width: 48%;
             margin-top: 2rem;
-            justify-content: center;
-            align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            min-width: -webkit-fit-content;
+            min-width: -moz-fit-content;
             min-width: fit-content;
         }
         div.email-newsletter-column{
             max-width: none;
             width: 100% !important;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            align-items: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
 
             .email-newsletter{
+                width: -webkit-fit-content !important;
+                width: -moz-fit-content !important;
                 width: fit-content !important;
             }
         }
@@ -355,4 +472,3 @@ footer{
         min-width: 7rem;
     }
 }
-

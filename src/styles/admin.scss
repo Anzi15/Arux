@@ -1,13 +1,16 @@
+ 
+
 @import 'config';
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;700;800&family=Ceviche+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-//body
+
 
 body{
     overflow: visible;
     min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     
-    //sidebar nav
     aside{
         position: sticky;
         top: 0;
@@ -16,42 +19,74 @@ body{
         position: sticky;
         top: 0;
         width: 17rem;
+        -webkit-transition: transfrom .6s ease-in-out;
+        -o-transition: transfrom .6s ease-in-out;
         transition: transfrom .6s ease-in-out;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding-top: 3rem;
         border-right: 1px solid $color-light-grey;
         .top-options,.bottom-options{
-            //both upper and lower options
+      
             width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
             gap: 1rem;
-            // individual option 
+     
             .option{
                 width: 95%;
                 min-height: 4rem;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
                 gap: 5%;
-                align-items: center;
-                justify-content: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
                 border-radius: 1rem;
                 text-decoration: none;
                 color: $color-black;
-                //hover stylings
+
                 &:hover{
                     background: $color-semi_blue;
                 }
-                // option content 
+
                 .option-content{
                     width: 70%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    align-items: center;
-                    justify-content: left;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
+                    -webkit-box-pack: left;
+                        -ms-flex-pack: left;
+                            justify-content: left;
                     gap: 5%;
 
                     svg{
@@ -59,7 +94,6 @@ body{
                     }
                 }
             }
-            //stylings for active color
             .option.active{
                 background: $color-semi_blue;
                 border-left: 0.5rem solid $color-brand_blue;
@@ -68,11 +102,17 @@ body{
     }
     main{
         width: calc(100% - 17rem);
-        // navbar 
+
         nav{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             width: 100%;
             padding: 1.5rem;
             background: $color-white;
@@ -85,15 +125,15 @@ body{
                 }
             }
         }
-        //title
+
         .brand-title{
             text-align: center;
         }
-        //nav toggler
+
         .sidebar_toggler{
             display: none;
         }
-        //section
+
         .hero__section{
             padding: 3rem;
             .hero__section-main-heading{
@@ -121,21 +161,33 @@ body{
                 font-weight: 400;
             }
             .options-list{
+                display: -ms-grid;
                 display: grid;
                 gap: 1.5rem;
                 .option{
                     border-radius: .7rem;
                     background: $color-semi_blue;
                     padding: 1rem 2rem;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    flex-wrap: wrap;
-                    align-items: center;
-                    justify-content: space-between;
+                    -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
+                    -webkit-box-pack: justify;
+                        -ms-flex-pack: justify;
+                            justify-content: space-between;
                     text-decoration: none;
+                    -webkit-transition: all .4s ease-in-out;
+                    -o-transition: all .4s ease-in-out;
                     transition: all .4s ease-in-out;
                     .option-title{
                         padding-left: 2rem;
                         font-style: italic;
+                        -webkit-transition: all .4s ease-in-out;
+                        -o-transition: all .4s ease-in-out;
                         transition: all .4s ease-in-out;
                         line-height: 4rem;
                         font-size: 3rem;
@@ -146,6 +198,8 @@ body{
                         max-height: 100%;
                         overflow: hidden;
                         img{
+                            -webkit-transition: all .4s ease-in-out;
+                            -o-transition: all .4s ease-in-out;
                             transition: all .4s ease-in-out;
                             width: 100%;
                             max-width: 20rem;
@@ -163,12 +217,16 @@ body{
     }
 }
 
-// making everything responsive 
+
 @media (max-width: $breakpoint-L-tab) {
     nav{
         width: 100vw;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
     body{
         position: relative;
@@ -181,7 +239,9 @@ body{
         z-index: 10;
     }
     .sidebar_visible{
-        transform: translateX(0) !important;
+        -webkit-transform: translateX(0) !important;
+            -ms-transform: translateX(0) !important;
+                transform: translateX(0) !important;
     }
     aside{
         height: 100vh !important;
@@ -189,7 +249,9 @@ body{
         top: 0;
         left: 0;
         bottom: 0;
-        transform: translateX(-20rem);
+        -webkit-transform: translateX(-20rem);
+            -ms-transform: translateX(-20rem);
+                transform: translateX(-20rem);
         z-index: 9;
         border-right: 1px solid rgba(128, 128, 128, 0.326);
 
@@ -214,9 +276,14 @@ body{
         padding: 1rem  !important;
         .option-list{
             .option{
+                min-height: -webkit-fit-content;
+                min-height: -moz-fit-content;
                 min-height: fit-content;
                 max-height: 100vw !important;
-                flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
                 .option-figure{
                     width: 100% !important;
                     img{

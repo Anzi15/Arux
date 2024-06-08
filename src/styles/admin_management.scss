@@ -1,3 +1,5 @@
+ 
+
 @import './config.scss';
 
 main{
@@ -20,6 +22,8 @@ main{
         form.edit-notification-input-con{
             min-height: 4rem;
             background: $color-semi_blue;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
             gap: 1rem;
             border-radius: 7px;
@@ -32,6 +36,8 @@ main{
                 width: 90%;
                 border: none;
                 outline: none;
+                -webkit-transition: color 0.3s ease;
+                -o-transition: color 0.3s ease;
                 transition: color 0.3s ease;
                 &:focus{
                     color: $color-black;
@@ -40,8 +46,12 @@ main{
             input[type="submit"], button{
                 font-size: 1.1rem;
                 font-weight: 400;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                align-items: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 padding: 1rem;
                 background: $color-brand-blue;
                 color: $color-white;
@@ -53,13 +63,18 @@ main{
         .coupon-codes-con{
             margin: 2rem 0;
             padding: 2.5rem;
+            display: -ms-grid;
             display: grid;
             gap: 1.5rem;
             border-radius: 8px;
             background: $color-semi_blue;
             .heading-row{
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: space-between;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
                 width: 100%;
                 margin-bottom: 1rem;
             }
@@ -68,9 +83,14 @@ main{
                 border: 1.5px solid $color-dark-grey;
                 border-radius: 8px;
                 background: $color-white;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: space-between;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
                 .details-column{
+                    display: -ms-grid;
                     display: grid;
                     gap: .5em;
                 }

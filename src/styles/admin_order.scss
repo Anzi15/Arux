@@ -1,3 +1,5 @@
+ 
+
 @import './config.scss';
 
 main{
@@ -11,19 +13,29 @@ main{
         }
         .search-box-con{
             width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             padding: 3rem 0;
             .search-box{
                 border-radius: 50px;
                 background: #ffffff;
-                box-shadow:  10px 10px 20px #dbdbdb,
+                -webkit-box-shadow:  10px 10px 20px #dbdbdb,
+                             -10px -10px 20px #ffffff;
+                        box-shadow:  10px 10px 20px #dbdbdb,
                              -10px -10px 20px #ffffff;
                 border-radius: 6px;
                 padding: 0 1rem;
                 margin: 1rem 0;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: left;
+                -webkit-box-pack: left;
+                    -ms-flex-pack: left;
+                        justify-content: left;
                 width: 70%;
                 gap: 1rem;
                 
@@ -64,10 +76,17 @@ main{
                 width: 100%;
                 border-bottom: 1px solid $color-light-grey;
                 min-height: 6rem;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: center;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                -webkit-box-pack: justify;
+                    -ms-flex-pack: justify;
+                        justify-content: space-between;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 padding: .8rem;
                 cursor: pointer;
                 font-weight: 500;
@@ -77,13 +96,21 @@ main{
                 }
                 
                 .order-column{
+                    min-width: -webkit-fit-content;
+                    min-width: -moz-fit-content;
                     min-width: fit-content;
                     width: 16%;
                     text-align: center;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    justify-content: center;
+                    -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                            justify-content: center;
                 }
                 .orderIndicator{
+                    width: -webkit-fit-content;
+                    width: -moz-fit-content;
                     width: fit-content;
                     padding: 0.7rem 1.5rem;
                     border-radius: 10rem;
@@ -100,7 +127,9 @@ main{
                 }
             }
             .noOrdersFound{
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
             }
         }
     }
