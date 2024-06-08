@@ -128,13 +128,13 @@ module.exports = {
         }),
         //admin login
         new HtmlWebpackPlugin({
-        filename: 'admin/Login/index.html',
+        filename: 'admin/login/index.html',
         template: 'src/admin/Login/index.html',
         chunks: ['admin_login']
         }),
         //admin signup
         new HtmlWebpackPlugin({
-        filename: 'admin/Signup/index.html',
+        filename: 'admin/signup/index.html',
         template: 'src/admin/Signup/index.html',
         chunks: ['admin_signup']
         }),
