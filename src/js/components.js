@@ -23,8 +23,8 @@ const notificationArea = document.getElementById("notificationAreaElem");
 async function loadNotificationMsg(){
     const cachedCurrentNotification = JSON.parse(sessionStorage.getItem("currentNotification"));
     console.log(cachedCurrentNotification)
-    let currentNotification;
-    console.log(cachedCurrentNotification == null)
+    let currentNotification = cachedCurrentNotification;
+    console.log(currentNotification == null)
   if (cachedCurrentNotification == null) {
     currentNotification = await getFirestoreDocument(
       "storeManagement",
@@ -38,10 +38,12 @@ async function loadNotificationMsg(){
 }
 
 function addChatWidgetToScreen(){
+  window.addEventListener("load",()=>{
     const scriptTag = document.createElement("script");
     scriptTag.src = `//code.tidio.co/p3qqxdbdzoabeqjypszdubgqfmkljtb8.js`
     scriptTag.async = true
     document.body.appendChild(scriptTag)
+  })
 }
 
 

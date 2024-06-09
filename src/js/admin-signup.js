@@ -10,16 +10,9 @@ const msg = signup_form.querySelector('.message');
 const googleSignupBtn = document.getElementById("google_signup_btn");
 
 //my firebas configuration
-const firebaseConfig =  {
+const firebaseConfig = {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
-  authDomain: [
-    "arux-24899.firebaseapp.com",
-    "localhost",
-    "arux.netlify.app",
-    "arux.store",
-    "anzi15.github.io/arux",
-    "arux.vercel.app",
-  ],
+  authDomain: "arux-24899.firebaseapp.com",
   projectId: "arux-24899",
   storageBucket: "arux-24899.appspot.com",
   messagingSenderId: "95411992302",
@@ -51,7 +44,7 @@ signup_form.addEventListener("submit",(e)=>{
         const user = userCredential.user;
         //indicating messages
         msg.classList.toggle("success")
-        msg.innerHTML=`Signined successfully`
+        msg.innerHTML=`Signed successfully`
         //saving the credential for future use cases
         localStorage.setItem("userCredential",user);
         //reseting form
@@ -85,11 +78,11 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     window.location.href = "../";
     // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+    } else {
+      // User is signed out
+      // ...
+      }
+      });
 
 //google sign up 
 googleSignupBtn.addEventListener("click", async ()=>{

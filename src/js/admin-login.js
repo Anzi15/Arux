@@ -12,14 +12,7 @@ const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
 //my firebas configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
-  authDomain: [
-    "arux-24899.firebaseapp.com",
-    "localhost",
-    "arux.netlify.app",
-    "arux.store",
-    "anzi15.github.io/arux",
-    "arux.vercel.app",
-  ],
+  authDomain: "arux-24899.firebaseapp.com",
   projectId: "arux-24899",
   storageBucket: "arux-24899.appspot.com",
   messagingSenderId: "95411992302",

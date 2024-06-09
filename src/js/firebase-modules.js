@@ -22,7 +22,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 import {getAnalytics, getInitalAppProperties} from "firebase/analytics"
 
-//*Varibales 
+//*Variables 
 const firebaseConfig =  {
   apiKey: "AIzaSyDtDQsUvkfEiuD-o48LosmunhQ5YzPP94Y",
   authDomain: [
